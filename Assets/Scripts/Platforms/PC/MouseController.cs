@@ -15,12 +15,12 @@ public class MouseController : MonoBehaviour
     private PhotonView photonView;
 
     // Mouse position
-	private float pitch = 0f;
-    private float yaw = 0f;
+	private float pitch;
+    private float yaw;
 
 
 	// Start is called before the first frame update
-	void Start()
+	private void Start()
     {
         // Get Photon View component
         photonView = GetComponentInParent<PhotonView>();
@@ -30,34 +30,17 @@ public class MouseController : MonoBehaviour
         Cursor.visible = false;
     }
 
-	void Update()
+	private void Update()
 	{
 		// Is this Photon View is not mine, exit
-		if (!photonView.IsMine)
-		{
-			return;
-		}
-
+		if (!photonView.IsMine) return;
+		
 		// Get new mouse position
-		float mouseX_frame = Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime; 
-		float mouseY_frame = Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime; 
-
-        mouseX += Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime;
-        mouseY += Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
-
-
-        // Limit mouseY to -90 and 90 (looking up and down)
-        if(mouseY > 90f)
-		{
-			mouseY = 90f;
-		}
-		else if (mouseY < -90f)
-		{
-			mouseY = -90f;
-		}
-
-        yaw += mouseX_frame;
-
-		playerBody.localRotation = Quaternion.Euler(pitch, yaw, 0f);
+        pitch += Input.GetAxis("Mouse Y") * sensitivity * Time.deltaTime;
+        pitch = Mathf.Clamp(pitch, -90f, 90f); // mouseY / X-axis rotation
+		
+        yaw += Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime; // mouseX / Y-axis rotation
+		
+		playerBody.localRotation = Quaternion.Euler(-pitch, yaw, 0f);
 	}
 }
