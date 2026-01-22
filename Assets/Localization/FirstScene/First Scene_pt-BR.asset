@@ -28,7 +28,7 @@ MonoBehaviour:
   - m_Id: 748848349184
     m_Localized: "Para o meu corpo se mexer de novo, voc\xEA vai programar ele com
       um algoritmo secreto!\r\n\nComo meu computador \xE9 muito grande voc\xEA vai
-      precisar subir.\r\n\nUse o bot\xE3o vermelho \xE0 sua esquerda para subir e
+      precisar subir.\r\n\nUse o bot\xE3o laranja \xE0 sua esquerda para subir e
       descer.\r"
     m_Metadata:
       m_Items: []
@@ -44,12 +44,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2980234854400
-    m_Localized: 'PARA VOLTAR
+    m_Localized: 'Clique aqui
 
-      PARA O TUTORIAL
+      para rever
 
-
-      CLIQUE AQUI'
+      o tutorial'
     m_Metadata:
       m_Items: []
   references:

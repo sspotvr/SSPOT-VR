@@ -547,7 +547,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3732828285056069907}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.03999996}
+  m_LocalPosition: {x: 0.00000023841858, y: 0, z: -0.03999996}
   m_LocalScale: {x: 1, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -623,7 +623,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 25
+    m_FontSize: 20
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
@@ -1642,7 +1642,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 18
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &7611308878113122619
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2805,14 +2805,6 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 211222090199010166, guid: 77af4647f102ccc4cb7e759f95c3e4ac, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.65000004
-      objectReference: {fileID: 0}
-    - target: {fileID: 211222090199010166, guid: 77af4647f102ccc4cb7e759f95c3e4ac, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.65000004
-      objectReference: {fileID: 0}
-    - target: {fileID: 211222090199010166, guid: 77af4647f102ccc4cb7e759f95c3e4ac, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.675
       objectReference: {fileID: 0}
@@ -2850,18 +2842,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 211222090199010166, guid: 77af4647f102ccc4cb7e759f95c3e4ac, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 211222090199010168, guid: 77af4647f102ccc4cb7e759f95c3e4ac, type: 3}
-      propertyPath: Cube.type
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 211222090199010168, guid: 77af4647f102ccc4cb7e759f95c3e4ac, type: 3}
-      propertyPath: PlayerCube.type
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 211222090199010171, guid: 77af4647f102ccc4cb7e759f95c3e4ac, type: 3}
-      propertyPath: sceneViewId
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2969,6 +2949,14 @@ PrefabInstance:
     - target: {fileID: 5966115215313958605, guid: 438f29adec9767046af1956fb13c86c6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5966115215506050549, guid: 438f29adec9767046af1956fb13c86c6, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 952f78b24eb7f764596e205a671ab5c4, type: 3}
+    - target: {fileID: 5966115215506050549, guid: 438f29adec9767046af1956fb13c86c6, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 438f29adec9767046af1956fb13c86c6, type: 3}

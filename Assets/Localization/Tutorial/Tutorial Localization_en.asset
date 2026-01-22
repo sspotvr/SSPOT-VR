@@ -19,11 +19,11 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 15117778944
-    m_Localized: 'TO BEGIN
+    m_Localized: 'Click here
 
+      to begin the
 
-
-      CLICK HERE'
+      practice'
     m_Metadata:
       m_Items: []
   - m_Id: 939412357120
@@ -33,8 +33,7 @@ MonoBehaviour:
       at each of the objects to learn what they do
 
 
-
-      I am Mark 2000, the Artificial
+      I''m Mark 2000, the Artificial
       Intelligence of Mark, the robot next to you.
 
 
@@ -47,99 +46,80 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2157576650752
-    m_Localized: 'PROGRAMMING CUBES
+    m_Localized: 'Programming cubes
 
 
-      USE the CUBES to PROGRAM!
-
-      Put
-      the CUBES in the COMPUTER.'
+      Put the cubes on the computer to program!'
     m_Metadata:
       m_Items: []
   - m_Id: 2784725762048
-    m_Localized: Reset Button RELOAD the Level.
+    m_Localized: The Reset button reloads the level
     m_Metadata:
       m_Items: []
   - m_Id: 3514593378304
-    m_Localized: 'PROGRAMMING PLATFORM BUTTON
-
-
-      Select the PLATFORM BUTTON
-      to go up and down.'
+    m_Localized: Use the orange button to move the programming platform up or down
     m_Metadata:
       m_Items: []
   - m_Id: 3844492165120
     m_Localized: 'Hello! I''m Mark!
 
 
-
       The space station tutor!'
     m_Metadata:
       m_Items: []
   - m_Id: 4327080394752
-    m_Localized: 'TELETRANSPORT ARROW
-
-
-      Select the ARROW to MOVE !'
+    m_Localized: Use the green button to move in the level
     m_Metadata:
       m_Items: []
   - m_Id: 20636665053184
-    m_Localized: 'TO CHANGE THE
+    m_Localized: 'Click here
 
-      LANGUAGE
+      to change
 
-
-      CLICK HERE'
+      languages'
     m_Metadata:
       m_Items: []
   - m_Id: 19278344073183232
-    m_Localized: 'MARK''S COMPUTER
+    m_Localized: 'Mark''s cumputer
 
 
-      The CUBES go on the
-
-      PROGRAMMING
-      BOARDS
+      The cubes go along the programming board
 
 
-
-      Like the BEGIN CUBE!'
+      Like
+      the Start cube!'
     m_Metadata:
       m_Items: []
   - m_Id: 277376314453307392
-    m_Localized: 'TO EXIT THE
+    m_Localized: 'Click here
 
-      GAME
+      to exit
 
-
-
-      CLICK HERE'
+      the game'
     m_Metadata:
       m_Items: []
   - m_Id: 383225046053167104
-    m_Localized: CLEAR Button clean the blocks.
+    m_Localized: The Clear button removes the blocks
     m_Metadata:
       m_Items: []
   - m_Id: 383225048699772928
-    m_Localized: PLAY Button EXECUTES the algorithm.
+    m_Localized: The Play button runs the algorithm
+    m_Metadata:
+      m_Items: []
   - m_Id: 335226677362880512
-    m_Localized: 'TO DISABLE
+    m_Localized: 'Click here
 
-      THE NARRATOR
+      to disable
 
-
-
-      CLICK HERE'
+      the narrator'
     m_Metadata:
       m_Items: []
   - m_Id: 345558750640402432
-    m_Localized: 'TO ENABLE
+    m_Localized: 'Click here
 
-      THE NARRATOR
+      to enable
 
-
-
-      CLICK HERE'
+      the narrator'
     m_Metadata:
       m_Items: []
   references:

@@ -23,18 +23,17 @@ MonoBehaviour:
     m_Localized: 'Mark froze again! I can''t even walk!
 
 
-      We''re going to
-      have to reset him.
+      We''re going to have
+      to reset him.
 
 
-      Go to the platform on your right to help me regain
-      control!'
+      Go to the platform on your right to help me regain control!'
     m_Metadata:
       m_Items: []
   - m_Id: 748848349184
     m_Localized: "To move my body again, you're going to program it with a secret
       algorithm!\r\n\nSince my computer is very big, you\u2019ll need to go up.\r\n\nUse
-      the red button on your left to go up and down."
+      the orange button on your left to go up and down."
     m_Metadata:
       m_Items: []
   - m_Id: 1403386265600
@@ -55,12 +54,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2980234854400
-    m_Localized: 'TO GO BACK
+    m_Localized: 'Click here
 
-      TO THE TUTORIAL
+      to go back
 
-
-      CLICK HERE'
+      to the tutorial'
     m_Metadata:
       m_Items: []
   references:
