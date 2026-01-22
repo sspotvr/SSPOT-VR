@@ -58,7 +58,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 26084482680815616
-    m_Localized: "PARA VOLTAR PARA O\nN\xCDVEL ANTERIOR\n\n\n\nCLIQUE AQUI"
+    m_Localized: "Clique aqui\npara voltar\nde n\xEDvel"
     m_Metadata:
       m_Items: []
   - m_Id: 256968324407287808
@@ -84,7 +84,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 345555123456634880
-    m_Localized: "PARA VOLTAR \nPARA O MENU\n\n\n\nCLIQUE AQUI"
+    m_Localized: 'Clique aqui
+
+      para voltar
+
+      ao menu'
     m_Metadata:
       m_Items: []
   references:

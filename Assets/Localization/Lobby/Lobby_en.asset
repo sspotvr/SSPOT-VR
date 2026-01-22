@@ -27,7 +27,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 835020324864
-    m_Localized: Advance
+    m_Localized: Next
     m_Metadata:
       m_Items: []
   - m_Id: 893870604288
@@ -51,8 +51,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7476910424064
-    m_Localized: Something went wrong when creating the room. Please try again with
-      another name or later.
+    m_Localized: Something went wrong when creating the room. Please try again later
+      or use a different name.
     m_Metadata:
       m_Items: []
   - m_Id: 7480643354624
@@ -64,8 +64,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7483952660480
-    m_Localized: It was not possible to join room, something went wrong. Please try
-      again with another name or later.
+    m_Localized: There was an error when joining the room. Try again later or use
+      another name.
     m_Metadata:
       m_Items: []
   references:

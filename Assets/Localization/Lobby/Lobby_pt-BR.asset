@@ -51,8 +51,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7476910424064
-    m_Localized: Algo deu errado ao criar a sala. Tente novamente com outro nome
-      ou mais tarde.
+    m_Localized: Algo deu errado ao criar a sala. Tente novamente mais tarde ou use
+      outro nome.
     m_Metadata:
       m_Items: []
   - m_Id: 7480643354624
@@ -60,12 +60,12 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 7482232995840
-    m_Localized: "Essa sala n\xE3o existe! Tente outro nome ou crie ela!"
+    m_Localized: "Essa sala n\xE3o existe! Tente outro nome ou crie uma!"
     m_Metadata:
       m_Items: []
   - m_Id: 7483952660480
-    m_Localized: "N\xE3o foi poss\xEDvel entrar na sala. Tente novamente com outro
-      nome ou mais tarde."
+    m_Localized: "N\xE3o foi poss\xEDvel entrar na sala. Tente novamente mais tarde
+      ou use outro nome."
     m_Metadata:
       m_Items: []
   references:

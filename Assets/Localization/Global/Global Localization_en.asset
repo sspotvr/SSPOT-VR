@@ -62,14 +62,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 26084482680815616
-    m_Localized: 'TO GO TO THE
+    m_Localized: 'Click here
 
-      PREVIOUS LEVEL
+      to go back
 
-
-
-
-      CLICK HERE'
+      a level'
     m_Metadata:
       m_Items: []
   - m_Id: 256968324407287808
@@ -95,13 +92,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 345555123456634880
-    m_Localized: 'TO GO BACK TO MENU
+    m_Localized: 'Click here
 
+      to go back
 
-
-
-
-      CLICK HERE'
+      to the menu'
     m_Metadata:
       m_Items: []
   references:
