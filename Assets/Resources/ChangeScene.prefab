@@ -28,7 +28,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3021839316376413370}
   m_LocalRotation: {x: -0.014803395, y: -0, z: -0, w: 0.99989045}
-  m_LocalPosition: {x: 0, y: 0, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -37,7 +37,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: -1.6960001, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -2.3}
+  m_AnchoredPosition: {x: 0, y: -5}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3021839316376413509
@@ -69,8 +69,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 76659fed55780804a88465f27360c2c4, type: 3}
-    m_FontSize: 4
+    m_Font: {fileID: 12800000, guid: 952f78b24eb7f764596e205a671ab5c4, type: 3}
+    m_FontSize: 3
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -81,7 +81,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "PARA IR PARA O\nPR\xD3XIMO N\xCDVEL\n\n\n\nCLIQUE AQUI"
+  m_Text: "Clique aqui\npara passar\nde n\xEDvel"
 --- !u!114 &7901390214683255513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,18 +163,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3021839316377315508}
-  m_LocalRotation: {x: 0.13492225, y: -0.69411534, z: 0.13492225, w: 0.69411534}
-  m_LocalPosition: {x: 0, y: 0, z: 0.03501894}
+  m_LocalRotation: {x: -0.15304585, y: -0.6903456, z: -0.15304585, w: 0.6903456}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.038999997, y: 0.03900001, z: 0.038999993}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3021839316376413371}
   m_Father: {fileID: 3021839316855342615}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 22, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: -25, y: -90, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1.2449995, y: 0.092999995}
+  m_AnchoredPosition: {x: 0.5, y: 0}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &3021839316377315504
@@ -355,7 +355,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e1a9a1e0f6a4044889c3d98d2c50ad7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: 0
+  targetSinglePlayer: 0
+  targetMultiplayer: 0
 --- !u!33 &3021839316782635746
 MeshFilter:
   m_ObjectHideFlags: 0

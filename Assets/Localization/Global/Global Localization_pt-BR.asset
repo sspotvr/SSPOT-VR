@@ -32,12 +32,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 214590488576
-    m_Localized: 'PARA VOLTAR
+    m_Localized: 'Clique aqui
 
-      PARA O TUTORIAL
+      para rever
 
-
-      CLIQUE AQUI'
+      o tutorial'
     m_Metadata:
       m_Items: []
   - m_Id: 139407589376
@@ -45,7 +44,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 3309349306368
-    m_Localized: "PARA IR PARA O\nPR\xD3XIMO N\xCDVEL\n\n\n\nCLIQUE AQUI"
+    m_Localized: "Clique aqui\npara pasar\nde n\xEDvel"
     m_Metadata:
       m_Items: []
   - m_Id: 11396240048128

@@ -7,6 +7,42 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2283290606148557364}
     m_Modifications:
+    - target: {fileID: 1960017204655535892, guid: 64afc5d17d5e1ac4297622c61d65947d, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 952f78b24eb7f764596e205a671ab5c4, type: 3}
+    - target: {fileID: 1960017204655535892, guid: 64afc5d17d5e1ac4297622c61d65947d, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1960017204655535892, guid: 64afc5d17d5e1ac4297622c61d65947d, type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400222151648100144, guid: 64afc5d17d5e1ac4297622c61d65947d, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 952f78b24eb7f764596e205a671ab5c4, type: 3}
+    - target: {fileID: 3400222151648100144, guid: 64afc5d17d5e1ac4297622c61d65947d, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 3400222151648100144, guid: 64afc5d17d5e1ac4297622c61d65947d, type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3539097977987629396, guid: 64afc5d17d5e1ac4297622c61d65947d, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 952f78b24eb7f764596e205a671ab5c4, type: 3}
+    - target: {fileID: 3539097977987629396, guid: 64afc5d17d5e1ac4297622c61d65947d, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 34
+      objectReference: {fileID: 0}
+    - target: {fileID: 3539097977987629396, guid: 64afc5d17d5e1ac4297622c61d65947d, type: 3}
+      propertyPath: m_FontData.m_FontStyle
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4149532337649363485, guid: 64afc5d17d5e1ac4297622c61d65947d, type: 3}
       propertyPath: m_Name
       value: LoopInterface

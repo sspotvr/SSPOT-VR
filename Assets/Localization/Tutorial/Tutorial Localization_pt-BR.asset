@@ -19,29 +19,28 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 15117778944
-    m_Localized: "PARA COME\xC7AR\nO TREINAMENTO\n\nCLIQUE AQUI"
+    m_Localized: "Clique aqui\npara come\xE7ar\no treinamento"
     m_Metadata:
       m_Items: []
   - m_Id: 939412357120
-    m_Localized: "Bem vindo \xE0 Esta\xE7\xE3o Espacial de Treinamento em Programa\xE7\xE3o\r\nOlhe
+    m_Localized: "Bem vindo \xE0 Esta\xE7\xE3o Espacial de Treinamento em Programa\xE7\xE3o\r!\nOlhe
       para cada um dos objetos para aprender o que eles fazem\r\n\r\r\nEu sou o Mark
-      2000, a Intelig\xEAncia Artificial do Mark, o rob\xF4 a\xED do lado.\r\n\r\nEstou
+      2000, a Intelig\xEAncia Artificial do Mark, o rob\xF4 a\xED do lado\n\r\nEstou
       tendo dificuldades em controlar o meu corpo, voc\xEA poderia me ajudar? Quando
-      estiver pronto clique no bot\xE3o no centro da sala\r\n"
+      estiver pronto clique no bot\xE3o no centro da sala\r"
     m_Metadata:
       m_Items: []
   - m_Id: 2157576650752
-    m_Localized: "CUBOS de PROGRAMA\xC7\xC3O\n\nUSE os CUBOS para PROGRAMAR!\nColoque
-      os CUBOS no COMPUTADOR."
+    m_Localized: "Cubos de programa\xE7\xE3o\n\nColoque os cubos no computador para
+      programar!"
     m_Metadata:
       m_Items: []
   - m_Id: 2784725762048
-    m_Localized: "O Bot\xE3o RESET reinicia a fase."
+    m_Localized: "O bot\xE3o Reset reinicia a fase"
     m_Metadata:
       m_Items: []
   - m_Id: 3514593378304
-    m_Localized: "BOT\xC3O PLATAFORMA PROGRAMA\xC7\xC3O\n\nSelecione o BOT\xC3O da
-      PLATAFORMA para subir e descer."
+    m_Localized: "Use o bot\xE3o laranja para subir ou descer a plataforma de programa\xE7\xE3o"
     m_Metadata:
       m_Items: []
   - m_Id: 3844492165120
@@ -49,49 +48,52 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4327080394752
-    m_Localized: 'SETA de TELETRANSPORTE
-
-
-      Selecione a SETA para se MOVIMENTAR
-      !'
+    m_Localized: "Use o bot\xE3o verde para se movimentar pela fase"
     m_Metadata:
       m_Items: []
   - m_Id: 20636665053184
-    m_Localized: 'PARA TROCAR O
+    m_Localized: 'Clique aqui
 
-      IDIOMA
+      para trocar
 
-
-      CLIQUE AQUI'
+      de idioma'
     m_Metadata:
       m_Items: []
   - m_Id: 19278344073183232
-    m_Localized: "COMPUTADOR do MARK\n\nOs CUBOS v\xE3o nas\nPLACAS de PROGRAMA\xC7\xC3O.\n\nComo
-      o CUBO IN\xCDCIO!"
+    m_Localized: "Computador do Mark\n\nOs cubos v\xE3o nas\nplacas de programa\xE7\xE3o\n\nComo
+      o cubo In\xEDcio!"
     m_Metadata:
       m_Items: []
   - m_Id: 277376314453307392
-    m_Localized: 'PARA SAIR
+    m_Localized: 'Clique aqui
 
-      DO JOGO
+      para sair
 
-
-
-      CLIQUE AQUI'
+      do jogo'
     m_Metadata:
       m_Items: []
   - m_Id: 383225046053167104
-    m_Localized: "O Bot\xE3o LIMPAR limpa os blocos."
+    m_Localized: "O bot\xE3o Limpar remove os blocos"
     m_Metadata:
       m_Items: []
   - m_Id: 383225048699772928
-    m_Localized: "O Bot\xE3o PLAY EXECUTA o algoritmo."
+    m_Localized: "O bot\xE3o Play executa o algor\xEDtmo"
+    m_Metadata:
+      m_Items: []
   - m_Id: 335226677362880512
-    m_Localized: "PARA DESABILITAR\n O NARRADOR\n\n\nCLIQUE AQUI"
+    m_Localized: 'Clique aqui
+
+      para desabilitar
+
+      o narrador'
     m_Metadata:
       m_Items: []
   - m_Id: 345558750640402432
-    m_Localized: "PARA HABILITAR\n O NARRADOR\n\n\nCLIQUE AQUI"
+    m_Localized: 'Clique aqui
+
+      para habilitar
+
+      o narrador'
     m_Metadata:
       m_Items: []
   references:

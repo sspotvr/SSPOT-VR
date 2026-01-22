@@ -20,7 +20,7 @@ MonoBehaviour:
     - rid: 6199766798708244505
   m_TableData:
   - m_Id: 7668695040
-    m_Localized: Begin
+    m_Localized: Start
     m_Metadata:
       m_Items: []
   - m_Id: 50576424960
@@ -32,12 +32,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 214590488576
-    m_Localized: 'TO GO BACK
+    m_Localized: 'Click here
 
-      TO THE TUTORIAL
+      to go back
 
-
-      CLICK HERE'
+      to the tutorial'
     m_Metadata:
       m_Items: []
   - m_Id: 139407589376
@@ -45,13 +44,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 3309349306368
-    m_Localized: 'TO GO TO NEXT LEVEL
+    m_Localized: 'Click here
 
+      to go to the
 
-
-
-
-      CLICK HERE'
+      next level'
     m_Metadata:
       m_Items: []
   - m_Id: 11396240048128
