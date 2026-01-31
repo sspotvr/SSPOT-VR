@@ -568,6 +568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14d261d3229399141b60e5d7c287f79f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isUp: 0
   playerHand: {fileID: 1751640418}
   playerCamera: {fileID: 7192900133106063890}
   uiCamera: {fileID: 7192900133199524577}
