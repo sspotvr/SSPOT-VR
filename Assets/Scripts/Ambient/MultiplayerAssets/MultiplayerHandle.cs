@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace SSPot
 {
-    public class PlayerInstruction : MonoBehaviour
+    public class MultiplayerHandle : MonoBehaviour
     {
         public bool isForPlayer1;
 

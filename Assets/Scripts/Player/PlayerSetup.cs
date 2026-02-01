@@ -23,6 +23,7 @@ public class PlayerSetup : MonoBehaviourPun
     public GameObject Hand => playerHand;
 
     public bool IsLocal => photonView.IsMine;
+    public bool isUp = false;
 
     // Player hand
     [SerializeField] private GameObject playerHand;

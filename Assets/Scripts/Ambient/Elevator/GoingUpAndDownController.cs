@@ -64,6 +64,7 @@ public class GoingUpAndDownController : MonoBehaviourPun
 
 		// Enable GoingUp
 		PlayerSetup.Local.GetComponent<GoingUp>().enabled = true;
+        PlayerSetup.Local.isUp = true;
         playerCodingPlatform.GetComponent<GoingUp>().enabled = true;
         GetComponent<GoingUp>().enabled = true;
 
@@ -93,11 +94,9 @@ public class GoingUpAndDownController : MonoBehaviourPun
     {
         // Enable GoingDown
         PlayerSetup.Local.GetComponent<GoingDown>().enabled = true;
+        PlayerSetup.Local.isUp = false;
         playerCodingPlatform.GetComponent<GoingDown>().enabled = true;
         GetComponent<GoingDown>().enabled = true;
-
-        // Player cannot attach any cube when going down
-        PlayerSetup.Local.GetComponent<InstantiateAttachAndDestroyBlocks>().enabled = false;
 
         // Setup GameObjects
         instructionsCodingPlatform.SetActive(true);

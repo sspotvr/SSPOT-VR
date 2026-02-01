@@ -390,7 +390,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7192900133275044984}
   - component: {fileID: 782906969}
-  - component: {fileID: 782906965}
   - component: {fileID: 782906967}
   - component: {fileID: 782906968}
   - component: {fileID: 782906971}
@@ -517,35 +516,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &782906965
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7192900133275044985}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7a6e87974bc1024f92838bad8cac165, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  forwardDispenser: {fileID: 0}
-  backDispenser: {fileID: 0}
-  leftDispenser: {fileID: 0}
-  rightDispenser: {fileID: 0}
-  beginDispenser: {fileID: 0}
-  endDispenser: {fileID: 0}
-  playerHands: {fileID: 0}
-  codingCell1: {fileID: 0}
-  codingCell2: {fileID: 0}
-  codingCell3: {fileID: 0}
-  codingCell4: {fileID: 0}
-  codingCell5: {fileID: 0}
-  codingCell6: {fileID: 0}
-  codingCell7: {fileID: 0}
-  codingCell8: {fileID: 0}
-  selectingCube: {fileID: 8300000, guid: aa3697133dec5435ea95a3c15aa7b7dd, type: 3}
-  releasingCube: {fileID: 8300000, guid: e21d51e259f7c4f26aa1a7d9225cfd91, type: 3}
 --- !u!114 &782906967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -598,6 +568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14d261d3229399141b60e5d7c287f79f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isUp: 0
   playerHand: {fileID: 1751640418}
   playerCamera: {fileID: 7192900133106063890}
   uiCamera: {fileID: 7192900133199524577}
