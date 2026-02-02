@@ -27,6 +27,11 @@ namespace SSPot.Menu
         public void PlayOffline()
         {
             PhotonNetwork.OfflineMode = true;
+
+            if (PhotonNetwork.IsConnectedAndReady)
+            {
+                OnConnectedToMaster();
+            }
         }
     
         public override void OnJoinedRoom()
@@ -54,14 +59,13 @@ namespace SSPot.Menu
             if(PhotonNetwork.OfflineMode)
             {
                 Debug.Log("Starting game offline");
-                PhotonNetwork.CreateRoom("singleplayer");
+                PhotonNetwork.CreateRoom(null);
             }
             else
             {
                 Debug.Log("Starting game online");
                 PhotonNetwork.JoinLobby();
             }
-
         }
         #endregion
 
