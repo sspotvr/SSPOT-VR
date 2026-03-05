@@ -98,7 +98,7 @@ namespace SSPot
 			GameObject logItem = Instantiate(logTextPrefab, contentParent);
 			TextMeshProUGUI textMeshProUGUI = logItem.GetComponentInChildren<TextMeshProUGUI>();
 
-			textMeshProUGUI.enableWordWrapping = true;
+			textMeshProUGUI.textWrappingMode = TextWrappingModes.Normal;
 			textMeshProUGUI.text = message;
 
 			switch (terminalLogType)

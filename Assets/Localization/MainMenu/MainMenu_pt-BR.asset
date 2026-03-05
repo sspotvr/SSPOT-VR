@@ -50,6 +50,14 @@ MonoBehaviour:
     m_Localized: "Configura\xE7\xF5es"
     m_Metadata:
       m_Items: []
+  - m_Id: 427210984902438912
+    m_Localized: Idioma
+    m_Metadata:
+      m_Items: []
+  - m_Id: 427211050132254720
+    m_Localized: "Portugu\xEAs"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

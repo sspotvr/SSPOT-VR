@@ -1,12 +1,15 @@
 using Photon.Pun;
 using SSPot.Scenes;
 using UnityEngine;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 
 namespace SSPot.Menu
 {
     public class MainMenuManager : MonoBehaviourPunCallbacks
     {
         [SerializeField] private GameObject settingsButton;
+        public string language = "pt-BR";
 
         private void Awake()
         {
@@ -21,6 +24,8 @@ namespace SSPot.Menu
             // If platform is mobile, disable settings button
             bool isMobile = Application.isMobilePlatform;
             if (isMobile) settingsButton.SetActive(false);
+
+            language = LocalizationSettings.SelectedLocale.Identifier.Code;
         }
 
         #region Offline
@@ -74,6 +79,27 @@ namespace SSPot.Menu
         {
             Application.Quit();
         }
+        #endregion
+
+        #region Settings
+        public void Location() {
+            Debug.Log("Changing language...");
+
+            if(language == "pt-BR")
+                language = "en";
+            else
+                language = "pt-BR";
+
+            LocaleIdentifier localCode = new LocaleIdentifier(language);
+
+            for(int i = 0; i < LocalizationSettings.AvailableLocales.Locales.Count; i++) {
+                Locale aLocale = LocalizationSettings.AvailableLocales.Locales[i];
+                LocaleIdentifier anIdentifier = aLocale.Identifier;
+
+                if(anIdentifier == localCode)
+                    LocalizationSettings.SelectedLocale = aLocale;
+            }
+	    }
         #endregion
     }
 }
