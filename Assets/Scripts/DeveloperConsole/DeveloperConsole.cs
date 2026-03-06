@@ -15,6 +15,12 @@ namespace SSPot.Scripts.DeveloperConsole
         {
             this.prefix = prefix;
 			this.commands = commands;
+
+            var helpCmd = commands.OfType<HelpCommand>().FirstOrDefault();
+            if (helpCmd != null)
+            {
+                helpCmd.Initialize(commands);
+            }
 		}
 
         public void ProcessCommand(string inputValue)
