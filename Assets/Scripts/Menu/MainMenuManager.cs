@@ -2,13 +2,20 @@ using Photon.Pun;
 using SSPot.Scenes;
 using UnityEngine;
 using UnityEngine.Localization;
+using UnityEngine.Localization.Components;
 using UnityEngine.Localization.Settings;
+using UnityEngine.UI;
 
 namespace SSPot.Menu
 {
     public class MainMenuManager : MonoBehaviourPunCallbacks
     {
         [SerializeField] private GameObject settingsButton;
+        [SerializeField] private LocalizeStringEvent fullscreenButton;
+        string keyYes = "YesFullSetting";
+        string keyNo = "NoFullSetting";
+
+
         public string language = "pt-BR";
 
         private void Awake()
@@ -26,6 +33,11 @@ namespace SSPot.Menu
             if (isMobile) settingsButton.SetActive(false);
 
             language = LocalizationSettings.SelectedLocale.Identifier.Code;
+        }
+
+        private void Start()
+        {
+            ChangeFullscreenButtonText(Screen.fullScreen);
         }
 
         #region Offline
@@ -100,6 +112,18 @@ namespace SSPot.Menu
                     LocalizationSettings.SelectedLocale = aLocale;
             }
 	    }
+
+        public void ToggleFullscreen()
+        {
+            bool newState = !Screen.fullScreen;
+            Screen.fullScreen = newState;
+            ChangeFullscreenButtonText(newState);
+        }
+
+        void ChangeFullscreenButtonText(bool newState)
+        {
+            fullscreenButton.StringReference.SetReference(fullscreenButton.StringReference.TableReference, newState ? keyYes : keyNo);
+        }
         #endregion
     }
 }
