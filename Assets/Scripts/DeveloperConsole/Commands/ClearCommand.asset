@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: ClearCommand
   m_EditorClassIdentifier: 
   commandWord: clear
+  description: 'Used to clean the terminal. Use: /clear'
