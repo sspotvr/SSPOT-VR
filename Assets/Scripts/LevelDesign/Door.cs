@@ -7,18 +7,19 @@ namespace SSPot
     public class Door : MonoBehaviour
     {
         private bool isClosed = true;
+        private bool canOperate = true;
         
         private Transform doorLeft;
-        private Vector3 doorLeftClosed = new (-3f, 0, 10.71f);
-        private Vector3 doorLeftOpened = new (-6f, 0, 10.71f);
+        private Vector3 doorLeftClosed = new (0, 0, 1f);
+        private Vector3 doorLeftOpened = new (-3f, 0, 1f);
         
         private Transform doorRight;
-        private Vector3 doorRightClosed = new (3f, 0, 9.71f);
-        private Vector3 doorRightOpened = new (6f, 0, 9.71f);
+        private Vector3 doorRightClosed = new (6f, 0, 0);
+        private Vector3 doorRightOpened = new (9f, 0, 0);
         private void Start()
         {
-            doorLeft = transform.GetChild(2);
-            doorRight = transform.GetChild(3);
+            doorRight = transform.GetChild(0);
+            doorLeft = transform.GetChild(1);
         }
 
         private void Update()
@@ -46,6 +47,10 @@ namespace SSPot
         
         private IEnumerator MoveDoors()
         {
+            if (!canOperate) yield break;
+            
+            canOperate = false;
+            
             if (isClosed)
             {
                 for (float time = 1f; time > 0f; time -= Time.deltaTime)
@@ -72,6 +77,7 @@ namespace SSPot
             }
             
             isClosed = !isClosed;
+            canOperate = true;
         }
     }
 }
