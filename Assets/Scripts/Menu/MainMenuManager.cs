@@ -11,6 +11,7 @@ namespace SSPot.Menu
     public class MainMenuManager : MonoBehaviourPunCallbacks
     {
         [SerializeField] private GameObject fullscreenButton;
+        [SerializeField] private LocalizeStringEvent fullscreenButtonText;
         string keyYes = "YesFullSetting";
         string keyNo = "NoFullSetting";
 
@@ -123,8 +124,7 @@ namespace SSPot.Menu
 
         void ChangeFullscreenButtonText(bool newState)
         {
-            fullscreenButton.GetComponent<LocalizeStringEvent>().StringReference.SetReference(
-                fullscreenButton.GetComponent<LocalizeStringEvent>().StringReference.TableReference, newState ? keyYes : keyNo);
+            fullscreenButtonText.StringReference.SetReference(fullscreenButtonText.StringReference.TableReference, newState ? keyYes : keyNo);
         }
         #endregion
     }

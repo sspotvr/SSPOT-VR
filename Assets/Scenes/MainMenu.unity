@@ -230,8 +230,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34be7c36fb6288d45aae203550253117, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  settingsButton: {fileID: 1426210730}
-  fullscreenButton: {fileID: 1107100056}
+  fullscreenButton: {fileID: 546960320}
+  fullscreenButtonText: {fileID: 1107100056}
   language: pt-BR
 --- !u!4 &72932481
 Transform:
