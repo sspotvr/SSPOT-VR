@@ -1,4 +1,5 @@
-﻿using Photon.Pun;
+﻿using System.Threading.Tasks;
+using Photon.Pun;
 using SSPot;
 using UnityEngine;
 
@@ -8,6 +9,12 @@ public class TeleportToObject : MonoBehaviourPun
     public MeshRenderer teleportLocationMesh;               // Teleport location mesh
 
     public bool isForPlayer1 = false;
+
+    // I will change this to be more elegant later
+    public bool isElevator = false;
+    public bool opensDoor = false;
+    [SerializeField] Door door;
+
     private bool firstTime = true;
 
 	[SerializeField] AudioObject[] clips;
@@ -22,23 +29,27 @@ public class TeleportToObject : MonoBehaviourPun
     /// <summary>
     /// When player clicks on this object, it teleports the player to current GameObject position.
     /// </summary>
-    public void OnPointerClick()
+    public async Task OnPointerClick()
     {
-        if(firstTime)
-        {
-			Voice.instance.Speak(clips);
-		}
-
-        firstTime = false;
-
-        // Disable teleport mesh
+        Debug.Log("Clique detectado, iniciando teleporte...");
         photonView.RPC(nameof(DisableTeleportMesh), RpcTarget.AllBuffered);
-
-        // Teleport player
         PlayerSetup.Local.transform.position = transform.position;
 
-        // Add player on elevator
-        ElevatorSync.instance.AddPlayerOnElevator();
+        if(isElevator) ElevatorSync.instance.AddPlayerOnElevator();
+
+        if(firstTime)
+        {
+            Debug.Log("Iniciando narração, aguardando...");
+            await Voice.instance.Speak(clips);
+            Debug.Log("Narração terminou!");
+        }
+
+        firstTime = false;
+        if(opensDoor) 
+        {
+            Debug.Log("Abrindo a porta!");
+            door.Operate();
+        }
     }
     
     

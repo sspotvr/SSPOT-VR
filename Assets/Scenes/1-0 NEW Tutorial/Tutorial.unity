@@ -772,7 +772,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 687478652813471051, guid: 2a6b0649182a55747a6dc58c3c456297, type: 3}
       propertyPath: m_Name
-      value: RoomBigDoor (1)
+      value: FirstRoomBigDoorExit
       objectReference: {fileID: 0}
     - target: {fileID: 1991453887763325490, guid: 2a6b0649182a55747a6dc58c3c456297, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1298,7 +1298,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2218048609016023841, guid: 8e251a646c565b74fa109321c2f85311, type: 3}
       propertyPath: m_Name
-      value: Door
+      value: SecondRoomDoorEnter
       objectReference: {fileID: 0}
     - target: {fileID: 6703504321769450860, guid: 8e251a646c565b74fa109321c2f85311, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1350,6 +1350,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6703504321769450860, guid: 8e251a646c565b74fa109321c2f85311, type: 3}
   m_PrefabInstance: {fileID: 128198572}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &128198574 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 294071939910318591, guid: 8e251a646c565b74fa109321c2f85311, type: 3}
+  m_PrefabInstance: {fileID: 128198572}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01d5dcdacd676e54682382e5558b4c10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SSPot.Door
 --- !u!1 &144031002
 GameObject:
   m_ObjectHideFlags: 0
@@ -2414,7 +2425,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2218048609016023841, guid: 8e251a646c565b74fa109321c2f85311, type: 3}
       propertyPath: m_Name
-      value: Door (1)
+      value: SecondRoomDoorExit
       objectReference: {fileID: 0}
     - target: {fileID: 6703504321769450860, guid: 8e251a646c565b74fa109321c2f85311, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4076,7 +4087,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 687478652813471051, guid: 2a6b0649182a55747a6dc58c3c456297, type: 3}
       propertyPath: m_Name
-      value: RoomBigDoor
+      value: FirstRoomBigDoorEnter
       objectReference: {fileID: 0}
     - target: {fileID: 1991453887763325490, guid: 2a6b0649182a55747a6dc58c3c456297, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4128,6 +4139,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1991453887763325490, guid: 2a6b0649182a55747a6dc58c3c456297, type: 3}
   m_PrefabInstance: {fileID: 565388188}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &565388190 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 988419535836976989, guid: 2a6b0649182a55747a6dc58c3c456297, type: 3}
+  m_PrefabInstance: {fileID: 565388188}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01d5dcdacd676e54682382e5558b4c10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SSPot.Door
 --- !u!1 &578143541
 GameObject:
   m_ObjectHideFlags: 0
@@ -8299,6 +8321,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 643399737}
     m_Modifications:
+    - target: {fileID: 65451100887553928, guid: d81ca2906d769c447807973448aae63f, type: 3}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 128198574}
+    - target: {fileID: 65451100887553928, guid: d81ca2906d769c447807973448aae63f, type: 3}
+      propertyPath: opensDoor
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1073299659834424813, guid: d81ca2906d769c447807973448aae63f, type: 3}
       propertyPath: sceneViewId
       value: 79
@@ -8957,7 +8987,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3245849425887329376, guid: 5beb3988e636dcc49b461ff0440e6c68, type: 3}
       propertyPath: m_Name
-      value: RoomBigDootTall (1)
+      value: ThirdRoomBigDoorEnter
       objectReference: {fileID: 0}
     - target: {fileID: 4549453833390207769, guid: 5beb3988e636dcc49b461ff0440e6c68, type: 3}
       propertyPath: m_LocalPosition.x
@@ -10567,6 +10597,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teleportLocationMesh: {fileID: 1481458008}
   isForPlayer1: 1
+  isElevator: 0
+  opensDoor: 0
+  door: {fileID: 0}
   clips:
   - {fileID: 11400000, guid: ae0f804517352a344827e5ee55aa5976, type: 2}
   - {fileID: 11400000, guid: 47e9b710c35e2c8459471404b252674a, type: 2}
@@ -12041,6 +12074,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teleportLocationMesh: {fileID: 1749808569}
   isForPlayer1: 0
+  isElevator: 0
+  opensDoor: 0
+  door: {fileID: 0}
   clips:
   - {fileID: 11400000, guid: ae0f804517352a344827e5ee55aa5976, type: 2}
   - {fileID: 11400000, guid: 47e9b710c35e2c8459471404b252674a, type: 2}
@@ -13476,6 +13512,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teleportLocationMesh: {fileID: 1865109003}
   isForPlayer1: 0
+  isElevator: 0
+  opensDoor: 0
+  door: {fileID: 0}
   clips: []
 --- !u!1 &1868057706
 GameObject:
@@ -14463,6 +14502,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 643399737}
     m_Modifications:
+    - target: {fileID: 65451100887553928, guid: d81ca2906d769c447807973448aae63f, type: 3}
+      propertyPath: door
+      value: 
+      objectReference: {fileID: 565388190}
+    - target: {fileID: 65451100887553928, guid: d81ca2906d769c447807973448aae63f, type: 3}
+      propertyPath: opensDoor
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1073299659834424813, guid: d81ca2906d769c447807973448aae63f, type: 3}
       propertyPath: sceneViewId
       value: 87
@@ -14924,7 +14971,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2218048609016023841, guid: 8e251a646c565b74fa109321c2f85311, type: 3}
       propertyPath: m_Name
-      value: Door
+      value: NothingDoor
       objectReference: {fileID: 0}
     - target: {fileID: 6703504321769450860, guid: 8e251a646c565b74fa109321c2f85311, type: 3}
       propertyPath: m_LocalPosition.x
@@ -15257,7 +15304,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3245849425887329376, guid: 5beb3988e636dcc49b461ff0440e6c68, type: 3}
       propertyPath: m_Name
-      value: RoomBigDootTall
+      value: ThirdRoomBigDoorExit
       objectReference: {fileID: 0}
     - target: {fileID: 4549453833390207769, guid: 5beb3988e636dcc49b461ff0440e6c68, type: 3}
       propertyPath: m_LocalPosition.x

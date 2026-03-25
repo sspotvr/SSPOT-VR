@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using SSPot;
 using UnityEngine.Localization.Settings;
+using System.Threading.Tasks;
 
 public class Voice : MonoBehaviour
 {
@@ -15,20 +16,27 @@ public class Voice : MonoBehaviour
 
 	public static Voice instance { get; private set; }
 
-	private Queue<AudioObject[]> narrationQueue = new Queue<AudioObject[]>();
+	private Queue<(AudioObject[] clips, TaskCompletionSource<bool> tcs)> narrationQueue = 
+    new Queue<(AudioObject[] clips, TaskCompletionSource<bool> tcs)>();
 	private bool isPlaying = false;
 
-	public delegate void NarrationRequestHandler(AudioObject[] clips, bool interrupt);
+	public delegate void NarrationRequestHandler(AudioObject[] clips, bool interrupt, TaskCompletionSource<bool> tcs);
 	public static event NarrationRequestHandler OnNarrationRequested;
 
 	private bool enableNarrator = true;
-
 	private AudioObject[] lastRequest;
+	private (AudioObject[] clips, TaskCompletionSource<bool> tcs) currentActiveJob;
+
 
 	public void EnableNarrator()
 	{
-		OnNarrationRequested?.Invoke(lastRequest, true);
+		Speak(lastRequest);
 		enableNarrator = true;
+	}
+
+	public bool IsSpeakig()
+	{
+		return narrationQueue.Count == 0;
 	}
 
 	public void DisableNarrator()
@@ -127,11 +135,18 @@ public class Voice : MonoBehaviour
 		isPlaying = false;
 	}
 
-	private void HandleNarrationRequest(AudioObject[] clips, bool interrupt)
+	private void HandleNarrationRequest(AudioObject[] clips, bool interrupt, TaskCompletionSource<bool> tcs)
 	{
 		if (interrupt)
 		{
-			narrationQueue.Clear();
+			currentActiveJob.tcs?.TrySetResult(false);
+
+			while (narrationQueue.Count > 0)
+			{
+				var pending = narrationQueue.Dequeue();
+				pending.tcs.TrySetResult(false); // Avisa que foi cancelado
+			}
+
 			if (isPlaying)
 			{
 				source.Stop();
@@ -141,7 +156,7 @@ public class Voice : MonoBehaviour
 			}
 		}
 
-		narrationQueue.Enqueue(clips);
+		narrationQueue.Enqueue((clips, tcs));
 
 		if (!isPlaying)
 		{
@@ -155,34 +170,39 @@ public class Voice : MonoBehaviour
 		while (narrationQueue.Count > 0)
 		{
 			subtitleBox.SetActive(true);
-			AudioObject[] currentClips = narrationQueue.Dequeue();
-			foreach (AudioObject clip in currentClips)
-			{			
-				if (LocalizationSettings.SelectedLocale.Identifier.Code == "pt-BR")
-				{
-					source.clip = clip.clipPTBR;
-					source.PlayOneShot(clip.clipPTBR);
-					subtitles.DisplaySubtitle(clip.subtitlePTBR);
-					yield return new WaitForSeconds(clip.clipPTBR.length);
-				}
-				else
-				{
-					source.clip = clip.clipENUS;
-					source.PlayOneShot(clip.clipENUS);
-					subtitles.DisplaySubtitle(clip.subtitleENUS);
-					yield return new WaitForSeconds(clip.clipENUS.length);
-				}
+			currentActiveJob = narrationQueue.Dequeue();
 
+			foreach (AudioObject clip in currentActiveJob.clips)
+			{			
+				AudioClip clipToPlay = (LocalizationSettings.SelectedLocale.Identifier.Code == "pt-BR") 
+					? clip.clipPTBR : clip.clipENUS;
+				string subToDisplay = (LocalizationSettings.SelectedLocale.Identifier.Code == "pt-BR") 
+					? clip.subtitlePTBR : clip.subtitleENUS;
+
+				source.clip = clipToPlay;
+				source.PlayOneShot(clipToPlay);
+				subtitles.DisplaySubtitle(subToDisplay);
+				
+				yield return new WaitForSeconds(clipToPlay.length);
 				subtitles.ClearSubtitle();
 			}
-			subtitleBox.SetActive(false);
+
+			currentActiveJob.tcs.TrySetResult(true); 
+        	currentActiveJob = (null, null);
 		}
 		isPlaying = false;
+		subtitleBox.SetActive(false);
 	}
 
-	public void Speak(AudioObject[] clips)
+	public async Task Speak(AudioObject[] clips)
 	{
 		lastRequest = clips;
-		if (enableNarrator) OnNarrationRequested?.Invoke(clips, true);
+		if (!enableNarrator) return;
+
+		var tcs = new TaskCompletionSource<bool>();
+		
+		OnNarrationRequested?.Invoke(clips, true, tcs);
+
+		await tcs.Task;
 	}
 }
