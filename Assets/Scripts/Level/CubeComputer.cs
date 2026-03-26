@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using NaughtyAttributes;
 using Photon.Pun;
 using SSpot.Ambient.ComputerCode;
+using SSpot.Evaluators;
 using SSpot.UI;
 using SSPot.Utilities;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 namespace SSpot.Level
@@ -32,7 +34,13 @@ namespace SSpot.Level
         [SerializeField] private AudioClip successSound;
         [BoxGroup("Sounds")]
         [SerializeField] private AudioClip errorSound;
-        
+
+		private CodeEvaluator[] _myEvaluators;
+
+        [BoxGroup("Custom Events")]
+	    [SerializeField] private UnityEvent onLocalSuccess;
+
+
         [SerializeField] private ComputerRenderer[] renderers = Array.Empty<ComputerRenderer>();
         
         private CodingCell[] _cells = Array.Empty<CodingCell>();
@@ -47,7 +55,9 @@ namespace SSpot.Level
         private void Awake()
         {
             _cells = transform.GetComponentsInChildren<CodingCell>();
-            for (int i = 0; i < _cells.Length; i++)
+			_myEvaluators = GetComponentsInChildren<CodeEvaluator>();
+
+			for (int i = 0; i < _cells.Length; i++)
             {
                 _cells[i].Init(i, this);
             }
@@ -60,7 +70,8 @@ namespace SSpot.Level
             clearButton.OnPointerClickEvent.AddListener(OnClearPressed);
             
             LevelManager.Instance.OnSuccess.AddListener(OnSuccess);
-            LevelManager.Instance.OnError.AddListener(OnError);
+            LevelManager.Instance.OnLevelCompleted.AddListener(OnFinish);
+			LevelManager.Instance.OnError.AddListener(OnError);
             LevelManager.Instance.OnReset.AddListener(OnReset);
         }
         
@@ -73,7 +84,8 @@ namespace SSpot.Level
             if (LevelManager.Instance)
             {
                 LevelManager.Instance.OnSuccess.RemoveListener(OnSuccess);
-                LevelManager.Instance.OnError.RemoveListener(OnError);
+                LevelManager.Instance.OnLevelCompleted.RemoveListener(OnFinish);
+				LevelManager.Instance.OnError.RemoveListener(OnError);
                 LevelManager.Instance.OnReset.RemoveListener(OnReset);
             }
         }
@@ -110,17 +122,47 @@ namespace SSpot.Level
         
         private void OnSuccess()
         {
-            renderers.ForEach(r => r.SetMaterial(true));
-        }
+            Debug.Log("Entrei no callback de sucesso");
 
-        private void OnError()
+			renderers.ForEach(r => r.SetMaterial(true));
+		}
+
+        private void OnFinish()
+		{
+			if (LevelManager.Instance.LastActiveComputer != this) return;
+
+			Debug.Log("Entrei no callback de finalização");
+
+			onLocalSuccess.Invoke();
+		}
+
+		private void OnError()
         {
             renderers.ForEach(r => r.SetMaterial(false));
             audioSource.PlayOneShot(errorSound);
         }
         
-        private void OnReset() => renderers.ForEach(r => r.ResetMaterial()); 
-        
-        #endregion
-    }
+        private void OnReset() => renderers.ForEach(r => r.ResetMaterial());
+
+		public void Evaluate(IReadOnlyList<CodingCell> cells)
+		{
+            Debug.Log("Computador avaliando o código...");
+            Debug.Log(_myEvaluators.Length + " avaliadores encontrados");
+
+			foreach (var evaluator in _myEvaluators)
+			{
+				evaluator.EvaluatePreCompilation(cells);
+			}
+		}
+
+		public void EvaluateCompiled(IReadOnlyList<Cube> compiledCubes)
+		{
+			foreach (var evaluator in _myEvaluators)
+			{
+				evaluator.EvaluatePostCompilation(compiledCubes);
+			}
+		}
+
+		#endregion
+	}
 }
