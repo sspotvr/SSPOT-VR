@@ -39,6 +39,8 @@ namespace SSPot.Scripts.DeveloperConsole
 
 			instance = this;
 			DontDestroyOnLoad(gameObject);
+
+			if(Application.isMobilePlatform) Destroy(this);
 		}
 
 		public void Update()
@@ -46,6 +48,7 @@ namespace SSPot.Scripts.DeveloperConsole
 			if (Input.GetKeyDown(KeyCode.BackQuote))
 			{
 				Toggle();
+				Input.ResetInputAxes();
 			}
 
 			if (uiCanvas.activeSelf && Input.GetKeyDown(KeyCode.Return))

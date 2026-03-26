@@ -15,6 +15,8 @@ public class CloningCube : MonoBehaviourPun, IPunInstantiateMagicCallback
         // Destroy cube on hand, if there is any
         PlayerSetup.Local.DestroyCubeOnHand();
 
+        if(!PlayerSetup.Local.isUp) return;
+
         // Attach the selected cube to the player's hand
         AttachCubeToHand();
     }

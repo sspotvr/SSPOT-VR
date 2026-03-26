@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: ChangeSceneCommand
   m_EditorClassIdentifier: 
   commandWord: cs
+  description: 'Used to change between scenes. Use: /cs {scene number}'

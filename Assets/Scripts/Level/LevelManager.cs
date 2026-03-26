@@ -61,7 +61,7 @@ namespace SSpot.Level
             get
             {
                 if (!_robot)
-                    _robot = FindObjectOfType<RobotData>();
+                    _robot = FindFirstObjectByType<RobotData>();
                 
                 if (!_robot)
                     Debug.LogError($"{nameof(RobotData)} not found in scene", gameObject);
