@@ -99,7 +99,7 @@ namespace SSpot.Level
         
         private void OnClearPressed()
         {
-            OnResetButtonPressed();
+            //OnResetButtonPressed();
             ClearCells();
         }
         

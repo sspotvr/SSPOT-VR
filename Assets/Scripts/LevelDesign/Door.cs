@@ -18,16 +18,16 @@ namespace SSPot
         private Vector3 doorRightOpened = new (9f, 0, 0);
         private void Start()
         {
-            doorRight = transform.GetChild(0);
-            doorLeft = transform.GetChild(1);
+            doorLeft = transform.GetChild(0);
+            doorRight = transform.GetChild(1);
         }
 
         private void Update()
         {
-            if (Input.GetKeyDown("space"))
-            {
-                Operate();
-            }
+            //if (Input.GetKeyDown("space"))
+            //{
+            //    Operate();
+            //}
         }
 
         public void Operate()

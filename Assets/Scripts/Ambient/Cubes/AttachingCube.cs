@@ -82,7 +82,7 @@ public class AttachingCube : MonoBehaviourPun
 
         // Set selected cube transform
         selectedCube.transform.localPosition = Vector3.zero;
-        selectedCube.transform.rotation = Quaternion.identity;
+        selectedCube.transform.rotation = cubeHolder.transform.rotation;
         selectedCube.transform.localScale = Vector3.one;
 
         // Play select cube sound
