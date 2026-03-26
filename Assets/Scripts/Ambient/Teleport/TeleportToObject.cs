@@ -31,7 +31,6 @@ public class TeleportToObject : MonoBehaviourPun
     /// </summary>
     public async Task OnPointerClick()
     {
-        Debug.Log("Clique detectado, iniciando teleporte...");
         photonView.RPC(nameof(DisableTeleportMesh), RpcTarget.AllBuffered);
         PlayerSetup.Local.transform.position = transform.position;
 
@@ -39,15 +38,12 @@ public class TeleportToObject : MonoBehaviourPun
 
         if(firstTime)
         {
-            Debug.Log("Iniciando narração, aguardando...");
             await Voice.instance.Speak(clips);
-            Debug.Log("Narração terminou!");
         }
 
         firstTime = false;
         if(opensDoor) 
         {
-            Debug.Log("Abrindo a porta!");
             door.Operate();
         }
     }
@@ -58,5 +54,6 @@ public class TeleportToObject : MonoBehaviourPun
     {
         // Disable elevator teleport button mesh
         teleportLocationMesh.enabled = false;
+        gameObject.SetActive(false);
     }
 }
