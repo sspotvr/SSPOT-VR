@@ -61,12 +61,34 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 383225048699772928
     m_Key: RunButton
+    m_Metadata:
+      m_Items: []
   - m_Id: 335226677362880512
     m_Key: DisableNarrator
     m_Metadata:
       m_Items: []
   - m_Id: 345558750640402432
     m_Key: EnableNarrator
+    m_Metadata:
+      m_Items: []
+  - m_Id: 463426941462179840
+    m_Key: FirstRoom Instructions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 463426998148198400
+    m_Key: SecondRoom Instructions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 463427057388548096
+    m_Key: ThirdRoom Instructions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 463427092511649792
+    m_Key: FourthRoom Instructions
+    m_Metadata:
+      m_Items: []
+  - m_Id: 463427124744876032
+    m_Key: FifthRoom Instructions
     m_Metadata:
       m_Items: []
   m_Metadata:

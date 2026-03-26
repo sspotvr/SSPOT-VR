@@ -10,6 +10,7 @@ using SSPot.Utilities;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using SSPot;
 
 namespace SSpot.Level
 {
@@ -57,7 +58,7 @@ namespace SSpot.Level
 
         #endregion
 
-        private RobotData _robot;
+        public RobotData _robot;
 
         public RobotData Robot
         {
@@ -211,8 +212,13 @@ namespace SSpot.Level
             if (CurrentStage == Stage.End) return;
             
             KillCurrentCoroutine();
-            
-            if(!disableRobotMovement) Robot.ResetRobot();
+
+            if (!disableRobotMovement)
+            {
+                if (Robot == null) Debug.Log($"No {nameof(RobotData)} found in scene, can't reset robot");
+
+				Robot.ResetRobot();
+            }
             
             OnReset.Invoke();
         }

@@ -122,6 +122,42 @@ MonoBehaviour:
       the narrator'
     m_Metadata:
       m_Items: []
+  - m_Id: 463426941462179840
+    m_Localized: Hello, student! I am Mark 2000, the artificial intelligence of the
+      universe's programming stations. This is the first station on Earth, and my
+      robotic body hasn't quite figured out how to move here yet. I need your help
+      to calibrate it! Shall we? To move around the station, aim at the green arrows
+      and click. You will be transported to them
+    m_Metadata:
+      m_Items: []
+  - m_Id: 463426998148198400
+    m_Localized: At this station, you will always move using the green arrows. They
+      show you where you can go. Keep moving like this to help me learn how humans
+      explore space.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 463427057388548096
+    m_Localized: This is Mark, my robotic avatar at this station. He is fully operational,
+      but he doesn't yet understand the local movement patterns. In order for me
+      to operate this body and guide him properly through the training corridors,
+      I need you to show me how he should move.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 463427092511649792
+    m_Localized: Each part of the computer is a board with a slot where you can fit
+      a cube. Another important thing is that your program must always begin with
+      the 'Start' cube and finish with the 'End' cube. Give it a try and build a
+      simple program!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 463427124744876032
+    m_Localized: "Now, let\u2019s calibrate Mark for real! Create a program with
+      a Start cube, three movement cubes, and an End cube. To get him away from the
+      door, move forward twice and turn left. When you\u2019re ready, press the blue
+      Play button to execute it. If you\u2019d like to start over, just hit the red
+      Reset button."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

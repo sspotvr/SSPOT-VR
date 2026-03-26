@@ -1327,17 +1327,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 8329425647613975106, guid: 5367be8663fc8284fbf5384b7bfe15c5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3101136791298639261}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5367be8663fc8284fbf5384b7bfe15c5, type: 3}
---- !u!4 &547718737 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8329425647613975106, guid: 5367be8663fc8284fbf5384b7bfe15c5, type: 3}
-  m_PrefabInstance: {fileID: 547718736}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &566334977 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 7684ef4acf4f4964182a38e4bcef0b06, type: 3}
@@ -2633,6 +2625,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teleportLocationMesh: {fileID: 1014606298}
   isForPlayer1: 0
+  isElevator: 0
+  opensDoor: 0
+  door: {fileID: 0}
   clips: []
 --- !u!82 &1014606303
 AudioSource:
@@ -3627,6 +3622,9 @@ PrefabInstance:
     - {fileID: 7611308878448017413, guid: 10dbfbfc0fb816444a4308d095511021, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7611308879639158656, guid: 10dbfbfc0fb816444a4308d095511021, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 3101136791298639261}
     - targetCorrespondingSourceObject: {fileID: 7611308878448017414, guid: 10dbfbfc0fb816444a4308d095511021, type: 3}
       insertIndex: -1
       addedObject: {fileID: 32753423}
@@ -5522,6 +5520,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teleportLocationMesh: {fileID: 1717716194}
   isForPlayer1: 0
+  isElevator: 0
+  opensDoor: 0
+  door: {fileID: 0}
   clips:
   - {fileID: 11400000, guid: c35d66bd951bb554ba39008123136816, type: 2}
   - {fileID: 11400000, guid: 1dbc54370fb2f0a47b72a4f043e656d2, type: 2}
@@ -6901,6 +6902,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teleportLocationMesh: {fileID: 1948088693}
   isForPlayer1: 1
+  isElevator: 1
+  opensDoor: 0
+  door: {fileID: 0}
   clips:
   - {fileID: 11400000, guid: c35d66bd951bb554ba39008123136816, type: 2}
   - {fileID: 11400000, guid: 1dbc54370fb2f0a47b72a4f043e656d2, type: 2}
@@ -7875,7 +7879,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 547718737}
+    m_TransformParent: {fileID: 1130267816}
     m_Modifications:
     - target: {fileID: 3101136792464569757, guid: 6081bfc49b78823428153c4bbdf27120, type: 3}
       propertyPath: m_Name
@@ -7887,15 +7891,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3101136792464569758, guid: 6081bfc49b78823428153c4bbdf27120, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.23
       objectReference: {fileID: 0}
     - target: {fileID: 3101136792464569758, guid: 6081bfc49b78823428153c4bbdf27120, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 4.5299997
       objectReference: {fileID: 0}
     - target: {fileID: 3101136792464569758, guid: 6081bfc49b78823428153c4bbdf27120, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -8.26
       objectReference: {fileID: 0}
     - target: {fileID: 3101136792464569758, guid: 6081bfc49b78823428153c4bbdf27120, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7903,15 +7907,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3101136792464569758, guid: 6081bfc49b78823428153c4bbdf27120, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3101136792464569758, guid: 6081bfc49b78823428153c4bbdf27120, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3101136792464569758, guid: 6081bfc49b78823428153c4bbdf27120, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3101136792464569758, guid: 6081bfc49b78823428153c4bbdf27120, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

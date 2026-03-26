@@ -774,6 +774,102 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4023911173168952104, guid: 88232efc3346c744bae788de17f5d727, type: 3}
   m_PrefabInstance: {fileID: 51756900}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &59855439
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 154830667}
+    m_Modifications:
+    - target: {fileID: 1178005278361558297, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 463426998148198400
+      objectReference: {fileID: 0}
+    - target: {fileID: 1178005278361558297, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
+      propertyPath: m_StringReference.m_TableReference.m_TableCollectionName
+      value: GUID:59d5971e2b3420d4e966d8f3e023c0e3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2487514199921530756, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2748760173522893876, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
+      propertyPath: m_Name
+      value: SecondTextPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 3043278057597581037, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
+      propertyPath: m_Text
+      value: "Nesta esta\xE7\xE3o, voc\xEA sempre vai se mover usando as setas verdes.
+        Elas mostram para onde voc\xEA pode ir. Continue se movimentando assim para
+        me ajudar a aprender como os humanos exploram o espa\xE7o."
+      objectReference: {fileID: 0}
+    - target: {fileID: 5145904599066590755, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8018034601720820777, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8018034601720820777, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8018034601720820777, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8018034601720820777, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -100.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 8018034601720820777, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8018034601720820777, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 21.27
+      objectReference: {fileID: 0}
+    - target: {fileID: 8018034601720820777, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.99999994
+      objectReference: {fileID: 0}
+    - target: {fileID: 8018034601720820777, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8018034601720820777, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.00046457467
+      objectReference: {fileID: 0}
+    - target: {fileID: 8018034601720820777, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8018034601720820777, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8018034601720820777, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0.053
+      objectReference: {fileID: 0}
+    - target: {fileID: 8018034601720820777, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
+--- !u!4 &59855440 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8018034601720820777, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
+  m_PrefabInstance: {fileID: 59855439}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &62249577
 GameObject:
   m_ObjectHideFlags: 0
@@ -1374,6 +1470,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1558032193}
+  - {fileID: 59855440}
   - {fileID: 1260942255}
   - {fileID: 1850242177}
   - {fileID: 728906798}
@@ -1409,7 +1506,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2323721248946167953, guid: c478ea1a0b3e06b40b8bd32209670c0e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3156318693875640490, guid: c478ea1a0b3e06b40b8bd32209670c0e, type: 3}
       propertyPath: m_Text
@@ -2903,6 +3000,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 643399737}
     m_Modifications:
+    - target: {fileID: 65451100887553928, guid: d81ca2906d769c447807973448aae63f, type: 3}
+      propertyPath: clips.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1073299659834424813, guid: d81ca2906d769c447807973448aae63f, type: 3}
       propertyPath: sceneViewId
       value: 77
@@ -3150,6 +3251,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 643399737}
     m_Modifications:
+    - target: {fileID: 65451100887553928, guid: d81ca2906d769c447807973448aae63f, type: 3}
+      propertyPath: clips.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1073299659834424813, guid: d81ca2906d769c447807973448aae63f, type: 3}
       propertyPath: sceneViewId
       value: 78
@@ -4206,6 +4311,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TextPanelGreen (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 2323721248946167953, guid: c478ea1a0b3e06b40b8bd32209670c0e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3156318693875640490, guid: c478ea1a0b3e06b40b8bd32209670c0e, type: 3}
       propertyPath: m_Text
       value: depois do audio, abrir a porta
@@ -4399,6 +4508,10 @@ PrefabInstance:
     - target: {fileID: 2323721248946167953, guid: c478ea1a0b3e06b40b8bd32209670c0e, type: 3}
       propertyPath: m_Name
       value: TextPanelGreen (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2323721248946167953, guid: c478ea1a0b3e06b40b8bd32209670c0e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3156318693875640490, guid: c478ea1a0b3e06b40b8bd32209670c0e, type: 3}
       propertyPath: m_Text
@@ -5541,17 +5654,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 154830667}
     m_Modifications:
+    - target: {fileID: 1178005278361558297, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 463427124744876032
+      objectReference: {fileID: 0}
+    - target: {fileID: 1178005278361558297, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
+      propertyPath: m_StringReference.m_TableReference.m_TableCollectionName
+      value: GUID:59d5971e2b3420d4e966d8f3e023c0e3
+      objectReference: {fileID: 0}
     - target: {fileID: 2487514199921530756, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2748760173522893876, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
       propertyPath: m_Name
-      value: TextPanel (3)
+      value: FifthTextPanel
       objectReference: {fileID: 0}
     - target: {fileID: 3043278057597581037, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
       propertyPath: m_Text
-      value: agora vamos
+      value: "Agora vamos calibrar o Mark de verdade. Crie um programa com In\xEDcio,
+        tr\xEAs movimentos e Fim. Para tirar ele da frente da porta ande para frente
+        duas vezes e vire para a esquerda. Quando estiver pronto, aperte o bot\xE3o
+        azul de Play para executar. Se quiser come\xE7ar novamente, aperte o bot\xE3o
+        vermelho de Reset"
       objectReference: {fileID: 0}
     - target: {fileID: 5145904599066590755, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
       propertyPath: m_Layer
@@ -6748,11 +6873,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3809883406433488702, guid: 27f96cc2800af3b40b9e6b1589756adb, type: 3}
       propertyPath: clipsP1.Array.size
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3809883406433488702, guid: 27f96cc2800af3b40b9e6b1589756adb, type: 3}
       propertyPath: clipsP2.Array.size
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3809883406433488702, guid: 27f96cc2800af3b40b9e6b1589756adb, type: 3}
       propertyPath: 'clips.Array.data[0]'
@@ -8011,6 +8136,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TextPanelGreen (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2323721248946167953, guid: c478ea1a0b3e06b40b8bd32209670c0e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3156318693875640490, guid: c478ea1a0b3e06b40b8bd32209670c0e, type: 3}
       propertyPath: m_Text
       value: se o player nao usar os TP, incentivar a andar com outro audio
@@ -8127,7 +8256,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7610415275689052037, guid: 1be56138e8035314581c3ac9462d98ec, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -8881,6 +9011,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TextPanelGreen (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2323721248946167953, guid: c478ea1a0b3e06b40b8bd32209670c0e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3156318693875640490, guid: c478ea1a0b3e06b40b8bd32209670c0e, type: 3}
       propertyPath: m_Text
       value: 'esperar o player dar uns tp
@@ -9387,17 +9521,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 154830667}
     m_Modifications:
+    - target: {fileID: 1178005278361558297, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 463427057388548096
+      objectReference: {fileID: 0}
+    - target: {fileID: 1178005278361558297, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
+      propertyPath: m_StringReference.m_TableReference.m_TableCollectionName
+      value: GUID:59d5971e2b3420d4e966d8f3e023c0e3
+      objectReference: {fileID: 0}
     - target: {fileID: 2487514199921530756, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2748760173522893876, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
       propertyPath: m_Name
-      value: TextPanel (1)
+      value: ThirdTextPanel
       objectReference: {fileID: 0}
     - target: {fileID: 3043278057597581037, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
       propertyPath: m_Text
-      value: Esse [e o Mark
+      value: "Este \xE9 o Mark, meu avatar rob\xF3tico nesta esta\xE7\xE3o. Ele est\xE1
+        completamente funcional, mas ainda n\xE3o compreende os padr\xF5es de movimento
+        locais. Para que eu possa operar este corpo e conseguir o guiar adequadamente
+        pelos corredores de treinamento, preciso que voc\xEA me mostre como ele deve
+        se mover."
       objectReference: {fileID: 0}
     - target: {fileID: 5145904599066590755, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
       propertyPath: m_Layer
@@ -11205,17 +11351,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 154830667}
     m_Modifications:
+    - target: {fileID: 1178005278361558297, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 463426941462179840
+      objectReference: {fileID: 0}
+    - target: {fileID: 1178005278361558297, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
+      propertyPath: m_StringReference.m_TableReference.m_TableCollectionName
+      value: GUID:59d5971e2b3420d4e966d8f3e023c0e3
+      objectReference: {fileID: 0}
     - target: {fileID: 2487514199921530756, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2748760173522893876, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
       propertyPath: m_Name
-      value: TextPanel
+      value: FirstTextPanel
       objectReference: {fileID: 0}
     - target: {fileID: 3043278057597581037, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
       propertyPath: m_Text
-      value: Ola estudante!
+      value: "Ol\xE1, estudante! Eu sou a Mark 2000, a intelig\xEAncia artificial
+        das esta\xE7\xF5es de programa\xE7\xE3o do universo. Esta \xE9 a primeira
+        esta\xE7\xE3o da Terra e meu corpo rob\xF3tico ainda n\xE3o sabe se mover
+        aqui. Preciso da sua ajuda para calibrar ele! Vamos l\xE1? Para voc\xEA se
+        movimentar pela esta\xE7\xE3o, mire nas setas verdes e clique. Voc\xEA ser\xE1
+        transportado at\xE9 elas."
       objectReference: {fileID: 0}
     - target: {fileID: 5145904599066590755, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
       propertyPath: m_Layer
@@ -11235,7 +11394,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8018034601720820777, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -102
+      value: -101.929
       objectReference: {fileID: 0}
     - target: {fileID: 8018034601720820777, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11243,7 +11402,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8018034601720820777, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6
+      value: 5.183
       objectReference: {fileID: 0}
     - target: {fileID: 8018034601720820777, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12645,6 +12804,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TextPanelGreen (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 2323721248946167953, guid: c478ea1a0b3e06b40b8bd32209670c0e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3156318693875640490, guid: c478ea1a0b3e06b40b8bd32209670c0e, type: 3}
       propertyPath: m_Text
       value: se o player nao interagir com o computador, tocar um audio pedindo pra
@@ -12827,6 +12990,10 @@ PrefabInstance:
     - target: {fileID: 2323721248946167953, guid: c478ea1a0b3e06b40b8bd32209670c0e, type: 3}
       propertyPath: m_Name
       value: TextPanelGreen (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2323721248946167953, guid: c478ea1a0b3e06b40b8bd32209670c0e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3156318693875640490, guid: c478ea1a0b3e06b40b8bd32209670c0e, type: 3}
       propertyPath: m_Text
@@ -13262,21 +13429,28 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 154830667}
     m_Modifications:
+    - target: {fileID: 1178005278361558297, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 463427092511649792
+      objectReference: {fileID: 0}
+    - target: {fileID: 1178005278361558297, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
+      propertyPath: m_StringReference.m_TableReference.m_TableCollectionName
+      value: GUID:59d5971e2b3420d4e966d8f3e023c0e3
+      objectReference: {fileID: 0}
     - target: {fileID: 2487514199921530756, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
       propertyPath: m_Layer
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2748760173522893876, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
       propertyPath: m_Name
-      value: TextPanel (2)
+      value: FourthTextPanel
       objectReference: {fileID: 0}
     - target: {fileID: 3043278057597581037, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
       propertyPath: m_Text
-      value: 'Para que eu possa
-
-        este [e o computador
-
-        cada pedaco'
+      value: "Cada peda\xE7o do computador \xE9 uma placa com um espa\xE7o onde voc\xEA
+        pode encaixar um cubo, e uma outra coisa importante \xE9 que o seu programa
+        sempre deve come\xE7ar com o cubo In\xEDcio e terminar com o cubo Fim. Tente
+        montar um programa simples!"
       objectReference: {fileID: 0}
     - target: {fileID: 5145904599066590755, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
       propertyPath: m_Layer
@@ -15451,6 +15625,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e3be146540ddec84191d600de5334aa5, type: 3}
+--- !u!114 &2137833415 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1138286545463573177, guid: e3be146540ddec84191d600de5334aa5, type: 3}
+  m_PrefabInstance: {fileID: 2137833414}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ca538f0bd6545f7bcd63d88f33a6983, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2139480776 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4351082277981042429, guid: d81ca2906d769c447807973448aae63f, type: 3}
@@ -16206,6 +16391,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TextPanelGreen
       objectReference: {fileID: 0}
+    - target: {fileID: 2323721248946167953, guid: c478ea1a0b3e06b40b8bd32209670c0e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3156318693875640490, guid: c478ea1a0b3e06b40b8bd32209670c0e, type: 3}
       propertyPath: m_Text
       value: 'Exposicao inicial ao narrador
@@ -16341,6 +16530,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2077013578408520964, guid: 5367be8663fc8284fbf5384b7bfe15c5, type: 3}
+      propertyPath: _robot
+      value: 
+      objectReference: {fileID: 2137833415}
     - target: {fileID: 2077013578408520964, guid: 5367be8663fc8284fbf5384b7bfe15c5, type: 3}
       propertyPath: errorScreen
       value: 

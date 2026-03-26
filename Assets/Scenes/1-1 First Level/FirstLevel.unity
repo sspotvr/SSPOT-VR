@@ -1200,6 +1200,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teleportLocationMesh: {fileID: 331138566}
   isForPlayer1: 0
+  isElevator: 0
+  opensDoor: 0
+  door: {fileID: 0}
   clips:
   - {fileID: 11400000, guid: ae0f804517352a344827e5ee55aa5976, type: 2}
   - {fileID: 11400000, guid: 47e9b710c35e2c8459471404b252674a, type: 2}
@@ -1598,7 +1601,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 8329425647710860315}
+    m_TransformParent: {fileID: 2052609695}
     m_Modifications:
     - target: {fileID: 3101136792464569757, guid: 6081bfc49b78823428153c4bbdf27120, type: 3}
       propertyPath: m_Name
@@ -1610,15 +1613,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3101136792464569758, guid: 6081bfc49b78823428153c4bbdf27120, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.2109499
       objectReference: {fileID: 0}
     - target: {fileID: 3101136792464569758, guid: 6081bfc49b78823428153c4bbdf27120, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 4.5299997
       objectReference: {fileID: 0}
     - target: {fileID: 3101136792464569758, guid: 6081bfc49b78823428153c4bbdf27120, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -7.6899996
       objectReference: {fileID: 0}
     - target: {fileID: 3101136792464569758, guid: 6081bfc49b78823428153c4bbdf27120, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1626,15 +1629,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3101136792464569758, guid: 6081bfc49b78823428153c4bbdf27120, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3101136792464569758, guid: 6081bfc49b78823428153c4bbdf27120, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3101136792464569758, guid: 6081bfc49b78823428153c4bbdf27120, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3101136792464569758, guid: 6081bfc49b78823428153c4bbdf27120, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3695,17 +3698,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2764947762281489811, guid: 84739da377e6b86489dfb477b9937ae1, type: 3}
   m_PrefabInstance: {fileID: 2764947763416120660}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1168348707 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2458026862900799502, guid: 84739da377e6b86489dfb477b9937ae1, type: 3}
-  m_PrefabInstance: {fileID: 2764947763416120660}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21e1bb8d3e8d45189f803746970a1669, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1184875451 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: cb9bbea6a07fb17409dbf8ea7c840af2, type: 3}
@@ -3725,6 +3717,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teleportLocationMesh: {fileID: 1184875456}
   isForPlayer1: 1
+  isElevator: 1
+  opensDoor: 0
+  door: {fileID: 0}
   clips:
   - {fileID: 11400000, guid: ae0f804517352a344827e5ee55aa5976, type: 2}
   - {fileID: 11400000, guid: 47e9b710c35e2c8459471404b252674a, type: 2}
@@ -6100,6 +6095,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teleportLocationMesh: {fileID: 27969751}
   isForPlayer1: 0
+  isElevator: 0
+  opensDoor: 0
+  door: {fileID: 0}
   clips: []
 --- !u!82 &1846614453
 AudioSource:
@@ -8607,6 +8605,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1127075733}
     m_Modifications:
+    - target: {fileID: 2912803169608848760, guid: 51636e71c2ab5434298a79080b7fa119, type: 3}
+      propertyPath: startActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5861880946712774378, guid: 51636e71c2ab5434298a79080b7fa119, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -8889,6 +8891,9 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 7611308879639158656, guid: 10dbfbfc0fb816444a4308d095511021, type: 3}
+      insertIndex: 0
+      addedObject: {fileID: 625774188}
     - targetCorrespondingSourceObject: {fileID: 7611308878448017414, guid: 10dbfbfc0fb816444a4308d095511021, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1317957913}
@@ -8964,7 +8969,7 @@ PrefabInstance:
     - target: {fileID: 2077013578408520964, guid: 5367be8663fc8284fbf5384b7bfe15c5, type: 3}
       propertyPath: <OnLevelCompleted>k__BackingField.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 1168348707}
+      objectReference: {fileID: 0}
     - target: {fileID: 2077013578408520964, guid: 5367be8663fc8284fbf5384b7bfe15c5, type: 3}
       propertyPath: <OnLevelCompleted>k__BackingField.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -9091,17 +9096,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 8329425647613975106, guid: 5367be8663fc8284fbf5384b7bfe15c5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 625774188}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5367be8663fc8284fbf5384b7bfe15c5, type: 3}
---- !u!4 &8329425647710860315 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8329425647613975106, guid: 5367be8663fc8284fbf5384b7bfe15c5, type: 3}
-  m_PrefabInstance: {fileID: 8329425647710860314}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
