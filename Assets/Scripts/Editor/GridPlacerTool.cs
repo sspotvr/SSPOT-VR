@@ -16,7 +16,7 @@ namespace SSPot.Editor
         public override void OnToolGUI(EditorWindow window)
         {
             if (window is not SceneView view) return;
-            var grid = FindObjectOfType<LevelGrid>();
+            var grid = FindFirstObjectByType<LevelGrid>();
             if (grid == null) return;
             var internalGrid = grid.GetComponent<Grid>();
             if (internalGrid == null) return;

@@ -15,6 +15,10 @@ public class CloningCube : MonoBehaviourPun, IPunInstantiateMagicCallback
         // Destroy cube on hand, if there is any
         PlayerSetup.Local.DestroyCubeOnHand();
 
+        Debug.Log("Clicou no cubo");
+
+        if(!PlayerSetup.Local.isUp) return;
+
         // Attach the selected cube to the player's hand
         AttachCubeToHand();
     }
@@ -46,10 +50,8 @@ public class CloningCube : MonoBehaviourPun, IPunInstantiateMagicCallback
         // Attach to player's hand
         transform.SetParent(player.Hand.transform);
 
-        // Set cube transform at player's hand
-        //TODO avoid using hardcoded values
-        transform.localPosition = new Vector3(0f, -0.5f, 0.75f);   // Position
-        transform.rotation = Quaternion.Euler(72f, 0f, 0f);        // Rotation
-        transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);      // Scale
-    }
+		transform.localPosition = new Vector3(0f, -0.5f, 0.75f);
+		transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
+		transform.rotation = player.transform.rotation;
+	}
 }

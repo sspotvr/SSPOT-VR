@@ -96,6 +96,43 @@ MonoBehaviour:
       o narrador'
     m_Metadata:
       m_Items: []
+  - m_Id: 463426941462179840
+    m_Localized: "Ol\xE1, estudante! Eu sou a Mark 2000, a intelig\xEAncia artificial
+      das esta\xE7\xF5es de programa\xE7\xE3o do universo. Esta \xE9 a primeira esta\xE7\xE3o
+      da Terra e meu corpo rob\xF3tico ainda n\xE3o sabe se mover aqui. Preciso da
+      sua ajuda para calibrar ele! Vamos l\xE1? Para voc\xEA se movimentar pela esta\xE7\xE3o,
+      mire nas setas verdes e clique. Voc\xEA ser\xE1 transportado at\xE9 elas."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 463426998148198400
+    m_Localized: "Nesta esta\xE7\xE3o, voc\xEA sempre vai se mover usando as setas
+      verdes. Elas mostram para onde voc\xEA pode ir. Continue se movimentando assim
+      para me ajudar a aprender como os humanos exploram o espa\xE7o."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 463427057388548096
+    m_Localized: "Este \xE9 o Mark, meu avatar rob\xF3tico nesta esta\xE7\xE3o. Ele
+      est\xE1 completamente funcional, mas ainda n\xE3o compreende os padr\xF5es
+      de movimento locais. Para que eu possa operar este corpo e conseguir o guiar
+      adequadamente pelos corredores de treinamento, preciso que voc\xEA me mostre
+      como ele deve se mover."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 463427092511649792
+    m_Localized: "Cada peda\xE7o do computador \xE9 uma placa com um espa\xE7o onde
+      voc\xEA pode encaixar um cubo, e uma outra coisa importante \xE9 que o seu
+      programa sempre deve come\xE7ar com o cubo In\xEDcio e terminar com o cubo
+      Fim. Tente montar um programa simples!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 463427124744876032
+    m_Localized: "Agora vamos calibrar o Mark de verdade. Crie um programa com In\xEDcio,
+      tr\xEAs movimentos e Fim. Para tirar ele da frente da porta ande para frente
+      duas vezes e vire para a esquerda. Quando estiver pronto, aperte o bot\xE3o
+      azul de Play para executar. Se quiser come\xE7ar novamente, aperte o bot\xE3o
+      vermelho de Reset"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

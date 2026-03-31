@@ -50,6 +50,30 @@ MonoBehaviour:
     m_Localized: "Configura\xE7\xF5es"
     m_Metadata:
       m_Items: []
+  - m_Id: 427210984902438912
+    m_Localized: Idioma
+    m_Metadata:
+      m_Items: []
+  - m_Id: 427211050132254720
+    m_Localized: "Portugu\xEAs"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 427556188455952384
+    m_Localized: Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 427561011012165632
+    m_Localized: Sim
+    m_Metadata:
+      m_Items: []
+  - m_Id: 427561017999876096
+    m_Localized: "N\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 427562145542037504
+    m_Localized: Tela cheia
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

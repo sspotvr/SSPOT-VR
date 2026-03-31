@@ -74,3 +74,6 @@ crashlytics-build.properties
 # Unity adressable link file
 /[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/link.xml
 /[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/link.xml.meta
+.vscode/extensions.json
+.vscode/launch.json
+.vscode/settings.json

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace SSPot.Scripts.DeveloperConsole.Commands
@@ -6,22 +7,38 @@ namespace SSPot.Scripts.DeveloperConsole.Commands
 
 	public class HelpCommand : ConsoleCommand
     {
+		private IEnumerable<IConsoleCommand> allCommands;
+
+        public void Initialize(IEnumerable<IConsoleCommand> commands) => allCommands = commands;
+
 		public override bool Process(string[] args)
 		{
-			if (args.Length != 0)
-			{
-				Debug.LogError("This command takes no arguments.");
-				return false;
-			}
+			// "help" sem argumentos - Lista todos
+            if (args.Length == 0)
+            {
+                string helpText = "[Command] Available Commands:\n";
+                foreach (var cmd in allCommands)
+                {
+                    helpText += $"- {cmd.CommandWord}\n";
+                }
+                helpText += "\nUse 'help <command>' for more details.";
+                Debug.Log(helpText);
+                return true;
+            }
 
-			Debug.Log("[Command] Available Commands:\n" +
-				"1. help - Displays this help message.\n" +
-				"2. clear - Clears the console logs.\n" +
-				"3. changeScene <sceneName> - Changes the current scene to the specified scene name.\n" +
-				// Add more commands here as needed
-				"Use 'help <command>' for more information on a specific command.");
+            // "help <command>" - Busca descrição específica
+            string targetCommand = args[0];
+            foreach (var cmd in allCommands)
+            {
+                if (cmd.CommandWord.Equals(targetCommand, System.StringComparison.OrdinalIgnoreCase))
+                {
+                    Debug.Log($"[Command] <b>{cmd.CommandWord}</b>: {cmd.Description}");
+                    return true;
+                }
+            }
 
-			return true;
+            Debug.LogError($"Command '{targetCommand}' not found.");
+            return false;
 		}
 	}
 }

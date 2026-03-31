@@ -50,6 +50,30 @@ MonoBehaviour:
     m_Localized: Settings
     m_Metadata:
       m_Items: []
+  - m_Id: 427210984902438912
+    m_Localized: Language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 427211050132254720
+    m_Localized: English
+    m_Metadata:
+      m_Items: []
+  - m_Id: 427556188455952384
+    m_Localized: Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 427561011012165632
+    m_Localized: Yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 427561017999876096
+    m_Localized: No
+    m_Metadata:
+      m_Items: []
+  - m_Id: 427562145542037504
+    m_Localized: Fullscreen
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
