@@ -14,12 +14,13 @@ namespace SSPot
             OnStay = 1 << 1,
             OnExit = 1 << 2
         }
-
+        
+        [Flags]
         private enum Retrigger
         {
-            OnlyOnce,
-            EveryNewTrigger,
-            Repeatedly
+            DestroyOnLeave = 1 << 0,
+            EveryNewTrigger = 1 << 1,
+            Repeatedly = 1 << 2
         }
         
         [Header("Player interaction trigger")] [EnumFlags]
@@ -30,7 +31,7 @@ namespace SSPot
         [Header("Trigger options")]
         [InfoBox("OnlyOnce - deletes the trigger after the initial call\nEveryNewTrigger - triggers every time after the player leaves and re-enters the area\nRepeatedly - re-triggers after X seconds")]
         [SerializeField] private Retrigger retrigger;
-        [ShowIf("retrigger", Retrigger.Repeatedly)] [SerializeField]
+        [ShowIf("ShowRetriggerTimer")] [SerializeField]
         private float retriggerTimer;
         
         [Header("Activation options")]
@@ -42,12 +43,15 @@ namespace SSPot
         [ShowIf("playAudioClip")] [SerializeField]
         private AudioObject[] clips;
         
+        [SerializeField] private bool sendDebugMessage;
+        [ShowIf("sendDebugMessage")] [SerializeField] [ResizableTextArea]
+        public string debugMessage;
+        
         
         private void OnTriggerEnter(Collider other)
         {
             if (!other.CompareTag("Player")) return;
-            print("player trigger");
-
+            
             if ((triggerCall & TriggerCall.OnEnter) != 0) Activate();
             if ((triggerCall & TriggerCall.OnStay) != 0) StartCoroutine(Timer(triggerTimer));
         }
@@ -58,7 +62,7 @@ namespace SSPot
             
             if ((triggerCall & TriggerCall.OnStay) != 0) StopAllCoroutines();
             if ((triggerCall & TriggerCall.OnExit) != 0) Activate();
-            if (retrigger == Retrigger.OnlyOnce) Destroy(gameObject);
+            if ((retrigger & Retrigger.DestroyOnLeave) != 0) Destroy(gameObject);
         }
 
         private IEnumerator Timer(float time)
@@ -69,16 +73,22 @@ namespace SSPot
 
         private void Activate()
         {
-            print("activated");
+            print("Sensor activated - " + name);
             if (controlDoor) foreach (GameObject go in doors) go.GetComponent<Door>().Operate();
             if (playAudioClip) Voice.instance.Speak(clips);
+            if (sendDebugMessage) print(debugMessage);
 
-            if (retrigger == Retrigger.Repeatedly) StartCoroutine(Timer(retriggerTimer));
+            if ((retrigger & Retrigger.Repeatedly) != 0) StartCoroutine(Timer(retriggerTimer));
         }
         
         private bool ShowTriggerTimer()
         {
             return (triggerCall & TriggerCall.OnStay) != 0;
+        }
+        
+        private bool ShowRetriggerTimer()
+        {
+            return (retrigger & Retrigger.Repeatedly) != 0;
         }
         
     }
