@@ -9,17 +9,17 @@ namespace SSPot
         private bool isClosed = true;
         private bool canOperate = true;
         
-        private Transform doorLeft;
-        private Vector3 doorLeftClosed = new (0, 0, 1f);
-        private Vector3 doorLeftOpened = new (-3f, 0, 1f);
-        
         private Transform doorRight;
-        private Vector3 doorRightClosed = new (6f, 0, 0);
-        private Vector3 doorRightOpened = new (9f, 0, 0);
+        private Vector3 doorRightClosed = new (-3f, 0, 1f);
+        private Vector3 doorRightOpened = new (-12f, 0, 2f);
+        
+        private Transform doorLeft;
+        private Vector3 doorLeftClosed = new (6f, 0, 0f);
+        private Vector3 doorLeftOpened = new (12f, 0, 0);
         private void Start()
         {
-            doorLeft = transform.GetChild(0);
-            doorRight = transform.GetChild(1);
+            doorRight = transform.GetChild(0);
+            doorLeft = transform.GetChild(1);
         }
 
         private void Update()
@@ -55,25 +55,25 @@ namespace SSPot
             {
                 for (float time = 1f; time > 0f; time -= Time.deltaTime)
                 {
-                    doorLeft.localPosition -= new Vector3 (3 * Time.deltaTime, 0, 0); // go left
-                    doorRight.localPosition += new Vector3 (3 * Time.deltaTime, 0, 0); // go right
+                    doorRight.localPosition -= new Vector3 (6 * Time.deltaTime, 0, 0); // go left
+                    doorLeft.localPosition += new Vector3 (6 * Time.deltaTime, 0, 0); // go right
                     yield return null;
                 }
 
-                doorLeft.localPosition = doorLeftOpened;
                 doorRight.localPosition = doorRightOpened;
+                doorLeft.localPosition = doorLeftOpened;
             }
             else
             {
                 for (float time = 1f; time > 0f; time -= Time.deltaTime)
                 {
-                    doorLeft.localPosition += new Vector3 (3 * Time.deltaTime, 0, 0); // go right
-                    doorRight.localPosition -= new Vector3 (3 * Time.deltaTime, 0, 0); // go left
+                    doorRight.localPosition += new Vector3 (6 * Time.deltaTime, 0, 0); // go right
+                    doorLeft.localPosition -= new Vector3 (6 * Time.deltaTime, 0, 0); // go left
                     yield return null;
                 }
                 
-                doorLeft.localPosition = doorLeftClosed;
                 doorRight.localPosition = doorRightClosed;
+                doorLeft.localPosition = doorLeftClosed;
             }
             
             isClosed = !isClosed;

@@ -44,7 +44,7 @@ public class TeleportToObject : MonoBehaviourPun
         firstTime = false;
         if(opensDoor) 
         {
-            door.Operate();
+            door.GetComponent<Door>().Operate();
         }
     }
     
