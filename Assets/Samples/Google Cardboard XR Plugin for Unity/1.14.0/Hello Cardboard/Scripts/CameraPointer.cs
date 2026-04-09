@@ -24,74 +24,52 @@ using UnityEngine;
 /// Sends messages to gazed GameObject.
 /// </summary>
 public class CameraPointer : MonoBehaviour {
-    // Reference to CrosshairController script
-    public CrosshairController crosshairController; 
     
-    // Player UI camera
-    public Camera uiCamera;
-
-
-    // Maximum distance for raycast
-    private const float _maxDistance = 100;
-
-    // Gazed object reference
-    private GameObject _gazedAtObject = null;
-
-
-    /// <summary>
-    /// Update is called once per frame.
-    /// </summary>
+    private GameObject gazedAtObject;
+    private const float MaxDistance = 100;
+    [SerializeField] public Camera uiCamera;
+    [SerializeField] private CrosshairController crosshairController; 
+    
     public void Update() {
-        // Casts ray towards camera's forward direction, to detect if a GameObject is being gazed
-        // at.
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit, _maxDistance)) {
-            // GameObject detected in front of the camera.
-            if (_gazedAtObject != hit.transform.gameObject) {
-                // New GameObject.
-                _gazedAtObject?.SendMessage("OnPointerExit", SendMessageOptions.DontRequireReceiver);
-                _gazedAtObject = hit.transform.gameObject;
-                _gazedAtObject.SendMessage("OnPointerEnter", SendMessageOptions.DontRequireReceiver);
+        // raycasts to get the object the camera is looking at
+        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, MaxDistance))
+        {
+            // checks if the player looked at a different object than what's cached
+            if (gazedAtObject != hit.transform.gameObject)
+            {
+                gazedAtObject?.SendMessage("OnPointerExit", SendMessageOptions.DontRequireReceiver);
+                
+                // caches the new object
+                gazedAtObject = hit.transform.gameObject;
+                gazedAtObject.SendMessage("OnPointerEnter", SendMessageOptions.DontRequireReceiver);
 
                 // If gazed object is clickable, scale up crosshair
-                if(_gazedAtObject.CompareTag("Clickable"))
-                {
-                    crosshairController.SetCrosshairScale(new Vector3(1.5f, 1.5f, 1.5f));
-                }
-
-                // If not, scale down crosshair
-                else
-                {
-                    crosshairController.SetCrosshairScale(new Vector3(1f, 1f, 1f));
-                }
+                crosshairController.SetCrosshairScale(gazedAtObject.CompareTag("Clickable")
+                    ? new Vector3(1.75f, 1.75f, 1.75f)
+                    // If not, scale down crosshair
+                    : new Vector3(1f, 1f, 1f));
             }
         }
-        else {
-            // No GameObject detected in front of the camera.
-            _gazedAtObject?.SendMessage("OnPointerExit", SendMessageOptions.DontRequireReceiver);
-            _gazedAtObject = null;
+        
+        else // if no object reference
+        {
+            gazedAtObject?.SendMessage("OnPointerExit", SendMessageOptions.DontRequireReceiver);
+            gazedAtObject = null;
             crosshairController.SetCrosshairScale(new Vector3(1f, 1f, 1f));
         }
-
-        // Checks for screen touches.
-        if (Google.XR.Cardboard.Api.IsTriggerPressed || /*Input.GetTouch(0).phase == TouchPhase.Began ||*/ Input.GetButtonDown("Fire1")) {
-            // If is a non clickable area and there is any cube in player hands, remove it
-            if(_gazedAtObject == null)
-            {
-                PlayerSetup.Local.DestroyCubeOnHand();
-                return;
-            }
-
-            // If gazed object does not have Clickable nor NoPointerAction tag, call DestroyCubeOnHand
-            if(!_gazedAtObject.CompareTag("Clickable") && !_gazedAtObject.CompareTag("NoPointerAction"))
+        
+        if (Google.XR.Cardboard.Api.IsTriggerPressed || /*Input.GetTouch(0).phase == TouchPhase.Began ||*/
+            Input.GetButtonDown("Fire1"))
+        {
+            // remove the cube from the player's hands if the player interacts with a non-clickable
+            // or with a non-interactive
+            if(!gazedAtObject || (!gazedAtObject.CompareTag("Clickable") && !gazedAtObject.CompareTag("NoPointerAction")) )
             {
                 PlayerSetup.Local.DestroyCubeOnHand();
             }
-
-            // Else, call OnPointerClick method
-            else
+            else // otherwise, call OnPointerClick method
             {
-                _gazedAtObject?.SendMessage("OnPointerClick", SendMessageOptions.DontRequireReceiver);
+                gazedAtObject?.SendMessage("OnPointerClick", SendMessageOptions.DontRequireReceiver);
             }
         }
     }

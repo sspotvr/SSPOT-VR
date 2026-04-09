@@ -8,22 +8,27 @@ public class TeleportToObject : MonoBehaviourPun
     // Locations
     public MeshRenderer teleportLocationMesh;               // Teleport location mesh
 
-    public bool isForPlayer1 = false;
+    public bool isForPlayer1;
 
     // I will change this to be more elegant later
-    public bool isElevator = false;
-    public bool opensDoor = false;
+    public bool isElevator;
+    public bool opensDoor;
     [SerializeField] Door door;
 
     private bool firstTime = true;
 
-	[SerializeField] AudioObject[] clips;
+	[SerializeField] private AudioObject[] clips;
+
+    [SerializeField] private bool playAudioOnTeleport = true;
+    private AudioSource audioSource;
 
 
 	private void Awake()
     {
         if(isForPlayer1 != PhotonNetwork.IsMasterClient)
             Destroy(gameObject);
+        
+        if (playAudioOnTeleport) audioSource = GetComponent<AudioSource>();
     }
 
     /// <summary>
@@ -46,6 +51,9 @@ public class TeleportToObject : MonoBehaviourPun
         {
             door.GetComponent<Door>().Operate();
         }
+        
+        // if (playAudioOnTeleport) audioSource.Play();
+        if (playAudioOnTeleport) AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);
     }
     
     
