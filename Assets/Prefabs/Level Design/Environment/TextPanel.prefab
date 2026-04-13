@@ -202,7 +202,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 952f78b24eb7f764596e205a671ab5c4, type: 3}
-    m_FontSize: 5
+    m_FontSize: 6
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -213,9 +213,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "O c\xF3digo secreto \xE9:\nfrente, frente, esquerda, frente e direita.\r\n\r\nN\xE3o
-    esque\xE7a do\nIn\xEDcio e do Fim do algoritmo.\r\n\r\nPegue os Cubos e coloque
-    no Computador!\nDepois \xE9 s\xF3 dar Play!"
+  m_Text: 'UPPER TEXT
+
+
+    Middle Text
+
+
+    bottom text'
 --- !u!114 &1178005278361558297
 MonoBehaviour:
   m_ObjectHideFlags: 0
