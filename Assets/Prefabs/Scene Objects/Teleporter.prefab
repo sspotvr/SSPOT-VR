@@ -42,15 +42,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cb9bbea6a07fb17409dbf8ea7c840af2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cb9bbea6a07fb17409dbf8ea7c840af2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.0000104904175
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cb9bbea6a07fb17409dbf8ea7c840af2, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 136
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cb9bbea6a07fb17409dbf8ea7c840af2, type: 3}
       propertyPath: m_LocalRotation.w
@@ -101,9 +101,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 100000, guid: cb9bbea6a07fb17409dbf8ea7c840af2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1073299659834424813}
-    - targetCorrespondingSourceObject: {fileID: 100000, guid: cb9bbea6a07fb17409dbf8ea7c840af2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8234722597353849890}
   m_SourcePrefab: {fileID: 100100000, guid: cb9bbea6a07fb17409dbf8ea7c840af2, type: 3}
 --- !u!1 &4351082277980678877 stripped
 GameObject:
@@ -124,9 +121,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teleportLocationMesh: {fileID: 4351082277982942237}
   isForPlayer1: 1
-  clips:
-  - {fileID: 11400000, guid: c35d66bd951bb554ba39008123136816, type: 2}
-  - {fileID: 11400000, guid: 1dbc54370fb2f0a47b72a4f043e656d2, type: 2}
+  isElevator: 0
+  opensDoor: 0
+  door: {fileID: 0}
+  clips: []
+  playAudioOnTeleport: 1
 --- !u!82 &5868264922707135572
 AudioSource:
   m_ObjectHideFlags: 0
@@ -138,7 +137,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 82aa12fdb090a4ab2b6a151f0488ab72, type: 3}
+  m_Resource: {fileID: 8300000, guid: 9481421854f8301448c5f53991c20a95, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -246,19 +245,6 @@ MonoBehaviour:
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &8234722597353849890
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4351082277980678877}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc86ba6d010d1fa4e8444014fe3e4105, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioSource: {fileID: 5868264922707135572}
 --- !u!23 &4351082277982942237 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 2300000, guid: cb9bbea6a07fb17409dbf8ea7c840af2, type: 3}
