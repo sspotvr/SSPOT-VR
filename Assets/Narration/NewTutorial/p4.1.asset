@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb6a76eecfc729f42be44f27851f7037, type: 3}
+  m_Name: p4.1
+  m_EditorClassIdentifier: Assembly-CSharp::SSPot.AudioObject
+  clipPTBR: {fileID: 8300000, guid: 7d3b132cbb9106a429b8d9e4a43ae896, type: 3}
+  subtitlePTBR: "Para que eu possa operar o corpo do Mark, preciso que voc\xEA transforme
+    suas ideias em instru\xE7\xF5es, ou melhor, em algoritmos, ou programas! J\xE1
+    ouviu essas palavras? Algoritmos e Programa?"
+  clipENUS: {fileID: 8300000, guid: e54dfd6e483371f49a4a758d77f3ed32, type: 3}
+  subtitleENUS: "For me to operate Mark\u2019s body, I need you to transform your
+    ideas into instructions, or rather, into algorithms, or programs! Have you heard
+    these words before? Algorithms and Program?"

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb6a76eecfc729f42be44f27851f7037, type: 3}
+  m_Name: p4.4
+  m_EditorClassIdentifier: Assembly-CSharp::SSPot.AudioObject
+  clipPTBR: {fileID: 8300000, guid: 9758e54b1c18a914ba8ae3f781498dab, type: 3}
+  subtitlePTBR: "Voc\xEA pode experimentar. Pegue os cubos, encaixe-os nas placas
+    e reorganize como quiser. Observe que o computador possui uma quantidade limitada
+    de placas. Isso define o tamanho do programa que voc\xEA pode criar."
+  clipENUS: {fileID: 8300000, guid: f8f9292d39b4eb04388e7dc01572b0b4, type: 3}
+  subtitleENUS: You can experiment. Take the cubes, place them on the boards, and
+    rearrange them however you like. Notice that the computer has a limited number
+    of boards. This defines the size of the program you can create.

@@ -41,7 +41,7 @@ public class TeleportToObject : MonoBehaviourPun
 
         if(isElevator) ElevatorSync.instance.AddPlayerOnElevator();
 
-        if(firstTime)
+        if(firstTime && clips.Length != 0)
         {
             await Voice.instance.Speak(clips);
         }

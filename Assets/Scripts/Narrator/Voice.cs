@@ -125,7 +125,7 @@ public class Voice : MonoBehaviour
 		OnNarrationRequested -= HandleNarrationRequest;
 	}
 
-	private void StopSpeaking()
+	public void StopSpeaking()
 	{
 		narrationQueue.Clear();
 		source.Stop();

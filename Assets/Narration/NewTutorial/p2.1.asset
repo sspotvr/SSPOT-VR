@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb6a76eecfc729f42be44f27851f7037, type: 3}
+  m_Name: p2.1
+  m_EditorClassIdentifier: Assembly-CSharp::SSPot.AudioObject
+  clipPTBR: {fileID: 8300000, guid: 8855bf7dd9d93344494fbc8214795c18, type: 3}
+  subtitlePTBR: "Nesta esta\xE7\xE3o, voc\xEA sempre vai se mover usando as setas
+    verdes. Elas mostram para onde voc\xEA pode ir. Continue se movimentando assim
+    para me ajudar a aprender como os humanos exploram o espa\xE7o."
+  clipENUS: {fileID: 8300000, guid: fc29d8bb6eaf28449a85826966344a50, type: 3}
+  subtitleENUS: In this station, you will always move using the green arrows. They
+    show where you can go. Keep moving like this to help me learn how humans explore
+    space.
