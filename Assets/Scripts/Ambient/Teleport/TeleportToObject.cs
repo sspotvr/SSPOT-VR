@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Photon.Pun;
 using SSPot;
 using UnityEngine;
@@ -9,6 +10,8 @@ public class TeleportToObject : MonoBehaviourPun
     public MeshRenderer teleportLocationMesh;               // Teleport location mesh
 
     public bool isForPlayer1;
+
+    public static event Action PlayerTeleported;
 
     // I will change this to be more elegant later
     public bool isElevator;
@@ -22,7 +25,6 @@ public class TeleportToObject : MonoBehaviourPun
     [SerializeField] private bool playAudioOnTeleport = true;
     private AudioSource audioSource;
 
-
 	private void Awake()
     {
         if(isForPlayer1 != PhotonNetwork.IsMasterClient)
@@ -31,29 +33,41 @@ public class TeleportToObject : MonoBehaviourPun
         if (playAudioOnTeleport) audioSource = GetComponent<AudioSource>();
     }
 
+    private void Start()
+    {
+        PlayerTeleported += Rotate;
+        Rotate();
+    }
+
     /// <summary>
     /// When player clicks on this object, it teleports the player to current GameObject position.
     /// </summary>
     public async Task OnPointerClick()
     {
+        firstTime = false;
+        
         photonView.RPC(nameof(DisableTeleportMesh), RpcTarget.AllBuffered);
         PlayerSetup.Local.transform.position = transform.position;
-
-        if(isElevator) ElevatorSync.instance.AddPlayerOnElevator();
-
-        if(firstTime && clips.Length != 0)
-        {
-            await Voice.instance.Speak(clips);
-        }
-
-        firstTime = false;
-        if(opensDoor) 
-        {
-            door.GetComponent<Door>().Operate();
-        }
+        PlayerTeleported?.Invoke();
         
-        // if (playAudioOnTeleport) audioSource.Play();
+        if(isElevator) ElevatorSync.instance.AddPlayerOnElevator();
+        if(opensDoor) door.GetComponent<Door>().Operate();
+        if(firstTime && clips.Length != 0) await Voice.instance.Speak(clips);
         if (playAudioOnTeleport) AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);
+        // if (playAudioOnTeleport) audioSource.Play(); // stops when gameObject.SetActive(false)
+    }
+    
+    private void Rotate()
+    {
+        print(PlayerSetup.Local.transform.position);
+        transform.LookAt(PlayerSetup.Local.transform.position);
+        transform.rotation *= Quaternion.Euler(90f, 0f, 0f);
+    }
+    
+        
+    private void OnDisable()
+    {
+        PlayerTeleported -= Rotate;
     }
     
     

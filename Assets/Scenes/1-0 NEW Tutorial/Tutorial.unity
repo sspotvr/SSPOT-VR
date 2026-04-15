@@ -353,7 +353,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4351082277980678877, guid: d81ca2906d769c447807973448aae63f, type: 3}
       propertyPath: m_Name
-      value: TeleportesTeste2
+      value: TeleportersTeste2
       objectReference: {fileID: 0}
     - target: {fileID: 4351082277981042429, guid: d81ca2906d769c447807973448aae63f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5693,7 +5693,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4351082277980678877, guid: d81ca2906d769c447807973448aae63f, type: 3}
       propertyPath: m_Name
-      value: TeleportesTeste1
+      value: TeleportersTeste1
       objectReference: {fileID: 0}
     - target: {fileID: 4351082277981042429, guid: d81ca2906d769c447807973448aae63f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6045,7 +6045,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4351082277980678877, guid: d81ca2906d769c447807973448aae63f, type: 3}
       propertyPath: m_Name
-      value: TeleportesTeste3
+      value: TeleportersTeste3
       objectReference: {fileID: 0}
     - target: {fileID: 4351082277981042429, guid: d81ca2906d769c447807973448aae63f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13619,7 +13619,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4351082277980678877, guid: d81ca2906d769c447807973448aae63f, type: 3}
       propertyPath: m_Name
-      value: TeleportesTeste4
+      value: TeleportersTeste4
       objectReference: {fileID: 0}
     - target: {fileID: 4351082277981042429, guid: d81ca2906d769c447807973448aae63f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -16664,7 +16664,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4351082277980678877, guid: d81ca2906d769c447807973448aae63f, type: 3}
       propertyPath: m_Name
-      value: TeleportesTeste5
+      value: TeleportersTeste5
       objectReference: {fileID: 0}
     - target: {fileID: 4351082277981042429, guid: d81ca2906d769c447807973448aae63f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17388,25 +17388,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 643399737}
     m_Modifications:
-    - target: {fileID: 65451100887553928, guid: d81ca2906d769c447807973448aae63f, type: 3}
-      propertyPath: door
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 65451100887553928, guid: d81ca2906d769c447807973448aae63f, type: 3}
-      propertyPath: opensDoor
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 65451100887553928, guid: d81ca2906d769c447807973448aae63f, type: 3}
-      propertyPath: clips.Array.size
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1073299659834424813, guid: d81ca2906d769c447807973448aae63f, type: 3}
       propertyPath: sceneViewId
-      value: 87
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4351082277980678877, guid: d81ca2906d769c447807973448aae63f, type: 3}
       propertyPath: m_Name
-      value: Teleporter
+      value: TelePortersTeste0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4351082277981042429, guid: d81ca2906d769c447807973448aae63f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4351082277981042429, guid: d81ca2906d769c447807973448aae63f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4351082277981042429, guid: d81ca2906d769c447807973448aae63f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 611071362706831436, guid: 960768d1c803dd3418642f4814db671f, type: 3}
+      propertyPath: sceneViewId
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4351082277981042429, guid: d81ca2906d769c447807973448aae63f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17447,6 +17451,10 @@ PrefabInstance:
     - target: {fileID: 4351082277981042429, guid: d81ca2906d769c447807973448aae63f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4351082277980678877, guid: d81ca2906d769c447807973448aae63f, type: 3}
+      propertyPath: m_Name
+      value: TelePortersTeste0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

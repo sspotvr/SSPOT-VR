@@ -89,7 +89,7 @@ public class Voice : MonoBehaviour
 			for (int j = 0; j < audioIndicatorBars.Length; j++)
 			{
 				audioIndicatorBars[j] = audioIndicatorBarsTemp[j];
-				print(audioIndicatorBars[j].name);
+				// print(audioIndicatorBars[j].name);
 			}
 		}
 	}
