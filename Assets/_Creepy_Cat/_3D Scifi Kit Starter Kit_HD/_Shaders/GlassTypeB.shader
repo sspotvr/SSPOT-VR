@@ -1,4 +1,4 @@
-﻿Shader "Hedgehog Team/Glass Reflective"
+﻿Shader "Creepy Cat/Glass Reflective"
 {
     Properties
     {
