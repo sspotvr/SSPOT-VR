@@ -19,7 +19,7 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 15117778944
-    m_Localized: "Clique aqui\npara come\xE7ar\no treinamento"
+    m_Localized: "Clique aqui\npara pular \no tutorial"
     m_Metadata:
       m_Items: []
   - m_Id: 939412357120
