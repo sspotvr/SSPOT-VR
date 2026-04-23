@@ -15,7 +15,7 @@ public class CloningCube : MonoBehaviourPun, IPunInstantiateMagicCallback
         // Destroy cube on hand, if there is any
         PlayerSetup.Local.DestroyCubeOnHand();
 
-        Debug.Log("Clicou no cubo");
+        // Debug.Log("Clicou no cubo");
 
         if(!PlayerSetup.Local.isUp) return;
 

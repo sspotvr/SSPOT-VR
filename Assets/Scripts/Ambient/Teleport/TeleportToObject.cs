@@ -44,17 +44,18 @@ public class TeleportToObject : MonoBehaviourPun
     /// </summary>
     public async Task OnPointerClick()
     {
-        firstTime = false;
-        
         photonView.RPC(nameof(DisableTeleportMesh), RpcTarget.AllBuffered);
         PlayerSetup.Local.transform.position = transform.position;
         PlayerTeleported?.Invoke();
         
-        if(isElevator) ElevatorSync.instance.AddPlayerOnElevator();
-        if(opensDoor) door.GetComponent<Door>().Operate();
-        if(firstTime && clips.Length != 0) await Voice.instance.Speak(clips);
+        if (isElevator) ElevatorSync.instance.AddPlayerOnElevator();
         if (playAudioOnTeleport) AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);
+        
+        if (firstTime && clips.Length != 0) await Voice.instance.Speak(clips);
+        if (opensDoor) door.GetComponent<Door>().Operate();
         // if (playAudioOnTeleport) audioSource.Play(); // stops when gameObject.SetActive(false)
+        
+        firstTime = false;
     }
     
     private void Rotate()
