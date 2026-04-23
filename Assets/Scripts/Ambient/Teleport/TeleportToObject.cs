@@ -44,23 +44,23 @@ public class TeleportToObject : MonoBehaviourPun
     /// </summary>
     public async Task OnPointerClick()
     {
-        if(firstTime && clips.Length != 0) await Voice.instance.Speak(clips);
-        firstTime = false;
-        
         photonView.RPC(nameof(DisableTeleportMesh), RpcTarget.AllBuffered);
         PlayerSetup.Local.transform.position = transform.position;
         PlayerTeleported?.Invoke();
+        print("Teleported!!");
         
         if(isElevator) ElevatorSync.instance.AddPlayerOnElevator();
-        if(opensDoor) door.GetComponent<Door>().Operate();
-        
         if (playAudioOnTeleport) AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);
+
+
+        if(firstTime && clips.Length != 0) await Voice.instance.Speak(clips);
+        firstTime = false;
+        if(opensDoor) door.GetComponent<Door>().Operate();
         // if (playAudioOnTeleport) audioSource.Play(); // stops when gameObject.SetActive(false)
     }
     
     private void Rotate()
     {
-        print(PlayerSetup.Local.transform.position);
         transform.LookAt(PlayerSetup.Local.transform.position);
         transform.rotation *= Quaternion.Euler(90f, 0f, 0f);
     }

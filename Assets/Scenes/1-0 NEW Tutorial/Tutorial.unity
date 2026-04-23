@@ -794,6 +794,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1662919270}
     m_Modifications:
+    - target: {fileID: 7076091711025175018, guid: 6f6960d84a864464eac7b6d1ea4c0b15, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7111376501216763832, guid: 6f6960d84a864464eac7b6d1ea4c0b15, type: 3}
       propertyPath: m_Name
       value: VRController
@@ -836,6 +840,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8036751514825340649, guid: 6f6960d84a864464eac7b6d1ea4c0b15, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9133878419282214632, guid: 6f6960d84a864464eac7b6d1ea4c0b15, type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2706,6 +2714,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7542853340838253071, guid: 43f73469877020143b79f844c126d497, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7542853341049962042, guid: 43f73469877020143b79f844c126d497, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7542853341222191768, guid: 43f73469877020143b79f844c126d497, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7885806061094507080, guid: 43f73469877020143b79f844c126d497, type: 3}
+      propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -5455,9 +5475,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1662919270}
     m_Modifications:
+    - target: {fileID: 3021839316376413370, guid: 22c04571aa1e3504fb9e4ac875ee8c3e, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3021839316376413508, guid: 22c04571aa1e3504fb9e4ac875ee8c3e, type: 3}
       propertyPath: m_Text
       value: "Clique aqui\npara pular \no tutorial"
+      objectReference: {fileID: 0}
+    - target: {fileID: 3021839316377315508, guid: 22c04571aa1e3504fb9e4ac875ee8c3e, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3021839316782635747, guid: 22c04571aa1e3504fb9e4ac875ee8c3e, type: 3}
       propertyPath: targetMultiplayer
@@ -6711,7 +6739,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!215 &1049746159
 ReflectionProbe:
   m_ObjectHideFlags: 0
@@ -8718,7 +8746,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1313948213}
   - component: {fileID: 1313948212}
-  - component: {fileID: 1313948211}
   - component: {fileID: 1313948210}
   m_Layer: 0
   m_Name: Spawner
@@ -8749,23 +8776,6 @@ MonoBehaviour:
   sceneViewId: 1
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &1313948211
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1313948209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6fcacb12f9f42f419674b1f79ec1c6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  computerToHide: {fileID: 0}
-  teleports:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!114 &1313948212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10914,6 +10924,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1662919270}
     m_Modifications:
+    - target: {fileID: 1860851981115283045, guid: 1de403b088e091f4890a7c4511b43e04, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1860851981346220743, guid: 1de403b088e091f4890a7c4511b43e04, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1860851981994408528, guid: 1de403b088e091f4890a7c4511b43e04, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.6306
@@ -10957,6 +10975,10 @@ PrefabInstance:
     - target: {fileID: 1860851981994408529, guid: 1de403b088e091f4890a7c4511b43e04, type: 3}
       propertyPath: m_Name
       value: ChangeLanguage
+      objectReference: {fileID: 0}
+    - target: {fileID: 5310840262870771805, guid: 1de403b088e091f4890a7c4511b43e04, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
