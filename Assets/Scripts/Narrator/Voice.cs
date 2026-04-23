@@ -181,9 +181,9 @@ public class Voice : MonoBehaviour
 
 				source.clip = clipToPlay;
 				source.PlayOneShot(clipToPlay);
-				subtitles.DisplaySubtitle(subToDisplay);
+				subtitles.DisplaySubtitle(subToDisplay, clipToPlay.length);
 				
-				yield return new WaitForSeconds(clipToPlay.length);
+				yield return new WaitForSeconds(clipToPlay.length + 0.5f);
 				subtitles.ClearSubtitle();
 			}
 
