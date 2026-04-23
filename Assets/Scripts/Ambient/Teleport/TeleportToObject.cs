@@ -59,7 +59,6 @@ public class TeleportToObject : MonoBehaviourPun
     
     private void Rotate()
     {
-        print(PlayerSetup.Local.transform.position);
         transform.LookAt(PlayerSetup.Local.transform.position);
         transform.rotation *= Quaternion.Euler(90f, 0f, 0f);
     }

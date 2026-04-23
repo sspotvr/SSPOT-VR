@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using System.Collections;
 
@@ -10,25 +9,23 @@ namespace SSPot
         private bool canOperate = true;
         
         private Transform doorRight;
-        private Vector3 doorRightClosed = new (-3f, 0, 1f);
-        private Vector3 doorRightOpened = new (-12f, 0, 2f);
+        private readonly Vector3 doorRightClosed = new (-3f, 0, 1f);
+        private readonly Vector3 doorRightOpened = new (-12f, 0, 2f);
         
         private Transform doorLeft;
-        private Vector3 doorLeftClosed = new (6f, 0, 0f);
-        private Vector3 doorLeftOpened = new (12f, 0, 0);
+        private readonly Vector3 doorLeftClosed = new (6f, 0, 0f);
+        private readonly Vector3 doorLeftOpened = new (12f, 0, 0);
+        
         private void Start()
         {
             doorRight = transform.GetChild(0);
             doorLeft = transform.GetChild(1);
         }
 
-        private void Update()
-        {
-            //if (Input.GetKeyDown("space"))
-            //{
-            //    Operate();
-            //}
-        }
+        // private void Update()
+        // {
+        //     if (Input.GetKeyDown("space")) Operate();
+        // }
 
         public void Operate()
         {

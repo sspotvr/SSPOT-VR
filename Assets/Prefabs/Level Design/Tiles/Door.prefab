@@ -50,6 +50,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01d5dcdacd676e54682382e5558b4c10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SSPot.Door
+  doorRight: {fileID: 7068546795262827263}
+  doorLeft: {fileID: 629776576652327393}
 --- !u!1001 &629776576652728001
 PrefabInstance:
   m_ObjectHideFlags: 0
