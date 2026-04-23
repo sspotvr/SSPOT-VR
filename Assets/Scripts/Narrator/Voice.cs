@@ -199,6 +199,8 @@ public class Voice : MonoBehaviour
 		lastRequest = clips;
 		if (!enableNarrator) return;
 
+		Debug.Log($"Foram recebidos, {clips.Length} clipes!");
+
 		var tcs = new TaskCompletionSource<bool>();
 		
 		OnNarrationRequested?.Invoke(clips, true, tcs);

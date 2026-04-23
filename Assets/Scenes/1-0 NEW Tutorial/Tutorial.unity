@@ -13054,6 +13054,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MiniChallenge
       objectReference: {fileID: 0}
+    - target: {fileID: 3636080736368181501, guid: 4e5e67175ef2852499ea08f565c987c5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
