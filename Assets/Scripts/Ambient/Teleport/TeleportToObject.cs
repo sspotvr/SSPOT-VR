@@ -36,7 +36,10 @@ public class TeleportToObject : MonoBehaviourPun
     private void Start()
     {
         PlayerTeleported += Rotate;
+        PlayerTeleported += CheckVisibility;
+
         Rotate();
+        CheckVisibility();
     }
 
     /// <summary>
@@ -44,7 +47,7 @@ public class TeleportToObject : MonoBehaviourPun
     /// </summary>
     public async Task OnPointerClick()
     {
-        photonView.RPC(nameof(DisableTeleportMesh), RpcTarget.AllBuffered);
+        // photonView.RPC(nameof(DisableTeleportMesh), RpcTarget.AllBuffered);
         PlayerSetup.Local.transform.position = transform.position;
         PlayerTeleported?.Invoke();
         print("Teleported!!");
@@ -63,6 +66,21 @@ public class TeleportToObject : MonoBehaviourPun
     {
         transform.LookAt(PlayerSetup.Local.transform.position);
         transform.rotation *= Quaternion.Euler(90f, 0f, 0f);
+    }
+
+    private void CheckVisibility()
+    {
+        if (PlayerSetup.Local == null) return;
+        float distance = Vector3.Distance(transform.position, PlayerSetup.Local.transform.position);
+        
+        if (distance < 0.1f)
+        {
+            teleportLocationMesh.enabled = false; // Player está aqui, esconde a seta
+        }
+        else
+        {
+            teleportLocationMesh.enabled = true; // Player saiu, mostra a seta
+        }
     }
     
         
