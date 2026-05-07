@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1991453887763325490}
   - component: {fileID: 988419535836976989}
   m_Layer: 0
-  m_Name: RoomBigDoor
+  m_Name: Room6DoorEntrance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
