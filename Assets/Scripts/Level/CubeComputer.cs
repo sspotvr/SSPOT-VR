@@ -131,7 +131,7 @@ namespace SSpot.Level
 		{
 			if (LevelManager.Instance.LastActiveComputer != this) return;
 
-			Debug.Log("Entrei no callback de finalização");
+			Debug.Log("Entrei no callback de finalizacao");
 
 			onLocalSuccess.Invoke();
 		}
@@ -146,7 +146,7 @@ namespace SSpot.Level
 
 		public void Evaluate(IReadOnlyList<CodingCell> cells)
 		{
-            Debug.Log("Computador avaliando o código...");
+            Debug.Log("Computador avaliando o codigo...");
             Debug.Log(_myEvaluators.Length + " avaliadores encontrados");
 
 			foreach (var evaluator in _myEvaluators)
