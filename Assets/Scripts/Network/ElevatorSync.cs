@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
+
 public class ElevatorSync : MonoBehaviourPun
 {
     #region Singleton
     public static ElevatorSync instance;
+    public GoingUpAndDownController controller;
 
     void Awake()
     {
@@ -20,7 +22,6 @@ public class ElevatorSync : MonoBehaviourPun
 
 
     public int playersOnElevator = 0;
-    public GameObject elevatorButton;
 
 
     public void AddPlayerOnElevator()
@@ -28,17 +29,30 @@ public class ElevatorSync : MonoBehaviourPun
         photonView.RPC("AddPlayerOnElevatorRpc", RpcTarget.AllBuffered);
     }
 
+    public void RemovePlayerOnElevator()
+    {
+        photonView.RPC("RemovePlayerOnElevatorRpc", RpcTarget.AllBuffered);
+    }
+
     [PunRPC]
     private void AddPlayerOnElevatorRpc()
     {
+        Debug.Log("+1 player");
         // Increase number of players on elevator
         playersOnElevator++;
 
         // If this number is equal to number of players, enable elevator button
         if(playersOnElevator == PhotonNetwork.PlayerList.Length)
         {
-            elevatorButton.SetActive(true);
-            elevatorButton.GetComponent<GoingUpAndDownController>().enabled = true;
+            controller.GoUp();
         }
+    }
+
+    [PunRPC]
+    private void RemovePlayerOnElevatorRpc()
+    {
+        // Decrease number of players on elevator
+        if(playersOnElevator > 0) playersOnElevator--;
+        controller.GoDown();
     }
 }
