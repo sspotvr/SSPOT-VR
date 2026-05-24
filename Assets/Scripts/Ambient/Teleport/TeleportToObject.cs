@@ -35,11 +35,23 @@ public class TeleportToObject : MonoBehaviourPun
 
     private void Start()
     {
-        PlayerTeleported += Rotate;
-        PlayerTeleported += CheckVisibility;
-
         Rotate();
         CheckVisibility();
+    }
+
+    private void OnEnable()
+    {
+        PlayerTeleported += Rotate;
+        PlayerTeleported += CheckVisibility;
+        
+        Rotate();
+        CheckVisibility();
+    }
+
+    private void OnDisable()
+    {
+        PlayerTeleported -= Rotate;
+        PlayerTeleported -= CheckVisibility;
     }
 
     /// <summary>
@@ -49,10 +61,18 @@ public class TeleportToObject : MonoBehaviourPun
     {
         // photonView.RPC(nameof(DisableTeleportMesh), RpcTarget.AllBuffered);
         PlayerSetup.Local.transform.position = transform.position;
-        PlayerTeleported?.Invoke();
         print("Teleported!!");
+        PlayerTeleported?.Invoke();
+        print("Invocou!");
         
-        if(isElevator) ElevatorSync.instance.AddPlayerOnElevator();
+        if(isElevator){ 
+            ElevatorSync.instance.AddPlayerOnElevator();
+        }
+        else
+        {
+            ElevatorSync.instance.RemovePlayerOnElevator();
+        }
+
         if (playAudioOnTeleport) AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);
 
 
@@ -64,6 +84,7 @@ public class TeleportToObject : MonoBehaviourPun
     
     private void Rotate()
     {
+        if (PlayerSetup.Local == null) return;
         transform.LookAt(PlayerSetup.Local.transform.position);
         transform.rotation *= Quaternion.Euler(90f, 0f, 0f);
     }
@@ -81,20 +102,5 @@ public class TeleportToObject : MonoBehaviourPun
         {
             teleportLocationMesh.enabled = true; // Player saiu, mostra a seta
         }
-    }
-    
-        
-    private void OnDisable()
-    {
-        PlayerTeleported -= Rotate;
-    }
-    
-    
-    [PunRPC]    
-    private void DisableTeleportMesh()
-    {
-        // Disable elevator teleport button mesh
-        teleportLocationMesh.enabled = false;
-        gameObject.SetActive(false);
     }
 }
