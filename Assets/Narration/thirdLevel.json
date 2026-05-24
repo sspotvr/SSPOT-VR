@@ -1,0 +1,40 @@
+{
+  "fase": "Level-3",
+  "linhas": [
+    {
+      "nome": "start.1",
+      "pt_br": "Boa notícia: os motores do Mark estão funcionando de novo! Vamos ver se ele consegue dar uma volta pela sala.",
+      "en_us": "Good news: Mark’s motors are working again! Let’s see if he can take a little trip around the room."
+    },
+    {
+      "nome": "start.2",
+      "pt_br": "Você pode me ajudar a guiar o Mark?",
+      "en_us": "Can you help guide Mark?"
+    },
+    {
+      "nome": "line.1",
+      "pt_br": "Programe o Mark para desviar de um obstáculo.",
+      "en_us": "Program Mark to go around an obstacle."
+    },
+    {
+      "nome": "line.2",
+      "pt_br": "Ele precisa dar a volta nesse pilar e voltar para o lugar onde começou.",
+      "en_us": "He needs to go around this pillar and return to where he started."
+    },
+    {
+      "nome": "code.1",
+      "pt_br": "Para fazer a primeira curva, o Mark precisa andar duas vezes para frente e uma vez para a esquerda.",
+      "en_us": "To make the first turn, Mark needs to move forward twice and then once to the left."
+    },
+    {
+      "nome": "code.2",
+      "pt_br": "Coloque um bloco de loop e controle qual a sequência de blocos que você quer repetir juntos.",
+      "en_us": "Use a Loop block and set the block sequence that you want to repeat together."
+    },
+    {
+      "nome": "code.3",
+      "pt_br": "Não se esqueça de colocar um bloco para começar e outro para terminar o código!",
+      "en_us": "Don’t forget to add a block to start and another to end the code!"
+    }
+  ]
+}

@@ -4,11 +4,11 @@ namespace SSPot
 {
     public class SpeakAtStartTutorial : MonoBehaviour
     {
-        [SerializeField] AudioObject[] clipsStart;
+        [SerializeField] string[] clipsStart;
         [SerializeField] Door door;
 
-        [SerializeField] AudioObject[] clipsCongrats1;
-        [SerializeField] AudioObject[] clipsCongrats2;
+        [SerializeField] string[] clipsCongrats1;
+        [SerializeField] string[] clipsCongrats2;
 
 		public void Start()
 		{

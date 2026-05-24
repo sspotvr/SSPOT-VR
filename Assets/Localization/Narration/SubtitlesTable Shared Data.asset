@@ -1,0 +1,220 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: SubtitlesTable Shared Data
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.SharedTableData
+  m_TableCollectionName: SubtitlesTable
+  m_TableCollectionNameGuidString: 77ce4b83a5fc04946a85908cd3884a7a
+  m_Entries:
+  - m_Id: 9327254630400
+    m_Key: Tutorial_p1.1.1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327263019008
+    m_Key: Tutorial_p1.1.2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327271407616
+    m_Key: Tutorial_p1.2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327271407617
+    m_Key: Tutorial_p1.3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327271407618
+    m_Key: Tutorial_p2.1.1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327275601920
+    m_Key: Tutorial_p2.1.2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327275601921
+    m_Key: Tutorial_p2.2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327275601922
+    m_Key: Tutorial_p3.1.1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327283990528
+    m_Key: Tutorial_p3.2.1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327283990529
+    m_Key: Tutorial_p3.3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327283990530
+    m_Key: Tutorial_p4.1.1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327283990531
+    m_Key: Tutorial_p4.2.1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327283990532
+    m_Key: Tutorial_p4.2.2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327288184832
+    m_Key: Tutorial_p4.3.1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327288184833
+    m_Key: Tutorial_p4.3.3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327288184834
+    m_Key: Tutorial_p4.4.1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327288184835
+    m_Key: Tutorial_p4.4.2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327292379136
+    m_Key: Tutorial_p4.4.3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327296573440
+    m_Key: Tutorial_p4.5
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327296573441
+    m_Key: Tutorial_p5.1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327296573442
+    m_Key: Tutorial_p5.2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327296573443
+    m_Key: Tutorial_p5.3.1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327300767744
+    m_Key: Tutorial_p5.3.2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327300767745
+    m_Key: Tutorial_p5.4.1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327300767746
+    m_Key: Tutorial_p5.4.2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327300767747
+    m_Key: Tutorial_config.1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9415288877056
+    m_Key: Level-1_start-1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9415288877057
+    m_Key: Level-1_start-2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9415288877058
+    m_Key: Level-1_start-3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9415288877059
+    m_Key: Level-1_line-1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9415293071360
+    m_Key: Level-1_code-1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9415293071361
+    m_Key: Level-1_code-2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9415293071362
+    m_Key: Level-1_code-3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9426244399104
+    m_Key: Level-2_start.1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9426244399105
+    m_Key: Level-2_start.2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9426244399106
+    m_Key: Level-2_start.3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9426244399107
+    m_Key: Level-2_line.1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9426248593408
+    m_Key: Level-2_code.1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9426248593409
+    m_Key: Level-2_code.2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9426248593410
+    m_Key: Level-2_code.3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9426252787712
+    m_Key: Level-2_code.4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9436986011648
+    m_Key: Level-3_start.1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9436990205952
+    m_Key: Level-3_start.2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9436990205953
+    m_Key: Level-3_line.1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9436990205954
+    m_Key: Level-3_line.2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9436994400256
+    m_Key: Level-3_code.1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9436994400257
+    m_Key: Level-3_code.2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9436994400258
+    m_Key: Level-3_code.3
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 4621985700775985304
+  references:
+    version: 2
+    RefIds:
+    - rid: 4621985700775985304
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1779663876360

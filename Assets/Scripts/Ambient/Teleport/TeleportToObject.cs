@@ -20,7 +20,7 @@ public class TeleportToObject : MonoBehaviourPun
 
     private bool firstTime = true;
 
-	[SerializeField] private AudioObject[] clips;
+	[SerializeField] private string[] clips;
 
     [SerializeField] private bool playAudioOnTeleport = true;
     private AudioSource audioSource;

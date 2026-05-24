@@ -13,7 +13,7 @@ public class GoingUpAndDownController : MonoBehaviourPun
     public GameObject plataformTeleport2;
 
 	private bool firstTime = true;
-	[SerializeField] AudioObject[] clips;
+	[SerializeField] string[] clips;
 
     private GoingDown goingDownScript;
     private GoingUp goingUpScript;

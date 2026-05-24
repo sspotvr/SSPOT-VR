@@ -7,8 +7,8 @@ namespace SSPot
 {
     public class SpeakAtStart : MonoBehaviour
     {
-		[SerializeField] AudioObject[] clipsP1;
-		[SerializeField] AudioObject[] clipsP2;
+		[SerializeField] string[] clipsP1;
+		[SerializeField] string[] clipsP2;
 		public static SpeakAtStart instance;
 
 		public void Awake()

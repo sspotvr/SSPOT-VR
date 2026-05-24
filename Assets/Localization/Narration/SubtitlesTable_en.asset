@@ -1,0 +1,236 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: SubtitlesTable_en
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: 77ce4b83a5fc04946a85908cd3884a7a, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 9327254630400
+    m_Localized: Hello, student! I am Mark 2000, the artificial intelligence of the
+      programming stations of the universe.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327263019008
+    m_Localized: "This is the first station on Earth and my robotic body still doesn\u2019t
+      know how to move here."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327271407616
+    m_Localized: I need your help to calibrate it!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327271407617
+    m_Localized: To move around the station, click the green arrows. You will be
+      transported to them.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327271407618
+    m_Localized: In this station, you will always move using the green arrows. They
+      show where you can go.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327275601920
+    m_Localized: Keep moving like this to help me learn how humans explore space.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327275601921
+    m_Localized: The green arrows show where you can go. Aim at them and click to
+      continue.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327275601922
+    m_Localized: This is Mark, my robotic avatar in this station. He is fully functional,
+      but still don't know how to use it.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327283990528
+    m_Localized: So that I can operate this body, I need you to show me how it should
+      move.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327283990529
+    m_Localized: Aim and click on the green arrow to continue.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327283990530
+    m_Localized: "For me to operate Mark\u2019s body, I need you to transform your
+      ideas into instructions, or rather, into algorithms, or programs!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327283990531
+    m_Localized: "This is the station\u2019s computer. This is where programs are
+      created."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327283990532
+    m_Localized: Do you know these symbols written on the cubes? You call them arrows,
+      right?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327288184832
+    m_Localized: Each board of the computer is a space where you can place a cube.
+      Your program must always start with the Start cube and end with the End cube.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327288184833
+    m_Localized: The arrow cubes are the filling!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327288184834
+    m_Localized: Go on and experiment! Take the cubes, place them on the boards,
+      and rearrange them however you like.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327288184835
+    m_Localized: Notice that the computer has a limited number of boards.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327292379136
+    m_Localized: This defines the size of the program you can create.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327296573440
+    m_Localized: "Now you know how to build an algorithm. Let\u2019s use it to move
+      Mark."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327296573441
+    m_Localized: "It\u2019s time to truly calibrate Mark. Let\u2019s create a program
+      with Start, three movements, and End."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327296573442
+    m_Localized: To move him away from the doorway, turn left and move forward twice
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327296573443
+    m_Localized: When you are ready, press the blue Play button to execute.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327300767744
+    m_Localized: If you want to start again, press the orange Reset button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327300767745
+    m_Localized: Excellent! I can interpret your commands and operate my new body.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327300767746
+    m_Localized: The initial calibration is complete. Thank you!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327300767747
+    m_Localized: "Before we begin the station\u2019s official challenges, you can
+      adjust the station\u2019s settings as you prefer."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9415288877056
+    m_Localized: My body froze again! I can't even walk!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9415288877057
+    m_Localized: We're going to have to reset it.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9415288877058
+    m_Localized: Go to the platform on your right to help me regain control!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9415288877059
+    m_Localized: To move my body again, you're going to program it with an algorithm!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9415293071360
+    m_Localized: 'The reset code is: forward, forward, left, forward, and right.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9415293071361
+    m_Localized: Grab the Cubes and place them on the Computer! Then just hit Play!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9415293071362
+    m_Localized: "Don\u2019t forget the Start and End of the algorithm"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9426244399104
+    m_Localized: "I'm regaining control, but I\u2019ll still need help programming
+      my body."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9426244399105
+    m_Localized: "We\u2019ll need to take a few laps around here."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9426244399106
+    m_Localized: Can you help me?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9426244399107
+    m_Localized: "Let\u2019s practice a few turns, to see if my sensors are still
+      working."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9426248593408
+    m_Localized: "I\u2019ve got a new formula to help you!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9426248593409
+    m_Localized: Repeat left 4 times and then go forward.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9426248593410
+    m_Localized: Then repeat right 5 times and go forward.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9426252787712
+    m_Localized: "Don\u2019t forget to mark the beginning and end of the code"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9436986011648
+    m_Localized: "Good news: Mark\u2019s motors are working again! Let\u2019s see
+      if he can take a little trip around the room."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9436990205952
+    m_Localized: Can you help guide Mark?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9436990205953
+    m_Localized: Program Mark to go around an obstacle.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9436990205954
+    m_Localized: He needs to go around this pillar and return to where he started.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9436994400256
+    m_Localized: To make the first turn, Mark needs to move forward twice and then
+      once to the left.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9436994400257
+    m_Localized: Use a Loop block and set the block sequence that you want to repeat
+      together.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9436994400258
+    m_Localized: "Don\u2019t forget to add a block to start and another to end the
+      code!"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

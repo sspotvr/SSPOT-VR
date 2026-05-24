@@ -1,0 +1,243 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: SubtitlesTable_pt-BR
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: pt-BR
+  m_SharedData: {fileID: 11400000, guid: 77ce4b83a5fc04946a85908cd3884a7a, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 9327254630400
+    m_Localized: "Ol\xE1, estudante! Eu sou a Mark 2000, a intelig\xEAncia artificial
+      das esta\xE7\xF5es de programa\xE7\xE3o do universo."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327263019008
+    m_Localized: "Esta \xE9 a primeira esta\xE7\xE3o da Terra e meu corpo rob\xF3tico
+      ainda n\xE3o sabe se mover aqui."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327271407616
+    m_Localized: Preciso da sua ajuda para calibrar ele!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327271407617
+    m_Localized: "Para voc\xEA se movimentar pela esta\xE7\xE3o, clique nas setas
+      verdes. Voc\xEA ser\xE1 transportado at\xE9 elas. "
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327271407618
+    m_Localized: "Nesta esta\xE7\xE3o, voc\xEA sempre vai se mover usando as setas
+      verdes. Elas mostram para onde voc\xEA pode ir."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327275601920
+    m_Localized: "Continue se movimentando assim para me ajudar a aprender como os
+      humanos exploram o espa\xE7o."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327275601921
+    m_Localized: "As setas verdes mostram para onde voc\xEA pode ir. Mire nelas e
+      clique para continuar."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327275601922
+    m_Localized: "Este \xE9 o Mark, meu avatar rob\xF3tico nesta esta\xE7\xE3o. Ele
+      est\xE1 completamente funcional, mas ainda n\xE3o sei como utiliz\xE1-lo."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327283990528
+    m_Localized: "Para que eu possa operar este corpo, preciso que voc\xEA me mostre
+      como ele deve se mover."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327283990529
+    m_Localized: Mire e clique na seta verde para continuar.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327283990530
+    m_Localized: "Para que eu possa operar o corpo do Mark, preciso que voc\xEA transforme
+      suas ideias em instru\xE7\xF5es, ou melhor, em algoritmos, ou programas!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327283990531
+    m_Localized: "Este \xE9 o computador da esta\xE7\xE3o. \xC9 aqui que os programas
+      s\xE3o criados."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327283990532
+    m_Localized: "Voc\xEA conhece esses sinais escritos nos cubos? Voc\xEAs o chamam
+      de setas, n\xE3o \xE9?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327288184832
+    m_Localized: "Cada placa do computador \xE9 um espa\xE7o onde voc\xEA pode encaixar
+      um cubo. O seu programa sempre deve come\xE7ar com o cubo In\xEDcio e terminar
+      com o cubo Fim."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327288184833
+    m_Localized: "Os cubos com as setas s\xE3o o recheio!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327288184834
+    m_Localized: Experimente! Pegue os cubos, encaixe-os nas placas e reorganize
+      como quiser.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327288184835
+    m_Localized: Observe que o computador possui uma quantidade limitada de placas.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327292379136
+    m_Localized: "Isso define o tamanho do programa que voc\xEA pode criar."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327296573440
+    m_Localized: "Agora voc\xEA j\xE1 sabe como construir um algoritmo. Vamos utiliz\xE1-lo
+      para mover o Mark."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327296573441
+    m_Localized: "Est\xE1 na hora de calibrar o Mark de verdade. Vamos criar um programa
+      com In\xEDcio, tr\xEAs movimentos e Fim."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327296573442
+    m_Localized: "Para tir\xE1-lo da frente da porta, vire para esquerda e mova duas
+      vezes para frente"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327296573443
+    m_Localized: "Quando estiver pronto, aperte o bot\xE3o azul de Play para executar."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327300767744
+    m_Localized: "Se quiser come\xE7ar novamente, aperte o bot\xE3o laranja de Reset"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327300767745
+    m_Localized: Excelente! Estou conseguindo interpretar seus comandos e operar
+      meu novo corpo.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327300767746
+    m_Localized: "A calibra\xE7\xE3o inicial est\xE1 conclu\xEDda. Muito obrigado!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9327300767747
+    m_Localized: "Antes de iniciarmos os desafios oficiais da esta\xE7\xE3o, voc\xEA
+      pode ajustar as configura\xE7\xF5es da esta\xE7\xE3o como preferir."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9415288877056
+    m_Localized: "O meu corpo travou de novo! N\xE3o estou conseguindo nem andar!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9415288877057
+    m_Localized: Vamos ter que resetar ele.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9415288877058
+    m_Localized: "V\xE1 at\xE9 a plataforma \xE0 sua direita para me ajudar a ganhar
+      o controle de novo!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9415288877059
+    m_Localized: "Para que meu corpo se mexa de novo, voc\xEA vai programar ele com
+      um algoritmo!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9415293071360
+    m_Localized: "O c\xF3digo de reset \xE9: frente, frente, esquerda, frente e direita."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9415293071361
+    m_Localized: "Pegue os Cubos e coloque no Computador! Depois \xE9 s\xF3 dar Play!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9415293071362
+    m_Localized: "N\xE3o esque\xE7a do In\xEDcio e do Fim do algoritmo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9426244399104
+    m_Localized: Estou ganhando controle novamente, mas vou precisar de ajuda para
+      programar meu corpo.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9426244399105
+    m_Localized: "Vamos precisar dar umas voltas por a\xED."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9426244399106
+    m_Localized: "Voc\xEA pode me ajudar?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9426244399107
+    m_Localized: "Vamos praticar alguns giros, para ver se meus sensores ainda est\xE3o
+      funcionando."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9426248593408
+    m_Localized: Tenho uma formulinha nova para te ajudar!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9426248593409
+    m_Localized: Repita esquerda 4 vezes e depois frente.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9426248593410
+    m_Localized: Ai repita direita 5 vezes e depois frente
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9426252787712
+    m_Localized: "N\xE3o esque\xE7a de marcar o in\xEDcio e fim do c\xF3digo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9436986011648
+    m_Localized: "Boa not\xEDcia: os motores do Mark est\xE3o funcionando de novo!
+      Vamos ver se ele consegue dar uma volta pela sala."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9436990205952
+    m_Localized: "Voc\xEA pode me ajudar a guiar o Mark?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9436990205953
+    m_Localized: "Programe o Mark para desviar de um obst\xE1culo."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9436990205954
+    m_Localized: "Ele precisa dar a volta nesse pilar e voltar para o lugar onde
+      come\xE7ou."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9436994400256
+    m_Localized: Para fazer a primeira curva, o Mark precisa andar duas vezes para
+      frente e uma vez para a esquerda.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9436994400257
+    m_Localized: "Coloque um bloco de loop e controle qual a sequ\xEAncia de blocos
+      que voc\xEA quer repetir juntos."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 9436994400258
+    m_Localized: "N\xE3o se esque\xE7a de colocar um bloco para come\xE7ar e outro
+      para terminar o c\xF3digo!"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

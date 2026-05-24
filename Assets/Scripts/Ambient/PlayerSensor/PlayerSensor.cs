@@ -41,7 +41,7 @@ namespace SSPot
 
         [SerializeField] private bool playAudioClip;
         [ShowIf("playAudioClip")] [SerializeField]
-        private AudioObject[] clips;
+        private string[] clips;
         
         [SerializeField] private bool sendDebugMessage;
         [ShowIf("sendDebugMessage")] [SerializeField] [ResizableTextArea]
