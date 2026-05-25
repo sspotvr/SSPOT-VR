@@ -32,11 +32,11 @@ public class Voice : MonoBehaviour
 
 	public void EnableNarrator()
 	{
+		enableNarrator = true;
 		if (lastRequest != null && lastRequest.Length > 0)
         {
             _ = Speak(lastRequest);
         }
-		enableNarrator = true;
 	}
 
 	public bool IsSpeakig()
@@ -125,7 +125,18 @@ public class Voice : MonoBehaviour
 
 	public void StopSpeaking()
 	{
-		narrationQueue.Clear();
+		if (currentActiveJob.tcs != null)
+		{
+			currentActiveJob.tcs.TrySetResult(false);
+			currentActiveJob = (null, null);
+		}
+
+		while (narrationQueue.Count > 0)
+		{
+			var pending = narrationQueue.Dequeue();
+			pending.tcs?.TrySetResult(false);
+		}
+
 		source.Stop();
 		StopAllCoroutines();
 		subtitles.ClearSubtitle();
@@ -161,6 +172,9 @@ public class Voice : MonoBehaviour
 
 	private IEnumerator ProcessNarrationQueue()
     {
+        // 1. Espera o sistema de Localization acordar
+        yield return LocalizationSettings.InitializationOperation;
+        
         isPlaying = true;
         subtitleBox.SetActive(true);
 
@@ -168,35 +182,103 @@ public class Voice : MonoBehaviour
         {
             currentActiveJob = narrationQueue.Dequeue();
 
-            foreach (string key in currentActiveJob.keys)
+            foreach (string rawKey in currentActiveJob.keys)
             {
-                // Carregamento Assíncrono do Unity Localization
-                var stringOperation = LocalizationSettings.StringDatabase.GetLocalizedStringAsync(SUBTITLE_TABLE, key);
-                var audioOperation = LocalizationSettings.AssetDatabase.GetLocalizedAssetAsync<AudioClip>(AUDIO_TABLE, key);
+                string safeKey = rawKey.Trim();
+                
+                // --------------------------------------------------------
+                // PASSO 1: CARREGAR AS TABELAS INTEIRAS (Muito mais seguro)
+                // --------------------------------------------------------
+                var stringTableOp = LocalizationSettings.StringDatabase.GetTableAsync(SUBTITLE_TABLE);
+                var audioTableOp = LocalizationSettings.AssetDatabase.GetTableAsync(AUDIO_TABLE);
+                
+                yield return stringTableOp;
+                yield return audioTableOp;
 
-                // Espera as duas operações terminarem
-                yield return stringOperation;
-                yield return audioOperation;
+                // Checa se os nomes SUBTITLE_TABLE e AUDIO_TABLE estão corretos
+                if (!stringTableOp.IsValid() || stringTableOp.Status != UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationStatus.Succeeded)
+                {
+                    Debug.LogError($"Tabela de legendas '{SUBTITLE_TABLE}' não encontrada no banco do Unity!");
+                    continue; 
+                }
 
-                string subToDisplay = stringOperation.Result;
-                AudioClip clipToPlay = audioOperation.Result;
+                if (!audioTableOp.IsValid() || audioTableOp.Status != UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationStatus.Succeeded)
+                {
+                    Debug.LogError($"Tabela de áudios '{AUDIO_TABLE}' não encontrada no banco do Unity!");
+                    continue; 
+                }
 
-                if (clipToPlay != null && !string.IsNullOrEmpty(subToDisplay))
+                // --------------------------------------------------------
+                // PASSO 2: BUSCAR AS CHAVES DENTRO DAS TABELAS
+                // --------------------------------------------------------
+                var stringTable = stringTableOp.Result;
+                var audioTable = audioTableOp.Result;
+
+                var stringEntry = stringTable.GetEntry(safeKey);
+                var audioEntry = audioTable.GetEntry(safeKey);
+
+                string subToDisplay = "";
+                AudioClip clipToPlay = null;
+
+                // --- TRATA A LEGENDA ---
+                if (stringEntry == null)
+                {
+                    Debug.LogError($"A tabela '{SUBTITLE_TABLE}' existe, mas a chave '{safeKey}' NÃO ESTÁ nela!");
+                }
+                else
+                {
+                    subToDisplay = stringEntry.GetLocalizedString();
+                }
+
+                // --- TRATA O ÁUDIO ---
+                if (audioEntry == null)
+                {
+                    Debug.LogError($"A tabela '{AUDIO_TABLE}' existe, mas a chave '{safeKey}' NÃO ESTÁ nela!");
+                }
+                else
+                {
+                    // Como a chave realmente existe na tabela de áudio, agora é 100% seguro baixar o .mp3
+                    var loadAudioOp = LocalizationSettings.AssetDatabase.GetLocalizedAssetAsync<AudioClip>(AUDIO_TABLE, safeKey);
+                    yield return loadAudioOp;
+
+                    if (loadAudioOp.IsValid() && loadAudioOp.Status == UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationStatus.Succeeded)
+                    {
+                        clipToPlay = loadAudioOp.Result;
+                    }
+                    else
+                    {
+                        Debug.LogError($"A chave '{safeKey}' existe, mas o Unity falhou ao carregar o arquivo físico de áudio.");
+                    }
+                }
+
+                // --------------------------------------------------------
+                // PASSO 3: TOCAR O ÁUDIO E EXIBIR A LEGENDA
+                // --------------------------------------------------------
+                if (clipToPlay != null)
                 {
                     source.clip = clipToPlay;
                     source.PlayOneShot(clipToPlay);
-                    subtitles.DisplaySubtitle(subToDisplay, clipToPlay.length);
+                    
+                    // Exibe a legenda se tiver encontrado
+                    if (!string.IsNullOrEmpty(subToDisplay))
+                    {
+                        subtitles.DisplaySubtitle(subToDisplay, clipToPlay.length);
+                    }
                     
                     yield return new WaitForSeconds(clipToPlay.length + 0.5f);
                     subtitles.ClearSubtitle();
                 }
                 else
                 {
-                    Debug.LogWarning($"Narração faltando para a chave: {key}");
+                    Debug.LogWarning($"A fala '{safeKey}' não tocou porque o áudio é nulo.");
                 }
             }
 
-            currentActiveJob.tcs.TrySetResult(true); 
+            // Avisa quem pediu a narração que este bloco terminou
+            if (currentActiveJob.tcs != null) 
+            {
+                currentActiveJob.tcs.TrySetResult(true); 
+            }
             currentActiveJob = (null, null);
         }
         
