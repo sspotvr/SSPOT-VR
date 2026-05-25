@@ -71,6 +71,18 @@ MonoBehaviour:
     m_Key: FullscreenSetting
     m_Metadata:
       m_Items: []
+  - m_Id: 456377146549661696
+    m_Key: YesVRSetting
+    m_Metadata:
+      m_Items: []
+  - m_Id: 456377149947047936
+    m_Key: NoVRSetting
+    m_Metadata:
+      m_Items: []
+  - m_Id: 456377151616380928
+    m_Key: VRSetting
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
