@@ -6,14 +6,10 @@ using SSPot;
 public class GoingUpAndDownController : MonoBehaviourPun
 {
     // GameObjects
-    public GameObject instructionsCodingPlatform;   // Elevator instructions blackboard GameObject
     public GameObject instructionsInitial;          // Initial instructions blackboard GameObject
     public GameObject instructionsProgramming;      // Programming instructions blackboard GameObject  
     public GameObject plataformTeleport;
     public GameObject plataformTeleport2;
-
-	private bool firstTime = true;
-	[SerializeField] string[] clips;
 
     private GoingDown goingDownScript;
     private GoingUp goingUpScript;
@@ -81,24 +77,31 @@ public class GoingUpAndDownController : MonoBehaviourPun
     [PunRPC]
     private void GoUpRpc()
     {
-		if (firstTime)
-		{
-			Voice.instance.Speak(clips);
-		}
+		if (PlayerSetup.Local != null)
+        {
+            var verticalMovement = PlayerSetup.Local.GetComponent<VerticalMovementPlayer>();
+            if (verticalMovement != null)
+            {
+                verticalMovement.movement = Movement.Up;
+            }
+            else
+            {
+                Debug.LogWarning("PlayerSetup.Local não possui o componente VerticalMovementPlayer!");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Tentou acionar GoUpRpc, mas PlayerSetup.Local está nulo!");
+        }
 
-		firstTime = false;
-
-		// Enable GoingUp
-        PlayerSetup.Local.GetComponent<VerticalMovementPlayer>().movement = Movement.Up;
-        goingUpScript.enabled = true;
+        if (goingUpScript != null) goingUpScript.enabled = true;
 
         // Setup GameObjects
-        instructionsCodingPlatform.SetActive(false);
-        instructionsInitial.SetActive(false);
-        instructionsProgramming.SetActive(true);
+        if (instructionsInitial != null) instructionsInitial.SetActive(false);
+        if (instructionsProgramming != null) instructionsProgramming.SetActive(true);
 
-        plataformTeleport.SetActive(false);
-        plataformTeleport2.SetActive(false);
+        if (plataformTeleport != null) plataformTeleport.SetActive(false);
+        if (plataformTeleport2 != null) plataformTeleport2.SetActive(false);
     }
 
     /// <summary>
@@ -112,15 +115,21 @@ public class GoingUpAndDownController : MonoBehaviourPun
     [PunRPC]
     private void GoDownRpc()
     {
-        // Enable GoingDown
-        PlayerSetup.Local.GetComponent<VerticalMovementPlayer>().movement = Movement.Down;
-        PlayerSetup.Local.isUp = false;
-        goingUpScript.enabled = false;
-        goingDownScript.enabled = true;
+        if (PlayerSetup.Local != null)
+        {
+            var verticalMovement = PlayerSetup.Local.GetComponent<VerticalMovementPlayer>();
+            if (verticalMovement != null)
+            {
+                verticalMovement.movement = Movement.Down;
+            }
+            PlayerSetup.Local.isUp = false;
+        }
+
+        if (goingUpScript != null) goingUpScript.enabled = false;
+        if (goingDownScript != null) goingDownScript.enabled = true;
 
         // Setup GameObjects
-        instructionsCodingPlatform.SetActive(true);
-        instructionsProgramming.SetActive(false);
-        instructionsInitial.SetActive(true);
+        if (instructionsProgramming != null) instructionsProgramming.SetActive(false);
+        if (instructionsInitial != null) instructionsInitial.SetActive(true);
     }
 }

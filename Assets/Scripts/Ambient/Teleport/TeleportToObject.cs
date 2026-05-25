@@ -64,13 +64,17 @@ public class TeleportToObject : MonoBehaviourPun
         PlayerTeleported?.Invoke();
         print("Invocou!");
         
-        if(isElevator){ 
-            ElevatorSync.instance.AddPlayerOnElevator();
-        }
-        else
-        {
-            if(ElevatorSync.instance != null) ElevatorSync.instance.RemovePlayerOnElevator();
-        }
+        if (ElevatorSync.instance != null)
+            {
+                if (isElevator)
+                { 
+                    ElevatorSync.instance.AddPlayerOnElevator();
+                }
+                else
+                {
+                    ElevatorSync.instance.RemovePlayerOnElevator();
+                }
+            }
 
         print("Tocando audio");
         if (playAudioOnTeleport) AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);

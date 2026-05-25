@@ -7,8 +7,7 @@ namespace SSPot
 {
     public class SpeakAtStart : MonoBehaviour
     {
-		[SerializeField] string[] clipsP1;
-		[SerializeField] string[] clipsP2;
+		[SerializeField] string[] clips;
 		public static SpeakAtStart instance;
 
 		public void Awake()
@@ -28,10 +27,7 @@ namespace SSPot
 
 		public void StartSpeaking()
         {
-			if (PhotonNetwork.IsMasterClient)
-				Voice.instance.Speak(clipsP1);
-			else
-				Voice.instance.Speak(clipsP2);
+			Voice.instance.Speak(clips);
 		}
 	}
 }
