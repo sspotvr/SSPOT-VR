@@ -74,6 +74,18 @@ MonoBehaviour:
     m_Localized: Tela cheia
     m_Metadata:
       m_Items: []
+  - m_Id: 456377146549661696
+    m_Localized: Sim
+    m_Metadata:
+      m_Items: []
+  - m_Id: 456377149947047936
+    m_Localized: "N\xE3o"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 456377151616380928
+    m_Localized: Modo VR
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
