@@ -207,6 +207,26 @@ MonoBehaviour:
     m_Key: Level-3_code.3
     m_Metadata:
       m_Items: []
+  - m_Id: 134646930272256
+    m_Key: Labirinto_start.1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 134647068684288
+    m_Key: Labirinto_start.2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 134647068684289
+    m_Key: Labirinto_start.3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 134647068684290
+    m_Key: Labirinto_start.4
+    m_Metadata:
+      m_Items: []
+  - m_Id: 134647072878592
+    m_Key: Labirinto_start.5
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

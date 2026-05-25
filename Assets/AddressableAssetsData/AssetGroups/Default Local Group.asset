@@ -45,6 +45,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 113be0f689a2a5141b93be4a64e79b85
+    m_Address: Assets/Narration/Audios/Labirinto/start.3pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 114c6065644b3da42be3c28b831effbf
     m_Address: Assets/Narration/Audios/Tutorial/p1.1.2pt_br.mp3
     m_ReadOnly: 0
@@ -52,6 +57,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 1260c687d68346f41b6a9d9b15610540
     m_Address: Assets/Narration/Audios/Level-3/code.2en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 13d8837887e5a07469bfd10cd0f4709c
+    m_Address: Assets/Narration/Audios/Labirinto/start.5pt_br.mp3
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -115,6 +125,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 31e2be8433975f94e9457bd6213a4264
+    m_Address: Assets/Narration/Audios/Labirinto
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 32e001c0e2c395848b51faf4f9032425
     m_Address: Assets/Narration/Audios/Tutorial/p1.1.1pt_br.mp3
     m_ReadOnly: 0
@@ -165,6 +180,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4a773c49be0bdec4cbe19f2b6aeabb04
+    m_Address: Assets/Narration/Audios/Labirinto/start.4pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4ade539f5e1620141bb87db129e4e855
     m_Address: Assets/Narration/Audios/Tutorial/p1.3pt_br.mp3
     m_ReadOnly: 0
@@ -197,6 +217,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 62676e1b93a9b6b43b15e5e49985880b
     m_Address: Assets/Narration/Audios/Level-3/line.2pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 626956f2a1e877e4eacea3def1f39067
+    m_Address: Assets/Narration/Audios/Labirinto/start.2en_us.mp3
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -315,6 +340,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8ea6a026adaf6e94d9a6ce60b8cbd84c
+    m_Address: Assets/Narration/Audios/Labirinto/start.5en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9204ece9296b55b40af05884feeadb7c
     m_Address: Assets/Narration/Audios/Level-2/code.3pt_br.mp3
     m_ReadOnly: 0
@@ -322,6 +352,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9298c9c355b742743b4a0b5fdc0f7885
     m_Address: Assets/Narration/Audios/Level-3/code.1en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 946ce51137c64c0439cc1b5eaf80fb2e
+    m_Address: Assets/Narration/Audios/Labirinto/start.3en_us.mp3
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -400,6 +435,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bd373078d072f4343b21083166f71854
+    m_Address: Assets/Narration/Audios/Labirinto/start.4en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c06e9063632eed740be8d4fffdda49b8
     m_Address: Assets/Narration/Audios/Level-2/line.1pt_br.mp3
     m_ReadOnly: 0
@@ -422,6 +462,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c6ca832d4a925e94587dc62a80eba557
     m_Address: Assets/Narration/Audios/Level-1/line-1en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c76ce314d87b60a4db3fe83c0bd15b92
+    m_Address: Assets/Narration/Audios/Labirinto/start.2pt_br.mp3
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -485,6 +530,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ec97f1858b7132146abb88456661514b
+    m_Address: Assets/Narration/Audios/Labirinto/start.1pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ed4e7d7edfb654c4e869359f6aa2ea83
     m_Address: Assets/Narration/Audios/Level-3/start.1en_us.mp3
     m_ReadOnly: 0
@@ -532,6 +582,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fad509d71c5c0d04ea0e0a3fd177dfa7
     m_Address: Assets/Narration/Audios/Tutorial/config.1en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fc8bb05d3cfcc5b44934b6c2bb128288
+    m_Address: Assets/Narration/Audios/Labirinto/start.1en_us.mp3
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

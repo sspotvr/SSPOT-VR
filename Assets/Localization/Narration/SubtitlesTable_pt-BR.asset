@@ -238,6 +238,30 @@ MonoBehaviour:
       para terminar o c\xF3digo!"
     m_Metadata:
       m_Items: []
+  - m_Id: 134646930272256
+    m_Localized: "Parab\xE9ns por ter chegado at\xE9 aqui! Acho que meu corpo est\xE1
+      funcionando bem."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 134647068684288
+    m_Localized: "Est\xE1 na hora do seu maior desafio at\xE9 agora: o Mark est\xE1
+      preso neste labirinto!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 134647068684289
+    m_Localized: "Voc\xEAs ter\xE3o que trabalhar juntos para me ajudar a encontrar
+      a sa\xEDda!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 134647068684290
+    m_Localized: "No entanto, apenas um de voc\xEAs consegue ver o labirinto por
+      vez, ent\xE3o ter\xE3o que se comunicar para resolver este desafio!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 134647072878592
+    m_Localized: Enquanto isso, o outro programa o algoritmo. Boa sorte!
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

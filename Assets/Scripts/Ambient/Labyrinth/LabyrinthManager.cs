@@ -59,6 +59,7 @@ namespace SSPot.Ambient.Labyrinth
         
         private static void ReportSuccess() => LevelManager.Instance.ReportResult(LevelResult.Success());
 
+
         private void SwitchPlayers()
         {
             //TODO ideally instructions should be stored in the manager itself
@@ -97,6 +98,7 @@ namespace SSPot.Ambient.Labyrinth
             
             // Listen to objective
             objective.SteppedOnEvent.AddListener(ReportSuccess);
+            PlayerSetup.Local.isUp = true;
         }
         
         private void OnEnable()

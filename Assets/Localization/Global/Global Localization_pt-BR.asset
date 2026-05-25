@@ -44,7 +44,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 3309349306368
-    m_Localized: "Clique aqui\npara pasar\nde n\xEDvel"
+    m_Localized: "Clique aqui\npara passar\nde n\xEDvel"
     m_Metadata:
       m_Items: []
   - m_Id: 11396240048128
@@ -97,4 +97,7 @@ MonoBehaviour:
     - rid: 6199766798708244504
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 00e0d25e54ef900300e0928278f59003
+        m_Entries: 
+        m_SharedEntries:
+        - id: 256968324407287808
+        - id: 256975076695662592

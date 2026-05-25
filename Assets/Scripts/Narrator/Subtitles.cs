@@ -16,7 +16,7 @@ namespace SSPot
             if (typingCoroutine != null) StopCoroutine(typingCoroutine);
             
             string processedText = FormatText(text);
-            float calculatedSpeed = (audioDuration > 0.9f) ? (audioDuration - 0.8f) / processedText.Length : 0.03f;
+            float calculatedSpeed = (audioDuration > 1.1f) ? (audioDuration - 1f) / processedText.Length : 0.02f;
 
             typingCoroutine = StartCoroutine(TypeText(processedText, calculatedSpeed));
         }

@@ -89,30 +89,32 @@ namespace SSpot.Robot
 			var fromCell = GridPosition;
 			var toCell = fromCell + Facing;
 
-			//I think it could be cute to have an animation for failed moves, like a head nod or a stumble
-			if (!Grid.InGrid(toCell))
+			if (!Grid.InGrid(toCell) || !Grid[toCell].CanWalk)
 			{
 				OnFailedToMove?.Invoke();
 				yield break;
 			}
-
-			if (!Grid[toCell].CanWalk)
-			{
-				OnFailedToMove?.Invoke();
-				yield break;
-			}
-
 
 			Vector3 from = Grid.GetCellCenterWorld(fromCell);
 			Vector3 to = Grid.GetCellCenterWorld(toCell);
 
 			_animator.StartWalking();
 			StepSound();
-			yield return new WaitForEndOfFrame();
+            
+			yield return null; 
 
-			float duration = useClipDuration
-				? _animator.Animator.GetNextAnimatorStateInfo(0).length
-				: walkTime;
+			float duration = walkTime;
+			if (useClipDuration)
+			{
+				var animState = _animator.Animator.IsInTransition(0) 
+					? _animator.Animator.GetNextAnimatorStateInfo(0) 
+					: _animator.Animator.GetCurrentAnimatorStateInfo(0);
+					
+				duration = animState.length;
+                
+				if (duration <= 0.1f) duration = walkTime; 
+			}
+            
 			yield return CoroutineUtilities.SmoothCoroutine(duration, t => transform.position = Vector3.Lerp(from, to, t));
 
 			_animator.StopWalking();
@@ -144,10 +146,18 @@ namespace SSpot.Robot
 			Vector2Int target = left ? Facing.RotateCounterClockwise() : Facing.RotateClockwise();
 			Vector3 targetForward = new(target.x, 0, target.y);
 
-			yield return new WaitForEndOfFrame();
-			float duration = useClipDuration
-				? _animator.Animator.GetNextAnimatorStateInfo(0).length
-				: turnTime;
+			yield return null; 
+            
+			float duration = turnTime;
+			if (useClipDuration)
+			{
+				var animState = _animator.Animator.IsInTransition(0) 
+					? _animator.Animator.GetNextAnimatorStateInfo(0) 
+					: _animator.Animator.GetCurrentAnimatorStateInfo(0);
+					
+				duration = animState.length;
+				if (duration <= 0.1f) duration = turnTime; 
+			}
 
 			yield return CoroutineUtilities.SmoothCoroutine(duration,
 				t => transform.forward = Vector3.Slerp(originalForward, targetForward, t));

@@ -231,6 +231,29 @@ MonoBehaviour:
       code!"
     m_Metadata:
       m_Items: []
+  - m_Id: 134646930272256
+    m_Localized: Congratulations on making it this far! I think my body is working
+      well.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 134647068684288
+    m_Localized: "It\u2019s time for your biggest challenge yet: Mark is trapped
+      in this maze!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 134647068684289
+    m_Localized: You will have to work together to help me find the exit!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 134647068684290
+    m_Localized: "However, only one of you can see the maze at a time, so you\u2019ll
+      need to communicate to solve this challenge!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 134647072878592
+    m_Localized: Meanwhile, the other one programs the algorithm. Good luck!
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

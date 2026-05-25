@@ -5893,7 +5893,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teleportLocationMesh: {fileID: 1717716194}
   isForPlayer1: 0
-  isElevator: 0
+  isElevator: 1
   opensDoor: 0
   door: {fileID: 0}
   clips:
