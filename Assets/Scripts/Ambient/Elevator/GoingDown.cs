@@ -18,7 +18,6 @@ public class GoingDown : MonoBehaviour
             transform.Translate(0f, -speed * Time.deltaTime, 0f, Space.World);
         // Else, stop movement and disable this
         else{
-            print("Desci!");
             OnReachedDestination?.Invoke();
             this.enabled = false;
         }

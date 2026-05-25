@@ -7643,6 +7643,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: cb9bbea6a07fb17409dbf8ea7c840af2, type: 3}
   m_PrefabInstance: {fileID: 1717716191}
   m_PrefabAsset: {fileID: 0}
+--- !u!23 &1717716194 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2300000, guid: cb9bbea6a07fb17409dbf8ea7c840af2, type: 3}
+  m_PrefabInstance: {fileID: 1717716191}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1717716195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7655,7 +7660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2ed87f0821f07d42835cdd596dca750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  teleportLocationMesh: {fileID: 1948088693}
+  teleportLocationMesh: {fileID: 1717716194}
   isForPlayer1: 0
   isElevator: 1
   opensDoor: 0

@@ -60,23 +60,27 @@ public class TeleportToObject : MonoBehaviourPun
     public async Task OnPointerClick()
     {
         PlayerSetup.Local.transform.position = transform.position;
-        print("Teleported!!");
+        Debug.Log("Teleportado!");
         PlayerTeleported?.Invoke();
-        print("Invocou!");
         
         if (ElevatorSync.instance != null)
-            {
-                if (isElevator)
-                { 
-                    ElevatorSync.instance.AddPlayerOnElevator();
-                }
-                else
-                {
-                    ElevatorSync.instance.RemovePlayerOnElevator();
-                }
+        {
+            Debug.Log("Atualizando elevador");
+            if (isElevator)
+            { 
+                ElevatorSync.instance.AddPlayerOnElevator();
             }
+            else
+            {
+                ElevatorSync.instance.RemovePlayerOnElevator();
+            }
+        }
+        else
+        {
+            Debug.Log("Não encontrei o elevator sync");
+        }
 
-        print("Tocando audio");
+        Debug.Log("Tocando Audio!");
         if (playAudioOnTeleport) AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);
         if(firstTime && clips.Length != 0) await Voice.instance.Speak(clips);
 
