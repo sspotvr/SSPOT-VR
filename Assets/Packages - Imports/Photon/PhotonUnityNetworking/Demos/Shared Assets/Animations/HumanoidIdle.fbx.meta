@@ -1377,3 +1377,11 @@ ModelImporter:
   additionalBone: 0
   userData: 
   assetBundleName: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 184219
+  packageName: LOW POLY ASTRONAULTS
+  packageVersion: 1.0
+  assetPath: Assets/Packages - Imports/Photon/PhotonUnityNetworking/Demos/Shared
+    Assets/Animations/HumanoidIdle.fbx
+  uploadId: 404320
