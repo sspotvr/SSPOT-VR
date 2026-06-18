@@ -15,7 +15,7 @@ public class FCPPersistence : MonoBehaviour {
     public enum SaveStrategy {
         SessionOnly, //Do not permanently save, but only for scene loading and some special cases
         File, //save data to a single textfile in persistent data
-        PlayerPrefs, //save html strings to individual playerpref slots
+        PlayerPrefs, //save HTML strings to individual playerpref slots
     }
 
     private FlexibleColorPicker fcp;
@@ -31,11 +31,9 @@ public class FCPPersistence : MonoBehaviour {
     }
 
     private void InitStatic() {
-        if(saveFilePath == null)
-            saveFilePath = Path.Combine(Application.persistentDataPath, "FCP_SavedColors.txt");
+        saveFilePath ??= Path.Combine(Application.persistentDataPath, "FCP_SavedColors.txt");
 
-        if(savedColors == null)
-            savedColors = new Dictionary<string, Color>(); 
+        savedColors ??= new Dictionary<string, Color>(); 
 
         if(!saveFileLoaded & saveStrategy == SaveStrategy.File) {
             LoadDataFile();
@@ -64,12 +62,11 @@ public class FCPPersistence : MonoBehaviour {
 
     private void LoadDataFile() {
         string[] data = File.ReadAllLines(saveFilePath);
-        Color c;
         foreach(string d in data) {
             int split = d.LastIndexOf('#');
             if(split >= 0)
-            { 
-                if(ColorUtility.TryParseHtmlString(d.Substring(split, d.Length - split), out c))
+            {
+                if(ColorUtility.TryParseHtmlString(d.Substring(split, d.Length - split), out Color c))
                     savedColors.Add(d.Substring(0, split), c);
             }
         }

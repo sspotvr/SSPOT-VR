@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace AstronautThirdPersonCamera
@@ -7,17 +5,17 @@ namespace AstronautThirdPersonCamera
 
   public class AstronautThirdPersonCamera : MonoBehaviour
   {
-    private const float Y_ANGLE_MIN = 0.0f;
-    private const float Y_ANGLE_MAX = 50.0f;
+    private const float YAngleMin = 0.0f;
+    private const float YAngleMax = 50.0f;
 
     public Transform lookAt;
     public Transform camTransform;
     public float distance = 5.0f;
 
-    private float currentX = 0.0f;
+    private float currentX;
     private float currentY = 45.0f;
-    private float sensitivityX = 20.0f;
-    private float sensitivityY = 20.0f;
+    // private float sensitivityX = 20.0f;
+    // private float sensitivityY = 20.0f;
 
     private void Start()
     {
@@ -29,7 +27,7 @@ namespace AstronautThirdPersonCamera
         currentX += Input.GetAxis("Mouse X");
         currentY += Input.GetAxis("Mouse Y");
 
-        currentY = Mathf.Clamp(currentY, Y_ANGLE_MIN, Y_ANGLE_MAX);
+        currentY = Mathf.Clamp(currentY, YAngleMin, YAngleMax);
     }
 
     private void LateUpdate()

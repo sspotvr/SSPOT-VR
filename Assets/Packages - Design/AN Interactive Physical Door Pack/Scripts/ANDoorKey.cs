@@ -1,34 +1,32 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class AN_DoorKey : MonoBehaviour
+public class ANDoorKey : MonoBehaviour
 {
     [Tooltip("True - red key object, false - blue key")]
     public bool isRedKey = true;
-    AN_HeroInteractive hero;
+    private ANHeroInteractive hero;
 
     // NearView()
-    float distance;
-    float angleView;
-    Vector3 direction;
+    private float distance;
+    private float angleView;
+    private Vector3 direction;
 
     private void Start()
     {
-        hero = FindObjectOfType<AN_HeroInteractive>(); // key will get up and it will saved in "inventary"
+        hero = FindAnyObjectByType<ANHeroInteractive>(); // key will get up and it will be saved in "inventory"
     }
 
-    void Update()
+    private void Update()
     {
         if ( NearView() && Input.GetKeyDown(KeyCode.E) )
         {
-            if (isRedKey) hero.RedKey = true;
-            else hero.BlueKey = true;
+            if (isRedKey) hero.redKey = true;
+            else hero.blueKey = true;
             Destroy(gameObject);
         }
     }
 
-    bool NearView() // it is true if you near interactive object
+    private bool NearView() // it is true if you near interactive object
     {
         distance = Vector3.Distance(transform.position, Camera.main.transform.position);
         direction = transform.position - Camera.main.transform.position;

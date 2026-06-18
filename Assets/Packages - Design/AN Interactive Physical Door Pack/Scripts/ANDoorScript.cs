@@ -1,78 +1,75 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class AN_DoorScript : MonoBehaviour
+public class ANDoorScript : MonoBehaviour
 {
     [Tooltip("If it is false door can't be used")]
-    public bool Locked = false;
+    public bool locked;
     [Tooltip("It is true for remote control only")]
-    public bool Remote = false;
+    public bool remote;
     [Space]
     [Tooltip("Door can be opened")]
-    public bool CanOpen = true;
+    public bool canOpen = true;
     [Tooltip("Door can be closed")]
-    public bool CanClose = true;
+    public bool canClose = true;
     [Space]
-    [Tooltip("Door locked by red key (use key script to declarate any object as key)")]
-    public bool RedLocked = false;
-    public bool BlueLocked = false;
+    [Tooltip("Door locked by red key (use key script to declare any object as key)")]
+    public bool redLocked;
+    public bool blueLocked;
     [Tooltip("It is used for key script working")]
-    AN_HeroInteractive HeroInteractive;
+    private ANHeroInteractive heroInteractive;
     [Space]
-    public bool isOpened = false;
+    public bool isOpened;
     [Range(0f, 4f)]
     [Tooltip("Speed for door opening, degrees per sec")]
-    public float OpenSpeed = 3f;
+    public float openSpeed = 3f;
 
     // NearView()
-    float distance;
+    private float distance;
     float angleView;
-    Vector3 direction;
+    private Vector3 direction;
 
     // Hinge
     [HideInInspector]
     public Rigidbody rbDoor;
-    HingeJoint hinge;
-    JointLimits hingeLim;
-    float currentLim;
+    private HingeJoint hinge;
+    private JointLimits hingeLim;
+    private float currentLim;
 
-    void Start()
+    private void Start()
     {
         rbDoor = GetComponent<Rigidbody>();
         hinge = GetComponent<HingeJoint>();
-        HeroInteractive = FindObjectOfType<AN_HeroInteractive>();
+        heroInteractive = FindAnyObjectByType<ANHeroInteractive>();
     }
 
-    void Update()
+    private void Update()
     {
-        if ( !Remote && Input.GetKeyDown(KeyCode.E) && NearView() )
+        if ( !remote && Input.GetKeyDown(KeyCode.E) && NearView() )
             Action();
-        
     }
 
     public void Action() // void to open/close door
     {
-        if (!Locked)
+        if (!locked)
         {
             // key lock checking
-            if (HeroInteractive != null && RedLocked && HeroInteractive.RedKey)
+            if (heroInteractive && redLocked && heroInteractive.redKey)
             {
-                RedLocked = false;
-                HeroInteractive.RedKey = false;
+                redLocked = false;
+                heroInteractive.redKey = false;
             }
-            else if (HeroInteractive != null && BlueLocked && HeroInteractive.BlueKey)
+            else if (heroInteractive && blueLocked && heroInteractive.blueKey)
             {
-                BlueLocked = false;
-                HeroInteractive.BlueKey = false;
+                blueLocked = false;
+                heroInteractive.blueKey = false;
             }
             
             // opening/closing
-            if (isOpened && CanClose && !RedLocked && !BlueLocked)
+            if (isOpened && canClose && !redLocked && !blueLocked)
             {
                 isOpened = false;
             }
-            else if (!isOpened && CanOpen && !RedLocked && !BlueLocked)
+            else if (!isOpened && canOpen && !redLocked && !blueLocked)
             {
                 isOpened = true;
                 rbDoor.AddRelativeTorque(new Vector3(0, 0, 20f)); 
@@ -81,13 +78,12 @@ public class AN_DoorScript : MonoBehaviour
         }
     }
 
-    bool NearView() // it is true if you near interactive object
+    private bool NearView() // it is true if you near interactive object
     {
         distance = Vector3.Distance(transform.position, Camera.main.transform.position);
         direction = transform.position - Camera.main.transform.position;
         angleView = Vector3.Angle(Camera.main.transform.forward, direction);
-        if (distance < 3f) return true; // angleView < 35f && 
-        else return false;
+        return distance < 3f; // angleView < 35f && 
     }
 
     private void FixedUpdate() // door is physical object
@@ -98,9 +94,9 @@ public class AN_DoorScript : MonoBehaviour
         }
         else
         {
-            // currentLim = hinge.angle; // door will closed from current opened angle
+            // currentLim = hinge.angle; // door will be closed from current opened angle
             if (currentLim > 1f)
-                currentLim -= .5f * OpenSpeed;
+                currentLim -= .5f * openSpeed;
         }
 
         // using values to door object

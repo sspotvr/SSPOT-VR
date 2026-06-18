@@ -1,74 +1,76 @@
 ﻿using UnityEngine;
 
-public class AN_Button : MonoBehaviour
+public class ANButton : MonoBehaviour
 {
+    private static readonly int LeverUp = Animator.StringToHash("LeverUp");
+    private static readonly int ButtonPress = Animator.StringToHash("ButtonPress");
+
     [Tooltip("True for rotation like valve (used for ramp/elevator only)")]
-    public bool isValve = false;
+    public bool isValve;
     [Tooltip("SelfRotation speed of valve")]
-    public float ValveSpeed = 10f;
+    public float valveSpeed = 10f;
     [Tooltip("If it isn't valve, it can be lever or button (animated)")]
-    public bool isLever = false;
+    public bool isLever;
     [Tooltip("If it is false door can't be used")]
-    public bool Locked = false;
+    public bool locked;
     [Tooltip("The door for remote control")]
-    public AN_DoorScript DoorObject;
+    public ANDoorScript doorObject;
     [Space]
-    [Tooltip("Any object for ramp/elevator baheviour")]
-    public Transform RampObject;
+    [Tooltip("Any object for ramp/elevator behaviour")]
+    public Transform rampObject;
     [Tooltip("Door can be opened")]
-    public bool CanOpen = true;
+    public bool canOpen = true;
     [Tooltip("Door can be closed")]
-    public bool CanClose = true;
+    public bool canClose = true;
     [Tooltip("Current status of the door")]
-    public bool isOpened = false;
+    public bool isOpened;
     [Space]
     [Tooltip("True for rotation by X local rotation by valve")]
     public bool xRotation = true;
-    [Tooltip("True for vertical movenment by valve (if xRotation is false)")]
-    public bool yPosition = false;
-    public float max = 90f, min = 0f, speed = 5f;
-    bool valveBool = true;
-    float current, startYPosition;
-    Quaternion startQuat, rampQuat;
+    [Tooltip("True for vertical movement by valve (if xRotation is false)")]
+    public bool yPosition;
+    public float max = 90f, min, speed = 5f;
+    private bool valveBool = true;
+    private float current, startYPosition;
+    private Quaternion startQuat, rampQuat;
 
-    Animator anim;
+    private Animator anim;
 
     // NearView()
-    float distance;
-    float angleView;
-    Vector3 direction;
+    private float distance;
+    private float angleView;
+    private Vector3 direction;
 
-    void Start()
+    private void Start()
     {
         anim = GetComponent<Animator>();
-        startYPosition = RampObject.position.y;
+        startYPosition = rampObject.position.y;
         startQuat = transform.rotation;
-        rampQuat = RampObject.rotation;
+        rampQuat = rampObject.rotation;
     }
 
-    void Update()
+    private void Update()
     {
-        if (!Locked)
+        if (!locked)
         {
-            if (Input.GetKeyDown(KeyCode.E) && !isValve && DoorObject != null && DoorObject.Remote && NearView()) // 1.lever and 2.button
+            if (Input.GetKeyDown(KeyCode.E) && !isValve && doorObject != null && doorObject.remote && NearView()) // 1.lever and 2.button
             {
-                DoorObject.Action(); // void in door script to open/close
+                doorObject.Action(); // void in door script to open/close
                 if (isLever) // animations
                 {
-                    if (DoorObject.isOpened) anim.SetBool("LeverUp", true);
-                    else anim.SetBool("LeverUp", false);
+                    anim.SetBool(LeverUp, doorObject.isOpened);
                 }
-                else anim.SetTrigger("ButtonPress");
+                else anim.SetTrigger(ButtonPress);
             }
-            else if (isValve && RampObject != null) // 3.valve
+            else if (isValve && rampObject) // 3.valve
             {
                 // changing value in script
                 if (Input.GetKey(KeyCode.E) && NearView())
                 {
                     if (valveBool)
                     {
-                        if (!isOpened && CanOpen && current < max) current += speed * Time.deltaTime;
-                        if (isOpened && CanClose && current > min) current -= speed * Time.deltaTime;
+                        if (!isOpened && canOpen && current < max) current += speed * Time.deltaTime;
+                        if (isOpened && canClose && current > min) current -= speed * Time.deltaTime;
 
                         if (current >= max)
                         {
@@ -91,9 +93,9 @@ public class AN_Button : MonoBehaviour
                 }
 
                 // using value on object
-                transform.rotation = startQuat * Quaternion.Euler(0f, 0f, current * ValveSpeed);
-                if (xRotation) RampObject.rotation = rampQuat * Quaternion.Euler(current, 0f, 0f); // I have a doubt in working correctly
-                else if (yPosition) RampObject.position = new Vector3(RampObject.position.x, startYPosition + current, RampObject.position.z);
+                transform.rotation = startQuat * Quaternion.Euler(0f, 0f, current * valveSpeed);
+                if (xRotation) rampObject.rotation = rampQuat * Quaternion.Euler(current, 0f, 0f); // I have a doubt in working correctly
+                else if (yPosition) rampObject.position = new Vector3(rampObject.position.x, startYPosition + current, rampObject.position.z);
             }
         }
     }

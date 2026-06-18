@@ -16,13 +16,13 @@ public class GoingUpAndDownController : MonoBehaviourPun
 
 
     // Boolean variables for controlling
-    private bool isUp = false;                      // Is up boolean
-    private bool isDown = true;                     // Is down boolean
+    private bool isUp;  // Is up boolean
+    private bool isDown = true;  // Is down boolean
 
 
 	private bool firstTime = true;
 
-	[SerializeField] AudioObject[] clips;
+	[SerializeField] private AudioObject[] clips;
 
 	/// <summary>
 	/// Elevator controller. If the platform is on the floor, the goes up. If not, goes down.

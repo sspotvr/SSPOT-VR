@@ -1,48 +1,46 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class AN_PlugScript : MonoBehaviour
+public class ANPlugScript : MonoBehaviour
 {
     [Tooltip("Feature for one using only")]
-    public bool OneTime = false;
+    public bool oneTime;
     [Tooltip("Plug follow this local EmptyObject")]
-    public Transform HeroHandsPosition;
-    [Tooltip("SocketObject with collider(shpere, box etc.) (is trigger = true)")]
-    public Collider Socket; // need Trigger
-    public AN_DoorScript DoorObject;
+    public Transform heroHandsPosition;
+    [Tooltip("SocketObject with collider(sphere, box etc.) (is trigger = true)")]
+    public Collider socket; // need Trigger
+    public ANDoorScript doorObject;
 
     // NearView()
-    float distance;
-    float angleView;
-    Vector3 direction;
+    private float distance;
+    private float angleView;
+    private Vector3 direction;
 
-    bool follow = false, isConnected = false, followFlag = false, youCan = true;
-    Rigidbody rb;
+    private bool follow, isConnected, followFlag, youCan = true;
+    private Rigidbody rb;
 
-    void Start()
+    private void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
-    void Update()
+    public void Update()
     {
         if (youCan) Interaction();
 
         // frozen if it is connected to PowerOut
         if (isConnected)
         {
-            gameObject.transform.position = Socket.transform.position;
-            gameObject.transform.rotation = Socket.transform.rotation;
-            DoorObject.isOpened = true;
+            gameObject.transform.position = socket.transform.position;
+            gameObject.transform.rotation = socket.transform.rotation;
+            doorObject.isOpened = true;
         }
         else
         {
-            DoorObject.isOpened = false;
+            doorObject.isOpened = false;
         }
     }
 
-    void Interaction()
+    protected virtual void Interaction()
     {
         if (NearView() && Input.GetKeyDown(KeyCode.E) && !follow)
         {
@@ -65,7 +63,7 @@ public class AN_PlugScript : MonoBehaviour
             }
 
             followFlag = true;
-            rb.AddExplosionForce(-1000f, HeroHandsPosition.position, 10f);
+            rb.AddExplosionForce(-1000f, heroHandsPosition.position, 10f);
             // second variant of following
             //gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, objectLerp.position, 1f);
         }
@@ -81,18 +79,17 @@ public class AN_PlugScript : MonoBehaviour
         distance = Vector3.Distance(transform.position, Camera.main.transform.position);
         direction = transform.position - Camera.main.transform.position;
         angleView = Vector3.Angle(Camera.main.transform.forward, direction);
-        if (distance < 3f && angleView <35f) return true;
-        else return false;
+        return distance < 3f && angleView <35f;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other == Socket)
+        if (other == socket)
         {
             isConnected = true;
             follow = false;
-            DoorObject.rbDoor.AddRelativeTorque(new Vector3(0, 0, 20f));
+            doorObject.rbDoor.AddRelativeTorque(new Vector3(0, 0, 20f));
         }
-        if (OneTime) youCan = false;
+        if (oneTime) youCan = false;
     }
 }
