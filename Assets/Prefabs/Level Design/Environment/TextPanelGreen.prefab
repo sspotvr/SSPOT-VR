@@ -202,7 +202,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cf7d1df284ec608418718d117abc3b1a, type: 2}
+  - {fileID: 2100000, guid: a9c84294c3c441349bbfd2a5da5aa582, type: 2}
   - {fileID: 2100000, guid: 9fa86e722b194bc4c98fde164837c67b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -276,7 +276,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9067089767993631628}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0.1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.0275, y: 0.03, z: 0.03}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -420,6 +420,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4023595670415127956, guid: ae52384a3730c124aa8f74e327937f9c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8078979460997514713, guid: ae52384a3730c124aa8f74e327937f9c, type: 3}
+      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

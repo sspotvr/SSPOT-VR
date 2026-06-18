@@ -7,6 +7,8 @@ namespace SSPot
     {
         private bool isClosed = true;
         private bool canOperate = true;
+
+        [SerializeField] private AudioClip sound;
         
         private Transform doorRight;
         private readonly Vector3 doorRightClosed = new (-3f, 0, 1f);
@@ -47,6 +49,7 @@ namespace SSPot
             if (!canOperate) yield break;
             
             canOperate = false;
+            AudioSource.PlayClipAtPoint(sound, transform.position);
             
             if (isClosed)
             {
