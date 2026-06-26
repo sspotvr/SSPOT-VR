@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 927d7c5e7d305764e809149a8118bd30
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 221130
+  packageName: 3D Emojis Pack
+  packageVersion: 1.0
+  assetPath: Assets/3D Emojis Pack/Scripts/Demo.cs
+  uploadId: 497917
