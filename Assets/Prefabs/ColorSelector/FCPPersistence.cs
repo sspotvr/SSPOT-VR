@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
@@ -9,115 +8,91 @@ using UnityEngine;
 [RequireComponent(typeof(FlexibleColorPicker))]
 public class FCPPersistence : MonoBehaviour {
 
-    public string saveName = GenerateID();
-    public SaveStrategy saveStrategy;
-
-    public enum SaveStrategy {
-        SessionOnly, //Do not permanently save, but only for scene loading and some special cases
-        File, //save data to a single textfile in persistent data
-        PlayerPrefs, //save HTML strings to individual playerpref slots
-    }
-
     private FlexibleColorPicker fcp;
+    public string saveName = GenerateID();
 
-    private static Dictionary<string, Color> savedColors;
+    // private static Dictionary<string, Color> savedColors;
     private static string saveFilePath;
-    private static bool saveFileLoaded;
-    private static bool saveFileOutdated;
+    // private static bool saveFileLoaded;
+    // private static bool saveFileOutdated;
 
     private void Awake() {
         fcp = GetComponent<FlexibleColorPicker>();
-        InitStatic();
-    }
-
-    private void InitStatic() {
         saveFilePath ??= Path.Combine(Application.persistentDataPath, "FCP_SavedColors.txt");
-
-        savedColors ??= new Dictionary<string, Color>(); 
-
-        if(!saveFileLoaded & saveStrategy == SaveStrategy.File) {
-            LoadDataFile();
-            saveFileLoaded = true;
-        }
+        
+        if (File.Exists(saveFilePath)) fcp.color = LoadFromFile();
     }
+
+    // private void InitStatic() {
+    //     saveFilePath ??= Path.Combine(Application.persistentDataPath, "FCP_SavedColors.txt");
+    // }
 
     private void OnDestroy() {
-        if(saveFileOutdated & saveStrategy == SaveStrategy.File) {
-            SaveDataFile();
-            saveFileOutdated = false;
-        }
-
+        SaveToFile(fcp.color);
+    }
+    private void OnDisable() {
+        SaveToFile(fcp.color);
     }
 
     private void OnEnable() {
-        if(savedColors == null)
-            InitStatic();
-        if(LoadColor(out Color c))
-            fcp.color = c;
+        if (File.Exists(saveFilePath)) fcp.color = LoadFromFile();
+        else
+        {
+            Debug.Log("No save file found for slot: " + saveName);
+            // Optionally reset to default or a specific color if no file exists
+            // fcp.color = Color.white; 
+        }
     }
 
-    private void OnDisable() {
-        SaveColor(fcp.color);
+    private void SaveToFile(Color c) {
+        string hex = ColorUtility.ToHtmlStringRGBA(c);
+        string content = saveName + "#" + hex;
+
+        try {
+            File.WriteAllText(saveFilePath, content);
+        }
+        catch (Exception e)
+        {
+            Debug.LogError("Failed to save FCP color: " + e.Message);
+        }
     }
 
-    private void LoadDataFile() {
-        string[] data = File.ReadAllLines(saveFilePath);
-        foreach(string d in data) {
-            int split = d.LastIndexOf('#');
-            if(split >= 0)
-            {
-                if(ColorUtility.TryParseHtmlString(d.Substring(split, d.Length - split), out Color c))
-                    savedColors.Add(d.Substring(0, split), c);
+
+    private static Color LoadFromFile()
+    {
+        if (!File.Exists(saveFilePath)) return Color.black;
+
+        try {
+            string[] lines = File.ReadAllLines(saveFilePath);
+            if (lines.Length == 0 || !lines[^1].EndsWith("#")) {
+                // Handle edge case where file has trailing newlines or is empty
+                return Color.black;
             }
-        }
-    }
 
-    private void SaveDataFile() {
-        string[] data = new string[savedColors.Count];
-        int i = 0;
-        foreach(KeyValuePair<string, Color> pair in savedColors)
-            data[i++] = pair.Key + "#" + ColorUtility.ToHtmlStringRGBA(pair.Value);
-
-        File.WriteAllText(saveFilePath, string.Join("\r\n", data));
-    }
-
-    public void SaveColor(Color c) {
-        if(saveStrategy == SaveStrategy.PlayerPrefs) {
-            string pref = "FCP_sc_" + saveName;
-            PlayerPrefs.SetString(pref, '#' + ColorUtility.ToHtmlStringRGBA(c));
-        }
-        else {
-            if(savedColors.ContainsKey(saveName))
+            string hexString = lines[^1].Trim();
+            
+            // Format expected: "ID#RRGGBBAA" based on your original logic
+            int splitIndex = hexString.LastIndexOf('#');
+            if (splitIndex > 0)
             {
-                saveFileOutdated |= savedColors[saveName] != c;
-                savedColors[saveName] = c;
+                string colorHex = hexString.Substring(splitIndex + 1).Trim();
+                if (!ColorUtility.TryParseHtmlString("#" + colorHex, out Color c)) return c;
             }
-            else
-            {
-                savedColors.Add(saveName, c);
-                saveFileOutdated = true;
-            }
+            // else
+            // {
+            //     // If the line doesn't have a # separator, treat whole line as hex? 
+            //     // Or assume error. Let's try parsing the whole thing with prefix added if no split found.
+            //     if (ColorUtility.TryParseHtmlString("#" + hexString, out Color c)) return c;
+            // }
+            
+            return Color.black;
+        }
+        catch
+        {
+            return Color.black;
         }
     }
 
-    public bool LoadColor(out Color c) {
-        c = Color.black;
-
-        if(saveStrategy == SaveStrategy.PlayerPrefs) {
-            string pref = "FCP_sc_" + saveName;
-            if(!PlayerPrefs.HasKey(pref))
-                return false;
-            if(!ColorUtility.TryParseHtmlString(PlayerPrefs.GetString(pref), out c))
-                return false;
-        }
-        else {
-            if(savedColors.ContainsKey(saveName))
-                c = savedColors[saveName];
-            else
-                return false;
-        }
-        return true;
-    }
 
     private static string GenerateID() {
         return Convert.ToBase64String(BitConverter.GetBytes(DateTime.Now.Ticks));

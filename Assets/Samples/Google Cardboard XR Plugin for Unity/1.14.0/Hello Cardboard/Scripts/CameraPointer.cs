@@ -61,14 +61,18 @@ public class CameraPointer : MonoBehaviour {
         if (Google.XR.Cardboard.Api.IsTriggerPressed || /*Input.GetTouch(0).phase == TouchPhase.Began ||*/
             Input.GetButtonDown("Fire1"))
         {
+            // ** play sound at mouse click
+            
             // remove the cube from the player's hands if the player interacts with a non-clickable
             // or with a non-interactive
             if(!gazedAtObject || (!gazedAtObject.CompareTag("Clickable") && !gazedAtObject.CompareTag("NoPointerAction")) )
             {
+                // ** play sound only when destroying cube
                 PlayerSetup.Local.DestroyCubeOnHand();
             }
             else // otherwise, call OnPointerClick method
             {
+                // ** play sound only when interacting / grabbing cube
                 gazedAtObject?.SendMessage("OnPointerClick", SendMessageOptions.DontRequireReceiver);
             }
         }
