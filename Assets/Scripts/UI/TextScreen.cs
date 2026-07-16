@@ -7,36 +7,36 @@ namespace SSpot.UI
     public class TextScreen : MonoBehaviour
     {
         [SerializeField] private Text uiText;
-        [SerializeField] private GameObject hideObject;
+        [SerializeField] private GameObject panel;
         [SerializeField] private float showTime = 5f;
-        [SerializeField] private bool startActive = false;
+        [SerializeField] private bool startActive;
         
-        private Coroutine _deactivateCoroutine;
+        private Coroutine deactivateCoroutine;
 
-        private void Awake() => hideObject.SetActive(startActive);
+        private void Awake() => panel.SetActive(startActive);
 
-        public void ShowText(string text)
+        protected void ShowText(string text)
         {
-            if (_deactivateCoroutine != null)
+            if (deactivateCoroutine != null)
             {
-                StopCoroutine(_deactivateCoroutine);
-                _deactivateCoroutine = null;
+                StopCoroutine(deactivateCoroutine);
+                deactivateCoroutine = null;
             }
             
             uiText.text = text;
-            hideObject.SetActive(true);
+            panel.SetActive(true);
             
-            _deactivateCoroutine = StartCoroutine(CoroutineUtilities.WaitThen(showTime, Close));
+            deactivateCoroutine = StartCoroutine(CoroutineUtilities.WaitThen(showTime, Close));
         }
 
-        public void Close() => hideObject.SetActive(false);
+        protected void Close() => panel.SetActive(false);
 
         private void OnDisable()
         {
-            if (_deactivateCoroutine != null)
+            if (deactivateCoroutine != null)
             {
-                StopCoroutine(_deactivateCoroutine);
-                _deactivateCoroutine = null;
+                StopCoroutine(deactivateCoroutine);
+                deactivateCoroutine = null;
             }
         }
     }

@@ -27,7 +27,9 @@ namespace SSpot.UI
         
         private void HandleSuccess()
         {
-            Close();
+            string text = LevelManager.Instance.CurrentResult.Message;
+            ShowText(text);
+            // Close();
         }
     }
 }
