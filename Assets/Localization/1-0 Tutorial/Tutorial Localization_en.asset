@@ -20,11 +20,7 @@ MonoBehaviour:
     - rid: 5238613545581019214
   m_TableData:
   - m_Id: 15117778944
-    m_Localized: 'Click here
-
-      to begin the
-
-      practice'
+    m_Localized: "Click here\nto skip \nthe tutorial"
     m_Metadata:
       m_Items: []
   - m_Id: 939412357120

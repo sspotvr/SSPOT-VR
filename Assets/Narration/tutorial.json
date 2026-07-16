@@ -1,0 +1,135 @@
+{
+  "fase": "Tutorial",
+  "linhas": [
+    {
+      "nome": "p1.1.1",
+      "pt_br": "Olá, estudante! Eu sou a Mark 2000, a inteligência artificial das estações de programação do universo.",
+      "en_us": "Hello, student! I am Mark 2000, the artificial intelligence of the programming stations of the universe."
+    },
+    {
+      "nome": "p1.1.2",
+      "pt_br": "Esta é a primeira estação da Terra e meu corpo robótico ainda não sabe se mover aqui.",
+      "en_us": "This is the first station on Earth and my robotic body still doesn’t know how to move here."
+    },
+    {
+      "nome": "p1.2",
+      "pt_br": "Preciso da sua ajuda para calibrar ele!",
+      "en_us": "I need your help to calibrate it!"
+    },
+    {
+      "nome": "p1.3",
+      "pt_br": "Para você se movimentar pela estação, clique nas setas verdes. Você será transportado até elas. ",
+      "en_us": "To move around the station, click the green arrows. You will be transported to them."
+    },
+    {
+      "nome": "p2.1.1",
+      "pt_br": "Nesta estação, você sempre vai se mover usando as setas verdes. Elas mostram para onde você pode ir.",
+      "en_us": "In this station, you will always move using the green arrows. They show where you can go."
+    },
+    {
+      "nome": "p2.1.2",
+      "pt_br": "Continue se movimentando assim para me ajudar a aprender como os humanos exploram o espaço.",
+      "en_us": "Keep moving like this to help me learn how humans explore space."
+    },
+    {
+      "nome": "p2.2",
+      "pt_br": "As setas verdes mostram para onde você pode ir. Mire nelas e clique para continuar.",
+      "en_us": "The green arrows show where you can go. Aim at them and click to continue."
+    },
+    {
+      "nome": "p3.1.1",
+      "pt_br": "Este é o Mark, meu avatar robótico nesta estação. Ele está completamente funcional, mas ainda não sei como utilizá-lo.",
+      "en_us": "This is Mark, my robotic avatar in this station. He is fully functional, but still don't know how to use it."
+    },
+    {
+      "nome": "p3.2.1",
+      "pt_br": "Para que eu possa operar este corpo, preciso que você me mostre como ele deve se mover.",
+      "en_us": "So that I can operate this body, I need you to show me how it should move."
+    },
+    {
+      "nome": "p3.3",
+      "pt_br": "Mire e clique na seta verde para continuar.",
+      "en_us": "Aim and click on the green arrow to continue."
+    },
+    {
+      "nome": "p4.1.1",
+      "pt_br": "Para que eu possa operar o corpo do Mark, preciso que você transforme suas ideias em instruções, ou melhor, em algoritmos, ou programas!",
+      "en_us": "For me to operate Mark’s body, I need you to transform your ideas into instructions, or rather, into algorithms, or programs!"
+    },
+    {
+      "nome": "p4.2.1",
+      "pt_br": "Este é o computador da estação. É aqui que os programas são criados.",
+      "en_us": "This is the station’s computer. This is where programs are created."
+    },
+    {
+      "nome": "p4.2.2",
+      "pt_br": "Você conhece esses sinais escritos nos cubos? Vocês o chamam de setas, não é?",
+      "en_us": "Do you know these symbols written on the cubes? You call them arrows, right?"
+    },
+    {
+      "nome": "p4.3.1",
+      "pt_br": "Cada placa do computador é um espaço onde você pode encaixar um cubo. O seu programa sempre deve começar com o cubo Início e terminar com o cubo Fim.",
+      "en_us": "Each board of the computer is a space where you can place a cube. Your program must always start with the Start cube and end with the End cube."
+    },
+    {
+      "nome": "p4.3.3",
+      "pt_br": "Os cubos com as setas são o recheio!",
+      "en_us": "The arrow cubes are the filling!"
+    },
+    {
+      "nome": "p4.4.1",
+      "pt_br": "Experimente! Pegue os cubos, encaixe-os nas placas e reorganize como quiser.",
+      "en_us": "Go on and experiment! Take the cubes, place them on the boards, and rearrange them however you like."
+    },
+    {
+      "nome": "p4.4.2",
+      "pt_br": "Observe que o computador possui uma quantidade limitada de placas.",
+      "en_us": "Notice that the computer has a limited number of boards."
+    },
+    {
+      "nome": "p4.4.3",
+      "pt_br": "Isso define o tamanho do programa que você pode criar.",
+      "en_us": "This defines the size of the program you can create."
+    },
+    {
+      "nome": "p4.5",
+      "pt_br": "Agora você já sabe como construir um algoritmo. Vamos utilizá-lo para mover o Mark.",
+      "en_us": "Now you know how to build an algorithm. Let’s use it to move Mark."
+    },
+    {
+      "nome": "p5.1",
+      "pt_br": "Está na hora de calibrar o Mark de verdade. Vamos criar um programa com Início, três movimentos e Fim.",
+      "en_us": "It’s time to truly calibrate Mark. Let’s create a program with Start, three movements, and End."
+    },
+    {
+      "nome": "p5.2",
+      "pt_br": "Para tirá-lo da frente da porta, vire para esquerda e mova duas vezes para frente",
+      "en_us": "To move him away from the doorway, turn left and move forward twice"
+    },
+    {
+      "nome": "p5.3.1",
+      "pt_br": "Quando estiver pronto, aperte o botão azul de Play para executar.",
+      "en_us": "When you are ready, press the blue Play button to execute."
+    },
+    {
+      "nome": "p5.3.2",
+      "pt_br": "Se quiser começar novamente, aperte o botão laranja de Reset",
+      "en_us": "If you want to start again, press the orange Reset button"
+    },
+    {
+      "nome": "p5.4.1",
+      "pt_br": "Excelente! Estou conseguindo interpretar seus comandos e operar meu novo corpo.",
+      "en_us": "Excellent! I can interpret your commands and operate my new body."
+    },
+    {
+      "nome": "p5.4.2",
+      "pt_br": "A calibração inicial está concluída. Muito obrigado!",
+      "en_us": "The initial calibration is complete. Thank you!"
+    },
+    {
+      "nome": "config.1",
+      "pt_br": "Antes de iniciarmos os desafios oficiais da estação, você pode ajustar as configurações da estação como preferir.",
+      "en_us": "Before we begin the station’s official challenges, you can adjust the station’s settings as you prefer."
+    }
+  ]
+}

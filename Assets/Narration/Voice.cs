@@ -14,29 +14,34 @@ public class Voice : MonoBehaviour
 	[SerializeField] private GameObject audioIndicator;
 	[SerializeField] private Subtitles subtitles;
 
+	// Configurações das tabelas do Unity Localization
+    private const string SUBTITLE_TABLE = "SubtitlesTable";
+    private const string AUDIO_TABLE = "AudioTable";
+
+	// Processamento de pedidos de narração
 	public static Voice instance { get; private set; }
-
-	private Queue<(AudioObject[] clips, TaskCompletionSource<bool> tcs)> narrationQueue = 
-    new Queue<(AudioObject[] clips, TaskCompletionSource<bool> tcs)>();
+	private Queue<(string[] keys, TaskCompletionSource<bool> tcs)> narrationQueue = 
+    new Queue<(string[] keys, TaskCompletionSource<bool> tcs)>();
 	private bool isPlaying = false;
-
-	public delegate void NarrationRequestHandler(AudioObject[] clips, bool interrupt, TaskCompletionSource<bool> tcs);
-	public static event NarrationRequestHandler OnNarrationRequested;
-
+	public delegate void NarrationRequestHandler(string[] keys, bool interrupt, TaskCompletionSource<bool> tcs);
+    public static event NarrationRequestHandler OnNarrationRequested;
 	private bool enableNarrator = true;
-	private AudioObject[] lastRequest;
-	private (AudioObject[] clips, TaskCompletionSource<bool> tcs) currentActiveJob;
+	private string[] lastRequest;
+    private (string[] keys, TaskCompletionSource<bool> tcs) currentActiveJob;
 
 
 	public void EnableNarrator()
 	{
-		Speak(lastRequest);
 		enableNarrator = true;
+		if (lastRequest != null && lastRequest.Length > 0)
+        {
+            _ = Speak(lastRequest);
+        }
 	}
 
 	public bool IsSpeakig()
 	{
-		return narrationQueue.Count == 0;
+		return isPlaying || narrationQueue.Count > 0;
 	}
 
 	public void DisableNarrator()
@@ -115,19 +120,23 @@ public class Voice : MonoBehaviour
 		}
 	}
 
-	private void OnEnable()
-	{
-		OnNarrationRequested += HandleNarrationRequest;
-	}
-
-	private void OnDisable()
-	{
-		OnNarrationRequested -= HandleNarrationRequest;
-	}
+	private void OnEnable() => OnNarrationRequested += HandleNarrationRequest;
+    private void OnDisable() => OnNarrationRequested -= HandleNarrationRequest;
 
 	public void StopSpeaking()
 	{
-		narrationQueue.Clear();
+		if (currentActiveJob.tcs != null)
+		{
+			currentActiveJob.tcs.TrySetResult(false);
+			currentActiveJob = (null, null);
+		}
+
+		while (narrationQueue.Count > 0)
+		{
+			var pending = narrationQueue.Dequeue();
+			pending.tcs?.TrySetResult(false);
+		}
+
 		source.Stop();
 		StopAllCoroutines();
 		subtitles.ClearSubtitle();
@@ -135,7 +144,7 @@ public class Voice : MonoBehaviour
 		isPlaying = false;
 	}
 
-	private void HandleNarrationRequest(AudioObject[] clips, bool interrupt, TaskCompletionSource<bool> tcs)
+	private void HandleNarrationRequest(string[] keys, bool interrupt, TaskCompletionSource<bool> tcs)
 	{
 		if (interrupt)
 		{
@@ -149,14 +158,11 @@ public class Voice : MonoBehaviour
 
 			if (isPlaying)
 			{
-				source.Stop();
-				StopAllCoroutines();
-				subtitles.ClearSubtitle();
-				isPlaying = false;
+				StopSpeaking();
 			}
 		}
 
-		narrationQueue.Enqueue((clips, tcs));
+		narrationQueue.Enqueue((keys, tcs));
 
 		if (!isPlaying)
 		{
@@ -165,44 +171,130 @@ public class Voice : MonoBehaviour
 	}
 
 	private IEnumerator ProcessNarrationQueue()
-	{
-		isPlaying = true;
-		while (narrationQueue.Count > 0)
-		{
-			subtitleBox.SetActive(true);
-			currentActiveJob = narrationQueue.Dequeue();
+    {
+        // 1. Espera o sistema de Localization acordar
+        yield return LocalizationSettings.InitializationOperation;
+        
+        isPlaying = true;
+        subtitleBox.SetActive(true);
 
-			foreach (AudioObject clip in currentActiveJob.clips)
-			{			
-				AudioClip clipToPlay = (LocalizationSettings.SelectedLocale.Identifier.Code == "pt-BR") 
-					? clip.clipPTBR : clip.clipENUS;
-				string subToDisplay = (LocalizationSettings.SelectedLocale.Identifier.Code == "pt-BR") 
-					? clip.subtitlePTBR : clip.subtitleENUS;
+        while (narrationQueue.Count > 0)
+        {
+            currentActiveJob = narrationQueue.Dequeue();
 
-				source.clip = clipToPlay;
-				source.PlayOneShot(clipToPlay);
-				subtitles.DisplaySubtitle(subToDisplay);
-				
-				yield return new WaitForSeconds(clipToPlay.length);
-				subtitles.ClearSubtitle();
-			}
+            foreach (string rawKey in currentActiveJob.keys)
+            {
+                string safeKey = rawKey.Trim();
+                
+                // --------------------------------------------------------
+                // PASSO 1: CARREGAR AS TABELAS INTEIRAS (Muito mais seguro)
+                // --------------------------------------------------------
+                var stringTableOp = LocalizationSettings.StringDatabase.GetTableAsync(SUBTITLE_TABLE);
+                var audioTableOp = LocalizationSettings.AssetDatabase.GetTableAsync(AUDIO_TABLE);
+                
+                yield return stringTableOp;
+                yield return audioTableOp;
 
-			currentActiveJob.tcs.TrySetResult(true); 
-        	currentActiveJob = (null, null);
-		}
-		isPlaying = false;
-		subtitleBox.SetActive(false);
-	}
+                // Checa se os nomes SUBTITLE_TABLE e AUDIO_TABLE estão corretos
+                if (!stringTableOp.IsValid() || stringTableOp.Status != UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationStatus.Succeeded)
+                {
+                    Debug.LogError($"Tabela de legendas '{SUBTITLE_TABLE}' não encontrada no banco do Unity!");
+                    continue; 
+                }
 
-	public async Task Speak(AudioObject[] clips)
-	{
-		lastRequest = clips;
-		if (!enableNarrator) return;
+                if (!audioTableOp.IsValid() || audioTableOp.Status != UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationStatus.Succeeded)
+                {
+                    Debug.LogError($"Tabela de áudios '{AUDIO_TABLE}' não encontrada no banco do Unity!");
+                    continue; 
+                }
 
-		var tcs = new TaskCompletionSource<bool>();
-		
-		OnNarrationRequested?.Invoke(clips, true, tcs);
+                // --------------------------------------------------------
+                // PASSO 2: BUSCAR AS CHAVES DENTRO DAS TABELAS
+                // --------------------------------------------------------
+                var stringTable = stringTableOp.Result;
+                var audioTable = audioTableOp.Result;
 
-		await tcs.Task;
-	}
+                var stringEntry = stringTable.GetEntry(safeKey);
+                var audioEntry = audioTable.GetEntry(safeKey);
+
+                string subToDisplay = "";
+                AudioClip clipToPlay = null;
+
+                // --- TRATA A LEGENDA ---
+                if (stringEntry == null)
+                {
+                    Debug.LogError($"A tabela '{SUBTITLE_TABLE}' existe, mas a chave '{safeKey}' NÃO ESTÁ nela!");
+                }
+                else
+                {
+                    subToDisplay = stringEntry.GetLocalizedString();
+                }
+
+                // --- TRATA O ÁUDIO ---
+                if (audioEntry == null)
+                {
+                    Debug.LogError($"A tabela '{AUDIO_TABLE}' existe, mas a chave '{safeKey}' NÃO ESTÁ nela!");
+                }
+                else
+                {
+                    // Como a chave realmente existe na tabela de áudio, agora é 100% seguro baixar o .mp3
+                    var loadAudioOp = LocalizationSettings.AssetDatabase.GetLocalizedAssetAsync<AudioClip>(AUDIO_TABLE, safeKey);
+                    yield return loadAudioOp;
+
+                    if (loadAudioOp.IsValid() && loadAudioOp.Status == UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationStatus.Succeeded)
+                    {
+                        clipToPlay = loadAudioOp.Result;
+                    }
+                    else
+                    {
+                        Debug.LogError($"A chave '{safeKey}' existe, mas o Unity falhou ao carregar o arquivo físico de áudio.");
+                    }
+                }
+
+                // --------------------------------------------------------
+                // PASSO 3: TOCAR O ÁUDIO E EXIBIR A LEGENDA
+                // --------------------------------------------------------
+                if (clipToPlay != null)
+                {
+                    source.clip = clipToPlay;
+                    source.PlayOneShot(clipToPlay);
+                    
+                    // Exibe a legenda se tiver encontrado
+                    if (!string.IsNullOrEmpty(subToDisplay))
+                    {
+                        subtitles.DisplaySubtitle(subToDisplay, clipToPlay.length);
+                    }
+                    
+                    yield return new WaitForSeconds(clipToPlay.length + 0.5f);
+                    subtitles.ClearSubtitle();
+                }
+                else
+                {
+                    Debug.LogWarning($"A fala '{safeKey}' não tocou porque o áudio é nulo.");
+                }
+            }
+
+            // Avisa quem pediu a narração que este bloco terminou
+            if (currentActiveJob.tcs != null) 
+            {
+                currentActiveJob.tcs.TrySetResult(true); 
+            }
+            currentActiveJob = (null, null);
+        }
+        
+        isPlaying = false;
+        subtitleBox.SetActive(false);
+    }
+
+	public async Task Speak(string[] keys)
+    {
+        lastRequest = keys;
+        if (!enableNarrator) return;
+
+        Debug.Log($"Foram recebidos {keys.Length} clipes para narração!");
+
+        var tcs = new TaskCompletionSource<bool>();
+        OnNarrationRequested?.Invoke(keys, true, tcs);
+        await tcs.Task;
+    }
 }

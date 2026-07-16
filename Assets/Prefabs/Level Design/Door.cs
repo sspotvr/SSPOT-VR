@@ -65,15 +65,15 @@ namespace SSPot
             }
             else
             {
-                for (float time = 1f; time > 0f; time -= Time.deltaTime)
-                {
-                    doorRight.localPosition += new Vector3 (6 * Time.deltaTime, 0, 0); // go right
-                    doorLeft.localPosition -= new Vector3 (6 * Time.deltaTime, 0, 0); // go left
-                    yield return null;
-                }
+                // for (float time = 1f; time > 0f; time -= Time.deltaTime)
+                // {
+                //     doorRight.localPosition += new Vector3 (6 * Time.deltaTime, 0, 0); // go right
+                //     doorLeft.localPosition -= new Vector3 (6 * Time.deltaTime, 0, 0); // go left
+                //     yield return null;
+                // }
                 
-                doorRight.localPosition = doorRightClosed;
-                doorLeft.localPosition = doorLeftClosed;
+                // doorRight.localPosition = doorRightClosed;
+                // doorLeft.localPosition = doorLeftClosed;
             }
             
             isClosed = !isClosed;

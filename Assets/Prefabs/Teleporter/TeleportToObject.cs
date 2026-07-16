@@ -20,7 +20,7 @@ public class TeleportToObject : MonoBehaviourPun
 
     private bool firstTime = true;
 
-	[SerializeField] private AudioObject[] clips;
+	[SerializeField] private string[] clips;
 
     [SerializeField] private bool playAudioOnTeleport = true;
     private AudioSource audioSource;
@@ -35,8 +35,23 @@ public class TeleportToObject : MonoBehaviourPun
 
     private void Start()
     {
-        PlayerTeleported += Rotate;
         Rotate();
+        CheckVisibility();
+    }
+
+    private void OnEnable()
+    {
+        PlayerTeleported += Rotate;
+        PlayerTeleported += CheckVisibility;
+
+        Rotate();
+        CheckVisibility();
+    }
+
+    private void OnDisable()
+    {
+        PlayerTeleported -= Rotate;
+        PlayerTeleported -= CheckVisibility;
     }
 
     /// <summary>
@@ -44,38 +59,54 @@ public class TeleportToObject : MonoBehaviourPun
     /// </summary>
     public async Task OnPointerClick()
     {
-        photonView.RPC(nameof(DisableTeleportMesh), RpcTarget.AllBuffered);
         PlayerSetup.Local.transform.position = transform.position;
+        Debug.Log("Teleportado!");
         PlayerTeleported?.Invoke();
         
-        if (isElevator) ElevatorSync.instance.AddPlayerOnElevator();
+        if (ElevatorSync.instance != null)
+        {
+            Debug.Log("Atualizando elevador");
+            if (isElevator)
+            {
+                ElevatorSync.instance.AddPlayerOnElevator();
+            }
+            else
+            {
+                ElevatorSync.instance.RemovePlayerOnElevator();
+            }
+        }
+        else
+        {
+            Debug.Log("Não encontrei o elevator sync");
+        }
+
+        Debug.Log("Tocando Audio!");
         if (playAudioOnTeleport) AudioSource.PlayClipAtPoint(audioSource.clip, transform.position);
-        
-        if (firstTime && clips.Length != 0) await Voice.instance.Speak(clips);
-        if (opensDoor) door.GetComponent<Door>().Operate();
-        // if (playAudioOnTeleport) audioSource.Play(); // stops when gameObject.SetActive(false)
-        
+        if(firstTime && clips.Length != 0) await Voice.instance.Speak(clips);
+
         firstTime = false;
+        if(opensDoor) door.GetComponent<Door>().Operate();
     }
     
     private void Rotate()
     {
+        if (PlayerSetup.Local == null) return;
         transform.LookAt(PlayerSetup.Local.transform.position);
         transform.rotation *= Quaternion.Euler(90f, 0f, 0f);
     }
-    
+
+    private void CheckVisibility()
+    {
+        if (PlayerSetup.Local == null) return;
+        float distance = Vector3.Distance(transform.position, PlayerSetup.Local.transform.position);
         
-    private void OnDisable()
-    {
-        PlayerTeleported -= Rotate;
-    }
-    
-    
-    [PunRPC]    
-    private void DisableTeleportMesh()
-    {
-        // Disable elevator teleport button mesh
-        teleportLocationMesh.enabled = false;
-        gameObject.SetActive(false);
+        if (distance < 0.1f)
+        {
+            teleportLocationMesh.enabled = false; // Player está aqui, esconde a seta
+        }
+        else
+        {
+            teleportLocationMesh.enabled = true; // Player saiu, mostra a seta
+        }
     }
 }

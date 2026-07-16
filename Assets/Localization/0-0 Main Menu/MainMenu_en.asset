@@ -74,6 +74,18 @@ MonoBehaviour:
     m_Localized: Fullscreen
     m_Metadata:
       m_Items: []
+  - m_Id: 456377149947047936
+    m_Localized: No
+    m_Metadata:
+      m_Items: []
+  - m_Id: 456377146549661696
+    m_Localized: Yes
+    m_Metadata:
+      m_Items: []
+  - m_Id: 456377151616380928
+    m_Localized: VR Mode
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

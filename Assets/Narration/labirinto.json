@@ -1,0 +1,30 @@
+{
+  "fase": "Labirinto",
+  "linhas": [
+    {
+      "nome": "start.1",
+      "pt_br": "Parabéns por ter chegado até aqui! Acho que meu corpo está funcionando bem.",
+      "en_us": "Congratulations on making it this far! I think my body is working well."
+    },
+    {
+      "nome": "start.2",
+      "pt_br": "Está na hora do seu maior desafio até agora: o Mark está preso neste labirinto!",
+      "en_us": "It’s time for your biggest challenge yet: Mark is trapped in this maze!"
+    },
+    {
+      "nome": "start.3",
+      "pt_br": "Vocês terão que trabalhar juntos para me ajudar a encontrar a saída!",
+      "en_us": "You will have to work together to help me find the exit!"
+    },
+    {
+      "nome": "start.4",
+      "pt_br": "No entanto, apenas um de vocês consegue ver o labirinto por vez, então terão que se comunicar para resolver este desafio!",
+      "en_us": "However, only one of you can see the maze at a time, so you’ll need to communicate to solve this challenge!"
+    },
+    {
+      "nome": "start.5",
+      "pt_br": "Enquanto isso, o outro programa o algoritmo. Boa sorte!",
+      "en_us": "Meanwhile, the other one programs the algorithm. Good luck!"
+    }
+  ]
+}

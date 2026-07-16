@@ -13,42 +13,58 @@ MonoBehaviour:
   m_Name: Localization-Assets-Shared
   m_EditorClassIdentifier: 
   m_GroupName: Localization-Assets-Shared
-  m_Data:
-    m_SerializedData: []
   m_GUID: 60c8a85feea535f498de4a1db9db4a1b
   m_SerializeEntries:
-  - m_GUID: 59d5971e2b3420d4e966d8f3e023c0e3
-    m_Address: Assets/Localization/Tutorial/Tutorial Localization Shared Data.asset
-    m_ReadOnly: 1
-    m_SerializedLabels: []
-  - m_GUID: e1817dd86e2dd964689e891a667ab9e6
-    m_Address: Assets/Localization/FirstScene/First Scene Shared Data.asset
-    m_ReadOnly: 1
-    m_SerializedLabels: []
-  - m_GUID: c41a65fbb7947ae4fa1c2c42eae88b37
-    m_Address: Assets/Localization/Global/Global Localization Shared Data.asset
-    m_ReadOnly: 1
-    m_SerializedLabels: []
-  - m_GUID: 4cd60ccf85cd22d4bb21fdd871671b7c
-    m_Address: Assets/Localization/SecondScene/Second Scene Shared Data.asset
-    m_ReadOnly: 1
-    m_SerializedLabels: []
-  - m_GUID: 90aafecfaec7ad541a70b15f6db69f19
-    m_Address: Assets/Localization/MainMenu/MainMenu Shared Data.asset
-    m_ReadOnly: 1
-    m_SerializedLabels: []
-  - m_GUID: 2e6412289232a3b4eaed6260ededfe90
-    m_Address: Assets/Localization/Lobby/Lobby Shared Data.asset
-    m_ReadOnly: 1
-    m_SerializedLabels: []
   - m_GUID: 080e2119d5fd7cd48b057e9f9679ed4f
     m_Address: Assets/Localization/Labirinth/Labirinth Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2e6412289232a3b4eaed6260ededfe90
+    m_Address: Assets/Localization/Lobby/Lobby Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4cd60ccf85cd22d4bb21fdd871671b7c
+    m_Address: Assets/Localization/SecondScene/Second Scene Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 59d5971e2b3420d4e966d8f3e023c0e3
+    m_Address: Assets/Localization/Tutorial/Tutorial Localization Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 77ce4b83a5fc04946a85908cd3884a7a
+    m_Address: Assets/Localization/Narration/SubtitlesTable Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 90aafecfaec7ad541a70b15f6db69f19
+    m_Address: Assets/Localization/MainMenu/MainMenu Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ba7b79c61e06a29478052395081d19f3
+    m_Address: Assets/Localization/Narration/AudioTable Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c41a65fbb7947ae4fa1c2c42eae88b37
+    m_Address: Assets/Localization/Global/Global Localization Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e1817dd86e2dd964689e891a667ab9e6
+    m_Address: Assets/Localization/FirstScene/First Scene Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e448d89e4c9d31d4ba89db98e3410a95
     m_Address: Assets/Localization/ThirdScene/Third Scene Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 8189444b1fe375340ad3a0bd116e19ae, type: 2}
   m_SchemaSet:

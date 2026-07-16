@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class VRCObject : MonoBehaviour
 {
@@ -13,13 +12,5 @@ public class VRCObject : MonoBehaviour
     public void OnPointerEnter()
     {
         audioSource.Play();                         // Play audio source
-    }
-
-    /// <summary>
-    /// This method is called by the Main Camera when it stops gazing at this GameObject.
-    /// </summary>
-    public void OnPointerExit()
-    {
-
     }
 }

@@ -12,8 +12,14 @@ namespace SSPot.Menu
     {
         [SerializeField] private GameObject fullscreenButton;
         [SerializeField] private LocalizeStringEvent fullscreenButtonText;
-        string keyYes = "YesFullSetting";
-        string keyNo = "NoFullSetting";
+        [SerializeField] private GameObject vrButton;
+        [SerializeField] private LocalizeStringEvent vrButtonText;
+
+        string FkeyYes = "YesFullSetting";
+        string FkeyNo = "NoFullSetting";
+
+        string VRKeyYes = "YesVRSetting";
+        string VRKeyNo = "NoVRSetting";
 
 
         public string language = "pt-BR";
@@ -28,11 +34,9 @@ namespace SSPot.Menu
             if(PhotonNetwork.InRoom)
                 PhotonNetwork.LeaveRoom();
 
-            // If platform is mobile, disable settings button
             bool isMobile = Application.isMobilePlatform;
-            if (isMobile){ 
-                fullscreenButton.SetActive(false);
-            }
+            if (fullscreenButton != null) fullscreenButton.SetActive(!isMobile);
+            if (vrButton != null) vrButton.SetActive(isMobile);
 
             language = LocalizationSettings.SelectedLocale.Identifier.Code;
         }
@@ -41,6 +45,28 @@ namespace SSPot.Menu
         {
             ChangeFullscreenButtonText(Screen.fullScreen);
         }
+
+        public void ToggleVRMode()
+        {
+            // Lê o estado atual (0 = Desligado, 1 = Ligado). O padrão é 0.
+            int currentVRState = PlayerPrefs.GetInt("MobileVR_Enabled", 0);
+            
+            // Inverte o estado
+            int newState = currentVRState == 0 ? 1 : 0;
+            
+            // Salva na memória do aparelho
+            PlayerPrefs.SetInt("MobileVR_Enabled", newState);
+            PlayerPrefs.Save();
+            
+            Debug.Log($"Preferência de VR salva como: {(newState == 1 ? "Ligado" : "Desligado")}");
+            ChangeVrButtonText(newState == 1);
+        }
+
+        void ChangeVrButtonText(bool newState)
+        {
+            vrButtonText.StringReference.SetReference(vrButtonText.StringReference.TableReference, newState ? VRKeyYes : VRKeyNo);
+        }
+
 
         #region Offline
         public void PlayOffline()
@@ -124,7 +150,7 @@ namespace SSPot.Menu
 
         void ChangeFullscreenButtonText(bool newState)
         {
-            fullscreenButtonText.StringReference.SetReference(fullscreenButtonText.StringReference.TableReference, newState ? keyYes : keyNo);
+            fullscreenButtonText.StringReference.SetReference(fullscreenButtonText.StringReference.TableReference, newState ? FkeyYes : FkeyNo);
         }
         #endregion
     }

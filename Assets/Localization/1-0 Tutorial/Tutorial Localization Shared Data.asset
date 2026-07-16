@@ -44,7 +44,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 15117778944
-    m_Key: ChangeScene
+    m_Key: SkipTutorial
     m_Metadata:
       m_Items: []
   - m_Id: 20636665053184

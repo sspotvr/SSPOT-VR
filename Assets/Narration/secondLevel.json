@@ -1,0 +1,45 @@
+{
+  "fase": "Level-2",
+  "linhas": [
+    {
+      "nome": "start.1",
+      "pt_br": "Estou ganhando controle novamente, mas vou precisar de ajuda para programar meu corpo.",
+      "en_us": "I'm regaining control, but I’ll still need help programming my body."
+    },
+    {
+      "nome": "start.2",
+      "pt_br": "Vamos precisar dar umas voltas por aí.",
+      "en_us": "We’ll need to take a few laps around here."
+    },
+    {
+      "nome": "start.3",
+      "pt_br": "Você pode me ajudar?",
+      "en_us": "Can you help me?"
+    },
+    {
+      "nome": "line.1",
+      "pt_br": "Vamos praticar alguns giros, para ver se meus sensores ainda estão funcionando.",
+      "en_us": "Let’s practice a few turns, to see if my sensors are still working."
+    },
+    {
+      "nome": "code.1",
+      "pt_br": "Tenho uma formulinha nova para te ajudar!",
+      "en_us": "I’ve got a new formula to help you!"
+    },
+    {
+      "nome": "code.2",
+      "pt_br": "Repita esquerda 4 vezes e depois frente.",
+      "en_us": "Repeat left 4 times and then go forward."
+    },
+    {
+      "nome": "code.3",
+      "pt_br": "Ai repita direita 5 vezes e depois frente",
+      "en_us": "Then repeat right 5 times and go forward."
+    },
+    {
+      "nome": "code.4",
+      "pt_br": "Não esqueça de marcar o início e fim do código",
+      "en_us": "Don’t forget to mark the beginning and end of the code"
+    }
+  ]
+}

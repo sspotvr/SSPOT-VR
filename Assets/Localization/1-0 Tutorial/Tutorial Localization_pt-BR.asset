@@ -19,7 +19,7 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 15117778944
-    m_Localized: "Clique aqui\npara come\xE7ar\no treinamento"
+    m_Localized: "Clique aqui\npara pular \no tutorial"
     m_Metadata:
       m_Items: []
   - m_Id: 939412357120
@@ -104,7 +104,7 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 463426998148198400
     m_Localized: "As setas verdes indicam para onde voc\xEA deve ir.\n\nContinue
-      se moveimentando para me ajudar a entender como humanos se exploram o espa\xE7o!"
+      se movimentando para me ajudar a entender como humanos se exploram o espa\xE7o!"
     m_Metadata:
       m_Items: []
   - m_Id: 463427057388548096
@@ -119,8 +119,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 463427124744876032
-    m_Localized: "O Mark travou bem na frente da porta!\n\nCrie um programa para
-      moviment\xE1-lo para longe da porta, trazendo ele pra perto do computador."
+    m_Localized: "O Mark travou bem na frente da porta!\n\nGire ele para a esquerda,
+      e depois ande duas vezes para frente para tir\xE1-lo da frente da porta!"
     m_Metadata:
       m_Items: []
   references:

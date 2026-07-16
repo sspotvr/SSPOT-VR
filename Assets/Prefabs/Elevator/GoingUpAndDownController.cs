@@ -2,52 +2,74 @@
 using Photon.Pun;
 using SSPot;
 
+
 public class GoingUpAndDownController : MonoBehaviourPun
 {
     // GameObjects
-    public GameObject playerCodingPlatform;         // Elevator platform GameObject
-    public GameObject instructionsCodingPlatform;   // Elevator instructions blackboard GameObject
-    public GameObject location1Initial;             // Initial location GameObject
     public GameObject instructionsInitial;          // Initial instructions blackboard GameObject
     public GameObject instructionsProgramming;      // Programming instructions blackboard GameObject
+    public GameObject plataformTeleport;
+    public GameObject plataformTeleport2;
 
-    // Audio source
-    public AudioSource audioSource;                 // Ambient audio source
-
-
-    // Boolean variables for controlling
-    private bool isUp;  // Is up boolean
-    private bool isDown = true;  // Is down boolean
+    private GoingDown goingDownScript;
+    private GoingUp goingUpScript;
 
 
-	private bool firstTime = true;
-
-	[SerializeField] private AudioObject[] clips;
-
-	/// <summary>
-	/// Elevator controller. If the platform is on the floor, the goes up. If not, goes down.
-	/// </summary>
-	public void OnPointerClick()
+    private void Awake()
     {
-		// If player is on the floor and player is on the platform, go up
-		if (isDown)
+        goingDownScript = GetComponent<GoingDown>();
+        goingUpScript = GetComponent<GoingUp>();
+    }
+
+    private void OnEnable()
+    {
+        if (goingDownScript != null)
         {
-            GoUp();
-        }
-        // Else, if player is up, go down
-        else if(isUp)
-        {
-            GoDown();
+            goingDownScript.OnReachedDestination += ActivateLocation1;
         }
 
-        // Play audio source
-        audioSource.Play();
+        if(goingUpScript != null)
+        {
+            goingUpScript.OnReachedDestination += ActivateCoding;
+        }
     }
+
+    private void OnDisable()
+    {
+        if (goingDownScript != null)
+        {
+            goingDownScript.OnReachedDestination -= ActivateLocation1;
+        }
+
+        if(goingUpScript != null)
+        {
+            goingUpScript.OnReachedDestination -= ActivateCoding;
+        }
+    }
+
+    private void ActivateLocation1()
+    {
+        if (plataformTeleport != null)
+        {
+            plataformTeleport.SetActive(true);
+        }
+
+        if (plataformTeleport2 != null)
+        {
+            plataformTeleport2.SetActive(true);
+        }
+    }
+
+    private void ActivateCoding()
+    {
+        PlayerSetup.Local.isUp = true;
+    }
+
 
     /// <summary>
     /// Go up the elevator.
     /// </summary>
-    private void GoUp()
+    public void GoUp()
     {
 		photonView.RPC(nameof(GoUpRpc), RpcTarget.AllBuffered);
 	}
@@ -55,36 +77,37 @@ public class GoingUpAndDownController : MonoBehaviourPun
     [PunRPC]
     private void GoUpRpc()
     {
-		if (firstTime)
-		{
-			Voice.instance.Speak(clips);
-		}
+		if (PlayerSetup.Local != null)
+        {
+            var verticalMovement = PlayerSetup.Local.GetComponent<VerticalMovementPlayer>();
+            if (verticalMovement != null)
+            {
+                verticalMovement.movement = Movement.Up;
+            }
+            else
+            {
+                Debug.LogWarning("PlayerSetup.Local não possui o componente VerticalMovementPlayer!");
+            }
+        }
+        else
+        {
+            Debug.LogWarning("Tentou acionar GoUpRpc, mas PlayerSetup.Local está nulo!");
+        }
 
-		firstTime = false;
-
-		// Enable GoingUp
-		PlayerSetup.Local.GetComponent<GoingUp>().enabled = true;
-        PlayerSetup.Local.isUp = true;
-        playerCodingPlatform.GetComponent<GoingUp>().enabled = true;
-        GetComponent<GoingUp>().enabled = true;
+        if (goingUpScript != null) goingUpScript.enabled = true;
 
         // Setup GameObjects
-        instructionsCodingPlatform.SetActive(false);
-        instructionsInitial.SetActive(false);
-        instructionsProgramming.SetActive(true);
+        if (instructionsInitial != null) instructionsInitial.SetActive(false);
+        if (instructionsProgramming != null) instructionsProgramming.SetActive(true);
 
-        // Rotate this object
-        transform.Rotate(transform.rotation.x + 180, transform.rotation.y, transform.rotation.z, Space.Self);
-
-        // Setup isDown and isUp
-        isDown = false;
-        isUp = true;
+        if (plataformTeleport != null) plataformTeleport.SetActive(false);
+        if (plataformTeleport2 != null) plataformTeleport2.SetActive(false);
     }
 
     /// <summary>
     /// Go down the elevator.
     /// </summary>
-    private void GoDown()
+    public void GoDown()
     {
         photonView.RPC(nameof(GoDownRpc), RpcTarget.AllBuffered);
     }
@@ -92,22 +115,21 @@ public class GoingUpAndDownController : MonoBehaviourPun
     [PunRPC]
     private void GoDownRpc()
     {
-        // Enable GoingDown
-        PlayerSetup.Local.GetComponent<GoingDown>().enabled = true;
-        PlayerSetup.Local.isUp = false;
-        playerCodingPlatform.GetComponent<GoingDown>().enabled = true;
-        GetComponent<GoingDown>().enabled = true;
+        if (PlayerSetup.Local != null)
+        {
+            var verticalMovement = PlayerSetup.Local.GetComponent<VerticalMovementPlayer>();
+            if (verticalMovement != null)
+            {
+                verticalMovement.movement = Movement.Down;
+            }
+            PlayerSetup.Local.isUp = false;
+        }
+
+        if (goingUpScript != null) goingUpScript.enabled = false;
+        if (goingDownScript != null) goingDownScript.enabled = true;
 
         // Setup GameObjects
-        instructionsCodingPlatform.SetActive(true);
-        instructionsProgramming.SetActive(false);
-        instructionsInitial.SetActive(true);
-
-        // Rotate this object
-        transform.Rotate(transform.rotation.x - 180, transform.rotation.y, transform.rotation.z, Space.Self);
-
-        // Set isUp and isDown
-        isUp = false;
-        isDown = true;
+        if (instructionsProgramming != null) instructionsProgramming.SetActive(false);
+        if (instructionsInitial != null) instructionsInitial.SetActive(true);
     }
 }

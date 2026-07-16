@@ -72,6 +72,17 @@ public class VrModeController : MonoBehaviour {
         {
             Api.ScanDeviceParams();
         }
+
+        bool wantsVR = PlayerPrefs.GetInt("MobileVR_Enabled", 0) == 1;
+        if (wantsVR)
+        {
+            Debug.Log("VR Mode requisitado pelo Menu. Ligando XR...");
+            OnPointerClick();
+        }
+        else
+        {
+            Debug.Log("VR Mode desativado pelo Menu. Modo normal mantido.");
+        }
     }
 
     /// <summary>

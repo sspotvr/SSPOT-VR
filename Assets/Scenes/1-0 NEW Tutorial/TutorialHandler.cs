@@ -10,6 +10,8 @@ namespace SSPot
 		private int teleports = 0;
 		[SerializeField] Door door;
 		[SerializeField] GameObject teleporter;
+		[SerializeField] GameObject teleporterP2;
+		[SerializeField] GameObject panel;
 
 		[SerializeField] GameObject[] otherTeleporters;
 		
@@ -38,6 +40,8 @@ namespace SSPot
 			if(teleports == 3)
 			{
 				teleporter.SetActive(true);
+				teleporterP2.SetActive(true);
+				panel.SetActive(false);
 				door.Operate();
 
 				foreach (GameObject otherTeleporter in otherTeleporters)
