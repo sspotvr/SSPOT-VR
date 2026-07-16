@@ -122,7 +122,6 @@ namespace SSpot.Level
         
         private void OnSuccess()
         {
-            if (LevelManager.Instance.LastActiveComputer != this) return;
             Debug.Log("Entrei no callback de sucesso");
 
 			renderers.ForEach(r => r.SetMaterial(true));
@@ -132,27 +131,22 @@ namespace SSpot.Level
 		{
 			if (LevelManager.Instance.LastActiveComputer != this) return;
 
-			Debug.Log("Entrei no callback de finaliza��o");
+			Debug.Log("Entrei no callback de finalizacao");
 
 			onLocalSuccess.Invoke();
 		}
 
 		private void OnError()
         {
-            if (LevelManager.Instance.LastActiveComputer != this) return;
-
             renderers.ForEach(r => r.SetMaterial(false));
             audioSource.PlayOneShot(errorSound);
         }
         
-        private void OnReset(){
-            if (LevelManager.Instance.LastActiveComputer != this) return;
-            renderers.ForEach(r => r.ResetMaterial());
-        }
+        private void OnReset() => renderers.ForEach(r => r.ResetMaterial());
 
 		public void Evaluate(IReadOnlyList<CodingCell> cells)
 		{
-            Debug.Log("Computador avaliando o c�digo...");
+            Debug.Log("Computador avaliando o codigo...");
             Debug.Log(_myEvaluators.Length + " avaliadores encontrados");
 
 			foreach (var evaluator in _myEvaluators)
