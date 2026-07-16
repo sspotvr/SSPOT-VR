@@ -1,0 +1,40 @@
+{
+  "fase": "Level-1",
+  "linhas": [
+    {
+      "nome": "start-1",
+      "pt_br": "O meu corpo travou de novo! Não estou conseguindo nem andar!",
+      "en_us": "My body froze again! I can't even walk!"
+    },
+    {
+      "nome": "start-2",
+      "pt_br": "Vamos ter que resetar ele.",
+      "en_us": "We're going to have to reset it."
+    },
+    {
+      "nome": "start-3",
+      "pt_br": "Vá até a plataforma à sua direita para me ajudar a ganhar o controle de novo!",
+      "en_us": "Go to the platform on your right to help me regain control!"
+    },
+    {
+      "nome": "line-1",
+      "pt_br": "Para que meu corpo se mexa de novo, você vai programar ele com um algoritmo!",
+      "en_us": "To move my body again, you're going to program it with an algorithm!"
+    },
+    {
+      "nome": "code-1",
+      "pt_br": "O código de reset é: frente, frente, esquerda, frente e direita.",
+      "en_us": "The reset code is: forward, forward, left, forward, and right."
+    },
+    {
+      "nome": "code-2",
+      "pt_br": "Pegue os Cubos e coloque no Computador! Depois é só dar Play!",
+      "en_us": "Grab the Cubes and place them on the Computer! Then just hit Play!"
+    },
+    {
+      "nome": "code-3",
+      "pt_br": "Não esqueça do Início e do Fim do algoritmo",
+      "en_us": "Don’t forget the Start and End of the algorithm"
+    }
+  ]
+}

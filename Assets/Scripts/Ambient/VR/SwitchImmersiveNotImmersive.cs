@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 
@@ -8,24 +7,19 @@ public class SwitchImmersiveNotImmersive : MonoBehaviour
 {
 
     public float spinForce;
-    bool autorization = true;
-    bool ImmersiveVR = true;
+    private bool authorization = true;
+    private bool immersiveVR = true;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
+    
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         transform.Rotate(0, spinForce * Time.deltaTime, 0);
     }
 
-    public void Autorization()
+    public void Authorization()
     {
-        autorization = true;
+        authorization = true;
     }
 
     public void ChangeVRMode()
@@ -34,17 +28,17 @@ public class SwitchImmersiveNotImmersive : MonoBehaviour
         Debug.Log("chamou a funcao");
         //Debug.Log(GvrIntent.IsLaunchedFromVr());
 
-        if(autorization)
+        if(authorization)
         {
 
-            Debug.Log("autorizaton true");
+            Debug.Log("authorization true");
 
-            if(ImmersiveVR)
+            if(immersiveVR)
             {
                 Debug.Log("immersive vr true");
 
                 StartCoroutine(SwitchToNotImmersive());
-                ImmersiveVR = false;
+                immersiveVR = false;
                 spinForce = -spinForce;
 
             }
@@ -54,7 +48,7 @@ public class SwitchImmersiveNotImmersive : MonoBehaviour
                 Debug.Log("immersive vr false");
 
                 StartCoroutine(SwitchToImmersive());
-                ImmersiveVR = true;
+                immersiveVR = true;
                 spinForce = -spinForce;
 
             }
@@ -71,7 +65,7 @@ public class SwitchImmersiveNotImmersive : MonoBehaviour
 
         // Some VR Devices do not support reloading when already active, see
         // https://docs.unity3d.com/ScriptReference/XR.XRSettings.LoadDeviceByName.html
-        if(String.Compare(XRSettings.loadedDeviceName, desiredDevice, true) != 0)
+        if(String.Compare(XRSettings.loadedDeviceName, desiredDevice, StringComparison.OrdinalIgnoreCase) != 0)
         {
             XRSettings.LoadDeviceByName(desiredDevice);
 
@@ -102,12 +96,11 @@ public class SwitchImmersiveNotImmersive : MonoBehaviour
     }
 
     // Resets camera transform and settings on all enabled eye cameras.
-    void ResetCameras()
+    private static void ResetCameras()
     {
         // Camera looping logic copied from GvrEditorEmulator.cs
-        for(int i = 0; i < Camera.allCameras.Length; i++)
+        foreach (Camera cam in Camera.allCameras)
         {
-            Camera cam = Camera.allCameras[i];
             if(cam.enabled && cam.stereoTargetEye != StereoTargetEyeMask.None)
             {
 

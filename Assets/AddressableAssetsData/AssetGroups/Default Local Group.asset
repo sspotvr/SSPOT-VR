@@ -13,13 +13,586 @@ MonoBehaviour:
   m_Name: Default Local Group
   m_EditorClassIdentifier: 
   m_GroupName: Default Local Group
-  m_Data:
-    m_SerializedData: []
   m_GUID: 063e5b72c0f54854e81e791b83d707f2
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: 0850d0290c22f22429f47f2cac2ad764
+    m_Address: Assets/Narration/Audios/Level-3/line.1en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 08f791ad5e4e4994dadb5cd9b29d10c4
+    m_Address: Assets/Narration/Audios/Tutorial/p2.1.2en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 09694849bfc1686428d1f4172d0151e5
+    m_Address: Assets/Narration/Audios/Tutorial/p2.1.2pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0a9bb1a977567104ab8437bc7f2c634c
+    m_Address: Assets/Narration/Audios/Level-2/start.2en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0ba3d5f1cc0026341a094d24d157fa1d
+    m_Address: Assets/Narration/Audios/Tutorial/p5.2pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1050c81da6940f944ab6224c324c01e9
+    m_Address: Assets/Narration/Audios/Level-3/code.3pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 113be0f689a2a5141b93be4a64e79b85
+    m_Address: Assets/Narration/Audios/Labirinto/start.3pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 114c6065644b3da42be3c28b831effbf
+    m_Address: Assets/Narration/Audios/Tutorial/p1.1.2pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1260c687d68346f41b6a9d9b15610540
+    m_Address: Assets/Narration/Audios/Level-3/code.2en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 13d8837887e5a07469bfd10cd0f4709c
+    m_Address: Assets/Narration/Audios/Labirinto/start.5pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 14b42b3bfc57a534c82093aba33c177c
+    m_Address: Assets/Narration/Audios/Level-3/line.1pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1a73bbd858f563e4fbdb3f932ff75dba
+    m_Address: Assets/Narration/Audios/Level-2/line.1en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1b2dce13dc3a1db4d81a2dc88f001567
+    m_Address: Assets/Narration/Audios/Level-1/code-2pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1bde00e886f451843aec8064dc8048f7
+    m_Address: Assets/Narration/Audios/Tutorial/p5.3.2en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1c3557c2d8678bb40aef1f36780d6927
+    m_Address: Assets/Narration/Audios/Tutorial/p3.2.1en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1c9d8df699c180344819cd74336ffec3
+    m_Address: Assets/Narration/Audios/Level-2/start.1pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1cdb180ef3b5aec4d86cd73dfde7be57
+    m_Address: Assets/Narration/Audios/Level-3/code.3en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 20c8bcd027af43e40878984bb6fe7530
+    m_Address: Assets/Narration/Audios/Level-3/start.1pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2bf0eaa0f579f3e4aaf3a81410947977
+    m_Address: Assets/Narration/Audios/Tutorial/p5.1en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2dd0555d3ffcb3e4fb99d48f627a0354
+    m_Address: Assets/Narration/Audios/Tutorial/p4.1.1en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2df18049674638949939b3e226cbcf69
+    m_Address: Assets/Narration/Audios/Tutorial/p4.4.1en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2f56ebcfca8caa54d99a3b219c7f6d78
+    m_Address: Assets/Narration/Audios/Tutorial
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 31e2be8433975f94e9457bd6213a4264
+    m_Address: Assets/Narration/Audios/Labirinto
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 32e001c0e2c395848b51faf4f9032425
+    m_Address: Assets/Narration/Audios/Tutorial/p1.1.1pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 358365287cc4f8c48b29393dd43c19a7
+    m_Address: Assets/Narration/Audios/Level-1
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 37facf1d76358394fb451f8c21186a50
+    m_Address: Assets/Narration/Audios/Level-2/start.3en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 39d704f934b4409488963966b683eba7
+    m_Address: Assets/Narration/Audios/Tutorial/p5.2en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 435cc8a44975359468ea0195ef558385
+    m_Address: Assets/Narration/Audios/Tutorial/p4.2.1en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 44bbd62b6571ab249be01cd7f3b03d90
+    m_Address: Assets/Narration/Audios/Tutorial/p4.2.2pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 44df43fcb5d5d13438596e523c382bef
+    m_Address: Assets/Narration/Audios/Tutorial/p5.1pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 46a73da7d5225e745b484a58638896e2
+    m_Address: Assets/Narration/Audios/Level-1/start-1pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 46e90bf7d0031be41969f1ab2716b307
+    m_Address: Assets/Narration/Audios/Tutorial/p2.2pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4a1104571bea6a740938179f6dcc1524
+    m_Address: Assets/Narration/Audios/Tutorial/p4.4.3en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4a773c49be0bdec4cbe19f2b6aeabb04
+    m_Address: Assets/Narration/Audios/Labirinto/start.4pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4ade539f5e1620141bb87db129e4e855
+    m_Address: Assets/Narration/Audios/Tutorial/p1.3pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4c75dbbde22606b4aad39ee86326f42e
+    m_Address: Assets/Narration/Audios/Tutorial/p4.4.1pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 56fbdbde3e6f9ba43b3068b471469c9f
+    m_Address: Assets/Narration/Audios/Tutorial/p4.5en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 575388172a212f2449ac141432c97056
+    m_Address: Assets/Narration/Audios/Tutorial/p5.4.1en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5fa2f0c7d5f284749bef48ea06facb8f
+    m_Address: Assets/Narration/Audios/Tutorial/p4.4.2pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 61d781e60115a6b42915be64215be168
+    m_Address: Assets/Narration/Audios/Teste/p1.1pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 62676e1b93a9b6b43b15e5e49985880b
+    m_Address: Assets/Narration/Audios/Level-3/line.2pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 626956f2a1e877e4eacea3def1f39067
+    m_Address: Assets/Narration/Audios/Labirinto/start.2en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 66c91b03944a96a4ab73d32bb6e3a850
+    m_Address: Assets/Narration/Audios/Level-2/code.1en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6723034fa52679b4f8013be97a20f142
+    m_Address: Assets/Narration/Audios/Level-1/start-3en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 67e195e9589b83649a444c7c0e8212cd
+    m_Address: Assets/Narration/Audios/Tutorial/p4.4.2en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6a8c2354aeea39a49bb5a59547b91916
+    m_Address: Assets/Narration/Audios/Level-1/code-1pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6b57e16b04b02ae4fb3cd20097a63259
+    m_Address: Assets/Narration/Audios/Tutorial/p3.3pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6bf630c839b48e641ad33f04f95a4543
+    m_Address: Assets/Narration/Audios/Tutorial/p2.1.1en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6c1f20f21fb71474e88fa42f883cd14d
+    m_Address: Assets/Narration/Audios/Tutorial/p4.3.1en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6fb3da444b4f1354fb2f1b06dddf2e72
+    m_Address: Assets/Narration/Audios/Level-2/start.3pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 72290b220b1e17d47ae61baf79274130
+    m_Address: Assets/Narration/Audios/Tutorial/p2.1.1pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 72503fefea997db439d73d40834eb260
+    m_Address: Assets/Narration/Audios/Level-3/code.1pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7314b9a653702e94cb9ef866834cd8c3
+    m_Address: Assets/Narration/Audios/Tutorial/p1.2en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7817acc66fd90a347a1b0e58f2f5b7c1
+    m_Address: Assets/Narration/Audios/Tutorial/p5.4.2en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7a4af474185d40247b34630366af69f4
+    m_Address: Assets/Narration/Audios/Level-1/code-1en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7b92559fc7980ea41b9c77f787061b06
+    m_Address: Assets/Narration/Audios/Tutorial/p5.3.2pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7ce251768053e3f41b2728351603d6f7
+    m_Address: Assets/Narration/Audios/Level-1/start-1en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7e874748f28d8db4f854682cc97ac10b
+    m_Address: Assets/Narration/Audios/Tutorial/p4.2.2en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 815da1c1fce2318439ab022e6e13e960
+    m_Address: Assets/Narration/Audios/Level-1/start-2pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 87bb3f666fbaa2c42901a33ee386f594
+    m_Address: Assets/Narration/Audios/Tutorial/p3.1.1pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 89db52b22cf7f6f47807916fc432673e
+    m_Address: Assets/Narration/Audios/Level-1/code-2en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8a3926626ff0baf499d16d740282952d
+    m_Address: Assets/Narration/Audios/Tutorial/p3.3en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8a585e7a18e1f494da98365e7454a413
+    m_Address: Assets/Narration/Audios/Level-1/start-2en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8bf22ba8e180fa248aea4ba08bad2ad4
+    m_Address: Assets/Narration/Audios
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8d69c5aac3647e74a908b642018aee84
+    m_Address: Assets/Narration/Audios/Level-3/start.2pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8ea6a026adaf6e94d9a6ce60b8cbd84c
+    m_Address: Assets/Narration/Audios/Labirinto/start.5en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9204ece9296b55b40af05884feeadb7c
+    m_Address: Assets/Narration/Audios/Level-2/code.3pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9298c9c355b742743b4a0b5fdc0f7885
+    m_Address: Assets/Narration/Audios/Level-3/code.1en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 946ce51137c64c0439cc1b5eaf80fb2e
+    m_Address: Assets/Narration/Audios/Labirinto/start.3en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 94deebb19101d8e4193ffe34055c19bc
+    m_Address: Assets/Narration/Audios/Tutorial/p4.1.1pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 95273020420718948a781cd504f4a48e
+    m_Address: Assets/Narration/Audios/Tutorial/p5.3.1en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 96ee770dc244bac43baaa4dc3958ca0c
+    m_Address: Assets/Narration/Audios/Tutorial/p1.3en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9a694aa6b3e37234986c0919f5bb84dc
+    m_Address: Assets/Narration/Audios/Level-2/start.1en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9d805ed0049d61a408c75321c52fa44d
+    m_Address: Assets/Narration/Audios/Tutorial/p5.4.2pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a39a6694790407c40a15b67d6f9ec437
+    m_Address: Assets/Narration/Audios/Level-3/code.2pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a3e8bf3af00cf5e4dbf52d2e8a2b9bf8
+    m_Address: Assets/Narration/Audios/Level-1/code-3pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a99c70769c21c15408a63661ea7b0784
+    m_Address: Assets/Narration/Audios/Level-2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ab4151d50047a8a48a725b1842daa053
+    m_Address: Assets/Narration/Audios/Level-2/code.2en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae9ab870832f4194b8dfc1829f441b99
+    m_Address: Assets/Narration/Audios/Tutorial/p4.4.3pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b029f1d74f413124aac809058b1a3ab3
+    m_Address: Assets/Narration/Audios/Level-2/code.1pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b308dd359ab121344bf7971af9b6ad3e
+    m_Address: Assets/Narration/Audios/Tutorial/config.1pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b49c26eb5cb53ba49b4ac3a8a16c99df
+    m_Address: Assets/Narration/Audios/Tutorial/p4.5pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b6ede72413e984249b98365afe16792c
+    m_Address: Assets/Narration/Audios/Teste
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b7a06da6be969f6438b2b6b3daaed1d3
+    m_Address: Assets/Narration/Audios/Level-2/code.3en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bd373078d072f4343b21083166f71854
+    m_Address: Assets/Narration/Audios/Labirinto/start.4en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c06e9063632eed740be8d4fffdda49b8
+    m_Address: Assets/Narration/Audios/Level-2/line.1pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c2a4986f034c88b469f5ab1094e65888
+    m_Address: Assets/Narration/Audios/Level-1/code-3en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c498db49c1d5ba64c9890a84f6e6c498
+    m_Address: Assets/Narration/Audios/Tutorial/p5.4.1pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c503953c5c640c84eb010a94314fe6b4
+    m_Address: Assets/Narration/Audios/Tutorial/p1.2pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c6ca832d4a925e94587dc62a80eba557
+    m_Address: Assets/Narration/Audios/Level-1/line-1en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c76ce314d87b60a4db3fe83c0bd15b92
+    m_Address: Assets/Narration/Audios/Labirinto/start.2pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c78d71d402eed7d4e99f6646b06ef589
+    m_Address: Assets/Narration/Audios/Level-3/start.2en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cc0d6f9ba2a2ae149a17197dfa022257
+    m_Address: Assets/Narration/Audios/Tutorial/p4.3.3en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cc1cd39d05d263347b2583498654524d
+    m_Address: Assets/Narration/Audios/Tutorial/p2.2en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cec7e1e0be8c72e49a12e454a85a4925
+    m_Address: Assets/Narration/Audios/Level-1/start-3pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d178d7810e2491e438d969383bed2de8
+    m_Address: Assets/Narration/Audios/Tutorial/p4.3.1pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d24659fd78de3a44ca9c7133b01cd4ee
+    m_Address: Assets/Narration/Audios/Level-3/line.2en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d59ddac96efb39c4cb78be3758b1c8df
+    m_Address: Assets/Narration/Audios/Tutorial/p4.2.1pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d84c58b7f0a9178438fd783f032c18cc
+    m_Address: Assets/Narration/Audios/Level-2/code.2pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: defd47eab05c70542bc693c262481ef9
+    m_Address: Assets/Narration/Audios/Teste/p1.1en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e0e2421ebd7d27646a9f2c717f96a1d3
+    m_Address: Assets/Narration/Audios/Level-3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e8c6b34518618c44ea4b0568d9ddabb0
+    m_Address: Assets/Narration/Audios/Tutorial/p3.2.1pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e95868c2bee87df4998f507694976c05
+    m_Address: Assets/Narration/Audios/Tutorial/p3.1.1en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ec97f1858b7132146abb88456661514b
+    m_Address: Assets/Narration/Audios/Labirinto/start.1pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ed4e7d7edfb654c4e869359f6aa2ea83
+    m_Address: Assets/Narration/Audios/Level-3/start.1en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: edccbb411170f974988aaed32cd2eba7
+    m_Address: Assets/Narration/Audios/Level-1/line-1pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ef5ac24d85f43e346a127d04aef3d21c
+    m_Address: Assets/Narration/Audios/Tutorial/p1.1.2en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f0725321ae06d26418cd8776cfcb45e1
+    m_Address: Assets/Narration/Audios/Tutorial/p1.1.1en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f0905fbc9d4e5974b9aabd97e0bf8e94
+    m_Address: Assets/Narration/Audios/Level-2/code.4en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f0f015d88bfe506459dbbc8a8dca6096
+    m_Address: Assets/Narration/Audios/Tutorial/p5.3.1pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f218401a17fa51a49b255397c31cd898
+    m_Address: Assets/Narration/Audios/Tutorial/p4.3.3pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f24cf11f916364845b05fe133b3da62f
+    m_Address: Assets/Narration/Audios/Level-2/code.4pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f406e129957fd4945af81e4d3a599c19
+    m_Address: Assets/Narration/Audios/Level-2/start.2pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fad509d71c5c0d04ea0e0a3fd177dfa7
+    m_Address: Assets/Narration/Audios/Tutorial/config.1en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fc8bb05d3cfcc5b44934b6c2bb128288
+    m_Address: Assets/Narration/Audios/Labirinto/start.1en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 8189444b1fe375340ad3a0bd116e19ae, type: 2}
   m_SchemaSet:
     m_Schemas:
-    - {fileID: 11400000, guid: 27dd23b38a6ebec42922795a7c3a943a, type: 2}
     - {fileID: 11400000, guid: a3eb87795d1c8d34b93be7d402807365, type: 2}
+    - {fileID: 11400000, guid: 27dd23b38a6ebec42922795a7c3a943a, type: 2}

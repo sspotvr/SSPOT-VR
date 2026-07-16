@@ -10,6 +10,7 @@ using SSPot.Utilities;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using SSPot;
 
 namespace SSpot.Level
 {
@@ -27,14 +28,17 @@ namespace SSpot.Level
         [Tooltip("If true, robot can continue walking from the ending position" +
                  " if the code was already executed but didnt achieve success or errored out.")]
         [SerializeField] private bool allowConsecutiveRuns;
-        
-        #endregion
-        
-        #region Events
-        
-        //Consider using event bus ScriptableObjects
-        
-        [field: Header("Events"), SerializeField]
+
+		[SerializeField] private bool disableRobotMovement = false;
+		public CubeComputer LastActiveComputer { get; private set; }
+
+		#endregion
+
+		#region Events
+
+		//Consider using event bus ScriptableObjects
+
+		[field: Header("Events"), SerializeField]
         public UnityEvent OnReset { get; private set; } = new();
 
         [field: SerializeField]
@@ -54,14 +58,14 @@ namespace SSpot.Level
 
         #endregion
 
-        private RobotData _robot;
+        public RobotData _robot;
 
         public RobotData Robot
         {
             get
             {
                 if (!_robot)
-                    _robot = FindObjectOfType<RobotData>();
+                    _robot = FindFirstObjectByType<RobotData>();
                 
                 if (!_robot)
                     Debug.LogError($"{nameof(RobotData)} not found in scene", gameObject);
@@ -71,9 +75,7 @@ namespace SSpot.Level
         }
 
         public LevelResult CurrentResult { get; private set; } = LevelResult.None();
-
-        private CodeEvaluator[] _evaluators = Array.Empty<CodeEvaluator>(); 
-        
+    
         
         public enum Stage { None, Running, AwaitingResult, End }
 
@@ -89,11 +91,6 @@ namespace SSpot.Level
             StopCoroutine(_currentCoroutine);
             _currentCoroutine = null;
             runner.Reset();
-        }
-
-        protected void Start()
-        {
-            _evaluators = GetComponentsInChildren<CodeEvaluator>();
         }
 
         #region Run Methods
@@ -119,9 +116,12 @@ namespace SSpot.Level
                 return;
             }
 
-            var cells = computer.Cells;
-            
-            if (CurrentStage is Stage.Running or Stage.End)
+			LastActiveComputer = computer;
+			var cells = computer.Cells;
+
+			Debug.Log("Rodando o botão de run");
+
+			if (CurrentStage is Stage.Running or Stage.End)
                 return;
             
             // If already executed once, either resets everything or stops awaiting to keep playing.
@@ -144,18 +144,27 @@ namespace SSpot.Level
                 ReportResult(compilationError);
                 return;
             }
-            
-            // Evaluate raw and compiled code
-            _evaluators.ForEach(e => e.EvaluatePreCompilation(cells));
-            if (CurrentResult.Type == LevelResult.ResultType.Error)
+
+			// Evaluate raw and compiled code
+			computer.Evaluate(computer.Cells);
+			if (CurrentResult.Type == LevelResult.ResultType.Error)
                 return;
 
-            _evaluators.ForEach(e => e.EvaluatePostCompilation(compilation.Result));
-            if (CurrentResult.Type == LevelResult.ResultType.Error)
+			computer.EvaluateCompiled(compilation.Result);
+			if (CurrentResult.Type == LevelResult.ResultType.Error)
                 return;
 
-            // Run and wait for result
-            CurrentStage = Stage.Running;
+            // OPICIONAL - Desativa o robo
+			if (disableRobotMovement)
+			{
+				CurrentStage = Stage.End;
+				OnLevelCompleted.Invoke();
+                Debug.Log("Movimento Desativado para o Robo");
+				return;
+			}
+
+			// Run and wait for result
+			CurrentStage = Stage.Running;
             OnStartRunning.Invoke();
             _currentCoroutine = StartCoroutine(runner.RunCubesCoroutine(compilation.Result, Robot, () =>
             {
@@ -203,8 +212,13 @@ namespace SSpot.Level
             if (CurrentStage == Stage.End) return;
             
             KillCurrentCoroutine();
-            
-            Robot.ResetRobot();
+
+            if (!disableRobotMovement)
+            {
+                if (Robot == null) Debug.Log($"No {nameof(RobotData)} found in scene, can't reset robot");
+
+				Robot.ResetRobot();
+            }
             
             OnReset.Invoke();
         }
@@ -246,5 +260,15 @@ namespace SSpot.Level
         }
         
         #endregion
-    }
+
+        public void activateRobotMovement()
+        {
+            disableRobotMovement = false;
+        }
+
+        public void resetStage()
+        {
+            CurrentStage = Stage.None;
+		}
+	}
 }

@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: Localization-String-Tables-English (en)
   m_EditorClassIdentifier: 
   m_GroupName: Localization-String-Tables-English (en)
-  m_Data:
-    m_SerializedData: []
   m_GUID: 04f01b24d469bbe4db4db394dda56db6
   m_SerializeEntries:
   - m_GUID: 151499f3d5f647c4587e401e0d88c948
@@ -22,48 +20,61 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en
-    - Preload
-  - m_GUID: a64d09544abd26e45b27887289d9870f
-    m_Address: First Scene_en
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-en
-    - Preload
-  - m_GUID: e1cb6f32ae88de6429357976322bc227
-    m_Address: Global Localization_en
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-en
-    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 65c30b5402b5b404bb87feaa4343f533
     m_Address: Second Scene_en
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en
-  - m_GUID: caa43b32162c6dc478c73cc3d0132120
-    m_Address: MainMenu_en
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-en
-    - Preload
-  - m_GUID: 939ef3b992169024ba183db79c58727c
-    m_Address: Lobby_en
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-en
-    - Preload
-  - m_GUID: f0b58e4a91bfbe94cb425e18447ecc02
-    m_Address: Labirinth_en
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-en
-    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 90b3272b0f233044f8f2cabd9d3df31f
     m_Address: Third Scene_en
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en
     - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 939ef3b992169024ba183db79c58727c
+    m_Address: Lobby_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9ea3d4e2d2ddbcb43b62e5188e74b12a
+    m_Address: SubtitlesTable_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a64d09544abd26e45b27887289d9870f
+    m_Address: First Scene_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: caa43b32162c6dc478c73cc3d0132120
+    m_Address: MainMenu_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e1cb6f32ae88de6429357976322bc227
+    m_Address: Global Localization_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f0b58e4a91bfbe94cb425e18447ecc02
+    m_Address: Labirinth_en
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    - Preload
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 8189444b1fe375340ad3a0bd116e19ae, type: 2}
   m_SchemaSet:
