@@ -23,7 +23,7 @@ public class PlayerSetup : MonoBehaviourPun
     public GameObject Hand => playerHand;
 
     public bool IsLocal => photonView.IsMine;
-    public bool isUp = false;
+    public bool isUp;
 
     // Player hand
     [SerializeField] private GameObject playerHand;
@@ -31,7 +31,17 @@ public class PlayerSetup : MonoBehaviourPun
     // Cameras (UI and player's)
     [SerializeField] private GameObject playerCamera;
     [SerializeField] private GameObject uiCamera;
-    
+
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip notInteractable;
+    [SerializeField] private AudioClip destroyCube;
+
+
+    private void Start()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     private void Awake()
     {
         //Register global
@@ -62,10 +72,15 @@ public class PlayerSetup : MonoBehaviourPun
     /// </summary>
     public void DestroyCubeOnHand()
     {
-        if(playerHand.transform.childCount > 0)
+        if(playerHand.transform.childCount > 0) // if there is a cube on hand
         {
             // Call DestroyCubeOnHandRpc using this View ID
             photonView.RPC(nameof(DestroyCubeOnHandRpc), RpcTarget.AllBuffered);
+            audioSource.PlayOneShot(destroyCube);
+        }
+        else // if empty-handed
+        {
+            audioSource.PlayOneShot(notInteractable);
         }
     }
 

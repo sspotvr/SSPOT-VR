@@ -11,7 +11,7 @@ public class CrosshairController : MonoBehaviour
     private Vector3 newScale;   // Target scale
 
 
-    void Awake()
+    private void Awake()
     {
         if(reticle == null)
         {
@@ -20,15 +20,15 @@ public class CrosshairController : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         newScale = reticle.transform.localScale;    // Set the target scale to reticle scale when the scene starts
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        // If reticle current scale is different from newScale, smoothly change the crosshair the scale
+        // If the reticle current scale is different from newScale, smoothly change the crosshair the scale
         if(reticle.transform.localScale != newScale)
         {
             reticle.transform.localScale = Vector3.Lerp(reticle.transform.localScale, newScale, 20f * Time.deltaTime);

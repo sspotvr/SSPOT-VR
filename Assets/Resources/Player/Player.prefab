@@ -300,6 +300,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiCamera: {fileID: 7192900133199524578}
   crosshairController: {fileID: 2543849838348204125}
+  interactable: {fileID: 8300000, guid: 57efaada75e241b44a628b6c83af7f3e, type: 3}
+  successfulInteraction: {fileID: 8300000, guid: 14f02b49280600249bfda83a39a70a39, type: 3}
 --- !u!114 &3374195173936266473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -590,6 +592,8 @@ MonoBehaviour:
   playerHand: {fileID: 1751640418}
   playerCamera: {fileID: 7192900133106063890}
   uiCamera: {fileID: 7192900133199524577}
+  notInteractable: {fileID: 8300000, guid: c164ac37ebc16824e8d37b318029eeed, type: 3}
+  destroyCube: {fileID: 8300000, guid: b1e1d1f75c22e65468ce3f1d38a2cfd7, type: 3}
 --- !u!114 &6573537839188949696
 MonoBehaviour:
   m_ObjectHideFlags: 0

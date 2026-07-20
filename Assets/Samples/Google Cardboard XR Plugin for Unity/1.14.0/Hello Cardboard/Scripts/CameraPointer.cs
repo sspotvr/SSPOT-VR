@@ -16,8 +16,7 @@
 // </copyright>
 //-----------------------------------------------------------------------
 
-using Photon.Pun;
-using System.Collections;
+// using Photon.Pun;
 using UnityEngine;
 
 /// <summary>
@@ -28,8 +27,17 @@ public class CameraPointer : MonoBehaviour {
     private GameObject gazedAtObject;
     private const float MaxDistance = 100;
     [SerializeField] public Camera uiCamera;
-    [SerializeField] private CrosshairController crosshairController; 
-    
+    [SerializeField] private CrosshairController crosshairController;
+
+    private AudioSource audioSource;
+    [SerializeField] private AudioClip interactable;
+    [SerializeField] private AudioClip successfulInteraction;
+
+    private void Start()
+    {
+        audioSource = GetComponentInParent<AudioSource>();
+    }
+
     public void Update() {
         // raycasts to get the object the camera is looking at
         if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, MaxDistance))
@@ -44,10 +52,15 @@ public class CameraPointer : MonoBehaviour {
                 gazedAtObject.SendMessage("OnPointerEnter", SendMessageOptions.DontRequireReceiver);
 
                 // If gazed object is clickable, scale up crosshair
-                crosshairController.SetCrosshairScale(gazedAtObject.CompareTag("Clickable")
-                    ? new Vector3(1.75f, 1.75f, 1.75f)
-                    // If not, scale down crosshair
-                    : new Vector3(1f, 1f, 1f));
+                if (gazedAtObject.CompareTag("Clickable"))
+                {
+                    crosshairController.SetCrosshairScale(new Vector3(1.75f, 1.75f, 1.75f));
+                    audioSource.PlayOneShot(interactable);
+                }
+                else
+                {
+                    crosshairController.SetCrosshairScale(new Vector3(1f, 1f, 1f));
+                }
             }
         }
         
@@ -57,23 +70,21 @@ public class CameraPointer : MonoBehaviour {
             gazedAtObject = null;
             crosshairController.SetCrosshairScale(new Vector3(1f, 1f, 1f));
         }
-        
+
         if (Google.XR.Cardboard.Api.IsTriggerPressed || /*Input.GetTouch(0).phase == TouchPhase.Began ||*/
             Input.GetButtonDown("Fire1"))
         {
-            // ** play sound at mouse click
-            
             // remove the cube from the player's hands if the player interacts with a non-clickable
             // or with a non-interactive
             if(!gazedAtObject || (!gazedAtObject.CompareTag("Clickable") && !gazedAtObject.CompareTag("NoPointerAction")) )
             {
-                // ** play sound only when destroying cube
+                // invalid interaction and cube destruction SFXs inside the DestryCubeOnHand function
                 PlayerSetup.Local.DestroyCubeOnHand();
             }
-            else // otherwise, call OnPointerClick method
+            else // otherwise, if the player clicks on something interactible, call OnPointerClick method
             {
-                // ** play sound only when interacting / grabbing cube
                 gazedAtObject?.SendMessage("OnPointerClick", SendMessageOptions.DontRequireReceiver);
+                audioSource.PlayOneShot(successfulInteraction);
             }
         }
     }
