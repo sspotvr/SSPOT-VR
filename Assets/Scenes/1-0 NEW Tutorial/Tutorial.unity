@@ -5933,6 +5933,10 @@ PrefabInstance:
       value: ChangeScene
       objectReference: {fileID: 0}
     - target: {fileID: 3021839316855342614, guid: 22c04571aa1e3504fb9e4ac875ee8c3e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3021839316855342614, guid: 22c04571aa1e3504fb9e4ac875ee8c3e, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
@@ -9652,7 +9656,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4351082277980678877, guid: d81ca2906d769c447807973448aae63f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4351082277980678877, guid: d81ca2906d769c447807973448aae63f, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -46950,7 +46954,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4351082277980678877, guid: d81ca2906d769c447807973448aae63f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4351082277980678877, guid: d81ca2906d769c447807973448aae63f, type: 3}
       propertyPath: m_StaticEditorFlags
