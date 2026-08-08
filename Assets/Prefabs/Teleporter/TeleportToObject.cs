@@ -99,14 +99,8 @@ public class TeleportToObject : MonoBehaviourPun
     {
         if (PlayerSetup.Local == null) return;
         float distance = Vector3.Distance(transform.position, PlayerSetup.Local.transform.position);
-        
-        if (distance < 0.1f)
-        {
-            teleportLocationMesh.enabled = false; // Player está aqui, esconde a seta
-        }
-        else
-        {
-            teleportLocationMesh.enabled = true; // Player saiu, mostra a seta
-        }
+
+        teleportLocationMesh.enabled = !(distance < 0.1f);  // esconde a seta caso o player esteja perto
+
     }
 }

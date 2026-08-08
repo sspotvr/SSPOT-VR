@@ -38823,14 +38823,6 @@ PrefabInstance:
         Treinamento em Programa\xE7\xE3o!\n\nPara se movimentar, clique nas setas
         verdes espalhadas pela esta\xE7\xE3o."
       objectReference: {fileID: 0}
-    - target: {fileID: 3043278057597581037, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
-      propertyPath: m_FontData.m_FontSize
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3043278057597581037, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
-      propertyPath: m_FontData.m_RichText
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5145904599066590755, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
       propertyPath: m_Layer
       value: 10

@@ -11,12 +11,12 @@ namespace SSpot.Ambient.ComputerCode
         [SerializeField] private bool mustUseAllSlots = true;
         
         [Header("Errors")]
-        [SerializeField] private string emptyError = "Preencha o algoritmo!";
-        [SerializeField] private string beginError = "Deu ERRO! Verifique se o algoritmo foi iniciado corretamente!";
-        [SerializeField] private string endError = "Deu ERRO! Verifique se o algoritmo foi finalizado corretamente!";
-        [SerializeField] private string allSlotsError = "Deu ERRO! Você deve preencher todas as placas de programação!"; 
-        [SerializeField] private string noHolesError = "Deu ERRO! Seu algoritmo não pode ter placas vazias!";
-        [SerializeField] private string beginEndInMiddleError = "Deu ERRO! Início e Fim devem ser usados no lugar certo!";
+        [SerializeField] private string emptyError = "Deu ERRO!\nPreencha todos os espaços com cubos";
+        [SerializeField] private string beginError = "Deu ERRO!\nVerifique se o algoritmo comeca com \"Início\"";
+        [SerializeField] private string endError = "Deu ERRO!\nVerifique se o algoritmo termina com \"Fim\"";
+        [SerializeField] private string allSlotsError = "Deu ERRO!\nVocê deve preencher todas as placas de programação";
+        [SerializeField] private string noHolesError = "Deu ERRO!\nSeu algoritmo não pode ter placas vazias";
+        [SerializeField] private string beginEndInMiddleError = "Deu ERRO!\nInício e Fim devem ser usados no lugar certo";
         
         private static CompilationResult Error(string error, int index) => new(error, index);
         

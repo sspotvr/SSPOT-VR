@@ -38,15 +38,15 @@ namespace SSpot.Ambient.ComputerCode
         [BoxGroup("Visuals"), SerializeField]
         private Text rangeText;
         [BoxGroup("Visuals"), SerializeField]
-         private GameObject Plane;
+         private GameObject plane;
         [BoxGroup("Visuals"), SerializeField]
         private float planeSize = 0.9f;
         [BoxGroup("Visuals"), SerializeField]
         private float planeGrowthOffset = 0.05f;
         [BoxGroup("Visuals"), SerializeField]
-        private GameObject IncreaseAmountButton;
+        private GameObject increaseAmountButton;
         [BoxGroup("Visuals"), SerializeField]
-        private GameObject DecreaseAmountButton;
+        private GameObject decreaseAmountButton;
 
         private LoopSettings Settings => overrideGlobalSettings 
             ? settings 
@@ -80,14 +80,14 @@ namespace SSpot.Ambient.ComputerCode
                     return;
                 }
                 
-                range = Mathf.Clamp(value, MinRange, _cachedMaxRange);
-                IncreaseAmountButton.SetActive(range < _cachedMaxRange);
-                rangeText.text = range == MinRange ? "X" : "A";
+                range = Mathf.Clamp(value, MinRange, cachedMaxRange);
+                increaseAmountButton.SetActive(range < cachedMaxRange);
+                rangeText.text = range == MinRange ? "x" : "<";
                 UpdatePanelScale();
             }
         }
         
-        private int _cachedMaxRange;
+        private int cachedMaxRange;
 
         private void OnEnable() => RefreshEarlierPanels();
 
@@ -119,13 +119,13 @@ namespace SSpot.Ambient.ComputerCode
         
         private void UpdatePanelScale()
         {
-            Vector3 position = Plane.transform.localPosition;
+            Vector3 position = plane.transform.localPosition;
             position.y = -(Range - 1) * (.5f + planeGrowthOffset * .5f);
-            Plane.transform.localPosition = position;
+            plane.transform.localPosition = position;
 
-            Vector3 scale = Plane.transform.localScale;
+            Vector3 scale = plane.transform.localScale;
             scale.z = Range * planeSize + (Range - 1) * planeSize * planeGrowthOffset;
-            Plane.transform.localScale = scale;
+            plane.transform.localScale = scale;
         }
 
         private void RefreshEarlierPanels()
@@ -147,7 +147,7 @@ namespace SSpot.Ambient.ComputerCode
             int nextPanelIndex  = ParentCell.Computer.Cells.FindIndex(index + 1, cell => cell.HasLoop);
             if (nextPanelIndex == -1) nextPanelIndex = panelCount;
             
-            _cachedMaxRange = Mathf.Min(nextPanelIndex - index, Settings.maxRange);
+            cachedMaxRange = Mathf.Min(nextPanelIndex - index, Settings.maxRange);
             Range = Range;
             Iterations = Iterations;
         }

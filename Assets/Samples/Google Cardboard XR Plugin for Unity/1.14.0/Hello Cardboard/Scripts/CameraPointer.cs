@@ -78,10 +78,10 @@ public class CameraPointer : MonoBehaviour {
             // or with a non-interactive
             if(!gazedAtObject || (!gazedAtObject.CompareTag("Clickable") && !gazedAtObject.CompareTag("NoPointerAction")) )
             {
-                // invalid interaction and cube destruction SFXs inside the DestryCubeOnHand function
+                // invalid interaction and cube destruction SFXs inside the DestroyCubeOnHand function
                 PlayerSetup.Local.DestroyCubeOnHand();
             }
-            else // otherwise, if the player clicks on something interactible, call OnPointerClick method
+            else // otherwise, if the player clicks on something interactable, call OnPointerClick method
             {
                 gazedAtObject?.SendMessage("OnPointerClick", SendMessageOptions.DontRequireReceiver);
                 audioSource.PlayOneShot(successfulInteraction);

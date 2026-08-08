@@ -317,7 +317,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 952f78b24eb7f764596e205a671ab5c4, type: 3}
-    m_FontSize: 8
+    m_FontSize: 7
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -327,7 +327,7 @@ MonoBehaviour:
     m_RichText: 0
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
-    m_LineSpacing: 0.65
+    m_LineSpacing: 0.8
   m_Text: "Deu certo! Parab\xE9ns!\n\nAgora o Mark consegue dar umas voltas por a\xED.\n\nMas
     ainda n\xE3o acabou!\n\nVamos continuar!"
 --- !u!114 &1092770462003765633
@@ -421,6 +421,14 @@ PrefabInstance:
     - target: {fileID: 4023595670415127956, guid: ae52384a3730c124aa8f74e327937f9c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4357654109935428808, guid: ae52384a3730c124aa8f74e327937f9c, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4357654109935428808, guid: ae52384a3730c124aa8f74e327937f9c, type: 3}
+      propertyPath: m_FontData.m_LineSpacing
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 8078979460997514713, guid: ae52384a3730c124aa8f74e327937f9c, type: 3}
       propertyPath: m_LocalPosition.z

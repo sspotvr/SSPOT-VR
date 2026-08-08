@@ -7,7 +7,7 @@ public class AddRemoveIterations : MonoBehaviour
     public LoopController loopController;
 
     /// <summary>
-    /// When player clicks on this object, it adds one iteraction at LoopController.
+    /// When player clicks on this object, it adds one interaction at LoopController.
     /// </summary>
     public void OnPointerClick()
     {
