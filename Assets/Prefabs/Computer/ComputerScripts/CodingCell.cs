@@ -9,13 +9,18 @@ namespace SSpot.Ambient.ComputerCode
         public CubeClass CurrentCube => AttachingCube.CurrentCube;
         
         public bool HasLoop => LoopController != null && LoopController.gameObject.activeSelf;
-        
+
+        public bool HasCondition => ConditionController != null && ConditionController.gameObject.activeSelf;
+
         [field: SerializeField]
         public AttachingCube AttachingCube { get; private set; }
-        
+
         [field: SerializeField]
         public LoopController LoopController { get; private set; }
-        
+
+        [field: SerializeField]
+        public ConditionController ConditionController { get; private set; }
+
         [field: SerializeField]
         public MeshRenderer Renderer { get; private set; }
         
@@ -33,17 +38,26 @@ namespace SSpot.Ambient.ComputerCode
                 LoopController.ParentCell = this;
                 SetLoopRpc(false);
             }
+
+            if (ConditionController)
+            {
+                ConditionController.ParentCell = this;
+                SetConditionRpc(false);
+            }
         }
 
         public void Clear()
         {
             if (CurrentCube != null)
                 AttachingCube.ClearCell();
-            
-            if (LoopController) 
+
+            if (LoopController)
                 LoopController.ResetLoopData();
+
+            if (ConditionController)
+                ConditionController.ResetConditionData();
         }
-        
+
         public void SetLoop(bool loopActive)
         {
             if (LoopController == null)
@@ -51,7 +65,7 @@ namespace SSpot.Ambient.ComputerCode
                 Debug.LogError($"Null LoopController but called {nameof(SetLoop)}(true)", gameObject);
                 return;
             }
-            
+
             photonView.RPC(nameof(SetLoopRpc), RpcTarget.AllBuffered, loopActive);
         }
 
@@ -59,6 +73,23 @@ namespace SSpot.Ambient.ComputerCode
         private void SetLoopRpc(bool loopActive)
         {
             LoopController.gameObject.SetActive(loopActive);
+        }
+
+        public void SetCondition(bool conditionActive)
+        {
+            if (ConditionController == null)
+            {
+                Debug.LogError($"Null ConditionController but called {nameof(SetCondition)}(true)", gameObject);
+                return;
+            }
+
+            photonView.RPC(nameof(SetConditionRpc), RpcTarget.AllBuffered, conditionActive);
+        }
+
+        [PunRPC]
+        private void SetConditionRpc(bool conditionActive)
+        {
+            ConditionController.gameObject.SetActive(conditionActive);
         }
     }
 }

@@ -41,88 +41,119 @@ namespace SSpot.Ambient.ComputerCode
             if (cells[lastIndex].CurrentCube is not {type: Cube.CubeType.End})
                 return Error(endError);
 
+            var bodyResult = CompileRange(cells, 1, lastIndex);
+            if (bodyResult.IsError)
+                return bodyResult;
+
             var result = new List<Cube> {new(Cube.CubeType.Begin)};
-            foreach (var (start, end, count) in GetCodeSlices(cells, 1, lastIndex))
-            {
-                var sliceResult = CompileSlice(cells, start, end);
-                if (sliceResult.IsError)
-                    return sliceResult;
-                
-                //Consider other methods of compiling. For example, assembly style go-tos, or cube metadata.
-                //A cube could contain an int iterCount and int loopLen to represent a for loop.
-                for (int i = 0; i < count; i++)
-                {
-                    result.AddRange(sliceResult.Result);
-                }
-            }
+            result.AddRange(bodyResult.Result);
             result.Add(new(Cube.CubeType.End));
-            
+
             return new CompilationResult(result);
         }
-        
+
         /// <summary>
-        /// Compiles a range of coding cells into a list of cubes. Validates the coding cells
-        /// for correct placement and type usage, returning errors if any conditions are not met.
+        /// Compiles a range of coding cells into a flat list of cubes, validating placement and type usage.
+        /// Recurses into loop bodies (unrolled Iterations times, resolved at compile time) and into If bodies
+        /// (emitted as a single If cube followed by its "then" and "else" bodies, resolved at runtime by
+        /// CubeRunner since which branch runs depends on the robot's state when it's reached).
         /// </summary>
-        /// <param name="codingCells">The list of coding cells to compile.</param>
+        /// <param name="cells">The list of coding cells to compile.</param>
         /// <param name="start">The starting index of the range to compile (inclusive).</param>
         /// <param name="end">The ending index of the range to compile (exclusive).</param>
         /// <returns>A <see cref="CompilationResult"/> containing the compiled cubes or an error if compilation fails.</returns>
-        private CompilationResult CompileSlice(IReadOnlyList<CodingCell> codingCells, int start, int end)
+        private CompilationResult CompileRange(IReadOnlyList<CodingCell> cells, int start, int end)
         {
             List<Cube> result = new();
 
-            for (int i = start; i < end; i++)
+            int i = start;
+            while (i < end)
             {
-                var baseCube = codingCells[i].CurrentCube;
-                if (baseCube == null)
-                    return Error(noHolesError, i);
-                
-                if (baseCube.type is Cube.CubeType.Begin or Cube.CubeType.End)
-                    return Error(beginEndInMiddleError, i);
-                
-                var cube = new Cube(baseCube.type);
-                result.Add(cube);
+                var cell = cells[i];
+
+                if (cell.HasLoop)
+                {
+                    var loop = cell.LoopController;
+                    var body = CompileBlockBody(cells, i, i + loop.Range);
+                    if (body.IsError)
+                        return body;
+
+                    for (int r = 0; r < loop.Iterations; r++)
+                        result.AddRange(body.Result);
+
+                    i += loop.Range;
+                }
+                else if (cell.HasCondition)
+                {
+                    var condition = cell.ConditionController;
+                    var thenBody = CompileBlockBody(cells, i, i + condition.Range);
+                    if (thenBody.IsError)
+                        return thenBody;
+
+                    var ifCube = new Cube(Cube.CubeType.If) { ThenLength = thenBody.Result.Count };
+                    result.Add(ifCube);
+                    result.AddRange(thenBody.Result);
+
+                    int next = i + condition.Range;
+                    if (condition.HasElse)
+                    {
+                        var elseBody = CompileRange(cells, next, next + condition.ElseRange);
+                        if (elseBody.IsError)
+                            return elseBody;
+
+                        ifCube.ElseLength = elseBody.Result.Count;
+                        result.AddRange(elseBody.Result);
+                        next += condition.ElseRange;
+                    }
+
+                    i = next;
+                }
+                else
+                {
+                    var leaf = CompileCell(cell, i);
+                    if (leaf.IsError)
+                        return leaf;
+
+                    result.Add(leaf.Result[0]);
+                    i++;
+                }
             }
-            
+
             return new CompilationResult(result);
         }
 
         /// <summary>
-        /// Given a list of LoopControllers and a range of indices, this method yields a sequence of tuples,
-        /// each containing the start index, end index, and iteration count of a given slice of code.
+        /// Compiles a block body [start, end) whose first cell is itself the block's header (HasLoop or
+        /// HasCondition is true there). The header cell's own action cube is compiled as a plain leaf instead
+        /// of recursing back into CompileRange for it — otherwise it would re-detect its own HasLoop/HasCondition
+        /// flag and recurse forever. The remaining cells recurse normally, so a block nested further inside the
+        /// body (e.g. an If nested inside this Loop) is still handled.
         /// </summary>
-        /// <param name="cells">The list of cells to determine loop slices in the code.</param>
-        /// <param name="firstIndex">The starting index of the range to slice (inclusive).</param>
-        /// <param name="lastIndex">The ending index of the range to slice (exclusive).</param>
-        private static IEnumerable<(int start, int end, int count)> GetCodeSlices(
-            IReadOnlyList<CodingCell> cells, int firstIndex, int lastIndex)
+        private CompilationResult CompileBlockBody(IReadOnlyList<CodingCell> cells, int start, int end)
         {
-            int sliceStartIndex = firstIndex;
-            for (int i = firstIndex; i < lastIndex; i++)
-            {
-                if (i >= cells.Count || !cells[i].HasLoop) 
-                    continue;
+            var header = CompileCell(cells[start], start);
+            if (header.IsError)
+                return header;
 
-                // If there was non-looped code before the loop, return it as a single-iteration slice.
-                if (i > sliceStartIndex)
-                {
-                    yield return (sliceStartIndex, i, 1);
-                }
+            var rest = CompileRange(cells, start + 1, end);
+            if (rest.IsError)
+                return rest;
 
-                // Return the loop
-                var loop = cells[i].LoopController;
-                yield return (i, i + loop.Range, loop.Iterations);
+            var result = new List<Cube>(header.Result);
+            result.AddRange(rest.Result);
+            return new CompilationResult(result);
+        }
 
-                i += loop.Range - 1;
-                sliceStartIndex = i + 1;
-            }
+        private CompilationResult CompileCell(CodingCell cell, int index)
+        {
+            var baseCube = cell.CurrentCube;
+            if (baseCube == null)
+                return Error(noHolesError, index);
 
-            // If there is non-looped code after the last loop, return it as a single-iteration slice.
-            if (sliceStartIndex < lastIndex)
-            {
-                yield return (sliceStartIndex, lastIndex, 1);
-            }
+            if (baseCube.type is Cube.CubeType.Begin or Cube.CubeType.End)
+                return Error(beginEndInMiddleError, index);
+
+            return new CompilationResult(new List<Cube> {new(baseCube.type)});
         }
     }
 }

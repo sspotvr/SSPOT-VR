@@ -6,6 +6,7 @@ using static Cube;
 public class CubeClass
 {
 	public bool IsLoop => type == CubeType.Loop;
+	public bool IsIf => type == CubeType.If;
 
 
 	public CubeType type;

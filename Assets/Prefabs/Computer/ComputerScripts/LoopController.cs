@@ -131,20 +131,22 @@ namespace SSpot.Ambient.ComputerCode
         private void RefreshEarlierPanels()
         {
             if (!ParentCell) return;
-            
+
             for (int i = 0; i <= ParentCell.Index; i++)
             {
-                ParentCell.Computer.Cells[i].LoopController.RefreshLimits();
+                var cell = ParentCell.Computer.Cells[i];
+                cell.LoopController.RefreshLimits();
+                if (cell.ConditionController) cell.ConditionController.RefreshLimits();
             }
         }
-        
-        private void RefreshLimits()
+
+        public void RefreshLimits()
         {
             if (!ParentCell) return;
-            
+
             int index = ParentCell.Index;
             int panelCount = ParentCell.Computer.Cells.Count;
-            int nextPanelIndex  = ParentCell.Computer.Cells.FindIndex(index + 1, cell => cell.HasLoop);
+            int nextPanelIndex  = ParentCell.Computer.Cells.FindIndex(index + 1, cell => cell.HasLoop || cell.HasCondition);
             if (nextPanelIndex == -1) nextPanelIndex = panelCount;
             
             cachedMaxRange = Mathf.Min(nextPanelIndex - index, Settings.maxRange);

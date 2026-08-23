@@ -17,9 +17,13 @@ namespace SSpot.Level
         [BoxGroup("Cells")]
         [SerializeField] private Transform cellsParent;
 
-        [BoxGroup("Cells")] 
+        [BoxGroup("Cells")]
         [SerializeField] private LoopController.LoopSettings loopSettings;
         public LoopController.LoopSettings GlobalLoopSettings => loopSettings;
+
+        [BoxGroup("Cells")]
+        [SerializeField] private ConditionController.ConditionSettings conditionSettings;
+        public ConditionController.ConditionSettings GlobalConditionSettings => conditionSettings;
 
         [BoxGroup("Buttons")]
         [SerializeField] private PointerButton runButton;
@@ -51,6 +55,8 @@ namespace SSpot.Level
         public int IndexOf(AttachingCube cube) => _cells.FindIndex(cell => cell.AttachingCube == cube);
         
         public int IndexOf(LoopController loop) => _cells.FindIndex(cell => cell.LoopController == loop);
+
+        public int IndexOf(ConditionController condition) => _cells.FindIndex(cell => cell.ConditionController == condition);
 
         private void Awake()
         {

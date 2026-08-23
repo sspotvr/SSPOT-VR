@@ -84,6 +84,17 @@ namespace SSpot.Robot
 
 		public IEnumerator MoveForwardCoroutine() => MoveCoroutine();
 
+		/// <summary>
+		/// Whether the cell directly ahead of the robot (its current tile plus Facing) is out of the grid or
+		/// blocked - the same check MoveCoroutine uses before actually moving, exposed so an If cube can query
+		/// it without moving.
+		/// </summary>
+		public bool IsBlockedAhead()
+		{
+			var toCell = GridPosition + Facing;
+			return !Grid.InGrid(toCell) || !Grid[toCell].CanWalk;
+		}
+
 		private IEnumerator MoveCoroutine()
 		{
 			var fromCell = GridPosition;

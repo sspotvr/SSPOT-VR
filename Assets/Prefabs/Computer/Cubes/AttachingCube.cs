@@ -55,6 +55,11 @@ public class AttachingCube : MonoBehaviourPun
             ParentCell.SetLoop(true);
             PlayerSetup.Local.DestroyCubeOnHand();
         }
+        else if(selectedCube.Cube.IsIf)
+        {
+            ParentCell.SetCondition(true);
+            PlayerSetup.Local.DestroyCubeOnHand();
+        }
         else
         {
             photonView.RPC(nameof(SetCubeRPC), RpcTarget.AllBuffered, selectedCube.photonView.ViewID);
