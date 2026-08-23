@@ -250,8 +250,13 @@ namespace SSpot.Ambient.ComputerCode
         [PunRPC]
         private void ResetRpc()
         {
+            if (!ParentCell) return;
+
             HasElse = false;
             Range = MinRange;
+            // Range = MinRange only resets the size - a condition at its minimum range is still "attached".
+            // Reset should remove it entirely, same as dragging Range below the minimum would.
+            gameObject.SetActive(false);
         }
     }
 }
