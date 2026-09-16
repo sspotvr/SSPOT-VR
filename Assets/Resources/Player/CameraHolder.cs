@@ -19,7 +19,7 @@ namespace SSPot
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.T)) ChangeCameraPosition();
+            if (Input.GetKeyDown(KeyCode.C)) ChangeCameraPosition();
         }
 
         private void ChangeCameraPosition()
