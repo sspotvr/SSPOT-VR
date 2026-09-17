@@ -85,27 +85,11 @@ namespace SSpot.Ambient.ComputerCode
                 }
                 else if (cell.HasCondition)
                 {
-                    var condition = cell.ConditionController;
-                    var thenBody = CompileBlockBody(cells, i, i + condition.Range);
-                    if (thenBody.IsError)
-                        return thenBody;
+                    var condition = CompileCondition(cells, i, out int next);
+                    if (condition.IsError)
+                        return condition;
 
-                    var ifCube = new Cube(Cube.CubeType.If) { ThenLength = thenBody.Result.Count };
-                    result.Add(ifCube);
-                    result.AddRange(thenBody.Result);
-
-                    int next = i + condition.Range;
-                    if (condition.HasElse)
-                    {
-                        var elseBody = CompileRange(cells, next, next + condition.ElseRange);
-                        if (elseBody.IsError)
-                            return elseBody;
-
-                        ifCube.ElseLength = elseBody.Result.Count;
-                        result.AddRange(elseBody.Result);
-                        next += condition.ElseRange;
-                    }
-
+                    result.AddRange(condition.Result);
                     i = next;
                 }
                 else
@@ -123,19 +107,66 @@ namespace SSpot.Ambient.ComputerCode
         }
 
         /// <summary>
-        /// Compiles a block body [start, end) whose first cell is itself the block's header (HasLoop or
-        /// HasCondition is true there). The header cell's own action cube is compiled as a plain leaf instead
-        /// of recursing back into CompileRange for it — otherwise it would re-detect its own HasLoop/HasCondition
-        /// flag and recurse forever. The remaining cells recurse normally, so a block nested further inside the
-        /// body (e.g. an If nested inside this Loop) is still handled.
+        /// Compiles the If block at cells[i]: a single If cube followed by its "then" body and, if present,
+        /// its "else" body. Reports via <paramref name="next"/> how many raw cells this consumed (1 + Range +
+        /// ElseRange), since that span isn't fixed at 1 the way a plain leaf's is.
+        /// </summary>
+        private CompilationResult CompileCondition(IReadOnlyList<CodingCell> cells, int i, out int next)
+        {
+            var condition = cells[i].ConditionController;
+            var thenBody = CompileRange(cells, i + 1, i + 1 + condition.Range);
+            if (thenBody.IsError)
+            {
+                next = i + 1;
+                return thenBody;
+            }
+
+            var ifCube = new Cube(Cube.CubeType.If) { ThenLength = thenBody.Result.Count };
+            var result = new List<Cube> { ifCube };
+            result.AddRange(thenBody.Result);
+
+            next = i + 1 + condition.Range;
+            if (condition.HasElse)
+            {
+                var elseBody = CompileRange(cells, next, next + condition.ElseRange);
+                if (elseBody.IsError)
+                    return elseBody;
+
+                ifCube.ElseLength = elseBody.Result.Count;
+                result.AddRange(elseBody.Result);
+                next += condition.ElseRange;
+            }
+
+            return new CompilationResult(result);
+        }
+
+        /// <summary>
+        /// Compiles a loop body [start, end) whose first cell is itself the loop's header (HasLoop is true
+        /// there). Normally the header's own action cube is compiled as a plain leaf; but the header can
+        /// instead be a co-located If (the loop wraps the If directly, with no separate action cube of its
+        /// own - e.g. "repeat 5x: if obstacle... else..."), in which case it's compiled as an If, consuming
+        /// as many raw cells as its own then/else bodies need. Either way, the remaining cells up to end
+        /// recurse normally, so a block nested further inside the body is still handled.
         /// </summary>
         private CompilationResult CompileBlockBody(IReadOnlyList<CodingCell> cells, int start, int end)
         {
-            var header = CompileCell(cells[start], start);
+            CompilationResult header;
+            int headerEnd;
+
+            if (cells[start].HasCondition)
+            {
+                header = CompileCondition(cells, start, out headerEnd);
+            }
+            else
+            {
+                header = CompileCell(cells[start], start);
+                headerEnd = start + 1;
+            }
+
             if (header.IsError)
                 return header;
 
-            var rest = CompileRange(cells, start + 1, end);
+            var rest = CompileRange(cells, headerEnd, end);
             if (rest.IsError)
                 return rest;
 

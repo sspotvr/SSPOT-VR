@@ -70,7 +70,7 @@ namespace SSpot.Ambient.ComputerCode
         public int Range
         {
             get => range;
-            
+
             private set
             {
                 if (value < MinRange)
@@ -79,13 +79,27 @@ namespace SSpot.Ambient.ComputerCode
                     gameObject.SetActive(false);
                     return;
                 }
-                
+
                 range = Mathf.Clamp(value, MinRange, cachedMaxRange);
-                increaseAmountButton.SetActive(range < cachedMaxRange);
+
+                // When this cell also has an If, the If's own Range/ElseRange controls the total span
+                // (see SyncRangeTo) - the loop's own +/- controls would just fight that, so hide them.
+                bool manualControl = ParentCell == null || !ParentCell.HasCondition;
+                increaseAmountButton.SetActive(manualControl && range < cachedMaxRange);
+                if (decreaseAmountButton) decreaseAmountButton.SetActive(manualControl);
+
                 rangeText.text = range == MinRange ? "x" : "<";
                 UpdatePanelScale();
             }
         }
+
+        /// <summary>
+        /// Forces Range to match the total span of a co-located If's then/else bodies (1 for the header
+        /// itself, which the If occupies, plus its Range and, if HasElse, its ElseRange) - used instead of
+        /// the player-facing IncreaseRange/DecreaseRange when this cell also HasCondition, since in that
+        /// case the loop wraps the If directly and has no independent size of its own.
+        /// </summary>
+        public void SyncRangeTo(int total) => photonView.RPC(nameof(SetRangeRPC), RpcTarget.AllBuffered, total);
         
         private int cachedMaxRange;
 
@@ -106,12 +120,18 @@ namespace SSpot.Ambient.ComputerCode
             photonView.RPC(nameof(SetIterationsRPC), RpcTarget.AllBuffered, Iterations - 1);
 
         [Button]
-        public void IncreaseRange() => 
+        public void IncreaseRange()
+        {
+            if (ParentCell != null && ParentCell.HasCondition) return; // driven by SyncRangeTo instead
             photonView.RPC(nameof(SetRangeRPC), RpcTarget.AllBuffered, Range + 1);
+        }
 
         [Button]
-        public void DecreaseRange() => 
+        public void DecreaseRange()
+        {
+            if (ParentCell != null && ParentCell.HasCondition) return; // driven by SyncRangeTo instead
             photonView.RPC(nameof(SetRangeRPC), RpcTarget.AllBuffered, Range - 1);
+        }
         
         #endregion
 

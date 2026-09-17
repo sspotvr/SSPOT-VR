@@ -57,11 +57,19 @@ public class AttachingCube : MonoBehaviourPun
         }
         else if(selectedCube.Cube.IsIf)
         {
+            // The If block occupies its own slot, like a movement/Begin/End cube - it can't share a
+            // slot with one of those (but it CAN share a slot with a Loop, which wraps it instead of
+            // competing with it).
+            if (CurrentCube != null || ParentCell.HasCondition) return;
+
             ParentCell.SetCondition(true);
             PlayerSetup.Local.DestroyCubeOnHand();
         }
         else
         {
+            // A movement/Begin/End cube can't share a slot with an If.
+            if (ParentCell.HasCondition) return;
+
             photonView.RPC(nameof(SetCubeRPC), RpcTarget.AllBuffered, selectedCube.photonView.ViewID);
         }
     }
