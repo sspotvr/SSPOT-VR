@@ -15,7 +15,8 @@ public class Cube
 		Right = 4,
 		Forward = 5,
 		Loop = 6,
-		If = 7
+		If = 7,
+		Else = 8
 	}
 
 	[BoxGroup("Cube General Type")]

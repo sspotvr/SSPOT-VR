@@ -73,6 +73,79 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbdc2188ae84a9a429d78f0af9195a63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SSpot.Ambient.ComputerCode.ConditionController
+--- !u!1001 &4414534224626912789
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2283290606148557364}
+    m_Modifications:
+    - target: {fileID: 5239633708329315667, guid: 638a2525c58c5814ea8fa4c1bb4dd384, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5239633708329315667, guid: 638a2525c58c5814ea8fa4c1bb4dd384, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5239633708329315667, guid: 638a2525c58c5814ea8fa4c1bb4dd384, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5239633708329315667, guid: 638a2525c58c5814ea8fa4c1bb4dd384, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5239633708329315667, guid: 638a2525c58c5814ea8fa4c1bb4dd384, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5239633708329315667, guid: 638a2525c58c5814ea8fa4c1bb4dd384, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5239633708329315667, guid: 638a2525c58c5814ea8fa4c1bb4dd384, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5239633708329315667, guid: 638a2525c58c5814ea8fa4c1bb4dd384, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5239633708329315667, guid: 638a2525c58c5814ea8fa4c1bb4dd384, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5239633708329315667, guid: 638a2525c58c5814ea8fa4c1bb4dd384, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8773723180574645123, guid: 638a2525c58c5814ea8fa4c1bb4dd384, type: 3}
+      propertyPath: m_Name
+      value: ElseInterface
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 638a2525c58c5814ea8fa4c1bb4dd384, type: 3}
+--- !u!114 &5590773025880218780 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8130678544316240521, guid: 638a2525c58c5814ea8fa4c1bb4dd384, type: 3}
+  m_PrefabInstance: {fileID: 4414534224626912789}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45fb1dc989af63c4599dd77dcb079e49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SSpot.Ambient.ComputerCode.ElseController
+--- !u!4 &8499832243186869062 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5239633708329315667, guid: 638a2525c58c5814ea8fa4c1bb4dd384, type: 3}
+  m_PrefabInstance: {fileID: 4414534224626912789}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4979796016186756331
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -230,6 +303,10 @@ PrefabInstance:
       value: LoopCodingCell Variant
       objectReference: {fileID: 0}
     - target: {fileID: 4146014369732126426, guid: 593d23ae3f5a26e42af5a56c81e930d9, type: 3}
+      propertyPath: <ElseController>k__BackingField
+      value: 
+      objectReference: {fileID: 5590773025880218780}
+    - target: {fileID: 4146014369732126426, guid: 593d23ae3f5a26e42af5a56c81e930d9, type: 3}
       propertyPath: <LoopController>k__BackingField
       value: 
       objectReference: {fileID: 7001557836082142722}
@@ -290,6 +367,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4632008488795908807, guid: 593d23ae3f5a26e42af5a56c81e930d9, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6316836293140356281}
+    - targetCorrespondingSourceObject: {fileID: 4632008488795908807, guid: 593d23ae3f5a26e42af5a56c81e930d9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8499832243186869062}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 593d23ae3f5a26e42af5a56c81e930d9, type: 3}
 --- !u!4 &2283290606148557364 stripped

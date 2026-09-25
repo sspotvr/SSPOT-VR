@@ -60,18 +60,61 @@ public class AttachingCube : MonoBehaviourPun
             // The If block occupies its own slot, like a movement/Begin/End cube - it can't share a
             // slot with one of those (but it CAN share a slot with a Loop, which wraps it instead of
             // competing with it).
-            if (CurrentCube != null || ParentCell.HasCondition) return;
+            if (CurrentCube != null || ParentCell.HasCondition || ParentCell.HasSenao) return;
 
             ParentCell.SetCondition(true);
             PlayerSetup.Local.DestroyCubeOnHand();
         }
+        else if (selectedCube.Cube.IsElse)
+        {
+            // Senão occupies its own slot too, and can only ever go immediately after the then-body of
+            // some If - never standalone.
+            if (CurrentCube != null || ParentCell.HasCondition || ParentCell.HasSenao) return;
+
+            var owningIf = FindOwningIf();
+            if (owningIf == null) return;
+
+            // Link both ways BEFORE activating: activation can synchronously discover there's no room
+            // for the Senão's own body (e.g. it landed on the last cell) and self-deactivate right away,
+            // and its own cleanup (ResetRpc) only clears the link on the If's side if it can already see it.
+            ParentCell.ElseController.OwningIf = owningIf;
+            owningIf.AttachedSenao = ParentCell.ElseController;
+
+            ParentCell.SetSenao(true);
+            owningIf.RefreshLimits(); // hides the If's own Range buttons now that AttachedSenao is set
+
+            PlayerSetup.Local.DestroyCubeOnHand();
+        }
         else
         {
-            // A movement/Begin/End cube can't share a slot with an If.
-            if (ParentCell.HasCondition) return;
+            // A movement/Begin/End cube can't share a slot with an If or a Senão.
+            if (ParentCell.HasCondition || ParentCell.HasSenao) return;
 
             photonView.RPC(nameof(SetCubeRPC), RpcTarget.AllBuffered, selectedCube.photonView.ViewID);
         }
+    }
+
+    /// <summary>
+    /// Finds the If whose then-body ends exactly at this cell, scanning backward from it. Returns null
+    /// if the nearest earlier block is anything else (a Loop, another Senão) or the index doesn't line
+    /// up - i.e. this cell isn't immediately after some If's then-body.
+    /// </summary>
+    private ConditionController FindOwningIf()
+    {
+        var cells = ParentCell.Computer.Cells;
+        for (int i = ParentCell.Index - 1; i >= 0; i--)
+        {
+            var cell = cells[i];
+            if (cell.HasCondition)
+            {
+                var ifController = cell.ConditionController;
+                return i + 1 + ifController.Range == ParentCell.Index ? ifController : null;
+            }
+
+            if (cell.HasLoop || cell.HasSenao) return null;
+        }
+
+        return null;
     }
 
     [PunRPC]

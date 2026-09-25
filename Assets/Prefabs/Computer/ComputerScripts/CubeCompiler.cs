@@ -17,6 +17,7 @@ namespace SSpot.Ambient.ComputerCode
         [SerializeField] private string allSlotsError = "Deu ERRO!\nVocê deve preencher todas as placas de programação";
         [SerializeField] private string noHolesError = "Deu ERRO!\nSeu algoritmo não pode ter placas vazias";
         [SerializeField] private string beginEndInMiddleError = "Deu ERRO!\nInício e Fim devem ser usados no lugar certo";
+        [SerializeField] private string orphanSenaoError = "Deu ERRO!\nO bloco \"Senão\" precisa vir logo depois de um \"Se\"";
         
         private static CompilationResult Error(string error, int index) => new(error, index);
         
@@ -92,6 +93,15 @@ namespace SSpot.Ambient.ComputerCode
                     result.AddRange(condition.Result);
                     i = next;
                 }
+                else if (cell.HasSenao)
+                {
+                    // A Senão is always consumed by the CompileCondition call for the If right before it
+                    // (AttachingCube only lets one be placed immediately after an If's then-body, and
+                    // locks that If's Range so it can't move out from under it). Reaching one here
+                    // directly means that invariant broke somehow - report it instead of crashing on the
+                    // CompileCell leaf path below, which would misreport it as an empty slot.
+                    return Error(orphanSenaoError, i);
+                }
                 else
                 {
                     var leaf = CompileCell(cell, i);
@@ -107,9 +117,10 @@ namespace SSpot.Ambient.ComputerCode
         }
 
         /// <summary>
-        /// Compiles the If block at cells[i]: a single If cube followed by its "then" body and, if present,
-        /// its "else" body. Reports via <paramref name="next"/> how many raw cells this consumed (1 + Range +
-        /// ElseRange), since that span isn't fixed at 1 the way a plain leaf's is.
+        /// Compiles the If block at cells[i]: a single If cube followed by its "then" body and, if the
+        /// cell right after the then body happens to be a Senão, its "else" body too. Reports via
+        /// <paramref name="next"/> how many raw cells this consumed (1 + Range, plus 1 + the Senão's own
+        /// Range if present), since that span isn't fixed at 1 the way a plain leaf's is.
         /// </summary>
         private CompilationResult CompileCondition(IReadOnlyList<CodingCell> cells, int i, out int next)
         {
@@ -126,15 +137,16 @@ namespace SSpot.Ambient.ComputerCode
             result.AddRange(thenBody.Result);
 
             next = i + 1 + condition.Range;
-            if (condition.HasElse)
+            if (next < cells.Count && cells[next].HasSenao)
             {
-                var elseBody = CompileRange(cells, next, next + condition.ElseRange);
+                var senao = cells[next].ElseController;
+                var elseBody = CompileRange(cells, next + 1, next + 1 + senao.Range);
                 if (elseBody.IsError)
                     return elseBody;
 
                 ifCube.ElseLength = elseBody.Result.Count;
                 result.AddRange(elseBody.Result);
-                next += condition.ElseRange;
+                next += 1 + senao.Range;
             }
 
             return new CompilationResult(result);

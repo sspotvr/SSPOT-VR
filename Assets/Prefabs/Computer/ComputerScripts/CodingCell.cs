@@ -7,10 +7,12 @@ namespace SSpot.Ambient.ComputerCode
     public class CodingCell : MonoBehaviourPun
     {
         public CubeClass CurrentCube => AttachingCube.CurrentCube;
-        
+
         public bool HasLoop => LoopController != null && LoopController.gameObject.activeSelf;
 
         public bool HasCondition => ConditionController != null && ConditionController.gameObject.activeSelf;
+
+        public bool HasSenao => ElseController != null && ElseController.gameObject.activeSelf;
 
         [field: SerializeField]
         public AttachingCube AttachingCube { get; private set; }
@@ -22,16 +24,19 @@ namespace SSpot.Ambient.ComputerCode
         public ConditionController ConditionController { get; private set; }
 
         [field: SerializeField]
+        public ElseController ElseController { get; private set; }
+
+        [field: SerializeField]
         public MeshRenderer Renderer { get; private set; }
-        
+
         public CubeComputer Computer { get; private set; }
         public int Index { get; private set; }
-        
+
         public void Init(int index, CubeComputer computer)
         {
             Index = index;
             Computer = computer;
-            
+
             AttachingCube.ParentCell = this;
             if (LoopController)
             {
@@ -43,6 +48,12 @@ namespace SSpot.Ambient.ComputerCode
             {
                 ConditionController.ParentCell = this;
                 SetConditionRpc(false);
+            }
+
+            if (ElseController)
+            {
+                ElseController.ParentCell = this;
+                SetSenaoRpc(false);
             }
         }
 
@@ -56,6 +67,9 @@ namespace SSpot.Ambient.ComputerCode
 
             if (ConditionController)
                 ConditionController.ResetConditionData();
+
+            if (ElseController)
+                ElseController.ResetConditionData();
         }
 
         public void SetLoop(bool loopActive)
@@ -90,6 +104,23 @@ namespace SSpot.Ambient.ComputerCode
         private void SetConditionRpc(bool conditionActive)
         {
             ConditionController.gameObject.SetActive(conditionActive);
+        }
+
+        public void SetSenao(bool senaoActive)
+        {
+            if (ElseController == null)
+            {
+                Debug.LogError($"Null ElseController but called {nameof(SetSenao)}(true)", gameObject);
+                return;
+            }
+
+            photonView.RPC(nameof(SetSenaoRpc), RpcTarget.AllBuffered, senaoActive);
+        }
+
+        [PunRPC]
+        private void SetSenaoRpc(bool senaoActive)
+        {
+            ElseController.gameObject.SetActive(senaoActive);
         }
     }
 }

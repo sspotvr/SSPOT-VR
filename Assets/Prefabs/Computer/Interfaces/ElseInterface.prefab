@@ -421,8 +421,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AddRemoveConditionRange
   isAdding: 0
-  conditionController: {fileID: 7333156155306515378}
-  elseController: {fileID: 0}
+  conditionController: {fileID: 0}
+  elseController: {fileID: 8130678544316240521}
 --- !u!1 &3587636751312794784
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,7 +501,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Se obst\xE1culo"
+  m_Text: "Sen\xE3o"
 --- !u!1 &3916120164442073178
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,8 +629,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AddRemoveConditionRange
   isAdding: 1
-  conditionController: {fileID: 7333156155306515378}
-  elseController: {fileID: 0}
+  conditionController: {fileID: 0}
+  elseController: {fileID: 8130678544316240521}
 --- !u!1 &5515311143589946862
 GameObject:
   m_ObjectHideFlags: 0
@@ -929,7 +929,7 @@ GameObject:
   - component: {fileID: 7078343615409974830}
   - component: {fileID: 7803033651129350370}
   m_Layer: 0
-  m_Name: IfLabel
+  m_Name: SenaoLabel
   m_TagString: Clickable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1138,8 +1138,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ef509ab0edfd664296135d292c52cfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RemoveConditionOnClick
-  conditionController: {fileID: 7333156155306515378}
-  elseController: {fileID: 0}
+  conditionController: {fileID: 0}
+  elseController: {fileID: 8130678544316240521}
 --- !u!1 &8773723180574645123
 GameObject:
   m_ObjectHideFlags: 0
@@ -1153,9 +1153,9 @@ GameObject:
   - component: {fileID: 9055035622722797830}
   - component: {fileID: 7917236236127646515}
   - component: {fileID: 3858432058348190908}
-  - component: {fileID: 7333156155306515378}
+  - component: {fileID: 8130678544316240521}
   m_Layer: 0
-  m_Name: ConditionInterface
+  m_Name: ElseInterface
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1332,7 +1332,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &7333156155306515378
+--- !u!114 &8130678544316240521
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1341,16 +1341,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8773723180574645123}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbdc2188ae84a9a429d78f0af9195a63, type: 3}
+  m_Script: {fileID: 11500000, guid: 45fb1dc989af63c4599dd77dcb079e49, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SSpot.Ambient.ComputerCode.ConditionController
+  m_EditorClassIdentifier: Assembly-CSharp::SSpot.Ambient.ComputerCode.ElseController
   range: 1
   overrideGlobalSettings: 0
   settings:
-    maxThenRange: 3
-  rangeText: {fileID: 1472041104302043450}
+    maxRange: 3
+  rangeText: {fileID: 5600832758829008641}
   plane: {fileID: 754679233762226546}
-  planeSize: 0.1
-  planeGrowthOffset: 0.1
+  planeSize: 0.9
+  planeGrowthOffset: 0.05
   increaseAmountButton: {fileID: 3916120164442073178}
   decreaseAmountButton: {fileID: 3231255720061170321}

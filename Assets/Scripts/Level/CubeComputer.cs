@@ -25,6 +25,10 @@ namespace SSpot.Level
         [SerializeField] private ConditionController.ConditionSettings conditionSettings;
         public ConditionController.ConditionSettings GlobalConditionSettings => conditionSettings;
 
+        [BoxGroup("Cells")]
+        [SerializeField] private ElseController.ElseSettings elseSettings;
+        public ElseController.ElseSettings GlobalElseSettings => elseSettings;
+
         [BoxGroup("Buttons")]
         [SerializeField] private PointerButton runButton;
         [BoxGroup("Buttons")]

@@ -4,24 +4,28 @@ using UnityEngine;
 public class AddRemoveConditionRange : MonoBehaviour
 {
     public bool isAdding;
-    public bool isElseRange;
+
+    // Exactly one of these should be set: the then-range (Se) buttons wire conditionController, the
+    // else-range (Senão) buttons wire elseController - they're separate blocks now, each with its own
+    // Range.
     public ConditionController conditionController;
+    public ElseController elseController;
 
     /// <summary>
-    /// When player clicks on this object, it adds or removes one cell from the "then" (or "senão", if
-    /// isElseRange) range of ConditionController.
+    /// When player clicks on this object, it adds or removes one cell from whichever block's range this
+    /// button belongs to.
     /// </summary>
     public void OnPointerClick()
     {
-        if (isElseRange)
-        {
-            if (isAdding) conditionController.IncreaseElseRange();
-            else conditionController.DecreaseElseRange();
-        }
-        else
+        if (conditionController != null)
         {
             if (isAdding) conditionController.IncreaseRange();
             else conditionController.DecreaseRange();
+        }
+        else if (elseController != null)
+        {
+            if (isAdding) elseController.IncreaseRange();
+            else elseController.DecreaseRange();
         }
     }
 }

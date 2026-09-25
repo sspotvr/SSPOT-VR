@@ -10,11 +10,13 @@ namespace SSpot.Ambient.ComputerCode
     /// <summary>
     /// Drives the "Se obstáculo" (If) block. Occupies its own slot (like a movement/Begin/End cube -
     /// AttachingCube keeps them mutually exclusive), with Range covering the "then" body of cells
-    /// immediately after this one, and optionally growing a "senão" (else) body of ElseRange cells after
-    /// that. Unlike a loop, whether the "then" or "else" branch runs is resolved at runtime by CubeRunner,
+    /// immediately after this one. Whether the "then" branch runs is resolved at runtime by CubeRunner,
     /// not baked in by CubeCompiler. A cell can also HasLoop at the same time - the loop then wraps this
     /// If directly with no action cube of its own, and SyncLoopRange keeps the loop's Range matching this
-    /// If's total span automatically.
+    /// If's total span (and its attached Senão's, if any) automatically.
+    ///
+    /// "Senão" is a separate block (<see cref="ElseController"/>) that can only be placed on the cell
+    /// immediately after this If's then-body - see AttachedSenao.
     /// </summary>
     public class ConditionController : MonoBehaviourPun
     {
@@ -25,18 +27,19 @@ namespace SSpot.Ambient.ComputerCode
         {
             [AllowNesting, MinValue(MinRange)]
             public int maxThenRange = 3;
-
-            [AllowNesting, MinValue(MinRange)]
-            public int maxElseRange = 3;
         }
 
         public CodingCell ParentCell { get; set; }
 
-        [field: BoxGroup("Current Values"), SerializeField, ReadOnly]
-        private int range = MinRange, elseRange;
+        /// <summary>
+        /// The Senão block attached immediately after this If's then-body, if any. Set by AttachingCube
+        /// when a Senão cube is placed there. While set, this If's own Range is locked (see the Range
+        /// setter) so the then-body can never move out from under it.
+        /// </summary>
+        public ElseController AttachedSenao { get; set; }
 
         [field: BoxGroup("Current Values"), SerializeField, ReadOnly]
-        private bool hasElse;
+        private int range = MinRange;
 
         [BoxGroup("Condition Settings"), SerializeField]
         private bool overrideGlobalSettings;
@@ -55,19 +58,6 @@ namespace SSpot.Ambient.ComputerCode
         private GameObject increaseAmountButton;
         [BoxGroup("Visuals"), SerializeField]
         private GameObject decreaseAmountButton;
-
-        [BoxGroup("Visuals - Senão"), SerializeField]
-        private GameObject addElseButton;
-        [BoxGroup("Visuals - Senão"), SerializeField]
-        private GameObject elseLabel;
-        [BoxGroup("Visuals - Senão"), SerializeField]
-        private GameObject elsePlane;
-        [BoxGroup("Visuals - Senão"), SerializeField]
-        private Text elseRangeText;
-        [BoxGroup("Visuals - Senão"), SerializeField]
-        private GameObject increaseElseAmountButton;
-        [BoxGroup("Visuals - Senão"), SerializeField]
-        private GameObject decreaseElseAmountButton;
 
         private ConditionSettings Settings => overrideGlobalSettings
             ? settings
@@ -93,102 +83,35 @@ namespace SSpot.Ambient.ComputerCode
                 }
 
                 range = Mathf.Clamp(value, MinRange, cachedMaxThenRange);
-                if (increaseAmountButton) increaseAmountButton.SetActive(range < cachedMaxThenRange);
+
+                // While a Senão is attached right after this If, its position depends on Range never
+                // moving - hide the manual controls instead of letting them invalidate the attachment.
+                bool manualControl = AttachedSenao == null;
+                if (increaseAmountButton) increaseAmountButton.SetActive(manualControl && range < cachedMaxThenRange);
+                if (decreaseAmountButton) decreaseAmountButton.SetActive(manualControl);
+
                 if (rangeText) rangeText.text = range.ToString();
                 UpdatePanelScale();
-                UpdateElseRowPosition();
-
-                // The else body starts right after the then body, so its bounds move with Range.
-                // (Not RefreshLimits() — that would reassign Range and recurse back into this setter.)
-                RecomputeElseBounds();
-            }
-        }
-
-        [PunRPC]
-        private void SetHasElseRPC(bool value) => HasElse = value;
-        public bool HasElse
-        {
-            get => hasElse;
-
-            private set
-            {
-                hasElse = value;
-                // The button only adds a senão - once there is one, hide it (DecreaseElseRange below
-                // MinRange is what removes it and brings the button back, mirroring how Range works).
-                if (addElseButton) addElseButton.SetActive(!hasElse);
-                if (elseLabel) elseLabel.SetActive(hasElse);
-                if (elsePlane) elsePlane.SetActive(hasElse);
-                if (increaseElseAmountButton) increaseElseAmountButton.SetActive(hasElse);
-                if (decreaseElseAmountButton) decreaseElseAmountButton.SetActive(hasElse);
-
-                ElseRange = hasElse ? Mathf.Max(elseRange, MinRange) : 0;
-            }
-        }
-
-        [PunRPC]
-        private void SetElseRangeRPC(int value) => ElseRange = value;
-        public int ElseRange
-        {
-            get => elseRange;
-
-            private set
-            {
-                if (!hasElse)
-                {
-                    elseRange = 0;
-                    UpdateElsePanelScale();
-                    SyncLoopRange();
-                    return;
-                }
-
-                if (value < MinRange)
-                {
-                    // Shrinking below the minimum removes the senão entirely - same convention as
-                    // Range itself - which also brings the "add senão" button back (see HasElse's setter).
-                    HasElse = false;
-                    return;
-                }
-
-                if (cachedMaxElseRange < MinRange)
-                {
-                    // Growing the "then" body left no room at all for a "senão" body. Leaving HasElse on here
-                    // would clamp elseRange to 0 while the else controls stay visible but permanently unable to
-                    // grow or shrink (Mathf.Clamp with min > max always returns max), so retract it entirely -
-                    // the same way Range does when it drops below MinRange.
-                    hasElse = false;
-                    elseRange = 0;
-                    if (addElseButton) addElseButton.SetActive(true);
-                    if (elseLabel) elseLabel.SetActive(false);
-                    if (elsePlane) elsePlane.SetActive(false);
-                    if (increaseElseAmountButton) increaseElseAmountButton.SetActive(false);
-                    if (decreaseElseAmountButton) decreaseElseAmountButton.SetActive(false);
-                    UpdateElsePanelScale();
-                    SyncLoopRange();
-                    return;
-                }
-
-                elseRange = Mathf.Clamp(value, MinRange, cachedMaxElseRange);
-                if (increaseElseAmountButton) increaseElseAmountButton.SetActive(elseRange < cachedMaxElseRange);
-                if (elseRangeText) elseRangeText.text = elseRange.ToString();
-                UpdateElsePanelScale();
                 SyncLoopRange();
             }
         }
 
         /// <summary>
         /// If this cell also HasLoop, the loop wraps this If directly with no action cube of its own -
-        /// its Range must always equal this If's total raw-cell span (header + then + else), so the
-        /// player's own then/else +/- buttons are effectively the loop's size controls too. No-op when
-        /// there's no co-located loop (the common case for a standalone If).
+        /// its Range must always equal this If's total raw-cell span (header + then body, plus the
+        /// attached Senão's own header + else body, if any), so the player's own range buttons are
+        /// effectively the loop's size controls too. No-op when there's no co-located loop.
         /// </summary>
-        private void SyncLoopRange()
+        public void SyncLoopRange()
         {
-            if (ParentCell != null && ParentCell.HasLoop)
-                ParentCell.LoopController.SyncRangeTo(1 + Range + ElseRange);
+            if (ParentCell == null || !ParentCell.HasLoop) return;
+
+            int total = 1 + Range;
+            if (AttachedSenao != null) total += 1 + AttachedSenao.Range;
+            ParentCell.LoopController.SyncRangeTo(total);
         }
 
         private int cachedMaxThenRange = int.MaxValue;
-        private int cachedMaxElseRange = int.MaxValue;
 
         private void OnEnable() => RefreshEarlierPanels();
 
@@ -201,88 +124,34 @@ namespace SSpot.Ambient.ComputerCode
         #region Increase/Decrease
 
         [Button]
-        public void IncreaseRange() =>
+        public void IncreaseRange()
+        {
+            if (AttachedSenao != null) return; // locked while a Senão is attached
             photonView.RPC(nameof(SetRangeRPC), RpcTarget.AllBuffered, Range + 1);
+        }
 
         [Button]
-        public void DecreaseRange() =>
+        public void DecreaseRange()
+        {
+            if (AttachedSenao != null) return; // locked while a Senão is attached
             photonView.RPC(nameof(SetRangeRPC), RpcTarget.AllBuffered, Range - 1);
-
-        [Button]
-        public void ToggleElse() =>
-            photonView.RPC(nameof(SetHasElseRPC), RpcTarget.AllBuffered, !HasElse);
-
-        [Button]
-        public void IncreaseElseRange() =>
-            photonView.RPC(nameof(SetElseRangeRPC), RpcTarget.AllBuffered, ElseRange + 1);
-
-        [Button]
-        public void DecreaseElseRange() =>
-            photonView.RPC(nameof(SetElseRangeRPC), RpcTarget.AllBuffered, ElseRange - 1);
+        }
 
         #endregion
 
         #region Refreshing
 
-        // A "row" here is one CodingCell's worth of world spacing. (.5 + planeGrowthOffset*.5) is only
-        // HALF that row's actual spacing (confirmed empirically: a plane/label positioned at N of these
-        // units lands only halfway to row N) - a single row at index R sits at local Y = -2*R*RowUnit,
-        // and a span's center is the average of its first/last row: -(A+B)*RowUnit.
-        private float RowUnit => .5f + planeGrowthOffset * .5f;
-
         private void UpdatePanelScale()
         {
             if (!plane) return;
 
-            // The "then" body spans rows [1, Range] (row 0 is this header, which no longer needs a
-            // coexisting action cube) - center = -(1 + Range) * RowUnit.
             Vector3 position = plane.transform.localPosition;
-            position.y = -(1 + Range) * RowUnit;
+            position.y = -(Range - 1) * (.5f + planeGrowthOffset * .5f);
             plane.transform.localPosition = position;
 
             Vector3 scale = plane.transform.localScale;
             scale.z = Range * planeSize + (Range - 1) * planeSize * planeGrowthOffset;
             plane.transform.localScale = scale;
-        }
-
-        private void UpdateElsePanelScale()
-        {
-            if (!elsePlane) return;
-
-            if (!hasElse || elseRange <= 0) return;
-
-            // The else body spans rows [Range+1, Range+ElseRange] - center = -(2*Range + ElseRange + 1) * RowUnit.
-            Vector3 position = elsePlane.transform.localPosition;
-            position.y = -(2 * Range + ElseRange + 1) * RowUnit;
-            elsePlane.transform.localPosition = position;
-
-            Vector3 scale = elsePlane.transform.localScale;
-            scale.z = ElseRange * planeSize + (ElseRange - 1) * planeSize * planeGrowthOffset;
-            elsePlane.transform.localScale = scale;
-        }
-
-        /// <summary>
-        /// Moves the "Senão" label and its +/- range controls to the boundary between the then body's
-        /// last row (Range) and the else body's first row (Range+1) - between slots, not centered on
-        /// either one, since the label marks a transition point rather than occupying a slot itself.
-        /// Visibly tracks Range instead of sitting at a fixed row that's only correct when Range == 1.
-        /// The toggle button itself (addElseButton) is NOT moved - it stays fixed below the then-range
-        /// UP/DOWN buttons, separate from the label, so activating/deactivating Senão never relocates it.
-        /// </summary>
-        private void UpdateElseRowPosition()
-        {
-            float y = -(2 * Range + 1) * RowUnit;
-            SetLocalY(elseLabel, y);
-            SetLocalY(increaseElseAmountButton, y);
-            SetLocalY(decreaseElseAmountButton, y);
-        }
-
-        private static void SetLocalY(GameObject go, float y)
-        {
-            if (!go) return;
-            Vector3 p = go.transform.localPosition;
-            p.y = y;
-            go.transform.localPosition = p;
         }
 
         private void RefreshEarlierPanels()
@@ -294,6 +163,7 @@ namespace SSpot.Ambient.ComputerCode
                 var cell = ParentCell.Computer.Cells[i];
                 cell.LoopController.RefreshLimits();
                 if (cell.ConditionController) cell.ConditionController.RefreshLimits();
+                if (cell.ElseController) cell.ElseController.RefreshLimits();
             }
         }
 
@@ -305,30 +175,13 @@ namespace SSpot.Ambient.ComputerCode
             int panelCount = ParentCell.Computer.Cells.Count;
 
             int nextBlockIndex = ParentCell.Computer.Cells.FindIndex(index + 1,
-                cell => cell.HasLoop || cell.HasCondition);
+                cell => cell.HasLoop || cell.HasCondition || cell.HasSenao);
             if (nextBlockIndex == -1) nextBlockIndex = panelCount;
 
             // The "then" body no longer includes this header cell itself (the If IS the header, it
             // doesn't also need a coexisting action cube), so it only has room in [index+1, nextBlockIndex).
             cachedMaxThenRange = Mathf.Min(nextBlockIndex - (index + 1), Settings.maxThenRange);
-            Range = range; // setter also calls RecomputeElseBounds()
-        }
-
-        private void RecomputeElseBounds()
-        {
-            if (!ParentCell) return;
-
-            int index = ParentCell.Index;
-            int panelCount = ParentCell.Computer.Cells.Count;
-
-            int elseStart = index + 1 + Range;
-            int nextBlockIndexAfterThen = elseStart < panelCount
-                ? ParentCell.Computer.Cells.FindIndex(elseStart, cell => cell.HasLoop || cell.HasCondition)
-                : -1;
-            if (nextBlockIndexAfterThen == -1) nextBlockIndexAfterThen = panelCount;
-
-            cachedMaxElseRange = Mathf.Min(nextBlockIndexAfterThen - elseStart, Settings.maxElseRange);
-            ElseRange = elseRange;
+            Range = range;
         }
 
         #endregion
@@ -340,7 +193,9 @@ namespace SSpot.Ambient.ComputerCode
         {
             if (!ParentCell) return;
 
-            HasElse = false;
+            // An orphaned Senão makes no sense - remove it along with this If.
+            if (AttachedSenao != null) AttachedSenao.ResetConditionData();
+
             Range = MinRange;
             // If a loop was wrapping this If, its content is gone now - the loop reverts to being just
             // its own header, independently controllable again (see LoopController.Range's manualControl).

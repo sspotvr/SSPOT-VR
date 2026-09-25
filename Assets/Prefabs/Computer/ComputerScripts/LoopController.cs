@@ -157,6 +157,7 @@ namespace SSpot.Ambient.ComputerCode
                 var cell = ParentCell.Computer.Cells[i];
                 cell.LoopController.RefreshLimits();
                 if (cell.ConditionController) cell.ConditionController.RefreshLimits();
+                if (cell.ElseController) cell.ElseController.RefreshLimits();
             }
         }
 
@@ -166,9 +167,24 @@ namespace SSpot.Ambient.ComputerCode
 
             int index = ParentCell.Index;
             int panelCount = ParentCell.Computer.Cells.Count;
-            int nextPanelIndex  = ParentCell.Computer.Cells.FindIndex(index + 1, cell => cell.HasLoop || cell.HasCondition);
+
+            // When co-located with an If, its then-body (and its attached Senão's else-body, if any)
+            // are part of THIS loop's own structure, not an obstacle - search for the next truly
+            // unrelated block starting after all of that, instead of right after this cell (which would
+            // immediately hit the co-located If's own attached Senão and stop there).
+            int searchStart = index + 1;
+            if (ParentCell.HasCondition)
+            {
+                var condition = ParentCell.ConditionController;
+                searchStart = index + 1 + condition.Range;
+                if (condition.AttachedSenao != null) searchStart += 1 + condition.AttachedSenao.Range;
+            }
+
+            int nextPanelIndex = searchStart < panelCount
+                ? ParentCell.Computer.Cells.FindIndex(searchStart, cell => cell.HasLoop || cell.HasCondition || cell.HasSenao)
+                : -1;
             if (nextPanelIndex == -1) nextPanelIndex = panelCount;
-            
+
             cachedMaxRange = Mathf.Min(nextPanelIndex - index, Settings.maxRange);
             Range = Range;
             Iterations = Iterations;
