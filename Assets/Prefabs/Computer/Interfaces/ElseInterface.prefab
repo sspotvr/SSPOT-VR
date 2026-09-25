@@ -1348,9 +1348,8 @@ MonoBehaviour:
   overrideGlobalSettings: 0
   settings:
     maxRange: 3
-  rangeText: {fileID: 5600832758829008641}
   plane: {fileID: 754679233762226546}
-  planeSize: 0.9
-  planeGrowthOffset: 0.05
+  planeSize: 0.1
+  planeGrowthOffset: 0.1
   increaseAmountButton: {fileID: 3916120164442073178}
   decreaseAmountButton: {fileID: 3231255720061170321}

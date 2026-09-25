@@ -47,8 +47,6 @@ namespace SSpot.Ambient.ComputerCode
         private ConditionSettings settings;
 
         [BoxGroup("Visuals"), SerializeField]
-        private Text rangeText;
-        [BoxGroup("Visuals"), SerializeField]
         private GameObject plane;
         [BoxGroup("Visuals"), SerializeField]
         private float planeSize = 0.9f;
@@ -90,7 +88,6 @@ namespace SSpot.Ambient.ComputerCode
                 if (increaseAmountButton) increaseAmountButton.SetActive(manualControl && range < cachedMaxThenRange);
                 if (decreaseAmountButton) decreaseAmountButton.SetActive(manualControl);
 
-                if (rangeText) rangeText.text = range.ToString();
                 UpdatePanelScale();
                 SyncLoopRange();
             }
@@ -145,12 +142,14 @@ namespace SSpot.Ambient.ComputerCode
         {
             if (!plane) return;
 
+
+            int pos = Range + 1;
             Vector3 position = plane.transform.localPosition;
-            position.y = -(Range - 1) * (.5f + planeGrowthOffset * .5f);
+            position.y = -(pos - 1) * (.5f + planeGrowthOffset * .5f);
             plane.transform.localPosition = position;
 
             Vector3 scale = plane.transform.localScale;
-            scale.z = Range * planeSize + (Range - 1) * planeSize * planeGrowthOffset;
+            scale.z = pos * planeSize + (pos - 1) * planeSize * planeGrowthOffset;
             plane.transform.localScale = scale;
         }
 

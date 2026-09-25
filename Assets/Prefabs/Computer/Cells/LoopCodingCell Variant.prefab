@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ConditionInterface
       objectReference: {fileID: 0}
+    - target: {fileID: 8773723180574645123, guid: 6152185bd2c6add4f953d519f07de58e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -302,6 +306,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LoopCodingCell Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2060038076412993038, guid: 593d23ae3f5a26e42af5a56c81e930d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4146014369732126426, guid: 593d23ae3f5a26e42af5a56c81e930d9, type: 3}
       propertyPath: <ElseController>k__BackingField
       value: 
@@ -357,6 +365,10 @@ PrefabInstance:
     - target: {fileID: 4632008488795908807, guid: 593d23ae3f5a26e42af5a56c81e930d9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8338316748421315281, guid: 593d23ae3f5a26e42af5a56c81e930d9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
