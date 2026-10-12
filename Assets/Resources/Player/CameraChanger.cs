@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace SSPot
 {
-    public class CameraHolder : MonoBehaviour
+    public class CameraChanger : MonoBehaviour
     {
 
         private bool isFirstPerson = true;

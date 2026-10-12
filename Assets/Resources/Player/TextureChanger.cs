@@ -37,12 +37,6 @@ namespace SSPot
         }
 
 
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.C)) canvas.SetActive(!canvas.activeSelf);
-        }
-
-
         private void OnDestroy()
         {
             colorDropdown.onValueChanged.RemoveListener(OnTextureSelected);

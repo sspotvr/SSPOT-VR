@@ -612,7 +612,6 @@ GameObject:
   - component: {fileID: 4599568738488119511}
   - component: {fileID: 258018289100077776}
   - component: {fileID: 5443343444131799147}
-  - component: {fileID: 2058721504699146105}
   m_Layer: 0
   m_Name: Smiley
   m_TagString: Untagged
@@ -741,32 +740,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 14
   m_CollisionDetection: 0
---- !u!114 &2058721504699146105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4857673695033467489}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbd751bceb21ceb49b8db88400ab41ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SSPot.EmojiGridChanger
-  emojis:
-  - {fileID: 2800000, guid: e716eecf0b7778a47abfa9ce70758127, type: 3}
-  - {fileID: 2800000, guid: b71a2980345df6747b3b142a0e515928, type: 3}
-  - {fileID: 2800000, guid: 5374e179f872ce34d83b3703c181c861, type: 3}
-  - {fileID: 2800000, guid: 150a306cdbc437c448dba2b8e506e646, type: 3}
-  - {fileID: 2800000, guid: 9bf96911097dd6647a1bb221e76f5484, type: 3}
-  - {fileID: 2800000, guid: 9f5f7778ea8bd794f8d3d602b6704631, type: 3}
-  - {fileID: 2800000, guid: 5d35e58472f73d34eba880f7a1e1b473, type: 3}
-  - {fileID: 2800000, guid: ff9b25dc4cabc2843b851522049811b0, type: 3}
-  - {fileID: 2800000, guid: 1046925e6077cc444a6f5a73d8569f71, type: 3}
-  - {fileID: 2800000, guid: 0f81a2615e2d20a4eab935d0f6727595, type: 3}
-  - {fileID: 2800000, guid: 876791aa97440d044b9dedb2e91da28a, type: 3}
-  - {fileID: 2800000, guid: fcd3ebfd92093b048a6283bfad0e68fe, type: 3}
-  columnsPerRow: 5
 --- !u!1 &6285882358078705382
 GameObject:
   m_ObjectHideFlags: 0
