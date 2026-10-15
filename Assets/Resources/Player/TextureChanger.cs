@@ -12,22 +12,19 @@ namespace SSPot
         // 5- +lime, 6- green, 7- +aqua, 8- cyan, 9- +sky
         // 10- +blue, 11- +purple, 12- magenta, 13- +pink
         [SerializeField] private Texture[] textures;
-
-        private GameObject canvas;
+        [SerializeField] private GameObject emojiCanvas;
         private Renderer playerRenderer;
         private TMP_Dropdown colorDropdown;
 
 
         private void Start()
         {
-            canvas = transform.GetChild(0).gameObject;
             playerRenderer = GetComponentInChildren<Renderer>();
-            colorDropdown = canvas.GetComponentInChildren<TMP_Dropdown>();
+            colorDropdown = emojiCanvas.GetComponentInChildren<TMP_Dropdown>();
 
             foreach (var texture in textures) colorDropdown.options.Add(new TMP_Dropdown.OptionData(texture.name));
-
             colorDropdown.onValueChanged.AddListener(OnTextureSelected);
-            OnTextureSelected(3);
+            OnTextureSelected(10);
         }
 
 

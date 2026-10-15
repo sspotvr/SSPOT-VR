@@ -5,6 +5,7 @@ namespace SSPot
     public class CanvasToggler : MonoBehaviour
     {
         [SerializeField] private GameObject[] canvasList;
+        [SerializeField] private MouseController mouseController;
 
         private void Start()
         {
@@ -13,7 +14,11 @@ namespace SSPot
 
         private void Update()
         {
-            if (Input.GetKeyDown(KeyCode.C)) foreach (GameObject go in canvasList) go.SetActive(!go.activeSelf);
+            if (Input.GetKeyDown(KeyCode.C))
+            {
+                foreach (GameObject go in canvasList) go.SetActive(!go.activeSelf);
+                mouseController.enabled = !mouseController.enabled;
+            }
         }
     }
 }
