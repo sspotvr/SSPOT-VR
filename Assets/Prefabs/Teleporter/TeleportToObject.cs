@@ -16,7 +16,7 @@ public class TeleportToObject : MonoBehaviourPun
     // I will change this to be more elegant later
     public bool isElevator;
     public bool opensDoor;
-    [SerializeField] Door door;
+    [SerializeField] private Door door;
 
     private bool firstTime = true;
 
@@ -59,7 +59,7 @@ public class TeleportToObject : MonoBehaviourPun
     /// </summary>
     public async Task OnPointerClick()
     {
-        PlayerSetup.Local.transform.position = transform.position;
+        PlayerSetup.Local.transform.position = transform.position - new Vector3(0, 3.4f, 0); // player height offset
         Debug.Log("Teleportado!");
         PlayerTeleported?.Invoke();
         
@@ -92,7 +92,7 @@ public class TeleportToObject : MonoBehaviourPun
     {
         if (PlayerSetup.Local == null) return;
         transform.LookAt(PlayerSetup.Local.transform.position);
-        transform.rotation *= Quaternion.Euler(90f, 0f, 0f);
+        transform.rotation *= Quaternion.Euler(90f, 0f, 0f); // rotaciona o prefab pra ficar perpendicular/de cara com o player
     }
 
     private void CheckVisibility()
