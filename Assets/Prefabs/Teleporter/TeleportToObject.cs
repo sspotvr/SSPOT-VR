@@ -8,6 +8,7 @@ public class TeleportToObject : MonoBehaviourPun
 {
     // Locations
     public MeshRenderer teleportLocationMesh;               // Teleport location mesh
+    private MeshCollider teleportLocationMeshCollider;
 
     public bool isForPlayer1;
 
@@ -35,6 +36,8 @@ public class TeleportToObject : MonoBehaviourPun
 
     private void Start()
     {
+        teleportLocationMeshCollider = transform.GetComponent<MeshCollider>();
+        
         Rotate();
         CheckVisibility();
     }
@@ -100,7 +103,8 @@ public class TeleportToObject : MonoBehaviourPun
         if (PlayerSetup.Local == null) return;
         float distance = Vector3.Distance(transform.position, PlayerSetup.Local.transform.position);
 
-        teleportLocationMesh.enabled = !(distance < 0.1f);  // esconde a seta caso o player esteja perto
+        teleportLocationMeshCollider.enabled = !(distance < 3.5f);
+        teleportLocationMesh.enabled = !(distance < 3.5f);  // esconde a seta caso o player esteja perto
 
     }
 }
