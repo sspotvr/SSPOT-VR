@@ -32,12 +32,14 @@ public class TeleportToObject : MonoBehaviourPun
             Destroy(gameObject);
         
         if (playAudioOnTeleport) audioSource = GetComponent<AudioSource>();
+
+        // Fetched here, not in Start: OnEnable (which already uses it) runs before Start when a
+        // teleporter starts inactive and is enabled later in the level.
+        teleportLocationMeshCollider = transform.GetComponent<MeshCollider>();
     }
 
     private void Start()
     {
-        teleportLocationMeshCollider = transform.GetComponent<MeshCollider>();
-        
         Rotate();
         CheckVisibility();
     }
@@ -62,7 +64,7 @@ public class TeleportToObject : MonoBehaviourPun
     /// </summary>
     public async Task OnPointerClick()
     {
-        PlayerSetup.Local.transform.position = transform.position - new Vector3(0, 3.4f, 0); // player height offset
+        PlayerSetup.Local.transform.position = transform.position;
         Debug.Log("Teleportado!");
         PlayerTeleported?.Invoke();
         
@@ -103,8 +105,10 @@ public class TeleportToObject : MonoBehaviourPun
         if (PlayerSetup.Local == null) return;
         float distance = Vector3.Distance(transform.position, PlayerSetup.Local.transform.position);
 
-        teleportLocationMeshCollider.enabled = !(distance < 3.5f);
-        teleportLocationMesh.enabled = !(distance < 3.5f);  // esconde a seta caso o player esteja perto
+        // Only the teleporter the player is standing on (the player is placed exactly on it)
+        bool isHere = distance < 0.5f;
+        if (teleportLocationMeshCollider) teleportLocationMeshCollider.enabled = !isHere;
+        teleportLocationMesh.enabled = !isHere;  // esconde a seta caso o player esteja perto
 
     }
 }
