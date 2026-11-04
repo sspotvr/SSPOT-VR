@@ -264,6 +264,45 @@ MonoBehaviour:
       will give the instructions.'
     m_Metadata:
       m_Items: []
+  - m_Id: 59192597611323392
+    m_Localized: "Mark\u2019s sensors are working again! Now he can tell when something
+      is right in front of him."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59192597695209472
+    m_Localized: But someone left some boxes in the middle of the room. Shall we
+      teach Mark to go around them on his own?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59192597695209473
+    m_Localized: 'We have a new block: "If obstacle". It checks whether a box is
+      blocking the path right in front of Mark.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59192597695209474
+    m_Localized: If there is a box, Mark does what is inside the "If". If the way
+      is clear, he does what is inside the "Else".
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59192597695209475
+    m_Localized: Put the "If obstacle" block inside a "Repeat" block and make it
+      repeat 5 times.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59192597695209476
+    m_Localized: 'Inside the "If", make Mark go around the box: turn right, move
+      forward and turn left.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59192597695209477
+    m_Localized: 'In the "Else", the way is clear: just move forward.'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59192597695209478
+    m_Localized: "Don\u2019t forget to add a block to start and another to end the
+      code!"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

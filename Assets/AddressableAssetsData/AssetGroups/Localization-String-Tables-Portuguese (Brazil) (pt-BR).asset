@@ -69,6 +69,12 @@ MonoBehaviour:
     - Locale-pt-BR
     - Preload
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b498eefc4f54ab94a892f74547d2cd26
+    m_Address: Fourth Scene_pt-BR
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-pt-BR
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c8a4533d123f2f34182c511cb075f46c
     m_Address: Tutorial Localization_pt-BR
     m_ReadOnly: 1

@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Fourth Scene_pt-BR
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: pt-BR
+  m_SharedData: {fileID: 11400000, guid: df1f1136732ff4d46b0418299e0f9f84, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 913612800
+    m_Localized: 'Os sensores do Mark voltaram a funcionar!
+
+
+      Mas tem caixas
+      espalhadas pela sala... Vamos ensinar o Mark a desviar delas?'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 980721664
+    m_Localized: "Coloque o bloco \"Se obst\xE1culo\" dentro de um \"Repita\" 5 vezes:\n\n-
+      Se tiver uma caixa na frente: vire \xE0 direita, ande para frente e vire \xE0
+      esquerda.\n- Sen\xE3o: ande para frente.\n\nN\xE3o esque\xE7a do In\xEDcio
+      e do Fim!"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 980721665
+    m_Localized: "Deu certo! Parab\xE9ns!\n\nAgora o Mark consegue desviar dos obst\xE1culos
+      sozinho.\n\nMuito obrigado pela ajuda!!"
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

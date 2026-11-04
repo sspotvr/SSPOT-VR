@@ -55,6 +55,11 @@ MonoBehaviour:
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: df1f1136732ff4d46b0418299e0f9f84
+    m_Address: Assets/Localization/1-4 Fourth Level/Fourth Scene Shared Data.asset
+    m_ReadOnly: 1
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e1817dd86e2dd964689e891a667ab9e6
     m_Address: Assets/Localization/FirstScene/First Scene Shared Data.asset
     m_ReadOnly: 1

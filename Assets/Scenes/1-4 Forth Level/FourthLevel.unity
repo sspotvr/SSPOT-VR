@@ -1128,13 +1128,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.8
-  m_Text: "Para atravessar a sala, o Mark vai repetir o mesmo passo 5 vezes: primeiro
-    ele verifica se tem uma caixa bloqueando o caminho na frente dele.\n\nSe tiver
-    uma caixa, ele vira \xE0 direita, anda um passo, e vira \xE0 esquerda de novo
-    para voltar a andar na mesma dire\xE7\xE3o - assim ele contorna a caixa.\n\nSe
-    N\xC3O tiver nada no caminho, ele s\xF3 anda em frente.\n\nMonte esse \"Se obst\xE1culo...
-    Sen\xE3o...\" dentro de um bloco \"Repita 5x\" e o Mark vai desviar de todas
-    as caixas sozinho!"
+  m_Text: "Coloque o bloco \"Se obst\xE1culo\" dentro de um \"Repita\" 5 vezes:\n\n-
+    Se tiver uma caixa na frente: vire \xE0 direita, ande para frente e vire \xE0
+    esquerda.\n- Sen\xE3o: ande para frente.\n\nN\xE3o esque\xE7a do In\xEDcio e
+    do Fim!"
 --- !u!222 &263444607
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1157,9 +1154,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableCollectionName: GUID:e448d89e4c9d31d4ba89db98e3410a95
+      m_TableCollectionName: GUID:df1f1136732ff4d46b0418299e0f9f84
     m_TableEntryReference:
-      m_KeyId: 662774784000
+      m_KeyId: 980721664
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -2767,9 +2764,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableCollectionName: GUID:e448d89e4c9d31d4ba89db98e3410a95
+      m_TableCollectionName: GUID:df1f1136732ff4d46b0418299e0f9f84
     m_TableEntryReference:
-      m_KeyId: 2031392956416
+      m_KeyId: 913612800
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -2826,9 +2823,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.8
-  m_Text: "Boa not\xEDcia: os motores do Mark est\xE3o funcionando de novo! Vamos
-    ver se ele consegue dar uma volta pela sala.\r\n\nVoc\xEA pode me ajudar a guiar
-    o Mark?\r"
+  m_Text: 'Os sensores do Mark voltaram a funcionar!
+
+
+    Mas tem caixas espalhadas
+    pela sala... Vamos ensinar o Mark a desviar delas?'
 --- !u!222 &497467985
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5106,11 +5105,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3809883406433488702, guid: 27f96cc2800af3b40b9e6b1589756adb, type: 3}
       propertyPath: 'clips.Array.data[0]'
-      value: Level-3_start.1
+      value: Level-4_start.1
       objectReference: {fileID: 0}
     - target: {fileID: 3809883406433488702, guid: 27f96cc2800af3b40b9e6b1589756adb, type: 3}
       propertyPath: 'clips.Array.data[1]'
-      value: Level-3_start.2
+      value: Level-4_start.2
       objectReference: {fileID: 0}
     - target: {fileID: 3809883406433488702, guid: 27f96cc2800af3b40b9e6b1589756adb, type: 3}
       propertyPath: 'clipsP1.Array.data[0]'
@@ -5467,9 +5466,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.8
-  m_Text: "Boa not\xEDcia: os motores do Mark est\xE3o funcionando de novo! Vamos
-    ver se ele consegue dar uma volta pela sala.\r\n\nVoc\xEA pode me ajudar a guiar
-    o Mark?\r"
+  m_Text: 'Os sensores do Mark voltaram a funcionar!
+
+
+    Mas tem caixas espalhadas
+    pela sala... Vamos ensinar o Mark a desviar delas?'
 --- !u!222 &954930228
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5492,9 +5493,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableCollectionName: GUID:e448d89e4c9d31d4ba89db98e3410a95
+      m_TableCollectionName: GUID:df1f1136732ff4d46b0418299e0f9f84
     m_TableEntryReference:
-      m_KeyId: 2031392956416
+      m_KeyId: 913612800
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -6641,8 +6642,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.8
-  m_Text: "Deu certo! Parab\xE9ns!\n\nAgora o Mark consegue dar umas voltas por a\xED.\n\nMuito
-    obrigado pela ajuda!!"
+  m_Text: "Deu certo! Parab\xE9ns!\n\nAgora o Mark consegue desviar dos obst\xE1culos
+    sozinho.\n\nMuito obrigado pela ajuda!!"
 --- !u!222 &1111303991
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6665,9 +6666,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableCollectionName: GUID:e448d89e4c9d31d4ba89db98e3410a95
+      m_TableCollectionName: GUID:df1f1136732ff4d46b0418299e0f9f84
     m_TableEntryReference:
-      m_KeyId: 796489195520
+      m_KeyId: 980721665
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -9546,11 +9547,12 @@ MonoBehaviour:
   opensDoor: 0
   door: {fileID: 0}
   clips:
-  - Level-3_line.1
-  - Level-3_line.2
-  - Level-3_code.1
-  - Level-3_code.2
-  - Level-3_code.3
+  - Level-4_line.1
+  - Level-4_line.2
+  - Level-4_code.1
+  - Level-4_code.2
+  - Level-4_code.3
+  - Level-4_code.4
   playAudioOnTeleport: 1
 --- !u!114 &1717716196
 MonoBehaviour:
@@ -10914,11 +10916,12 @@ MonoBehaviour:
   opensDoor: 0
   door: {fileID: 0}
   clips:
-  - Level-3_line.1
-  - Level-3_line.2
-  - Level-3_code.1
-  - Level-3_code.2
-  - Level-3_code.3
+  - Level-4_line.1
+  - Level-4_line.2
+  - Level-4_code.1
+  - Level-4_code.2
+  - Level-4_code.3
+  - Level-4_code.4
   playAudioOnTeleport: 1
 --- !u!82 &1948088698
 AudioSource:

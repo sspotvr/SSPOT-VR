@@ -235,6 +235,38 @@ MonoBehaviour:
     m_Key: Labirinto_swap.1
     m_Metadata:
       m_Items: []
+  - m_Id: 59192597611323392
+    m_Key: Level-4_start.1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59192597695209472
+    m_Key: Level-4_start.2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59192597695209473
+    m_Key: Level-4_line.1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59192597695209474
+    m_Key: Level-4_line.2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59192597695209475
+    m_Key: Level-4_code.1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59192597695209476
+    m_Key: Level-4_code.2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59192597695209477
+    m_Key: Level-4_code.3
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59192597695209478
+    m_Key: Level-4_code.4
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

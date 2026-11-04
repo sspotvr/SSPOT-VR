@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Fourth Scene_en
+  m_EditorClassIdentifier: Unity.Localization::UnityEngine.Localization.Tables.StringTable
+  m_LocaleId:
+    m_Code: en
+  m_SharedData: {fileID: 11400000, guid: df1f1136732ff4d46b0418299e0f9f84, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 913612800
+    m_Localized: 'Mark''s sensors are working again!
+
+
+      But there are boxes
+      all over the room... Shall we teach Mark to go around them?'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 980721664
+    m_Localized: 'Put the "If obstacle" block inside a "Repeat" block, 5 times:
+
+
+      -
+      If there is a box ahead: turn right, move forward and turn left.
+
+      - Else:
+      move forward.
+
+
+      Don''t forget the Start and the End!'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 980721665
+    m_Localized: 'It worked! Congratulations!
+
+
+      Now Mark can go around obstacles
+      on his own.
+
+
+      Thank you so much for your help!!'
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 2
+    RefIds: []

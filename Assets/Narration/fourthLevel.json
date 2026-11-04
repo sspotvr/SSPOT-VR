@@ -1,0 +1,45 @@
+{
+  "fase": "Level-4",
+  "linhas": [
+    {
+      "nome": "start.1",
+      "pt_br": "Os sensores do Mark estão funcionando de novo! Agora ele consegue perceber quando tem alguma coisa bem na frente dele.",
+      "en_us": "Mark’s sensors are working again! Now he can tell when something is right in front of him."
+    },
+    {
+      "nome": "start.2",
+      "pt_br": "Mas alguém deixou umas caixas no meio da sala. Vamos ensinar o Mark a desviar delas sozinho?",
+      "en_us": "But someone left some boxes in the middle of the room. Shall we teach Mark to go around them on his own?"
+    },
+    {
+      "nome": "line.1",
+      "pt_br": "Temos um bloco novo: o \"Se obstáculo\". Ele verifica se tem uma caixa bloqueando o caminho bem na frente do Mark.",
+      "en_us": "We have a new block: \"If obstacle\". It checks whether a box is blocking the path right in front of Mark."
+    },
+    {
+      "nome": "line.2",
+      "pt_br": "Se tiver uma caixa, o Mark faz o que estiver dentro do \"Se\". Se o caminho estiver livre, ele faz o que estiver dentro do \"Senão\".",
+      "en_us": "If there is a box, Mark does what is inside the \"If\". If the way is clear, he does what is inside the \"Else\"."
+    },
+    {
+      "nome": "code.1",
+      "pt_br": "Coloque o \"Se obstáculo\" dentro de um bloco \"Repita\" e faça ele repetir 5 vezes.",
+      "en_us": "Put the \"If obstacle\" block inside a \"Repeat\" block and make it repeat 5 times."
+    },
+    {
+      "nome": "code.2",
+      "pt_br": "Dentro do \"Se\", faça o Mark contornar a caixa: virar à direita, andar para frente e virar à esquerda.",
+      "en_us": "Inside the \"If\", make Mark go around the box: turn right, move forward and turn left."
+    },
+    {
+      "nome": "code.3",
+      "pt_br": "No \"Senão\", o caminho está livre: é só andar para frente.",
+      "en_us": "In the \"Else\", the way is clear: just move forward."
+    },
+    {
+      "nome": "code.4",
+      "pt_br": "Não se esqueça de colocar um bloco para começar e outro para terminar o código!",
+      "en_us": "Don’t forget to add a block to start and another to end the code!"
+    }
+  ]
+}

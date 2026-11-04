@@ -272,6 +272,46 @@ MonoBehaviour:
       quem programou vai passar as instru\xE7\xF5es."
     m_Metadata:
       m_Items: []
+  - m_Id: 59192597611323392
+    m_Localized: "Os sensores do Mark est\xE3o funcionando de novo! Agora ele consegue
+      perceber quando tem alguma coisa bem na frente dele."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59192597695209472
+    m_Localized: "Mas algu\xE9m deixou umas caixas no meio da sala. Vamos ensinar
+      o Mark a desviar delas sozinho?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59192597695209473
+    m_Localized: "Temos um bloco novo: o \"Se obst\xE1culo\". Ele verifica se tem
+      uma caixa bloqueando o caminho bem na frente do Mark."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59192597695209474
+    m_Localized: "Se tiver uma caixa, o Mark faz o que estiver dentro do \"Se\".
+      Se o caminho estiver livre, ele faz o que estiver dentro do \"Sen\xE3o\"."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59192597695209475
+    m_Localized: "Coloque o \"Se obst\xE1culo\" dentro de um bloco \"Repita\" e fa\xE7a
+      ele repetir 5 vezes."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59192597695209476
+    m_Localized: "Dentro do \"Se\", fa\xE7a o Mark contornar a caixa: virar \xE0
+      direita, andar para frente e virar \xE0 esquerda."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59192597695209477
+    m_Localized: "No \"Sen\xE3o\", o caminho est\xE1 livre: \xE9 s\xF3 andar para
+      frente."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59192597695209478
+    m_Localized: "N\xE3o se esque\xE7a de colocar um bloco para come\xE7ar e outro
+      para terminar o c\xF3digo!"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
