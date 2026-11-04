@@ -15,7 +15,7 @@ public class CrosshairController : MonoBehaviour
     {
         if(reticle == null)
         {
-            reticle = GameObject.Find("PointerImage").GetComponent<Image>();
+            reticle = GameObject.Find("Crosshair").GetComponent<Image>();
         }
     }
 

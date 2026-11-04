@@ -6,14 +6,13 @@ namespace SSPot
     {
 		public static TutorialHandler Instance { get; private set; }
 
-
 		private int teleports = 0;
-		[SerializeField] Door door;
-		[SerializeField] GameObject teleporter;
-		[SerializeField] GameObject teleporterP2;
-		[SerializeField] GameObject panel;
+		[SerializeField] private Door door;
+		[SerializeField] private GameObject teleporter;
+		[SerializeField] private GameObject teleporterP2;
+		[SerializeField] private GameObject panel;
 
-		[SerializeField] GameObject[] otherTeleporters;
+		[SerializeField] private GameObject[] otherTeleporters;
 		
 		private void Awake()
 		{

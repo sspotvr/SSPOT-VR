@@ -21,7 +21,7 @@ public class MouseController : MonoBehaviour
 
 	// Start is called before the first frame update
 	private void Start()
-    {
+	{
         // Get Photon View component
         photonView = GetComponentInParent<PhotonView>();
 
@@ -40,7 +40,13 @@ public class MouseController : MonoBehaviour
         pitch = Mathf.Clamp(pitch, -90f, 90f); // mouseY / X-axis rotation
 		
         yaw += Input.GetAxis("Mouse X") * sensitivity * Time.deltaTime; // mouseX / Y-axis rotation
-		
-		playerBody.localRotation = Quaternion.Euler(-pitch, yaw, 0f);
+
+        playerBody.eulerAngles = new Vector3(0f, yaw, 0f);
+        transform.localEulerAngles = new Vector3(-pitch, 0f, 0f);
+
+		// forces the correct orientation for the emoji
+		// Vector3 angles = smiley.localEulerAngles;
+		// angles.z = 0f;
+		// smiley.localEulerAngles = angles;
 	}
 }
