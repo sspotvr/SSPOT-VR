@@ -91,6 +91,14 @@ MonoBehaviour:
       ao menu'
     m_Metadata:
       m_Items: []
+  - m_Id: 544189717645926400
+    m_Localized: "Se obst\xE1culo"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 544189717721423872
+    m_Localized: "Sen\xE3o"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:

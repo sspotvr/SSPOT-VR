@@ -99,10 +99,21 @@ MonoBehaviour:
       to the menu'
     m_Metadata:
       m_Items: []
+  - m_Id: 544189717645926400
+    m_Localized: If obstacle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 544189717721423872
+    m_Localized: Else
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
     - rid: 6199766798708244505
       type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
       data:
-        m_Entries: 00e0d25e54ef900300e0928278f59003
+        m_Entries: 
+        m_SharedEntries:
+        - id: 256968324407287808
+        - id: 256975076695662592
