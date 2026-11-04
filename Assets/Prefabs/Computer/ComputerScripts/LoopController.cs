@@ -3,6 +3,7 @@ using NaughtyAttributes;
 using Photon.Pun;
 using SSPot.Utilities;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 
 // TODO: comentar a classe e revisar algumas fun��es
@@ -37,6 +38,8 @@ namespace SSpot.Ambient.ComputerCode
         private Text iterationsText;
         [BoxGroup("Visuals"), SerializeField]
         private Text rangeText;
+        [BoxGroup("Visuals"), SerializeField, Tooltip("Shows how many instructions the loop repeats, e.g. \"2 instruções\".")]
+        private Text rangeLabelText;
         [BoxGroup("Visuals"), SerializeField]
          private GameObject plane;
         [BoxGroup("Visuals"), SerializeField]
@@ -61,7 +64,7 @@ namespace SSpot.Ambient.ComputerCode
             private set
             {
                 iterations = Mathf.Clamp(value, MinIterations, Settings.maxIterations);
-                iterationsText.text = iterations.ToString();
+                iterationsText.text = $"{iterations}x";
             }
         }
 
@@ -89,8 +92,18 @@ namespace SSpot.Ambient.ComputerCode
                 if (decreaseAmountButton) decreaseAmountButton.SetActive(manualControl);
 
                 rangeText.text = range == MinRange ? "x" : "<";
+                if (rangeLabelText) rangeLabelText.text = RangeLabel(range);
                 UpdatePanelScale();
             }
+        }
+
+        private static string RangeLabel(int count)
+        {
+            var locale = LocalizationSettings.HasSettings ? LocalizationSettings.SelectedLocale : null;
+            bool english = locale != null && locale.Identifier.Code.StartsWith("en");
+            return english
+                ? $"{count} {(count == 1 ? "instruction" : "instructions")}"
+                : $"{count} {(count == 1 ? "instrução" : "instruções")}";
         }
 
         /// <summary>
