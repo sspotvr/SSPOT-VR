@@ -25,6 +25,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7372851955058689952}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,7 +33,6 @@ Transform:
   m_Children:
   - {fileID: 5728405041537573032}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!156049354 &7372851955058689954
 Grid:
@@ -64,8 +64,13 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 7372851955058689955}
     m_Modifications:
+    - target: {fileID: 1804518063, guid: 1be56138e8035314581c3ac9462d98ec, type: 3}
+      propertyPath: walk.value
+      value: WalkNormal
+      objectReference: {fileID: 0}
     - target: {fileID: 2967524446638801332, guid: 1be56138e8035314581c3ac9462d98ec, type: 3}
       propertyPath: m_Name
       value: Robot Kyle Variant
@@ -127,6 +132,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1be56138e8035314581c3ac9462d98ec, type: 3}
 --- !u!4 &5728405041537573032 stripped
 Transform:
