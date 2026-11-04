@@ -1,9 +1,11 @@
 using System;
+using System.Collections;
 using SSpot.Grids;
 using SSpot.Level;
 using SSPot.Level;
 using SSPot.Utilities;
 using UnityEngine;
+using UnityEngine.Localization;
 
 namespace SSPot.Ambient.Labyrinth
 {
@@ -24,6 +26,10 @@ namespace SSPot.Ambient.Labyrinth
         [SerializeField] private GridObject objective;
         [SerializeField] private Section[] sections = Array.Empty<Section>();
         [SerializeField, TextArea] private string wrongMoveError = "Caminho errado!";
+
+        [Header("Narration")]
+        [Tooltip("Narration keys played when a section is completed and the players swap roles.")]
+        [SerializeField] private string[] switchRolesClips = { "Labirinto_swap.1" };
 
         [Header("Players")]
         [SerializeField] private LabyrinthPlayer player1;
@@ -63,10 +69,10 @@ namespace SSPot.Ambient.Labyrinth
         private void SwitchPlayers()
         {
             //TODO ideally instructions should be stored in the manager itself
-            string watcherInstructions = _currentWatcher.InstructionsText.text;
-            string coderInstructions = _currentCoder.InstructionsText.text;
-            _currentWatcher.SetInstructions(coderInstructions);
-            _currentCoder.SetInstructions(watcherInstructions);
+            var watcherInstructions = _currentWatcher.InstructionsText.StringReference;
+            var coderInstructions = _currentCoder.InstructionsText.StringReference;
+            _currentWatcher.SetInstructions(new LocalizedString(coderInstructions.TableReference, coderInstructions.TableEntryReference));
+            _currentCoder.SetInstructions(new LocalizedString(watcherInstructions.TableReference, watcherInstructions.TableEntryReference));
             
             _currentWatcher.SetCoder(true);
             _currentCoder.SetCoder(false);
@@ -76,7 +82,27 @@ namespace SSPot.Ambient.Labyrinth
         private void OnSectionEndReached()
         {
             CurrentSectionIndex++;
+
+            // The last section's end marker is the objective itself - the level is over, nobody swaps.
+            if (CurrentSectionIndex >= sections.Length) return;
+
             SwitchPlayers();
+            StartCoroutine(StartNextSectionCoroutine());
+        }
+
+        /// <summary>
+        /// Ends the previous coder's run right at the section end and places Mark there already facing the
+        /// next section's path, so the new coder plans from the pose the code will actually start from
+        /// (otherwise Mark keeps the facing he arrived with until the next Run resets him).
+        /// </summary>
+        private IEnumerator StartNextSectionCoroutine()
+        {
+            // Wait a frame so the Checkpoint under Mark finishes storing itself as the new start position.
+            yield return null;
+            LevelManager.Instance.ResetRobotLocal();
+
+            if (Voice.instance != null && switchRolesClips.Length > 0)
+                _ = Voice.instance.Speak(switchRolesClips);
         }
         
         private void Start()

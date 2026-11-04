@@ -202,6 +202,17 @@ namespace SSpot.Level
         }
 
         /// <summary>
+        /// Stops execution and puts the robot back on its start position for every player.
+        /// </summary>
+        public void ResetRobot() => photonView.RPC(nameof(ResetRpc), RpcTarget.AllBuffered);
+
+        /// <summary>
+        /// Same as <see cref="ResetRobot"/>, but only on this client - for callers that already run on
+        /// every client (e.g. reactions to the robot's own deterministic movement).
+        /// </summary>
+        public void ResetRobotLocal() => ResetRpc();
+
+        /// <summary>
         /// Stops execution of code and resets the robot to its original position.
         /// <br/>
         /// Does nothing if level is already over.

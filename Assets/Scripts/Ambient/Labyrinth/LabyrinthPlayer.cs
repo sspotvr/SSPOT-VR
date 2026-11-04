@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Components;
 
 namespace SSPot.Ambient.Labyrinth
 {
@@ -12,38 +13,38 @@ namespace SSPot.Ambient.Labyrinth
 
         [field: SerializeField]
         public GameObject TV { get; private set; }
-    
+
         [field: SerializeField]
         public GameObject Instructions { get; private set; }
-    
+
         [field: SerializeField]
-        public Text InstructionsText { get; private set; }
-        
+        public LocalizeStringEvent InstructionsText { get; private set; }
+
         [field: SerializeField]
         public GameObject ErrorScreen { get; private set; }
-    
+
         public int Index { get; private set; }
-    
+
         public bool IsLocal { get; private set; }
-    
+
         public void Init(int index, int localIndex)
         {
             Index = index;
             IsLocal = localIndex == index;
         }
-    
+
         public void SetCoder(bool isCoder)
         {
             TV.SetActive(!isCoder);
             Computer.SetActive(isCoder);
             ErrorScreen.SetActive(isCoder);
         }
-    
-        public void SetInstructions(string instructions)
+
+        public void SetInstructions(LocalizedString instructions)
         {
-            InstructionsText.text = instructions;
+            InstructionsText.StringReference = instructions;
         }
-    
+
         public void SetObjectsActive(bool isActive)
         {
             Computer.SetActive(isActive);

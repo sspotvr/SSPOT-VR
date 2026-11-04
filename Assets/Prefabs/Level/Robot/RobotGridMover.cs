@@ -71,7 +71,7 @@ namespace SSpot.Robot
 
 		private void Awake()
 		{
-			Facing = new((int)transform.forward.x, (int)transform.forward.z);
+			Facing = new(Mathf.RoundToInt(transform.forward.x), Mathf.RoundToInt(transform.forward.z));
 			_animator = GetComponent<RobotAnimator>();
 		}
 

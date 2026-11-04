@@ -22,8 +22,11 @@ namespace SSpot.Grids
         {
             get
             {
+                // Rounded, not truncated: a rotation authored as exactly 180° can come back as e.g.
+                // forward.z = -0.9999999, which (int) truncates to 0 - an invalid (0, 0) facing that
+                // RobotGridMover then silently replaces with Vector2Int.right.
                 Vector3 forward = transform.forward;
-                return new((int)forward.x, (int)forward.z);
+                return new(Mathf.RoundToInt(forward.x), Mathf.RoundToInt(forward.z));
             }
         }
 

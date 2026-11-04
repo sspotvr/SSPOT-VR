@@ -121,8 +121,8 @@ namespace SSpot.Level
         
         private void OnClearPressed()
         {
-            //OnResetButtonPressed();
             ClearCells();
+            LevelManager.Instance.ResetRobot();
         }
         
         #endregion

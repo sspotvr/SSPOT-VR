@@ -3503,7 +3503,7 @@ MonoBehaviour:
   <Computer>k__BackingField: {fileID: 360471132}
   <TV>k__BackingField: {fileID: 41892579}
   <Instructions>k__BackingField: {fileID: 1770846296}
-  <InstructionsText>k__BackingField: {fileID: 0}
+  <InstructionsText>k__BackingField: {fileID: 1770846297}
   <ErrorScreen>k__BackingField: {fileID: 1018255752}
 --- !u!1 &161780081
 GameObject:
@@ -5043,6 +5043,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2059194372}
     m_Modifications:
+    - target: {fileID: 1178005278361558297, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_Key
+      value: Player1 Instructions
+      objectReference: {fileID: 0}
+    - target: {fileID: 1178005278361558297, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1178005278361558297, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
+      propertyPath: m_StringReference.m_TableReference.m_TableCollectionName
+      value: Labirinth
+      objectReference: {fileID: 0}
     - target: {fileID: 2748760173522893876, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
       propertyPath: m_Name
       value: TextPanel (1)
@@ -5107,6 +5119,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2748760173522893876, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
   m_PrefabInstance: {fileID: 277072535}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &277072538 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1178005278361558297, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
+  m_PrefabInstance: {fileID: 277072535}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &279173037
 GameObject:
   m_ObjectHideFlags: 0
@@ -5932,6 +5955,8 @@ MonoBehaviour:
   - endMarker: {fileID: 2016216125}
     coveringRoof: {fileID: 1544679369}
   wrongMoveError: Caminho errado!
+  switchRolesClips:
+  - Labirinto_swap.1
   player1: {fileID: 1981639391}
   player2: {fileID: 156860533}
 --- !u!1001 &320339890
@@ -28575,6 +28600,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2059194372}
     m_Modifications:
+    - target: {fileID: 1178005278361558297, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_Key
+      value: Player2 Instructions
+      objectReference: {fileID: 0}
+    - target: {fileID: 1178005278361558297, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1178005278361558297, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
+      propertyPath: m_StringReference.m_TableReference.m_TableCollectionName
+      value: Labirinth
+      objectReference: {fileID: 0}
     - target: {fileID: 2748760173522893876, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
       propertyPath: m_Name
       value: TextPanel
@@ -28651,6 +28688,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2748760173522893876, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
   m_PrefabInstance: {fileID: 1770846294}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1770846297 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1178005278361558297, guid: e5356f16e0d77904595b489a74b7273a, type: 3}
+  m_PrefabInstance: {fileID: 1770846294}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1780022074
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32216,7 +32264,7 @@ MonoBehaviour:
   <Computer>k__BackingField: {fileID: 1253421511}
   <TV>k__BackingField: {fileID: 564818209}
   <Instructions>k__BackingField: {fileID: 277072537}
-  <InstructionsText>k__BackingField: {fileID: 0}
+  <InstructionsText>k__BackingField: {fileID: 277072538}
   <ErrorScreen>k__BackingField: {fileID: 165198589}
 --- !u!1 &1987191196
 GameObject:
