@@ -27,9 +27,13 @@ namespace SSpot.UI
         
         private void HandleSuccess()
         {
+            // Success usually has no message (the level-complete panel and narration announce it) - showing
+            // it would pop up an empty panel, so just clear any error still on screen instead.
             string text = LevelManager.Instance.CurrentResult.Message;
-            ShowText(text);
-            // Close();
+            if (string.IsNullOrEmpty(text))
+                Close();
+            else
+                ShowText(text);
         }
     }
 }
