@@ -2663,6 +2663,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2077013578408520964, guid: 5367be8663fc8284fbf5384b7bfe15c5, type: 3}
+      propertyPath: compiler.type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2077013578408520964, guid: 5367be8663fc8284fbf5384b7bfe15c5, type: 3}
       propertyPath: <Robot>k__BackingField
       value: 
       objectReference: {fileID: 2021953492}
