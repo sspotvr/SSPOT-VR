@@ -12,6 +12,10 @@ public class CloningCube : MonoBehaviourPun, IPunInstantiateMagicCallback
     /// </summary>
     public void OnPointerClick()
     {
+        // Only dispensers clone cubes. A clone (held in a hand or placed in a coding cell) is not a
+        // dispenser: clicking it used to try to instantiate "<Name>(Clone)", which doesn't exist.
+        if (photonView && photonView.InstantiationData != null) return;
+
         // Destroy cube on hand, if there is any
         PlayerSetup.Local.DestroyCubeOnHand();
 
@@ -27,28 +31,10 @@ public class CloningCube : MonoBehaviourPun, IPunInstantiateMagicCallback
     {
         // Instantiate the selected object
         string prefabName = gameObject.name;
-        GameObject prefab = Resources.Load<GameObject>(prefabName);
-        if (!prefab)
-        {
-            foreach (GameObject resource in Resources.LoadAll<GameObject>(string.Empty))
-            {
-                if (resource.name == prefabName)
-                {
-                    prefab = resource;
-                    break;
-                }
-            }
-        }
-
-        if (!prefab)
+        if (!Resources.Load<GameObject>(prefabName))
         {
             Debug.LogError($"Cube prefab '{prefabName}' was not found in a Resources folder.", gameObject);
             return;
-        }
-
-        if (PhotonNetwork.PrefabPool is DefaultPool defaultPool)
-        {
-            defaultPool.ResourceCache[prefabName] = prefab;
         }
 
         object[] instantiationData = { Cube.type, PlayerSetup.Local.ViewId };

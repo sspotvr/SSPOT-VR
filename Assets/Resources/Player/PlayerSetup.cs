@@ -56,9 +56,24 @@ public class PlayerSetup : MonoBehaviourPun
         playerCamera.GetComponent<CameraPointer>().enabled = false;
         playerCamera.GetComponent<AudioListener>().enabled = false;
         Destroy(uiCamera);
+
+        // Local-input components must not run on another player's avatar: they would read this device's
+        // mouse/gyro/head pose/keyboard and move or toggle the remote avatar's camera and menus.
+        DestroyIfPresent<MouseController>();
+        DestroyIfPresent<GyroController>();
+        DestroyIfPresent<UnityEngine.SpatialTracking.TrackedPoseDriver>();
+        DestroyIfPresent<SSPot.CameraChanger>();
+        DestroyIfPresent<SSPot.CanvasToggler>();
+
         enabled = false;
     }
     
+    private void DestroyIfPresent<T>() where T : Component
+    {
+        foreach (var component in GetComponentsInChildren<T>(true))
+            Destroy(component);
+    }
+
     private void OnDestroy()
     {
         _players.Remove(this);
