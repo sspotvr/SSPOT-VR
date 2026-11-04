@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uiText: {fileID: 6057591788452838213}
-  panel: {fileID: 0}
+  panel: {fileID: 5861880946784720039}
   showTime: 5
   startActive: 0
 --- !u!1 &6057591788452838234
@@ -318,6 +318,11 @@ PrefabInstance:
       addedObject: {fileID: 6057591788869666989}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7684ef4acf4f4964182a38e4bcef0b06, type: 3}
+--- !u!1 &5861880946784720039 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100000, guid: 7684ef4acf4f4964182a38e4bcef0b06, type: 3}
+  m_PrefabInstance: {fileID: 5861880946784621063}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5861880946784749703 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 7684ef4acf4f4964182a38e4bcef0b06, type: 3}
