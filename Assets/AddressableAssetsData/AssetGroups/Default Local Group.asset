@@ -15,6 +15,16 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 063e5b72c0f54854e81e791b83d707f2
   m_SerializeEntries:
+  - m_GUID: 02ab89a3a5b973f45a80f84670534b43
+    m_Address: Assets/Narration/Audios/Level-4/line.1pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0850cfdc267faf74ba091ac464771c1c
+    m_Address: Assets/Narration/Audios/Level-4/code.1pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0850d0290c22f22429f47f2cac2ad764
     m_Address: Assets/Narration/Audios/Level-3/line.1en_us.mp3
     m_ReadOnly: 0
@@ -27,6 +37,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 09694849bfc1686428d1f4172d0151e5
     m_Address: Assets/Narration/Audios/Tutorial/p2.1.2pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0a26bbc14f5880b46b7b9322416d6bb5
+    m_Address: Assets/Narration/Audios/Level-4/start.1en_us.mp3
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -107,6 +122,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 2bf0eaa0f579f3e4aaf3a81410947977
     m_Address: Assets/Narration/Audios/Tutorial/p5.1en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2d213d0ec485adf4d8ef504a61f7f737
+    m_Address: Assets/Narration/Audios/Level-4/code.4en_us.mp3
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -195,6 +215,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 50eaf7ce6779b6c40a1a54e378cc2250
+    m_Address: Assets/Narration/Audios/Level-4/code.2en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 56fbdbde3e6f9ba43b3068b471469c9f
     m_Address: Assets/Narration/Audios/Tutorial/p4.5en_us.mp3
     m_ReadOnly: 0
@@ -202,6 +227,16 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 575388172a212f2449ac141432c97056
     m_Address: Assets/Narration/Audios/Tutorial/p5.4.1en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 59db01e54ff56ad45aa75c1cc595e3c4
+    m_Address: Assets/Narration/Audios/Level-4/line.2en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5db798976060ee74bb844c144d87e3f4
+    m_Address: Assets/Narration/Audios/Level-4/code.4pt_br.mp3
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -305,8 +340,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 80a91a3b2b2613a40988009e45f7baab
+    m_Address: Assets/Narration/Audios/Level-4/start.1pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 815da1c1fce2318439ab022e6e13e960
     m_Address: Assets/Narration/Audios/Level-1/start-2pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 830d7fd4a44a9d04c9b2cd7213189815
+    m_Address: Assets/Narration/Audios/Level-4/start.2pt_br.mp3
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -355,6 +400,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 93b5f5e9363ebba4c92c900bc4717569
+    m_Address: Assets/Narration/Audios/Level-4/code.1en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 946ce51137c64c0439cc1b5eaf80fb2e
     m_Address: Assets/Narration/Audios/Labirinto/start.3en_us.mp3
     m_ReadOnly: 0
@@ -395,6 +445,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a94f72350dc186e468fa40f7feca6471
+    m_Address: Assets/Narration/Audios/Level-4/code.3en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a99c70769c21c15408a63661ea7b0784
     m_Address: Assets/Narration/Audios/Level-2
     m_ReadOnly: 0
@@ -402,6 +457,16 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ab4151d50047a8a48a725b1842daa053
     m_Address: Assets/Narration/Audios/Level-2/code.2en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ab87b2b3d0d002e4a9ede3e61793097c
+    m_Address: Assets/Narration/Audios/Level-4/line.2pt_br.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ac4dfc593afa24f429b7b80e2daf52db
+    m_Address: Assets/Narration/Audios/Level-4/code.2pt_br.mp3
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -425,6 +490,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b6480468ef0dac640a8b8b6c5b4954b2
+    m_Address: Assets/Narration/Audios/Level-4/line.1en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b6ede72413e984249b98365afe16792c
     m_Address: Assets/Narration/Audios/Teste
     m_ReadOnly: 0
@@ -432,6 +502,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b7a06da6be969f6438b2b6b3daaed1d3
     m_Address: Assets/Narration/Audios/Level-2/code.3en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bb4c6b6e6dab954428d22a98f9992707
+    m_Address: Assets/Narration/Audios/Level-4/code.3pt_br.mp3
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -547,6 +622,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ef5ac24d85f43e346a127d04aef3d21c
     m_Address: Assets/Narration/Audios/Tutorial/p1.1.2en_us.mp3
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ef9e299d5a59a1e48b30d0784e4e75a8
+    m_Address: Assets/Narration/Audios/Level-4/start.2en_us.mp3
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
