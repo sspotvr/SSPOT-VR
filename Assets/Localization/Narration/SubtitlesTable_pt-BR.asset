@@ -262,6 +262,16 @@ MonoBehaviour:
     m_Localized: Enquanto isso, o outro programa o algoritmo. Boa sorte!
     m_Metadata:
       m_Items: []
+  - m_Id: 59184221334577152
+    m_Localized: "Deu certo! Parab\xE9ns! Bora para o pr\xF3ximo n\xEDvel?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59184221410074624
+    m_Localized: "Muito bem, voc\xEAs chegaram na metade do labirinto! Agora as fun\xE7\xF5es
+      trocam: quem leu o labirinto e passou as instru\xE7\xF5es vai programar, e
+      quem programou vai passar as instru\xE7\xF5es."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

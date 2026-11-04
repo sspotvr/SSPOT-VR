@@ -18,6 +18,10 @@ public class Voice : MonoBehaviour
     private const string SUBTITLE_TABLE = "SubtitlesTable";
     private const string AUDIO_TABLE = "AudioTable";
 
+	// Duração de falas sem áudio gravado (só legenda)
+	private const float MinSubtitleOnlyDuration = 3f;
+	private const float SubtitleOnlySecondsPerChar = 0.06f;
+
 	// Processamento de pedidos de narração
 	public static Voice instance { get; private set; }
 	private Queue<(string[] keys, TaskCompletionSource<bool> tcs)> narrationQueue = 
@@ -233,7 +237,7 @@ public class Voice : MonoBehaviour
                 // --- TRATA O ÁUDIO ---
                 if (audioEntry == null)
                 {
-                    Debug.LogError($"A tabela '{AUDIO_TABLE}' existe, mas a chave '{safeKey}' NÃO ESTÁ nela!");
+                    Debug.LogWarning($"A chave '{safeKey}' ainda não tem áudio na tabela '{AUDIO_TABLE}' - exibindo só a legenda.");
                 }
                 else
                 {
@@ -266,6 +270,14 @@ public class Voice : MonoBehaviour
                     }
                     
                     yield return new WaitForSeconds(clipToPlay.length + 0.5f);
+                    subtitles.ClearSubtitle();
+                }
+                else if (!string.IsNullOrEmpty(subToDisplay))
+                {
+                    // Falas que ainda não foram gravadas: mostra só a legenda, pelo tempo estimado de leitura.
+                    float readingTime = Mathf.Max(MinSubtitleOnlyDuration, subToDisplay.Length * SubtitleOnlySecondsPerChar);
+                    subtitles.DisplaySubtitle(subToDisplay, readingTime);
+                    yield return new WaitForSeconds(readingTime + 0.5f);
                     subtitles.ClearSubtitle();
                 }
                 else

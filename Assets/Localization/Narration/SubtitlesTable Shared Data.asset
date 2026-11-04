@@ -227,6 +227,14 @@ MonoBehaviour:
     m_Key: Labirinto_start.5
     m_Metadata:
       m_Items: []
+  - m_Id: 59184221334577152
+    m_Key: Level_complete.1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59184221410074624
+    m_Key: Labirinto_swap.1
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

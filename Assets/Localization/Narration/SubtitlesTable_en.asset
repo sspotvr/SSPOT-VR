@@ -254,6 +254,16 @@ MonoBehaviour:
     m_Localized: Meanwhile, the other one programs the algorithm. Good luck!
     m_Metadata:
       m_Items: []
+  - m_Id: 59184221334577152
+    m_Localized: It worked! Congratulations! Ready for the next level?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 59184221410074624
+    m_Localized: 'Well done, you made it halfway through the maze! Now you swap roles:
+      whoever read the maze and gave the instructions will program, and whoever programmed
+      will give the instructions.'
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
