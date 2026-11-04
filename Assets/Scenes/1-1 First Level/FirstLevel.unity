@@ -4681,7 +4681,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 400000, guid: 7684ef4acf4f4964182a38e4bcef0b06, type: 3}
       insertIndex: -1
       addedObject: {fileID: 445591661}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 100000, guid: 7684ef4acf4f4964182a38e4bcef0b06, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1565580157}
   m_SourcePrefab: {fileID: 100100000, guid: 7684ef4acf4f4964182a38e4bcef0b06, type: 3}
 --- !u!4 &1565580155 stripped
 Transform:
@@ -4693,6 +4696,24 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 7684ef4acf4f4964182a38e4bcef0b06, type: 3}
   m_PrefabInstance: {fileID: 1565580154}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1565580157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1565580156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6051bbfdcdbe95e4d9836bd349833372, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SSpot.Level.SuccessPanelPlacer
+  panel: {fileID: 1565580155}
+  panelOffsetFromMark: {x: 0, y: 4.2, z: 1}
+  panelScaleMultiplier: 0.6
+  nextLevelButton: {fileID: 445591661}
+  buttonOffsetFromPlayer: {x: 1.6, y: -0.4, z: 1.6}
+  buttonScaleMultiplier: 0.35
 --- !u!1 &1575066462
 GameObject:
   m_ObjectHideFlags: 0
