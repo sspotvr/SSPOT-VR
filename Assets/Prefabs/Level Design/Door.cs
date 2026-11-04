@@ -9,73 +9,94 @@ namespace SSPot
         private bool canOperate = true;
 
         [SerializeField] private AudioClip sound;
-        
-        private Transform doorRight;
-        private readonly Vector3 doorRightClosed = new (-3f, 0, 1f);
-        private readonly Vector3 doorRightOpened = new (-12f, 0, 2f);
-        
-        private Transform doorLeft;
-        private readonly Vector3 doorLeftClosed = new (6f, 0, 0f);
-        private readonly Vector3 doorLeftOpened = new (12f, 0, 0);
-        
-        private void Start()
-        {
-            doorRight = transform.GetChild(0);
-            doorLeft = transform.GetChild(1);
-        }
+        [SerializeField] private Transform doorRight;
+        [SerializeField] private Transform doorLeft;
 
-        // private void Update()
-        // {
-        //     if (Input.GetKeyDown("space")) Operate();
-        // }
+        [SerializeField] private float openDistance = 6f;
+
+        private Vector3 rightClosedPosition;
+        private Vector3 leftClosedPosition;
+
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+                Operate();
+        }
 
         public void Operate()
         {
+            if (doorRight == null || doorLeft == null)
+            {
+                Debug.LogError("Assign Door Right and Door Left in the Inspector.", this);
+                return;
+            }
+
             StartCoroutine(MoveDoors());
         }
-        
+
         public void Operate(float time)
         {
             StartCoroutine(Delay(time));
         }
+
         private IEnumerator Delay(float time)
         {
             yield return new WaitForSeconds(time);
-            StartCoroutine(MoveDoors());
+            Operate();
         }
-        
+
+        private void Awake()
+        {
+            if (doorRight != null)
+                rightClosedPosition = doorRight.localPosition;
+
+            if (doorLeft != null)
+                leftClosedPosition = doorLeft.localPosition;
+        }
+
         private IEnumerator MoveDoors()
         {
-            if (!canOperate) yield break;
-            
-            canOperate = false;
-            AudioSource.PlayClipAtPoint(sound, transform.position);
-            
-            if (isClosed)
-            {
-                for (float time = 1f; time > 0f; time -= Time.deltaTime)
-                {
-                    doorRight.localPosition -= new Vector3 (6 * Time.deltaTime, 0, 0); // go left
-                    doorLeft.localPosition += new Vector3 (6 * Time.deltaTime, 0, 0); // go right
-                    yield return null;
-                }
+            if (!canOperate)
+                yield break;
 
-                doorRight.localPosition = doorRightOpened;
-                doorLeft.localPosition = doorLeftOpened;
-            }
-            else
+            canOperate = false;
+
+            Debug.Log("Door is operating. Current state: " + (isClosed ? "Closed" : "Open"));
+
+            Vector3 rightTarget = isClosed
+                ? rightClosedPosition + Vector3.left * openDistance
+                : rightClosedPosition;
+
+            Vector3 leftTarget = isClosed
+                ? leftClosedPosition + Vector3.right * openDistance
+                : leftClosedPosition;
+
+            Vector3 rightStart = doorRight.localPosition;
+            Vector3 leftStart = doorLeft.localPosition;
+
+            float elapsed = 0f;
+            const float duration = 1f;
+
+            while (elapsed < duration)
             {
-                // for (float time = 1f; time > 0f; time -= Time.deltaTime)
-                // {
-                //     doorRight.localPosition += new Vector3 (6 * Time.deltaTime, 0, 0); // go right
-                //     doorLeft.localPosition -= new Vector3 (6 * Time.deltaTime, 0, 0); // go left
-                //     yield return null;
-                // }
-                
-                // doorRight.localPosition = doorRightClosed;
-                // doorLeft.localPosition = doorLeftClosed;
+                elapsed += Time.deltaTime;
+                float progress = Mathf.Clamp01(elapsed / duration);
+
+                doorRight.localPosition =
+                    Vector3.Lerp(rightStart, rightTarget, progress);
+
+                doorLeft.localPosition =
+                    Vector3.Lerp(leftStart, leftTarget, progress);
+
+                yield return null;
             }
-            
+
+            doorRight.localPosition = rightTarget;
+            doorLeft.localPosition = leftTarget;
+
+            Debug.Log("Door operation completed. New state: " + (isClosed ? "Open" : "Closed"));
+
             isClosed = !isClosed;
             canOperate = true;
         }

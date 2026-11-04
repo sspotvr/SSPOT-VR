@@ -64,7 +64,7 @@ public class TeleportToObject : MonoBehaviourPun
     /// </summary>
     public async Task OnPointerClick()
     {
-        PlayerSetup.Local.transform.position = transform.position;
+        PlayerSetup.Local.transform.position = transform.position + new Vector3(0f, -3.28f, 0f);
         Debug.Log("Teleportado!");
         PlayerTeleported?.Invoke();
         

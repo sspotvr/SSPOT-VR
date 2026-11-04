@@ -39,13 +39,17 @@ public class CameraPointer : MonoBehaviour {
     }
 
     public void Update() {
+        if (!gazedAtObject)
+            gazedAtObject = null;
+
         // raycasts to get the object the camera is looking at
         if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, MaxDistance))
         {
             // checks if the player looked at a different object than what's cached
             if (gazedAtObject != hit.transform.gameObject)
             {
-                gazedAtObject?.SendMessage("OnPointerExit", SendMessageOptions.DontRequireReceiver);
+                if (gazedAtObject)
+                    gazedAtObject.SendMessage("OnPointerExit", SendMessageOptions.DontRequireReceiver);
                 
                 // caches the new object
                 gazedAtObject = hit.transform.gameObject;
@@ -66,7 +70,9 @@ public class CameraPointer : MonoBehaviour {
         
         else // if no object reference
         {
-            gazedAtObject?.SendMessage("OnPointerExit", SendMessageOptions.DontRequireReceiver);
+            if (gazedAtObject)
+                gazedAtObject.SendMessage("OnPointerExit", SendMessageOptions.DontRequireReceiver);
+
             gazedAtObject = null;
             crosshairController.SetCrosshairScale(new Vector3(1f, 1f, 1f));
         }
@@ -83,7 +89,9 @@ public class CameraPointer : MonoBehaviour {
             }
             else // otherwise, if the player clicks on something interactable, call OnPointerClick method
             {
-                gazedAtObject?.SendMessage("OnPointerClick", SendMessageOptions.DontRequireReceiver);
+                if (gazedAtObject)
+                    gazedAtObject.SendMessage("OnPointerClick", SendMessageOptions.DontRequireReceiver);
+
                 audioSource.PlayOneShot(successfulInteraction);
             }
         }

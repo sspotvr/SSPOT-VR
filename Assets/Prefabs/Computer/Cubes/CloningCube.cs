@@ -26,8 +26,33 @@ public class CloningCube : MonoBehaviourPun, IPunInstantiateMagicCallback
     private void AttachCubeToHand()
     {
         // Instantiate the selected object
+        string prefabName = gameObject.name;
+        GameObject prefab = Resources.Load<GameObject>(prefabName);
+        if (!prefab)
+        {
+            foreach (GameObject resource in Resources.LoadAll<GameObject>(string.Empty))
+            {
+                if (resource.name == prefabName)
+                {
+                    prefab = resource;
+                    break;
+                }
+            }
+        }
+
+        if (!prefab)
+        {
+            Debug.LogError($"Cube prefab '{prefabName}' was not found in a Resources folder.", gameObject);
+            return;
+        }
+
+        if (PhotonNetwork.PrefabPool is DefaultPool defaultPool)
+        {
+            defaultPool.ResourceCache[prefabName] = prefab;
+        }
+
         object[] instantiationData = { Cube.type, PlayerSetup.Local.ViewId };
-        PhotonNetwork.Instantiate(gameObject.name, Vector3.zero, Quaternion.identity, data: instantiationData);
+        PhotonNetwork.Instantiate(prefabName, Vector3.zero, Quaternion.identity, data: instantiationData);
     }
 
     void IPunInstantiateMagicCallback.OnPhotonInstantiate(PhotonMessageInfo info)
