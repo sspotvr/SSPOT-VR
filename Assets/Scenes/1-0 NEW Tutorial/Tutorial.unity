@@ -22801,11 +22801,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33a68f8067bfb1443ab1af39075d3918, type: 3}
---- !u!223 &864087929 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 6807647415888325936, guid: 33a68f8067bfb1443ab1af39075d3918, type: 3}
-  m_PrefabInstance: {fileID: 864087928}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &865109449
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34990,7 +34985,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 304756507511823178, guid: 33a68f8067bfb1443ab1af39075d3918, type: 3}
   playerEyeHeight: 3.38
-  hudCanvas: {fileID: 864087929}
+  hudCanvas: {fileID: 1794160651}
   spawnPoints:
   - {fileID: 9738015}
   - {fileID: 1609781760}
@@ -56597,6 +56592,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3636080736368181491, guid: 4e5e67175ef2852499ea08f565c987c5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3636080736368181500, guid: 4e5e67175ef2852499ea08f565c987c5, type: 3}
+      propertyPath: showResultScreen
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3636080736368181501, guid: 4e5e67175ef2852499ea08f565c987c5, type: 3}
