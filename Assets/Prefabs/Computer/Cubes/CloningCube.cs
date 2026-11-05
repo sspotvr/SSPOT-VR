@@ -63,6 +63,6 @@ public class CloningCube : MonoBehaviourPun, IPunInstantiateMagicCallback
 
 		transform.localPosition = new Vector3(0f, -0.5f, 0.75f);
 		transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
-		transform.rotation = player.transform.rotation;
+		transform.rotation = player.Hand.transform.rotation;
 	}
 }
