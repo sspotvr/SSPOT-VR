@@ -106,10 +106,15 @@ public class PlayerSetup : MonoBehaviourPun
     [PunRPC]
     private void DestroyCubeOnHandRpc()
     {
-        // If there is a cube on player hand, destroy it
-        if(playerHand.transform.childCount > 0)
+        // Destroy every cube on the player's hand. They are detached right away because Destroy only
+        // happens at the end of the frame: a cube cloned in the same frame would otherwise leave two
+        // cubes in the hand, and coding cells only accept a hand holding exactly one.
+        for (int i = playerHand.transform.childCount - 1; i >= 0; i--)
         {
-            Destroy(playerHand.transform.GetChild(0).gameObject);
+            var cube = playerHand.transform.GetChild(i).gameObject;
+            cube.SetActive(false);
+            cube.transform.SetParent(null, false);
+            Destroy(cube);
         }
     }
 }
