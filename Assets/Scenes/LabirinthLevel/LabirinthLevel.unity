@@ -17172,7 +17172,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ba089ca6019aac469382e9b5111b520, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 7192900133275044985, guid: 07543ddc30ead5e488692b1bd695b6e9, type: 3}
+  playerPrefab: {fileID: 304756507511823178, guid: 33a68f8067bfb1443ab1af39075d3918, type: 3}
+  playerEyeHeight: 1.23
   hudCanvas: {fileID: 1997964544}
   spawnPoints:
   - {fileID: 1836872852}

@@ -377,6 +377,8 @@ MonoBehaviour:
   body: {fileID: 9098013492793193913}
   nativeEyeHeight: 3.28
   hand: {fileID: 1204255410874891519}
+  scaleWithBody:
+  - {fileID: 4098978862688807670}
 --- !u!1 &545887904106215402
 GameObject:
   m_ObjectHideFlags: 0

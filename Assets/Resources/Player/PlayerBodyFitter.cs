@@ -16,8 +16,11 @@ namespace SSPot
         [SerializeField] private float nativeEyeHeight = 3.28f;
         [Tooltip("Hand that holds cubes. Its position follows the body scale; its scale doesn't.")]
         [SerializeField] private Transform hand;
+        [Tooltip("Objects outside the body that must keep their size relative to it (e.g. the emoji head).")]
+        [SerializeField] private Transform[] scaleWithBody;
 
         private Vector3 _handPosition;
+        private Vector3[] _scales;
         private bool _initialized;
 
         public float EyeHeight { get; private set; }
@@ -25,6 +28,9 @@ namespace SSPot
         private void Awake()
         {
             if (hand) _handPosition = hand.localPosition;
+            _scales = new Vector3[scaleWithBody.Length];
+            for (int i = 0; i < scaleWithBody.Length; i++)
+                if (scaleWithBody[i]) _scales[i] = scaleWithBody[i].localScale;
             _initialized = true;
 
             var spawner = FindFirstObjectByType<Spawner>();
@@ -40,6 +46,8 @@ namespace SSPot
             body.localPosition = new Vector3(0f, -eyeHeight, 0f);
             body.localScale = Vector3.one * factor;
             if (hand) hand.localPosition = _handPosition * factor;
+            for (int i = 0; i < scaleWithBody.Length; i++)
+                if (scaleWithBody[i]) scaleWithBody[i].localScale = _scales[i] * factor;
         }
     }
 }
