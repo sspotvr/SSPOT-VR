@@ -38,6 +38,9 @@ namespace SSPot.Scenes
         {
             LoadTarget target;
 
+			// Checked on click: the second player may have joined after this button's Start.
+			isMultiplayer = PhotonNetwork.CurrentRoom != null && PhotonNetwork.CurrentRoom.PlayerCount > 1;
+
 			if (isMultiplayer)
 			{
 				target = targetMultiplayer;
