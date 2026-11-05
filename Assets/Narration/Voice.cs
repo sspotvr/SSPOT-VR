@@ -176,10 +176,14 @@ public class Voice : MonoBehaviour
 
 	private IEnumerator ProcessNarrationQueue()
     {
+        // Marcado antes do primeiro yield: um pedido que chegue enquanto a Localization inicializa
+        // entra nesta fila em vez de abrir uma segunda corrotina (que desligaria a caixa de legenda
+        // no meio da fala da outra).
+        isPlaying = true;
+
         // 1. Espera o sistema de Localization acordar
         yield return LocalizationSettings.InitializationOperation;
-        
-        isPlaying = true;
+
         subtitleBox.SetActive(true);
 
         while (narrationQueue.Count > 0)
