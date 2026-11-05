@@ -361,7 +361,7 @@ Transform:
   m_GameObject: {fileID: 9738014}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.69}
+  m_LocalPosition: {x: 0, y: 3.4, z: -0.69}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4907,6 +4907,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 6379302801316466627, guid: ae9754d9ae568b3409ed95a1c1d925eb, type: 3}
   m_PrefabInstance: {fileID: 194281457}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &218266123 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 629776576652327393, guid: 8e251a646c565b74fa109321c2f85311, type: 3}
+  m_PrefabInstance: {fileID: 1428376204}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &219743308
 PrefabInstance:
@@ -19168,6 +19173,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c8d4c38317441a4899da94c822e8d3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SSPot.TeleportCount
+--- !u!4 &743178027 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7068546795262827263, guid: 8e251a646c565b74fa109321c2f85311, type: 3}
+  m_PrefabInstance: {fileID: 1428376204}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &743476082
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22791,11 +22801,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33a68f8067bfb1443ab1af39075d3918, type: 3}
---- !u!223 &864087929 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 6807647415888325936, guid: 33a68f8067bfb1443ab1af39075d3918, type: 3}
-  m_PrefabInstance: {fileID: 864087928}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &865109449
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34979,7 +34984,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 304756507511823178, guid: 33a68f8067bfb1443ab1af39075d3918, type: 3}
-  hudCanvas: {fileID: 864087929}
+  playerEyeHeight: 3.38
+  hudCanvas: {fileID: 1794160651}
   spawnPoints:
   - {fileID: 9738015}
   - {fileID: 1609781760}
@@ -37126,11 +37132,11 @@ PrefabInstance:
     - target: {fileID: 294071939910318591, guid: 8e251a646c565b74fa109321c2f85311, type: 3}
       propertyPath: doorLeft
       value: 
-      objectReference: {fileID: 33780419}
+      objectReference: {fileID: 218266123}
     - target: {fileID: 294071939910318591, guid: 8e251a646c565b74fa109321c2f85311, type: 3}
       propertyPath: doorRight
       value: 
-      objectReference: {fileID: 662477911}
+      objectReference: {fileID: 743178027}
     - target: {fileID: 629776576652622047, guid: 8e251a646c565b74fa109321c2f85311, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
@@ -42161,7 +42167,7 @@ Transform:
   m_GameObject: {fileID: 1609781759}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.49, y: 0, z: 2.1}
+  m_LocalPosition: {x: 2.4899979, y: 3.4, z: 2.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -49842,11 +49848,11 @@ PrefabInstance:
     - target: {fileID: 294071939910318591, guid: 8e251a646c565b74fa109321c2f85311, type: 3}
       propertyPath: doorLeft
       value: 
-      objectReference: {fileID: 2098593804}
+      objectReference: {fileID: 33780419}
     - target: {fileID: 294071939910318591, guid: 8e251a646c565b74fa109321c2f85311, type: 3}
       propertyPath: doorRight
       value: 
-      objectReference: {fileID: 899748557}
+      objectReference: {fileID: 662477911}
     - target: {fileID: 629776576652622047, guid: 8e251a646c565b74fa109321c2f85311, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
@@ -56586,6 +56592,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3636080736368181491, guid: 4e5e67175ef2852499ea08f565c987c5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3636080736368181500, guid: 4e5e67175ef2852499ea08f565c987c5, type: 3}
+      propertyPath: showResultScreen
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3636080736368181501, guid: 4e5e67175ef2852499ea08f565c987c5, type: 3}

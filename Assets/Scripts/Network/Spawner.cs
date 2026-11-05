@@ -9,6 +9,10 @@ public class Spawner : MonoBehaviourPun
     // Player prefab
     public GameObject playerPrefab;
 
+    [Tooltip("Height of the player's eyes above the floor in this level. Spawn points, teleporters and " +
+             "elevators place the eyes; the avatar's body is scaled so its feet reach the floor.")]
+    public float playerEyeHeight = 1.5f;
+
     // UI elements
     public Canvas hudCanvas;
 

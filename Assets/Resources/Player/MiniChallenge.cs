@@ -42,6 +42,9 @@ public class MiniChallenge : MonoBehaviourPun
     [Header("Challenge Result UI")]
     [Space]
 
+    [Tooltip("Shows the \"Congratulations!\" screen with the stars when the code finishes running.")]
+    public bool showResultScreen = true;
+
     // Challenge result canvas
     public GameObject challengeResultCanvas;
 
@@ -254,6 +257,8 @@ public class MiniChallenge : MonoBehaviourPun
     /// </summary>
     public void CheckMiniChallenge()
     {
+        if (!showResultScreen) return;
+
         // Local stars count
         int starsCount = 0;
 

@@ -18,11 +18,15 @@ namespace SSPot
         private Vector3 leftClosedPosition;
 
 
+#if UNITY_EDITOR
+        // Debug shortcut (editor only): operates every door in the scene at once, which would break
+        // the level's sequence if it shipped in a build.
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Space))
                 Operate();
         }
+#endif
 
         public void Operate()
         {
@@ -48,6 +52,13 @@ namespace SSPot
 
         private void Awake()
         {
+            // Same leaves the door used before they became serialized fields: first two children.
+            if (doorRight == null && transform.childCount > 0) doorRight = transform.GetChild(0);
+            if (doorLeft == null && transform.childCount > 1) doorLeft = transform.GetChild(1);
+
+            if ((doorRight && !doorRight.IsChildOf(transform)) || (doorLeft && !doorLeft.IsChildOf(transform)))
+                Debug.LogWarning($"Door '{name}' moves leaves that belong to another object.", this);
+
             if (doorRight != null)
                 rightClosedPosition = doorRight.localPosition;
 

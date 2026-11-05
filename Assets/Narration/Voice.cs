@@ -62,6 +62,26 @@ public class Voice : MonoBehaviour
 			return;
 		}
 		instance = this;
+		BringSubtitlesToFront();
+	}
+
+	[Tooltip("Sorting order of the subtitles canvas: above the level-complete screen and the character " +
+	         "customization menus (order 0), below the loading screen (order 10).")]
+	[SerializeField] private int subtitleSortingOrder = 5;
+
+	/// <summary>
+	/// Subtitles must always be readable. A Screen Space - Camera canvas is always drawn behind the
+	/// Screen Space - Overlay ones (congratulations screen, customization menus), so the canvas that holds
+	/// the subtitles is made an overlay with a higher sorting order.
+	/// </summary>
+	private void BringSubtitlesToFront()
+	{
+		if (!subtitleBox) return;
+		var canvas = subtitleBox.GetComponentInParent<Canvas>(true);
+		if (!canvas) return;
+		canvas = canvas.rootCanvas;
+		canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+		canvas.sortingOrder = subtitleSortingOrder;
 	}
 
 	private void Start()
@@ -176,10 +196,14 @@ public class Voice : MonoBehaviour
 
 	private IEnumerator ProcessNarrationQueue()
     {
+        // Marcado antes do primeiro yield: um pedido que chegue enquanto a Localization inicializa
+        // entra nesta fila em vez de abrir uma segunda corrotina (que desligaria a caixa de legenda
+        // no meio da fala da outra).
+        isPlaying = true;
+
         // 1. Espera o sistema de Localization acordar
         yield return LocalizationSettings.InitializationOperation;
-        
-        isPlaying = true;
+
         subtitleBox.SetActive(true);
 
         while (narrationQueue.Count > 0)

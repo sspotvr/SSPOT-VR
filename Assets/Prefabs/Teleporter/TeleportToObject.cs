@@ -64,7 +64,8 @@ public class TeleportToObject : MonoBehaviourPun
     /// </summary>
     public async Task OnPointerClick()
     {
-        PlayerSetup.Local.transform.position = transform.position + new Vector3(0f, -3.28f, 0f);
+        // The player's root is at eye level (camera at local 0), so the teleporter marks where the eyes go.
+        PlayerSetup.Local.transform.position = transform.position;
         Debug.Log("Teleportado!");
         PlayerTeleported?.Invoke();
         

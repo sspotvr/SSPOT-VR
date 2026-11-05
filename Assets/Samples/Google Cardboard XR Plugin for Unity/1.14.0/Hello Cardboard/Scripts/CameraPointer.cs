@@ -33,9 +33,34 @@ public class CameraPointer : MonoBehaviour {
     [SerializeField] private AudioClip interactable;
     [SerializeField] private AudioClip successfulInteraction;
 
+    // Root of the player that owns this camera. Its own colliders (body, the cube in its hand)
+    // are skipped by the gaze raycast, so they never block what the player is looking at.
+    private Transform playerRoot;
+    private readonly RaycastHit[] hits = new RaycastHit[16];
+
     private void Start()
     {
         audioSource = GetComponentInParent<AudioSource>();
+        var player = GetComponentInParent<PlayerSetup>();
+        playerRoot = player ? player.transform : transform.root;
+    }
+
+    /// <summary>
+    /// Closest hit along the gaze that does not belong to the local player itself.
+    /// </summary>
+    private bool GazeRaycast(out RaycastHit closest)
+    {
+        closest = default;
+        int count = Physics.RaycastNonAlloc(transform.position, transform.forward, hits, MaxDistance);
+        float best = float.MaxValue;
+        for (int i = 0; i < count; i++)
+        {
+            if (hits[i].transform.IsChildOf(playerRoot)) continue;
+            if (hits[i].distance >= best) continue;
+            best = hits[i].distance;
+            closest = hits[i];
+        }
+        return best < float.MaxValue;
     }
 
     public void Update() {
@@ -43,7 +68,7 @@ public class CameraPointer : MonoBehaviour {
             gazedAtObject = null;
 
         // raycasts to get the object the camera is looking at
-        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, MaxDistance))
+        if (GazeRaycast(out RaycastHit hit))
         {
             // checks if the player looked at a different object than what's cached
             if (gazedAtObject != hit.transform.gameObject)
