@@ -63,6 +63,9 @@ public class FCP_Persistence : MonoBehaviour {
     }
 
     private void LoadDataFile() {
+        if(!File.Exists(saveFilePath))
+            return; // nothing saved yet (first run)
+
         string[] data = File.ReadAllLines(saveFilePath);
         Color c;
         foreach(string d in data) {
@@ -70,7 +73,7 @@ public class FCP_Persistence : MonoBehaviour {
             if(split >= 0)
             { 
                 if(ColorUtility.TryParseHtmlString(d.Substring(split, d.Length - split), out c))
-                    savedColors.Add(d.Substring(0, split), c);
+                    savedColors[d.Substring(0, split)] = c;
             }
         }
     }
