@@ -249,7 +249,9 @@ public class FlexibleColorPicker : MonoBehaviour {
         MakeModeOptions();
         UpdateMarkers();
         UpdateHex();
-        onColorChange.Invoke(startingColor);
+        // Current color, not the starting one: re-enabling the picker (opening the menu again) used to
+        // report the starting color as a change and reset whatever was picked before.
+        onColorChange.Invoke(bufferedColor.color);
     }
 
     private void Update() {
